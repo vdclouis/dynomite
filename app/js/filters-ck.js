@@ -1,0 +1,1 @@
+angular.module("Dynomite.filters",[]).filter("interpolate",["version",function(e){return function(t){return String(t).replace(/\%VERSION\%/mg,e)}}]);
