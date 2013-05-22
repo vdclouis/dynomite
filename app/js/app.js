@@ -44,6 +44,26 @@ angular.module('Dynomite', ['Dynomite.filters', 'Dynomite.services', 'Dynomite.d
       templateUrl: 'partials/routeAdd.html', 
       controller: RouteAddCtrl
     })
+    .when('/user', {
+      templateUrl: 'partials/user.html', 
+      controller: UserIdCtrl
+    })
+    .when('/user/:id', {
+      templateUrl: 'partials/userId.html', 
+      controller: UserIdCtrl
+    })
+    .when('/user/:id/edit', {
+      templateUrl: 'partials/userIdEdit.html', 
+      controller: UserIdEditCtrl
+    })
+    .when('/login', {
+      templateUrl: 'partials/login.html', 
+      controller: LoginCtrl
+    })
+    .when('/register', {
+      templateUrl: 'partials/register.html', 
+      controller: RegisterCtrl
+    })
     .otherwise({
       redirectTo: '/'
     });
