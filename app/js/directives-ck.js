@@ -1,1 +1,0 @@
-angular.module("Dynomite.directives",[]).directive("appVersion",["version",function(e){return function(t,n,r){n.text(e)}}]);
