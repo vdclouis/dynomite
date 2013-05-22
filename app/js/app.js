@@ -12,6 +12,10 @@ angular.module('Dynomite', ['Dynomite.filters', 'Dynomite.services', 'Dynomite.d
       templateUrl: 'partials/area-map.html',
       controller: AreaMapCtrl
     })
+    .when('/area/list' {
+      templateUrl: 'partials/area-list.html',
+      controller: AreaListCtrl
+    })
     .when('/area/:id', {
       templateUrl: 'partials/areaId.html', 
       controller: RouteIdCtrl
