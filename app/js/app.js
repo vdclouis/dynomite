@@ -46,7 +46,7 @@ angular.module('Dynomite', ['Dynomite.filters', 'Dynomite.services', 'Dynomite.d
     });
     $routeProvider.when('/user', {
       templateUrl: 'partials/user.html', 
-      controller: 'UserIdCtrl'
+      controller: 'UserCtrl'
     });
     $routeProvider.when('/user/:id', {
       templateUrl: 'partials/userId.html', 
