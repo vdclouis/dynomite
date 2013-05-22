@@ -1,13 +1,18 @@
 angular.module('Dynomite', ['Dynomite.filters', 'Dynomite.services', 'Dynomite.directives']).
   config(['$routeProvider', function($routeProvider) {
-    .when('/phones', {
-      templateUrl: 'partials/phone-list.html',   
-      controller: PhoneListCtrl
+    .when('/', {
+      templateUrl: 'partials/home.html',   
+      controller: HomeCtrl
     })
-    .when('/phones/:phoneId', {
-      templateUrl: 'partials/phone-detail.html', 
-      controller: PhoneDetailCtrl
+    .when('/area', {
+      templateUrl: 'partials/area.html', 
+      controller: AreaCtrl
     })
+    .when('/area/map' {
+      templateUrl: 'partials/area-map.html',
+      controller: AreaMapCtrl
+    })
+    .when('/')
     .otherwise({
       redirectTo: '/phones'
     });

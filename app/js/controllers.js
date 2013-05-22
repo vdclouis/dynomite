@@ -1,1 +1,5 @@
-angular.module('Dynomite.controllers', []).
+angular.module('Dynomite.controllers', [])
+  .controller('HomeCtrl', [function() {
+    
+  }])
+  .controller('')
