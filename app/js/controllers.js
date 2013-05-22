@@ -9,26 +9,31 @@ angular.module('Dynomite.controllers', [])
     
   }])
   .controller('AreaListCtrl', [function() {
-
     $scope.areas = [
-      {"name": "Bleau Gent",
-       "description": "Fast just got faster with Nexus S.",
-       "coordinates": [
-        "latitude" : "",
-        "longitude" : ""          
-       ]},
-      {"name": "Stadium Coupures",
-       "description": "The Next, Next Generation tablet.",
-       "coordinates": [
-        "latitude" : "",
-        "longitude" : ""
-       ]},
-      {"name": "MOTOROLA XOOM™",
-       "description": "The Next, Next Generation tablet.",
-       "coordinates": [
-        "latitude" : "",
-        "longitude" : ""
-       ]}
+      {
+        "name": "Bleau Gent",
+        "description": "Fast just got faster with Nexus S.",
+        "coordinates": [
+          "latitude" : "",
+          "longitude" : ""          
+        ]
+      },
+      {
+        "name": "Stadium Coupure",
+        "description": "The Next, Next Generation tablet.",
+        "coordinates": [
+          "latitude" : "",
+          "longitude" : ""
+        ]
+      },
+      {
+        "name": "Phony area",
+        "description": "The Next, Next Generation tablet.",
+        "coordinates": [
+          "latitude" : "",
+          "longitude" : ""
+        ]
+      }
     ];
   }])
   .controller('RouteIdCtrl', [function() {
