@@ -51,4 +51,19 @@ angular.module('Dynomite.controllers', [])
   }])
   .controller('RouteAddCtrl', [function() {
     
+  }])
+  .controller('UserCtrl', [function() {
+    
+  }])
+  .controller('UserIdCtrl', [function() {
+    
+  }])
+  .controller('UserIdEditCtrl', [function() {
+    
+  }])
+  .controller('LoginCtrl', [function() {
+    
+  }])
+  .controller('RegisterCtrl', [function() {
+    
   }]);
