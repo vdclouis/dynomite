@@ -1,0 +1,1 @@
+angular.module("myApp",[]).config(["$routeProvider",function(e){}]);
