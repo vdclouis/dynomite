@@ -14,24 +14,24 @@ angular.module('Dynomite.controllers', [])
         "name": "Bleau Gent",
         "description": "Fast just got faster with Nexus S.",
         "coordinates": [
-          "latitude" : "",
-          "longitude" : ""          
+          {"latitude" : ""},
+          {"longitude" : ""}          
         ]
       },
       {
         "name": "Stadium Coupure",
         "description": "The Next, Next Generation tablet.",
         "coordinates": [
-          "latitude" : "",
-          "longitude" : ""
+          {"latitude" : ""},
+          {"longitude" : ""}
         ]
       },
       {
         "name": "Phony area",
         "description": "The Next, Next Generation tablet.",
         "coordinates": [
-          "latitude" : "",
-          "longitude" : ""
+          {"latitude" : ""},
+          {"longitude" : ""}
         ]
       }
     ];
