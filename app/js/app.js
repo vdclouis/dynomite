@@ -1,4 +1,4 @@
-angular.module('Dynomite', ['Dynomite.filters', 'Dynomite.services', 'Dynomite.directives', 'Dynomite.controllers']).
+angular.module('Dynomite', ['Dynomite.filters', 'Dynomite.services', 'Dynomite.directives', 'leaflet-directive', 'Dynomite.controllers']).
   config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', {
       templateUrl: 'partials/home.html',
@@ -45,23 +45,23 @@ angular.module('Dynomite', ['Dynomite.filters', 'Dynomite.services', 'Dynomite.d
       controller: 'RouteAddCtrl'
     });
     $routeProvider.when('/user', {
-      templateUrl: 'partials/user.html', 
+      templateUrl: 'partials/user.html',
       controller: 'UserCtrl'
     });
     $routeProvider.when('/user/:id', {
-      templateUrl: 'partials/userId.html', 
+      templateUrl: 'partials/userId.html',
       controller: 'UserIdCtrl'
     });
     $routeProvider.when('/user/:id/edit', {
-      templateUrl: 'partials/userIdEdit.html', 
+      templateUrl: 'partials/userIdEdit.html',
       controller: 'UserIdEditCtrl'
     });
     $routeProvider.when('/login', {
-      templateUrl: 'partials/login.html', 
+      templateUrl: 'partials/login.html',
       controller: 'LoginCtrl'
     });
     $routeProvider.when('/register', {
-      templateUrl: 'partials/register.html', 
+      templateUrl: 'partials/register.html',
       controller: 'RegisterCtrl'
     });
     $routeProvider.otherwise({

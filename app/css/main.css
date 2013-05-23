@@ -1,1 +1,13 @@
 @import url(normalize.css);
+/* line 4, main.scss */
+.home {
+  text-align: center; }
+
+/* line 8, main.scss */
+.area {
+  text-align: center; }
+  /* line 11, main.scss */
+  .area .angular-leaflet-map {
+    width: 100%;
+    height: 150px;
+    display: block; }

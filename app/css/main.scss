@@ -1,2 +1,16 @@
 @import "compass/css3";
 @import url(normalize.css);
+
+.home {
+  text-align: center;
+}
+
+.area {
+  text-align: center;
+  
+  .angular-leaflet-map {
+    width: 100%;
+    height: 150px;
+    display: block;
+  }
+}

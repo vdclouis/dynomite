@@ -1,0 +1,38 @@
+[
+	{
+		"name": "Bleau Gent",
+		"description": "Indoor wall, mimicing Fontaine Bleau boulders",
+		"coord": [
+			{
+				"lat": "51.0586"
+			},
+			{
+				"long": "3.6940"
+			}
+		]
+	},
+	{
+		"name": "Stadium Coupure",
+		"description": "Bestoa nie mier.",
+		"coord": [
+			{
+				"latitude": ""
+			},
+			{
+				"longitude": ""
+			}
+		]
+	},
+	{
+		"name": "Fontaine Bleau",
+		"description": "The Next, Next Generation tablet.",
+		"coord": [
+			{
+				"latitude": ""
+			},
+			{
+				"longitude": ""
+			}
+		]
+	}
+]
