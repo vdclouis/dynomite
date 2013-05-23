@@ -11,3 +11,12 @@
     width: 100%;
     height: 150px;
     display: block; }
+
+/* line 18, main.scss */
+.area-map {
+  text-align: center; }
+  /* line 21, main.scss */
+  .area-map .angular-leaflet-map {
+    width: 100%;
+    height: 640px;
+    display: block; }
