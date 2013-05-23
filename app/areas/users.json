@@ -7,6 +7,9 @@
     
     "firstname": "jan",
     "lastname": "vdc",
+    "email": "vdc@vdc.com",
+    "password": "vdc",
+    "location": "gent",
     "description": "Indoor wall, mimicing Fontaine Bleau boulders",
     "fotos": [
 
