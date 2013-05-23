@@ -1,12 +1,24 @@
 <div class="area">
-  <input data-ng-model="query" />
+  <!-- filter options -->
+  <input data-ng-model="queryAreas" />
+  <select data-ng-model="orderAreas">
+    <option value="name">Alphabetical</option>
+    <option value="rating">Rating</option>
+    <option value="routes">Routes</option>
+  </select>
+  
+  <!-- title -->
   <h1>Area</h1>
+  
+ <!--  map -->
   <a href="#/area/map">
     <leaflet markers="markers" center="center"></leaflet>
   </a>
+  
+  <!-- list -->
   <div class="area-list">
     <ul>
-      <li data-ng-repeat="area in areas | filter:query">
+      <li data-ng-repeat="area in areas | filter:queryAreas | orderBy:orderAreas">
         <a href="#">{{area.name}}</a>
       </li>
     </ul>

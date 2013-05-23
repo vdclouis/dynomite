@@ -25,6 +25,7 @@ angular.module('Dynomite.controllers', []).
         }
       }
     });
+    $scope.orderAreas = 'name';
   }])
   .controller('AreaMapCtrl', [function() {
   }])

@@ -7,7 +7,7 @@
 		"modifiedBy" : "",
 
 		"name": "Bleau Gent",
-		"description": "Indoor wall, mimicing Fontaine Bleau boulders",
+		"description": "",
 		"coord": [
 			{
 				"lat": "51.0586"
@@ -18,31 +18,48 @@
 		],
 		"fotos": [
 		],
-		"rating": ""
+		"rating": "3"
+	},
+	{
+		"id": "",
+		"createdDate" : "",
+		"createdBy" : "",
+		"modifiedDate" : "",
+		"modifiedBy" : "",
 
-	},
-	{
-		"name": "Stadium Coupure",
-		"description": "Bestoa nie mier.",
-		"coord": [
-			{
-				"latitude": ""
-			},
-			{
-				"longitude": ""
-			}
-		]
-	},
-	{
 		"name": "Fontaine Bleau",
-		"description": "The Next, Next Generation tablet.",
+		"description": "",
 		"coord": [
 			{
-				"latitude": ""
+				"lat": "55.0586"
 			},
 			{
-				"longitude": ""
+				"long": "5.6940"
 			}
-		]
+		],
+		"fotos": [
+		],
+		"rating": "5"
+	},
+	{
+		"id": "",
+		"createdDate" : "",
+		"createdBy" : "",
+		"modifiedDate" : "",
+		"modifiedBy" : "",
+
+		"name": "Coupure Stadium",
+		"description": "",
+		"coord": [
+			{
+				"lat": "10.0586"
+			},
+			{
+				"long": "-3.6940"
+			}
+		],
+		"fotos": [
+		],
+		"rating": "1"
 	}
 ]
