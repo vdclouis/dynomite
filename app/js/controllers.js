@@ -1,14 +1,14 @@
-'use strict';
-
 /* Controllers */
 
-angular.module('Dynomite.controllers', [])
-  .controller('HomeCtrl', [function() {
+angular.module('Dynomite.controllers', []).
+  controller('HomeCtrl', ['$scope', function($scope) {
+    $scope.name = 'Bob';
   }])
-  .controller('AreaCtrl', [function($scope, $http) {
-    $http.get('areas/areas.json').success(function(data) {
-      $scope.areas = data;
-    });
+  .controller('AreaCtrl', ['$scope', '$http', function($scope, $http) {
+    $http.get('areas/areas.json')
+      .success(function(data) {
+        $scope.areas = data;
+      });
   }])
   .controller('AreaMapCtrl', [function() {
   }])
