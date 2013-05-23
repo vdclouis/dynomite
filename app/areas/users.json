@@ -1,0 +1,43 @@
+[
+  {
+    "id": "",
+    "createdDate" : "",
+    "modifiedDate" : "",
+    "modifiedBy" : "",
+    
+    "firstname": "jan",
+    "lastname": "vdc",
+    "description": "Indoor wall, mimicing Fontaine Bleau boulders",
+    "fotos": [
+
+    ],
+    "routesClimbed" : [
+
+    ]
+
+  },
+  {
+    "name": "Stadium Coupure",
+    "description": "Bestoa nie mier.",
+    "coord": [
+      {
+        "latitude": ""
+      },
+      {
+        "longitude": ""
+      }
+    ]
+  },
+  {
+    "name": "Fontaine Bleau",
+    "description": "The Next, Next Generation tablet.",
+    "coord": [
+      {
+        "latitude": ""
+      },
+      {
+        "longitude": ""
+      }
+    ]
+  }
+]

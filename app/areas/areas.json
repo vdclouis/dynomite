@@ -1,5 +1,11 @@
 [
 	{
+		"id": "",
+		"createdDate" : "",
+		"createdBy" : "",
+		"modifiedDate" : "",
+		"modifiedBy" : "",
+
 		"name": "Bleau Gent",
 		"description": "Indoor wall, mimicing Fontaine Bleau boulders",
 		"coord": [
@@ -9,7 +15,11 @@
 			{
 				"long": "3.6940"
 			}
-		]
+		],
+		"fotos": [
+		],
+		"rating": "",
+
 	},
 	{
 		"name": "Stadium Coupure",
