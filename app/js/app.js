@@ -18,20 +18,20 @@ angular.module('Dynomite', ['Dynomite.filters', 'Dynomite.services', 'Dynomite.d
         controller: 'AreaListCtrl'
       })
       .when('/area/:id', {
-        templateUrl: 'partials/areaId.html',
-        controller: 'RouteIdCtrl'
+        templateUrl: 'partials/area-id.html',
+        controller: 'AreaIdCtrl'
       })
       .when('/area/:id/pictures', {
         templateUrl: 'partials/areaIdPictures.html',
-        controller: 'RouteIdPicturesCtrl'
+        controller: 'ArezIdPicturesCtrl'
       })
       .when('/area/:id/edit', {
         templateUrl: 'partials/areaIdEdit.html',
-        controller: 'RouteIdEditCtrl'
+        controller: 'AreaIdEditCtrl'
       })
       .when('/area/add', {
         templateUrl: 'partials/areaAdd.html',
-        controller: 'RouteAddCtrl'
+        controller: 'AreaAddCtrl'
       })
       .when('/route/:id', {
         templateUrl: 'partials/routeId.html',

@@ -8,7 +8,7 @@
   </select>
   
   <!-- title -->
-  <h1>Area</h1>
+  <h1>Areas</h1>
   
  <!--  map -->
   <a href="#/area/map">
@@ -19,7 +19,7 @@
   <div class="area-list">
     <ul>
       <li data-ng-repeat="area in areas | filter:queryAreas | orderBy:orderAreas">
-        <a href="#">{{area.name}}</a>
+        <a href="#/area/{{area.id}}">{{area.name}}</a>
       </li>
     </ul>
   </div>

@@ -1,8 +1,7 @@
 /* Controllers */
 
 angular.module('Dynomite.controllers', []).
-  controller('HomeCtrl', ['$scope', function($scope) {
-    $scope.name = 'Bob';
+  controller('HomeCtrl', [function() {
   }])
   .controller('AreaCtrl', ['$scope', '$http', function($scope, $http) {
     $http.get('areas/areas.json')
@@ -30,6 +29,9 @@ angular.module('Dynomite.controllers', []).
   .controller('AreaMapCtrl', [function() {
   }])
   .controller('AreaListCtrl', [function() {
+  }])
+  .controller('AreaIdCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
+    $scope.AreaId = $routeParams.id;
   }])
   .controller('RouteIdCtrl', [function() {
   }])
