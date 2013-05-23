@@ -1,12 +1,13 @@
 <div class="area">
+  <input data-ng-model="query" />
   <h1>Area</h1>
   <a href="#/area/map">
     <leaflet markers="markers" center="center"></leaflet>
   </a>
   <div class="area-list">
     <ul>
-      <li data-ng-repeat="area in areas">
-        {{area.name}}
+      <li data-ng-repeat="area in areas | filter:query">
+        <a href="#">{{area.name}}</a>
       </li>
     </ul>
   </div>
