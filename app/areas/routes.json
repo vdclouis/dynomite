@@ -24,27 +24,51 @@
 
   },
   {
-    "name": "Stadium Coupure",
-    "description": "Bestoa nie mier.",
+    "id": "",
+    "createdDate" : "",
+    "createdBy" : "",
+    "modifiedDate" : "",
+    "modifiedBy" : "",
+    "areaId" : "",
+
+    "name": "route2",
+    "description": "Indoor wall, mimicing Fontaine Bleau boulders",
     "coord": [
       {
-        "latitude": ""
+        "lat": "51.0586"
       },
       {
-        "longitude": ""
+        "long": "3.6940"
       }
-    ]
+    ],
+    "fotos": [
+    ],
+    "rating": "",
+    "climedBy" : ""
+
   },
   {
-    "name": "Fontaine Bleau",
-    "description": "The Next, Next Generation tablet.",
+    "id": "",
+    "createdDate" : "",
+    "createdBy" : "",
+    "modifiedDate" : "",
+    "modifiedBy" : "",
+    "areaId" : "",
+
+    "name": "route3",
+    "description": "Indoor wall, mimicing Fontaine Bleau boulders",
     "coord": [
       {
-        "latitude": ""
+        "lat": "51.0586"
       },
       {
-        "longitude": ""
+        "long": "3.6940"
       }
-    ]
+    ],
+    "fotos": [
+    ],
+    "rating": "",
+    "climedBy" : ""
+
   }
 ]

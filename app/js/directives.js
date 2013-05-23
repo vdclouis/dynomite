@@ -1,13 +1,10 @@
-angular.module('Dynomite.directives', []).
-  directive('appVersion', ['version', function(version) {
+angular.module('Dynomite.directives', [])
+  .directive('appVersion', ['version', function(version) {
     return function(scope, elm, attrs) {
       elm.text(version);
     };
-}]);
-    
-var leafletDirective = angular.module("leaflet-directive", []);
-
-leafletDirective.directive("leaflet", ["$http", "$log", function ($http, $log) {
+  }]) 
+  .directive("leaflet", ["$http", "$log", function ($http, $log) {
     return {
         restrict: "E",
         replace: true,

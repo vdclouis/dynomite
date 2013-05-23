@@ -1,4 +1,4 @@
-angular.module('Dynomite', ['Dynomite.filters', 'Dynomite.services', 'Dynomite.directives', 'Dynomite.controllers', 'leaflet-directive']).
+angular.module('Dynomite', ['Dynomite.filters', 'Dynomite.services', 'Dynomite.directives', 'Dynomite.controllers']).
   config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/', {

@@ -1,6 +1,6 @@
 <div class="area">
   <!-- filter options -->
-  <input data-ng-model="queryAreas" />
+  <input data-ng-model="search.name" />
   <select data-ng-model="orderAreas">
     <option value="name">Alphabetical</option>
     <option value="rating">Rating</option>
@@ -18,7 +18,7 @@
   <!-- list -->
   <div class="area-list">
     <ul>
-      <li data-ng-repeat="area in areas | filter:queryAreas | orderBy:orderAreas">
+      <li data-ng-repeat="area in areas | filter:search | orderBy:orderAreas">
         <a href="#/area/{{area.id}}">{{area.name}}</a>
       </li>
     </ul>
