@@ -43,7 +43,7 @@ angular.module('Dynomite.services', ['ngResource'])
           'database/route:id.json',
           {id: _id},
           {
-            getId: {method:'GET', params:{}, isArray:false},
+            //getId: {method:'GET', params:{}, isArray:false},
             //areaById: {method:'GET', params:{}, isArray:true},
           }
         )

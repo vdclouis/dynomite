@@ -40,10 +40,6 @@ angular.module('Dynomite.controllers', []).
   }])
   .controller('RouteAddCtrl', [function() {
   }])
-  .controller('RouteIdEditCtrl', [function() {
-  }])
-  .controller('RouteAddCtrl', [function() {
-  }])
   .controller('UserCtrl', [function() {
   }])
   .controller('UserIdCtrl', [function() {
