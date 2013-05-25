@@ -1,7 +1,8 @@
 /* Controllers */
 
-angular.module('Dynomite.controllers', []).
-  controller('HomeCtrl', [function() {
+angular.module('Dynomite.controllers', [])
+  .controller('HomeCtrl', ['$scope', 'Weather', function($scope, Weather) {
+    $scope.weather = Weather.get();
   }])
   .controller('AreaCtrl', ['$scope', 'Areas', function($scope, Areas) {
     $scope.areas = Areas.query();
@@ -33,7 +34,7 @@ angular.module('Dynomite.controllers', []).
       $http.get('areas/routes.json')
         .success(function(data) {
           $scope.routes = data;
-        })
+        });
   }])
   .controller('RouteIdCtrl', [function() {
   }])
