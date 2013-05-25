@@ -1,0 +1,21 @@
+{
+	"id": "3",
+	"createdDate" : "",
+	"createdBy" : "",
+	"modifiedDate" : "",
+	"modifiedBy" : "",
+
+	"name": "Coupure Stadium",
+	"description": "",
+	"coord": [
+		{
+			"lat": "10.0586"
+		},
+		{
+			"long": "-3.6940"
+		}
+	],
+	"fotos": [
+	],
+	"rating": "1"
+}

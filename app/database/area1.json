@@ -1,0 +1,21 @@
+{
+	"id": "1",
+	"createdDate" : "",
+	"createdBy" : "",
+	"modifiedDate" : "",
+	"modifiedBy" : "",
+
+	"name": "Bleau Gent",
+	"description": "",
+	"coord": [
+		{
+			"lat": "51.0586"
+		},
+		{
+			"long": "3.6940"
+		}
+	],
+	"fotos": [
+	],
+	"rating": "3"
+}

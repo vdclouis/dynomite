@@ -3,22 +3,51 @@ angular.module('Dynomite.services', ['ngResource'])
   .factory('Areas', function($resource) {
 
     //http://docs.angularjs.org/api/ngResource.$resource#Returns
-    return $resource(
-      'areas/areas.json',
-      {}, 
-      {
-        query: {method:'GET', params:{}, isArray:true},
+    return {
+      allAreas: function() {
+        return $resource(
+          'database/areas.json',
+          {},
+          {
+            //query: {method:'GET', params:{}, isArray:true},
+            //areaById: {method:'GET', params:{}, isArray:true},
+          }
+        )
+      },
+      areaById: function(_id) {
+        return $resource(
+          'database/area:id.json',
+          {id: _id},
+          {
+            //query: {method:'GET', params:{}, isArray:true},
+            //areaById: {method:'GET', params:{}, isArray:true},
+          }
+        )
       }
-    )
+    }
   })
   .factory('Routes', function($resource) {
-
-    return $resource(
-      'areas/routes.json',
-      {}, 
-      {
-        query: {method:'GET', params:{}, isArray:true},
+    return {
+      allRoutes: function() {
+        return $resource(
+          'database/routes.json',
+          {},
+          {
+            //query: {method:'GET', params:{}, isArray:true},
+            //areaById: {method:'GET', params:{}, isArray:true},
+          }
+        )
+      },
+      routeById: function(_id) {
+        return $resource(
+          'database/route:id.json',
+          {id: _id},
+          {
+            getId: {method:'GET', params:{}, isArray:false},
+            //areaById: {method:'GET', params:{}, isArray:true},
+          }
+        )
       }
-    )
+    }
   })
   ;

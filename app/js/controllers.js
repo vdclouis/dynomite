@@ -4,7 +4,7 @@ angular.module('Dynomite.controllers', []).
   controller('HomeCtrl', [function() {
   }])
   .controller('AreaCtrl', ['$scope', 'Areas', function($scope, Areas) {
-    $scope.areas = Areas.query();
+    $scope.areas = Areas.allAreas().query();
     angular.extend($scope, {
       center: {
         lat: 51.0500,
@@ -18,7 +18,7 @@ angular.module('Dynomite.controllers', []).
           message: "Drag me to your position",
           focus: true,
           draggable: true
-        } 
+        }
       }
     });
     $scope.orderAreas = 'name';
@@ -27,18 +27,18 @@ angular.module('Dynomite.controllers', []).
   }])
   .controller('AreaListCtrl', [function() {
   }])
-  .controller('AreaIdCtrl', ['$scope', 'Routes', function($scope, Routes) {
-    $scope.routes = Routes.query();
+  .controller('AreaIdCtrl', ['$scope', '$routeParams', 'Areas', 'Routes', function($scope, $routeParams, Areas, Routes) {
+    $scope.area = Areas.areaById($routeParams.id).get();
+    $scope.routes = Routes.allRoutes().query();
   }])
-  .controller('RouteIdCtrl', [function() {
+  .controller('RouteIdCtrl', ['$scope', '$routeParams', 'Routes', function($scope, $routeParams, Routes) {
+    $scope.route = Routes.routeById($routeParams.id).get();
   }])
   .controller('RouteIdPicturesCtrl', [function() {
   }])
   .controller('RouteIdEditCtrl', [function() {
   }])
   .controller('RouteAddCtrl', [function() {
-  }])
-  .controller('RouteIdCtrl', [function() {
   }])
   .controller('RouteIdEditCtrl', [function() {
   }])
