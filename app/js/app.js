@@ -34,7 +34,7 @@ angular.module('Dynomite', ['Dynomite.filters', 'Dynomite.services', 'Dynomite.d
         controller: 'AreaAddCtrl'
       })
       .when('/route/:id', {
-        templateUrl: 'partials/routeId.html',
+        templateUrl: 'partials/route-id.html',
         controller: 'RouteIdCtrl'
       })
       .when('/route/:id/edit', {
