@@ -70,3 +70,7 @@ angular.module('Dynomite', ['Dynomite.filters', 'Dynomite.services', 'Dynomite.d
       })
       .otherwise({redirectTo: '/'});
   }]);
+  
+var snapper = new Snap({
+  element: document.getElementById('snapper')
+});
