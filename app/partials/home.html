@@ -1,6 +1,16 @@
 <div class="home">
   <h1>Home</h1>
-  <p>Weather thing</p>
+  
+  <!-- weather -->
+  <div class="forecast">
+  {{weather.currently.summary}}
+  <br />
+  {{ ((weather.currently.temperature - 32) / 1.8)|number:0 }}°C
+  <br />
+  {{weather.currently.icon}}
+    
+  </div>
+  
   <a href="#">login</a>
   <a href="#">register</a>
   <br />
