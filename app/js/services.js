@@ -10,4 +10,15 @@ angular.module('Dynomite.services', ['ngResource'])
         query: {method:'GET', params:{}, isArray:true},
       }
     )
-  });
+  })
+  .factory('Routes', function($resource) {
+
+    return $resource(
+      'areas/routes.json',
+      {}, 
+      {
+        query: {method:'GET', params:{}, isArray:true},
+      }
+    )
+  })
+  ;

@@ -27,13 +27,8 @@ angular.module('Dynomite.controllers', []).
   }])
   .controller('AreaListCtrl', [function() {
   }])
-  .controller('AreaIdCtrl', ['$scope', '$routeParams', '$http',
-    function($scope, $routeParams, $http) {
-      $scope.AreaId = $routeParams.id;
-      $http.get('areas/routes.json')
-        .success(function(data) {
-          $scope.routes = data;
-        })
+  .controller('AreaIdCtrl', ['$scope', 'Routes', function($scope, Routes) {
+    $scope.routes = Routes.query();
   }])
   .controller('RouteIdCtrl', [function() {
   }])
