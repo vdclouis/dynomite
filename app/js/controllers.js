@@ -18,7 +18,7 @@ angular.module('Dynomite.controllers', []).
           message: "Drag me to your position",
           focus: true,
           draggable: true
-        }
+        } 
       }
     });
     $scope.orderAreas = 'name';

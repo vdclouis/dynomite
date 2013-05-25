@@ -2,16 +2,12 @@ angular.module('Dynomite.services', ['ngResource'])
   .value('version', '0.1')
   .factory('Areas', function($resource) {
 
-    /*query() {} = function() {
-
-      return 
-    }*/
-
+    //http://docs.angularjs.org/api/ngResource.$resource#Returns
     return $resource(
       'areas/areas.json',
       {}, 
       {
-        allUsers: {method:'GET', params:{}, isArray:true}
+        query: {method:'GET', params:{}, isArray:true},
       }
     )
   });
