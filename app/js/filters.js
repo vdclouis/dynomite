@@ -8,4 +8,9 @@ angular.module('Dynomite.filters', [])
     return function(text) {
       return text.split('').reverse().join('');
     }
+  })
+  .filter('underscore', function() {
+    return function(text) {
+      return String(text).replace(/-/g,'_');
+    }
   });

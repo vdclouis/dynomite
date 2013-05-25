@@ -56,7 +56,7 @@ angular.module('Dynomite.services', ['ngResource'])
       callback:'JSON_CALLBACK'
     },
     {
-      get: {method:'JSONP'}
+      get: {method:'JSONP', params:{ isArray: true }}
     }
     );
     return resource;
