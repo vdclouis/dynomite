@@ -36,7 +36,10 @@ angular.module('Dynomite.controllers', []).
   }])
   .controller('RouteIdPicturesCtrl', [function() {
   }])
-  .controller('RouteIdEditCtrl', [function() {
+  .controller('RouteIdEditCtrl', ['$scope', '$routeParams', 'Routes', function($scope, $routeParams, Routes) {
+    console.log('edit route');
+  }])
+  .controller('RouteIdDeleteCtrl', [function() {
   }])
   .controller('RouteAddCtrl', [function() {
   }])

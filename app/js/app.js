@@ -41,6 +41,9 @@ angular.module('Dynomite', ['Dynomite.filters', 'Dynomite.services', 'Dynomite.d
         templateUrl: 'partials/route-id-edit.html',
         controller: 'RouteIdEditCtrl'
       })
+      .when('/route/:id/delete', {
+        controller: 'RouteIdDeleteCtrl'
+      })
       .when('/route/add', {
         templateUrl: 'partials/route-add.html',
         controller: 'RouteAddCtrl'
