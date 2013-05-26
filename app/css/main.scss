@@ -1,17 +1,34 @@
 @import "compass/css3";
 @import url(normalize.css);
 
+$main_color: #1BC6B0;
+
 .home {
   text-align: center;
+  
+  .temp{
+    display: inline-block;
+    padding-top: 15px;
+    color: $main_color;
+    vertical-align: top;
+    font-size: 6em;
+  }
+  canvas {
+    display: inline-block;
+  }
+  img {
+    width: 132px;
+    padding: 40px;
+  }
 }
 
 .area {
   text-align: center;
   
   .angular-leaflet-map {
+    display: block;
     width: 100%;
     height: 150px;
-    display: block;
   }
 }
 
@@ -19,9 +36,9 @@
   text-align: center;
   
   .angular-leaflet-map {
+    display: block;
     width: 100%;
     height: 640px;
-    display: block;
   }
 }
 

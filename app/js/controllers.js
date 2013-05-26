@@ -3,9 +3,15 @@
 angular.module('Dynomite.controllers', [])
   .controller('HomeCtrl', ['$scope', '$filter', 'Weather', function($scope, $filter, Weather) {
     $scope.weather = Weather.get(function(data) {
+      //inject filters
       var uppercaseFilter = $filter('uppercase');
       var underscoreFilter = $filter('underscore');
+      
+      //apply filters
       var icon = underscoreFilter(uppercaseFilter(data.currently.icon));
+      console.log(icon);
+      
+      //initiate skycons
       var skycons = new Skycons({"color": "#1BC6B0"});
       skycons.add('ico', Skycons[icon]);
       skycons.play();

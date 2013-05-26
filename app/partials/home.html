@@ -3,10 +3,11 @@
   
   <!-- weather -->
   <div class="forecast">
-    {{weather.currently.summary}}
-    <br />
-    {{ ((weather.currently.temperature - 32) / 1.8)|number:0 }}°C
-    <br />
-    <canvas id="ico" width="250" height="250"></canvas>
+    <div class="temp">
+      {{ ((weather.currently.temperature - 32) / 1.8)|number:0 }}°
+    </div>
+    <canvas id="ico" width="150" height="150"></canvas>
   </div>
+  <a href="#/areas"><img draggable="false" src="../img/logo.png" alt="Dynomite's logo" /></a>
+  
 </div>

@@ -1,26 +1,40 @@
 @import url(normalize.css);
-/* line 4, main.scss */
+/* line 6, main.scss */
 .home {
   text-align: center; }
+  /* line 9, main.scss */
+  .home .temp {
+    display: inline-block;
+    padding-top: 15px;
+    color: #1bc6b0;
+    vertical-align: top;
+    font-size: 6em; }
+  /* line 16, main.scss */
+  .home canvas {
+    display: inline-block; }
+  /* line 19, main.scss */
+  .home img {
+    width: 132px;
+    padding: 40px; }
 
-/* line 8, main.scss */
+/* line 25, main.scss */
 .area {
   text-align: center; }
-  /* line 11, main.scss */
+  /* line 28, main.scss */
   .area .angular-leaflet-map {
+    display: block;
     width: 100%;
-    height: 150px;
-    display: block; }
+    height: 150px; }
 
-/* line 18, main.scss */
+/* line 35, main.scss */
 .area-map {
   text-align: center; }
-  /* line 21, main.scss */
+  /* line 38, main.scss */
   .area-map .angular-leaflet-map {
+    display: block;
     width: 100%;
-    height: 640px;
-    display: block; }
+    height: 640px; }
 
-/* line 28, main.scss */
+/* line 45, main.scss */
 .area-id {
   text-align: center; }

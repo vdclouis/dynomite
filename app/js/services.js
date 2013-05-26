@@ -51,7 +51,7 @@ angular.module('Dynomite.services', ['ngResource'])
     }
   })
   .factory('Weather', function($resource) {
-    var resource = $resource('https://api.forecast.io/forecast/4c327a918629278ca227b67846a110f3/37.8267,-122.423',
+    var resource = $resource('https://api.forecast.io/forecast/4c327a918629278ca227b67846a110f3/51.0500,3.7167',
     { 
       callback:'JSON_CALLBACK'
     },
