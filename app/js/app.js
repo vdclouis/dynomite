@@ -9,28 +9,16 @@ angular.module('Dynomite', ['Dynomite.filters', 'Dynomite.services', 'Dynomite.d
         templateUrl: 'partials/area.html',
         controller: 'AreaCtrl'
       })
-      .when('/area/map', {
-        templateUrl: 'partials/area-map.html',
-        controller: 'AreaMapCtrl'
-      })
-      .when('/area/list', {
-        templateUrl: 'partials/area-list.html',
-        controller: 'AreaListCtrl'
-      })
-      .when('/area/:id', {
-        templateUrl: 'partials/area-id.html',
-        controller: 'AreaIdCtrl'
-      })
       .when('/area/:id/pictures', {
         templateUrl: 'partials/area-id-pictures.html',
         controller: 'ArezIdPicturesCtrl'
       })
-      .when('/area/:id/edit', {
-        templateUrl: 'partials/area-id-edit.html',
-        controller: 'AreaIdEditCtrl'
+      .when('/area/edit/:areaId', {
+        templateUrl: 'partials/area-detail.html',
+        controller: 'AreaEditCtrl'
       })
       .when('/area/add', {
-        templateUrl: 'partials/area-add.html',
+        templateUrl: 'partials/area-detail.html',
         controller: 'AreaAddCtrl'
       })
       .when('/route/:id', {

@@ -9,7 +9,6 @@ angular.module('Dynomite.controllers', [])
       
       //apply filters
       var icon = underscoreFilter(uppercaseFilter(data.currently.icon));
-      console.log(icon);
       
       //initiate skycons
       var skycons = new Skycons({"color": "#a0a0a0"});
@@ -18,7 +17,10 @@ angular.module('Dynomite.controllers', [])
     });
   }])
   .controller('AreaCtrl', ['$scope', 'Areas', function($scope, Areas) {
-    $scope.areas = Areas.allAreas().query();
+    //get all areas
+    $scope.areas = Areas.query();
+    
+    //leaflet directive
     angular.extend($scope, {
       center: {
         lat: 51.0500,
@@ -35,15 +37,40 @@ angular.module('Dynomite.controllers', [])
         }
       }
     });
+    
+    //default order
     $scope.orderAreas = 'name';
   }])
-  .controller('AreaMapCtrl', [function() {
+  .controller('AreaAddCtrl', ['$scope', '$location', 'Areas', function($scope, $location, Areas){
+    $scope.save = function() {
+      Areas.save($scope.area, function(area) {
+        $location.path('/area/edit/' + area._id.$oid);
+      });
+    }
   }])
-  .controller('AreaListCtrl', [function() {
-  }])
-  .controller('AreaIdCtrl', ['$scope', '$routeParams', 'Areas', 'Routes', function($scope, $routeParams, Areas, Routes) {
-    $scope.area = Areas.areaById($routeParams.id).get();
-    $scope.routes = Routes.allRoutes().query();
+  .controller('AreaEditCtrl', ['$scope', '$location', '$routeParams', 'Areas', function($scope, $location, $routeParams, Areas) {
+   var self = this;
+   
+   Areas.get({id: $routeParams.areaId}, function(area) {
+     self.original = area;
+     $scope.area = new Areas(self.original);
+   });
+   
+   $scope.isClean = function() {
+     return angular.equals(self.original, $scope.area)
+   }
+   
+   $scope.destroy = function() {
+     self.original.destroy(function() {
+       $location.path('/area');
+     });
+   };
+   
+   $scope.save = function() {
+     $scope.area.update(function() {
+       $location.path('/area');
+     })
+   }
   }])
   .controller('RouteIdCtrl', ['$scope', '$routeParams', 'Routes', function($scope, $routeParams, Routes) {
     $scope.route = Routes.routeById($routeParams.id).get();

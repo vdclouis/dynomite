@@ -1,9 +1,10 @@
 <div class="home">
-  <h1>Home</h1>
+  <h1>dynomite</h1>
   
   <!-- weather -->
   <div class="forecast">
     <div class="temp">
+      <!-- fahrenheit to Celsius -->
       {{ ((weather.currently.temperature - 32) / 1.8)|number:0 }}°
     </div>
     <canvas id="ico" width="150" height="150"></canvas>

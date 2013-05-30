@@ -1,0 +1,21 @@
+<form name='editArea'>
+
+  <div class="control-group" ng-class="{error: editArea.name.$invalid}">
+    <label>Name</label>
+    <input type="text" name="name" ng-model="area.name" required>
+    <span ng-show="editArea.name.$error.required" class="help-inline">Required</span>
+  </div>
+  
+  <div class="control-group" ng-class="{error: editArea.rating.$invalid}">
+    <label>Rating</label>
+    <input type="number" ng-model="area.rating" required/>
+    <span ng-show="editArea.rating.$error.required" class="help-inline">Required</span>
+    <span ng-show="editArea.rating.$error.number" class="help-inline">Not a number</span>
+  </div>
+  
+  <br />
+  <a href="#/area" class="btn">Cancel</a>
+  <button ng-click="save()" ng-disabled="isClean() || editArea.$invalid" class="btn btn-primary">Save</button>
+  <button ng-click="destroy()" ng-show="area._id" class="btn btn-danger">Delete</button>
+  
+</form>

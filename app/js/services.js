@@ -1,54 +1,29 @@
 angular.module('Dynomite.services', ['ngResource'])
   .value('version', '0.1')
   .factory('Areas', function($resource) {
-    //http://docs.angularjs.org/api/ngResource.$resource#Returns
-
-    return {
-      allAreas: function() {
-        return $resource(
-          'database/areas.json',
-          {},
-          {
-            //query: {method:'GET', params:{}, isArray:true},
-            //areaById: {method:'GET', params:{}, isArray:true},
-          }
-        )
-      },
-      areaById: function(_id) {
-        return $resource(
-          'database/area:id.json',
-          {id: _id},
-          {
-            //query: {method:'GET', params:{}, isArray:true},
-            //areaById: {method:'GET', params:{}, isArray:true},
-          }
-        )
-      }
-    }
+    var Areas = $resource(
+        'https://api.mongolab.com/api/1/databases/dynomite/collections/areas/:id',
+        {
+          apiKey: 'zmU_BDz4u4CsCpTltEbxOlPazJOFZtPE'
+        },
+        {
+          update: { method: 'PUT' }
+        }
+    );
+    
+    Areas.prototype.update = function(cb) {
+      return Areas.update({id: this._id.$oid},
+        angular.extend({}, this,  {_id:undefined}), cb);
+    };
+    
+    Areas.prototype.destroy = function(cb) {
+      return Areas.remove({id: this._id.$oid}, cb);
+    };
+    
+    return Areas;
+    
   })
   .factory('Routes', function($resource) {
-    return {
-      allRoutes: function() {
-        return $resource(
-          'database/routes.json',
-          {},
-          {
-            //query: {method:'GET', params:{}, isArray:true},
-            //areaById: {method:'GET', params:{}, isArray:true},
-          }
-        )
-      },
-      routeById: function(_id) {
-        return $resource(
-          'database/route:id.json',
-          {id: _id},
-          {
-            //getId: {method:'GET', params:{}, isArray:false},
-            //areaById: {method:'GET', params:{}, isArray:true},
-          }
-        )
-      }
-    }
   })
   .factory('Weather', function($resource) {
     var resource = $resource('https://api.forecast.io/forecast/4c327a918629278ca227b67846a110f3/51.0500,3.7167',

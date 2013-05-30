@@ -11,16 +11,20 @@
   <h1>Areas</h1>
   
  <!--  map -->
-  <a href="#/area/map">
+  <!-- <a href="#/area/map"> -->
     <leaflet markers="markers" center="center"></leaflet>
-  </a>
+  <!-- </a> -->
   
   <!-- list -->
   <div class="area-list">
     <ul>
       <li data-ng-repeat="area in areas | filter:search | orderBy:orderAreas">
-        <a href="#/area/{{area.id}}">{{area.name}}</a>
+        <a href="#/area/{{area._id.$oid}}">{{area.name}}</a>
+        <a href="#/area/edit/{{area._id.$oid}}">Edit</a>
       </li>
     </ul>
   </div>
+  
+  <a href="#/area/add">Add</a>
+  
 </div>
