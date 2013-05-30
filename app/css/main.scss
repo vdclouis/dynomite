@@ -1,17 +1,99 @@
+/* Imports */
 @import "compass/css3";
 @import url(normalize.css);
 
-$main_color: #1BC6B0;
+/* Fonts */
+// numbers
+@font-face {
+  font-family: 'Blanch';
+  src: url('../fonts/blanch_condensed-webfont.eot');
+  src: url('../fonts/blanch_condensed-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/blanch_condensed-webfont.woff') format('woff'),
+       url('../fonts/blanch_condensed-webfont.ttf') format('truetype'),
+       url('../fonts/blanch_condensed-webfont.svg#blanchcondensed') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// h-tags
+@font-face {
+  font-family: 'Arvil';
+  src: url('../fonts/arvil_sans-webfont.eot');
+  src: url('../fonts/arvil_sans-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/arvil_sans-webfont.woff') format('woff'),
+       url('../fonts/arvil_sans-webfont.ttf') format('truetype'),
+       url('../fonts/arvil_sans-webfont.svg#arvil_sansregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// body
+@font-face {
+  font-family: 'Maven';
+  src: url('../fonts/mavenprolight-200-webfont.eot');
+  src: url('../fonts/mavenprolight-200-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/mavenprolight-200-webfont.woff') format('woff'),
+       url('../fonts/mavenprolight-200-webfont.ttf') format('truetype'),
+       url('../fonts/mavenprolight-200-webfont.svg#maven_pro_light200') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Colors */
+$green: #1BC6B0;
+$red:   #E3694E;
+$lg:    #F8F8F8;
+$lg2:   #f0f1f2;
+$dg:    #a0a0a0;
+$black: #333333;
+
+/* Styles */
+body {
+  font-family: 'Maven';
+}
+
+h1 {
+  font-family: 'Arvil';
+  font-size: 3em;
+  color: $red;
+}
+
+.content {
+  ul {
+    padding: 0;
+    width: 95%;
+    margin: 10px auto;
+    box-shadow: 0 0 2px rgba(0,0,0,.3);
+  
+    li {
+      list-style: none;
+      text-align: left;
+      padding: 5px;
+      border-bottom: 1px solid rgba(0,0,0,.1);
+      border-top: 1px solid rgba(255,255,255,.1);
+      background: white;
+      
+      &:nth-child(odd) {
+        background-color: $lg;
+      }
+    }
+    
+    a {
+      text-decoration: none;
+      color: $dg;
+    }
+  }
+}
 
 .home {
   text-align: center;
   
   .temp{
     display: inline-block;
-    padding-top: 15px;
-    color: $main_color;
+    color: $red;
     vertical-align: top;
-    font-size: 6em;
+    font-size: 10em;
+    font-family: 'Blanch';
   }
   canvas {
     display: inline-block;

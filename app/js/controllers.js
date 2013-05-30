@@ -12,7 +12,7 @@ angular.module('Dynomite.controllers', [])
       console.log(icon);
       
       //initiate skycons
-      var skycons = new Skycons({"color": "#1BC6B0"});
+      var skycons = new Skycons({"color": "#a0a0a0"});
       skycons.add('ico', Skycons[icon]);
       skycons.play();
     });
