@@ -29,10 +29,12 @@ angular.module('Dynomite.services', ['ngResource'])
     return Areas;
     
   })
-  .factory('Routes', function($resource, $routeParams) {
+  .factory('Routes', function($resource) {
     var Routes = $resource(
-      'https://api.mongolab.com/api/1/databases/dynomite/collections/routes?q={"areaName":":areaName"}&apiKey=' + apikey,
-      {},
+      'https://api.mongolab.com/api/1/databases/dynomite/collections/routes?q={"areaName"\:":areaName"}&apiKey=' + apikey,
+      {
+        areaName: 'Fontaine Bleau'
+      },
       {
         update: { method: 'PUT' },
         show: { method: 'GET' }
