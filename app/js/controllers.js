@@ -73,7 +73,7 @@ angular.module('Dynomite.controllers', [])
    }
   }])
   .controller('AreaRoutesCtrl', ['$scope', '$routeParams', 'Routes', 'Areas', function($scope, $routeParams, Routes, Areas) {
-    $scope.routes = Routes.query();
+    $scope.routes = Routes.query({areaName: $routeParams.name});
   }])
   .controller('RouteIdCtrl', ['$scope', '$routeParams', 'Routes', function($scope, $routeParams, Routes) {
     $scope.route = Routes.routeById($routeParams.id).get();
