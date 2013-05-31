@@ -9,10 +9,6 @@ angular.module('Dynomite', ['Dynomite.filters', 'Dynomite.services', 'Dynomite.d
         templateUrl: 'partials/area.html',
         controller: 'AreaCtrl'
       })
-      .when('/area/:id/pictures', {
-        templateUrl: 'partials/area-id-pictures.html',
-        controller: 'ArezIdPicturesCtrl'
-      })
       .when('/area/edit/:areaId', {
         templateUrl: 'partials/area-detail.html',
         controller: 'AreaEditCtrl'
@@ -20,6 +16,10 @@ angular.module('Dynomite', ['Dynomite.filters', 'Dynomite.services', 'Dynomite.d
       .when('/area/add', {
         templateUrl: 'partials/area-detail.html',
         controller: 'AreaAddCtrl'
+      })
+      .when('/area/:name', {
+        templateUrl: 'partials/area-routes.html',
+        controller: 'AreaRoutesCtrl'
       })
       .when('/route/:id', {
         templateUrl: 'partials/route-id.html',
@@ -35,26 +35,6 @@ angular.module('Dynomite', ['Dynomite.filters', 'Dynomite.services', 'Dynomite.d
       .when('/route/add', {
         templateUrl: 'partials/route-add.html',
         controller: 'RouteAddCtrl'
-      })
-      .when('/user', {
-        templateUrl: 'partials/user.html',
-        controller: 'UserCtrl'
-      })
-      .when('/user/:id', {
-        templateUrl: 'partials/user-id.html',
-        controller: 'UserIdCtrl'
-      })
-      .when('/user/:id/edit', {
-        templateUrl: 'partials/user-id-edit.html',
-        controller: 'UserIdEditCtrl'
-      })
-      .when('/login', {
-        templateUrl: 'partials/login.html',
-        controller: 'LoginCtrl'
-      })
-      .when('/register', {
-        templateUrl: 'partials/register.html',
-        controller: 'RegisterCtrl'
       })
       .otherwise({redirectTo: '/'});
   }]);
