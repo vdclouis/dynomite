@@ -41,8 +41,6 @@ angular.module('Dynomite.services', ['ngResource'])
         return Areas;
       }
     }
-
-    
   })
   .factory('Routes', function($resource) {
     return {
@@ -74,8 +72,7 @@ angular.module('Dynomite.services', ['ngResource'])
             routeName: '@routeName'
           },
           {
-            update: { method: 'PUT' },
-            show: { method: 'GET' }
+            update: { method: 'PUT' }
           }
         );
         Routes.prototype.update = function(cb) {
@@ -90,9 +87,11 @@ angular.module('Dynomite.services', ['ngResource'])
     }
   })
   .factory('Weather', function($resource) {
-    var Resource = $resource('https://api.forecast.io/forecast/4c327a918629278ca227b67846a110f3/51.0500,3.7167',
+    var Resource = $resource('https://api.forecast.io/forecast/4c327a918629278ca227b67846a110f3/:lat,:lon',
       {
-        callback:'JSON_CALLBACK'
+        callback:'JSON_CALLBACK',
+        lat: '@lat',
+        lon: '@lon'
       },
       {
         get: {method:'JSONP', params:{ isArray: true }}

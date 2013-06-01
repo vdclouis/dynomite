@@ -1,54 +1,64 @@
 /* Controllers */
-
 angular.module('Dynomite.controllers', [])
   .controller('HomeCtrl', ['$scope', '$filter', 'Weather', function($scope, $filter, Weather) {
-    $scope.weather = Weather.get(function(data) {
-      //inject filters
-      var uppercaseFilter = $filter('uppercase');
-      var underscoreFilter = $filter('underscore');
+
+    navigator.geolocation.getCurrentPosition(function(pos) {
+      $scope.lat = pos.coords.latitude;
+      $scope.lon = pos.coords.longitude;
       
-      //apply filters
-      var icon = underscoreFilter(uppercaseFilter(data.currently.icon));
+      $scope.weather = Weather.get({lat: $scope.lat, lon: $scope.lon}, function(data) {
+        //inject filters
+        var uppercaseFilter = $filter('uppercase');
+        var underscoreFilter = $filter('underscore');
+        
+        //apply filters
+        var icon = underscoreFilter(uppercaseFilter(data.currently.icon));
+        
+        //initiate skycons
+        var skycons = new Skycons({"color": "#a0a0a0"});
+        skycons.add('ico', Skycons[icon]);
+        skycons.play();
+      });
       
-      //initiate skycons
-      var skycons = new Skycons({"color": "#a0a0a0"});
-      skycons.add('ico', Skycons[icon]);
-      skycons.play();
     });
   }])
   .controller('AreaCtrl', ['$scope', 'Areas', function($scope, Areas) {
     //get all areas
-    Areas.allAreas().query({}, function (data){
-      $scope.areas = data;
+    $scope.areas = Areas.query({}, function(data) {
+      for (var i=0; i < data.length; i++) {
+        //console.log(data);
+        console.log(data[i].coord.lat);
+        console.log(data[i].coord.lon); 
+      }
     });
     
-    //leaflet directive
+    //google-maps directive
+    google.maps.visualRefresh = true;
+      
     angular.extend($scope, {
       center: {
-        lat: 51.0500,
-        lng: 3.7167,
-        zoom: 4
+        latitude: 51.0500,
+        longitude: 3.7167
       },
-      markers: {
-        Madrid: {
-          lat: 40.095,
-          lng: -3.823,
-          message: "Drag me to your position",
-          focus: true,
-          draggable: true
+      markers: [
+        {
+          latitude: 40.095,
+          longitude: -3.823,
         }
-      }
+      ],
+      zoom: 8
     });
     
     //default order
     $scope.orderAreas = 'name';
+    
   }])
   .controller('AreaAddCtrl', ['$scope', '$location', 'Areas', function($scope, $location, Areas){
     $scope.save = function() {
       Areas.getArea().save($scope.area, function(area) {
         $location.path('/area');
       });
-    }
+    };
   }])
   .controller('AreaEditCtrl', ['$scope', '$location', '$routeParams', 'Areas', function($scope, $location, $routeParams, Areas) {
     var self = this;
@@ -60,7 +70,7 @@ angular.module('Dynomite.controllers', [])
     
     $scope.isClean = function() {
       return angular.equals(self.original, $scope.area)
-    }
+    };
     
     $scope.destroy = function() {
       self.original.destroy(function() {
@@ -93,22 +103,18 @@ angular.module('Dynomite.controllers', [])
   }])
   .controller('RouteIdEditCtrl', ['$scope', '$routeParams', 'Routes', function($scope, $routeParams, Routes) {
     var self = this;
-    
     Routes.getR().get({id: $routeParams.routeId}, function(route) {
       self.original = route;
       $scope.route = new Routes(self.original);
     });
-    
     $scope.isClean = function() {
       return angular.equals(self.original, $scope.route)
-    }
-    
+    };
     $scope.destroy = function() {
       self.original.destroy(function() {
         $location.path('/route');
       });
     };
-    
     $scope.save = function() {
       $scope.area.update(function() {
         $location.path('/route');
@@ -128,13 +134,12 @@ angular.module('Dynomite.controllers', [])
 
     //get the area name
     $scope.areaName = $routeParams.area;
-
     $scope.save = function() {
       Routes.areaName = $routeParams.area;
       Routes.routeById().save($scope.route, function(route) {
         $location.path('/area');
       });
-    }
+    };
   }])
   .controller('UserCtrl', [function() {
   }])

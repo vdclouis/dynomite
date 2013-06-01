@@ -12,7 +12,7 @@
   
  <!--  map -->
   <!-- <a href="#/area/map"> -->
-    <leaflet markers="markers" center="center"></leaflet>
+    <google-map data-snap-ignore="true" center="center" draggable="true" zoom="zoom" markers="markers" mark-click="true"></google-map>
   <!-- </a> -->
   
   <!-- list -->
@@ -20,7 +20,7 @@
     <ul>
       <li data-ng-repeat="area in areas | filter:search | orderBy:orderAreas">
         <a href="#/area/{{area.name}}">{{area.name}}</a>
-        <a href="#/area/edit/{{area._id.$oid}}">Edit</a>
+        <a href="#/area/edit/{{area._id.$oid}}">- Edit</a>
       </li>
     </ul>
   </div>

@@ -1,4 +1,4 @@
-angular.module('Dynomite', ['Dynomite.filters', 'Dynomite.services', 'Dynomite.directives', 'Dynomite.controllers']).
+angular.module('Dynomite', ['Dynomite.filters', 'Dynomite.services', 'Dynomite.directives', 'Dynomite.controllers', 'google-maps']).
   config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/', {
