@@ -36,8 +36,7 @@ angular.module('Dynomite.services', ['ngResource'])
         areaName: '@areaName'
       },
       {
-        update: { method: 'PUT' },
-        show: { method: 'GET' }
+        update: { method: 'PUT' }
       }
     );
     

@@ -1,35 +1,40 @@
 /* Controllers */
 angular.module('Dynomite.controllers', [])
   .controller('HomeCtrl', ['$scope', '$filter', 'Weather', function($scope, $filter, Weather) {
-    
+
     navigator.geolocation.getCurrentPosition(function(pos) {
       $scope.lat = pos.coords.latitude;
       $scope.lon = pos.coords.longitude;
-    });
-    
-    console.log($scope.lat);
-    
-    $scope.weather = Weather.get({lat: $scope.lat, lon: $scope.lon}, function(data) {
-      //inject filters
-      var uppercaseFilter = $filter('uppercase');
-      var underscoreFilter = $filter('underscore');
       
-      //apply filters
-      var icon = underscoreFilter(uppercaseFilter(data.currently.icon));
+      $scope.weather = Weather.get({lat: $scope.lat, lon: $scope.lon}, function(data) {
+        //inject filters
+        var uppercaseFilter = $filter('uppercase');
+        var underscoreFilter = $filter('underscore');
+        
+        //apply filters
+        var icon = underscoreFilter(uppercaseFilter(data.currently.icon));
+        
+        //initiate skycons
+        var skycons = new Skycons({"color": "#a0a0a0"});
+        skycons.add('ico', Skycons[icon]);
+        skycons.play();
+      });
       
-      //initiate skycons
-      var skycons = new Skycons({"color": "#a0a0a0"});
-      skycons.add('ico', Skycons[icon]);
-      skycons.play();
     });
   }])
   .controller('AreaCtrl', ['$scope', 'Areas', function($scope, Areas) {
     //get all areas
-    $scope.areas = Areas.query();
+    $scope.areas = Areas.query({}, function(data) {
+      for (var i=0; i < data.length; i++) {
+        //console.log(data);
+        console.log(data[i].coord.lat);
+        console.log(data[i].coord.lon); 
+      }
+    });
     
     //google-maps directive
     google.maps.visualRefresh = true;
-    
+      
     angular.extend($scope, {
       center: {
         latitude: 51.0500,
@@ -46,6 +51,7 @@ angular.module('Dynomite.controllers', [])
     
     //default order
     $scope.orderAreas = 'name';
+    
   }])
   .controller('AreaAddCtrl', ['$scope', '$location', 'Areas', function($scope, $location, Areas){
     $scope.save = function() {
@@ -79,6 +85,7 @@ angular.module('Dynomite.controllers', [])
    };
   }])
   .controller('AreaRoutesCtrl', ['$scope', '$routeParams', 'Routes', 'Areas', function($scope, $routeParams, Routes, Areas) {
+    $scope.areas = Areas.query();
     $scope.routes = Routes.query({areaName: $routeParams.name});
   }])
   .controller('RouteIdCtrl', ['$scope', '$routeParams', 'Routes', function($scope, $routeParams, Routes) {
@@ -94,8 +101,8 @@ angular.module('Dynomite.controllers', [])
       });
       
       $scope.isClean = function() {
-        return angular.equals(self.original, $scope.area)
-      }
+        return angular.equals(self.original, $scope.area);
+      };
       
       $scope.destroy = function() {
         self.original.destroy(function() {
@@ -106,17 +113,17 @@ angular.module('Dynomite.controllers', [])
       $scope.save = function() {
         $scope.area.update(function() {
           $location.path('/route');
-        })
+        });
       };
   }])
   .controller('RouteIdDeleteCtrl', [function() {
   }])
-  .controller('RouteAddCtrl', ['$scope', '$location', 'Routes', function($scope, $location, Areas) {
+  .controller('RouteAddCtrl', ['$scope', '$location', 'Routes', function($scope, $location, Routes) {
     $scope.save = function() {
       Routes.save($scope.route, function(route) {
         $location.path('/route/edit/' + route._id.$oid);
       });
-    }
+    };
   }])
   .controller('UserCtrl', [function() {
   }])

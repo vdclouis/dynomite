@@ -1,11 +1,13 @@
-<h1>{{area.name}}</h1>
-<h2>Route list</h2>
-
-<ul>
-    <li data-ng-repeat="route in routes">
-      <a href="#/route/{{route.name}}">
-        {{route.name}} - {{route.areaName}}
-      </a>
-    </li>
-</ul>
-<a href="#/route/add">add route</a>
+<div class="area-routes">
+  <h1>{{areas.name}}</h1>
+  <h2>Route list</h2>
+  
+  <ul>
+      <li data-ng-repeat="route in routes">
+        <a href="#/route/{{route.name}}">
+          {{route.name}} - {{route.areaName}}
+        </a>
+      </li>
+  </ul>
+  <a href="#/route/add">add route</a>
+</div>
