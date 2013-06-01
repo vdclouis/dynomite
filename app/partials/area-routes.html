@@ -2,5 +2,10 @@
 <h2>Route list</h2>
 
 <ul>
-    <li data-ng-repeat="route in routes">{{route.name}} - {{route.areaName}}</li>
+    <li data-ng-repeat="route in routes">
+      <a href="#/route/{{route.name}}">
+        {{route.name}} - {{route.areaName}}
+      </a>
+    </li>
 </ul>
+<a href="#/route/add">add route</a>

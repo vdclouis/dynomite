@@ -21,20 +21,20 @@ angular.module('Dynomite', ['Dynomite.filters', 'Dynomite.services', 'Dynomite.d
         templateUrl: 'partials/area-routes.html',
         controller: 'AreaRoutesCtrl'
       })
-      .when('/route/:id', {
-        templateUrl: 'partials/route-id.html',
-        controller: 'RouteIdCtrl'
+      .when('/route/add', {
+        templateUrl: 'partials/route-detail.html',
+        controller: 'RouteAddCtrl'
       })
-      .when('/route/:id/edit', {
-        templateUrl: 'partials/route-id-edit.html',
+      .when('/route/edit/:routeId', {
+        templateUrl: 'partials/route-detail.html',
         controller: 'RouteIdEditCtrl'
       })
-      .when('/route/:id/delete', {
+      .when('/route/delete/:routeId', {
         controller: 'RouteIdDeleteCtrl'
       })
-      .when('/route/add', {
-        templateUrl: 'partials/route-add.html',
-        controller: 'RouteAddCtrl'
+      .when('/route/:routeId', {
+        templateUrl: 'partials/route-id.html',
+        controller: 'RouteIdCtrl'
       })
       .otherwise({redirectTo: '/'});
   }]);

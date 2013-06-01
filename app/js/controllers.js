@@ -82,16 +82,41 @@ angular.module('Dynomite.controllers', [])
     $scope.routes = Routes.query({areaName: $routeParams.name});
   }])
   .controller('RouteIdCtrl', ['$scope', '$routeParams', 'Routes', function($scope, $routeParams, Routes) {
-    $scope.route = Routes.routeById($routeParams.id).get();
   }])
   .controller('RouteIdPicturesCtrl', [function() {
   }])
   .controller('RouteIdEditCtrl', ['$scope', '$routeParams', 'Routes', function($scope, $routeParams, Routes) {
-    console.log('edit route');
+      var self = this;
+      
+      Routes.get({id: $routeParams.routeId}, function(area) {
+        self.original = area;
+        $scope.area = new Routes(self.original);
+      });
+      
+      $scope.isClean = function() {
+        return angular.equals(self.original, $scope.area)
+      }
+      
+      $scope.destroy = function() {
+        self.original.destroy(function() {
+          $location.path('/route');
+        });
+      };
+      
+      $scope.save = function() {
+        $scope.area.update(function() {
+          $location.path('/route');
+        })
+      };
   }])
   .controller('RouteIdDeleteCtrl', [function() {
   }])
-  .controller('RouteAddCtrl', [function() {
+  .controller('RouteAddCtrl', ['$scope', '$location', 'Routes', function($scope, $location, Areas) {
+    $scope.save = function() {
+      Routes.save($scope.route, function(route) {
+        $location.path('/route/edit/' + route._id.$oid);
+      });
+    }
   }])
   .controller('UserCtrl', [function() {
   }])
