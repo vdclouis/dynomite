@@ -49,43 +49,68 @@ angular.module('Dynomite.controllers', [])
     }
   }])
   .controller('AreaEditCtrl', ['$scope', '$location', '$routeParams', 'Areas', function($scope, $location, $routeParams, Areas) {
-   var self = this;
-   
-   Areas.get({id: $routeParams.areaId}, function(area) {
-     self.original = area;
-     $scope.area = new Areas(self.original);
-   });
-   
-   $scope.isClean = function() {
-     return angular.equals(self.original, $scope.area)
-   }
-   
-   $scope.destroy = function() {
-     self.original.destroy(function() {
-       $location.path('/area');
-     });
-   };
-   
-   $scope.save = function() {
-     $scope.area.update(function() {
-       $location.path('/area');
-     })
-   }
+    var self = this;
+    
+    Areas.get({id: $routeParams.areaId}, function(area) {
+      self.original = area;
+      $scope.area = new Areas(self.original);
+    });
+    
+    $scope.isClean = function() {
+      return angular.equals(self.original, $scope.area)
+    }
+    
+    $scope.destroy = function() {
+      self.original.destroy(function() {
+        $location.path('/area');
+      });
+    };
+    
+    $scope.save = function() {
+      $scope.area.update(function() {
+        $location.path('/area');
+      })
+    }
   }])
   .controller('AreaRoutesCtrl', ['$scope', '$routeParams', 'Routes', 'Areas', function($scope, $routeParams, Routes, Areas) {
     $scope.routes = Routes.query({areaName: $routeParams.name});
   }])
   .controller('RouteIdCtrl', ['$scope', '$routeParams', 'Routes', function($scope, $routeParams, Routes) {
-    $scope.route = Routes.routeById($routeParams.id).get();
   }])
   .controller('RouteIdPicturesCtrl', [function() {
   }])
   .controller('RouteIdEditCtrl', ['$scope', '$routeParams', 'Routes', function($scope, $routeParams, Routes) {
-    console.log('edit route');
+      var self = this;
+      
+      Routes.get({id: $routeParams.routeId}, function(area) {
+        self.original = area;
+        $scope.area = new Routes(self.original);
+      });
+      
+      $scope.isClean = function() {
+        return angular.equals(self.original, $scope.area)
+      }
+      
+      $scope.destroy = function() {
+        self.original.destroy(function() {
+          $location.path('/route');
+        });
+      };
+      
+      $scope.save = function() {
+        $scope.area.update(function() {
+          $location.path('/route');
+        })
+      };
   }])
   .controller('RouteIdDeleteCtrl', [function() {
   }])
-  .controller('RouteAddCtrl', [function() {
+  .controller('RouteAddCtrl', ['$scope', '$location', 'Routes', function($scope, $location, Areas) {
+    $scope.save = function() {
+      Routes.save($scope.route, function(route) {
+        $location.path('/route/edit/' + route._id.$oid);
+      });
+    }
   }])
   .controller('UserCtrl', [function() {
   }])
