@@ -6,6 +6,7 @@
       <a href="#/route/{{route.name}}">
         {{route.name}} - {{route.areaName}}
       </a>
+      <span><a href="#/route/edit/{{route.name}}">edit</a></span>
     </li>
 </ul>
-<a href="#/route/add">add route</a>
+<a ng-href="#/route/add?area={{area.name}}">add route</a>

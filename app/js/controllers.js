@@ -18,7 +18,9 @@ angular.module('Dynomite.controllers', [])
   }])
   .controller('AreaCtrl', ['$scope', 'Areas', function($scope, Areas) {
     //get all areas
-    $scope.areas = Areas.query();
+    Areas.allAreas().query({}, function (data){
+      $scope.areas = data;
+    });
     
     //leaflet directive
     angular.extend($scope, {
@@ -43,15 +45,15 @@ angular.module('Dynomite.controllers', [])
   }])
   .controller('AreaAddCtrl', ['$scope', '$location', 'Areas', function($scope, $location, Areas){
     $scope.save = function() {
-      Areas.save($scope.area, function(area) {
-        $location.path('/area/edit/' + area._id.$oid);
+      Areas.getArea().save($scope.area, function(area) {
+        $location.path('/area');
       });
     }
   }])
   .controller('AreaEditCtrl', ['$scope', '$location', '$routeParams', 'Areas', function($scope, $location, $routeParams, Areas) {
     var self = this;
     
-    Areas.get({id: $routeParams.areaId}, function(area) {
+    Areas.getArea().get({id: $routeParams.areaId}, function(area) {
       self.original = area;
       $scope.area = new Areas(self.original);
     });
@@ -73,42 +75,64 @@ angular.module('Dynomite.controllers', [])
     }
   }])
   .controller('AreaRoutesCtrl', ['$scope', '$routeParams', 'Routes', 'Areas', function($scope, $routeParams, Routes, Areas) {
-    $scope.routes = Routes.query({areaName: $routeParams.name});
+
+    Areas.getArea().query({id: $routeParams.name}, function(area) {
+      console.log(area);
+      $scope.area = area['0'];
+    });
+    /*Areas.getArea().get({id: $routeParams.name}, function (data) {
+      $scope.area = data;
+    });*/
+
+    $scope.routes = Routes.getR().query({areaName: $routeParams.name});
   }])
   .controller('RouteIdCtrl', ['$scope', '$routeParams', 'Routes', function($scope, $routeParams, Routes) {
+    console.log('RouteIdCtrl');
   }])
   .controller('RouteIdPicturesCtrl', [function() {
   }])
   .controller('RouteIdEditCtrl', ['$scope', '$routeParams', 'Routes', function($scope, $routeParams, Routes) {
-      var self = this;
-      
-      Routes.get({id: $routeParams.routeId}, function(area) {
-        self.original = area;
-        $scope.area = new Routes(self.original);
+    var self = this;
+    
+    Routes.getR().get({id: $routeParams.routeId}, function(route) {
+      self.original = route;
+      $scope.route = new Routes(self.original);
+    });
+    
+    $scope.isClean = function() {
+      return angular.equals(self.original, $scope.route)
+    }
+    
+    $scope.destroy = function() {
+      self.original.destroy(function() {
+        $location.path('/route');
       });
-      
-      $scope.isClean = function() {
-        return angular.equals(self.original, $scope.area)
-      }
-      
-      $scope.destroy = function() {
-        self.original.destroy(function() {
-          $location.path('/route');
-        });
-      };
-      
-      $scope.save = function() {
-        $scope.area.update(function() {
-          $location.path('/route');
-        })
-      };
+    };
+    
+    $scope.save = function() {
+      $scope.area.update(function() {
+        $location.path('/route');
+      })
+    };
   }])
   .controller('RouteIdDeleteCtrl', [function() {
   }])
-  .controller('RouteAddCtrl', ['$scope', '$location', 'Routes', function($scope, $location, Areas) {
+  .controller('RouteAddCtrl', ['$scope', '$location', '$routeParams', '$log', 'Routes', 'Areas', function($scope, $location, $routeParams, $log, Routes, Areas) {
+    //var t = $location.search;
+
+    //get all areas for the dropdown
+    Areas.allAreas().query({}, function (data){
+      $scope.areas = data;
+      console.log(data);
+    });
+
+    //get the area name
+    $scope.areaName = $routeParams.area;
+
     $scope.save = function() {
-      Routes.save($scope.route, function(route) {
-        $location.path('/route/edit/' + route._id.$oid);
+      Routes.areaName = $routeParams.area;
+      Routes.routeById().save($scope.route, function(route) {
+        $location.path('/area');
       });
     }
   }])
