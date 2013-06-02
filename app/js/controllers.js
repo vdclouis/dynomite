@@ -129,14 +129,22 @@ angular.module('Dynomite.controllers', [])
 
     //get all areas for the dropdown
     Areas.allAreas().query({}, function (data){
+      //console.log(data.length);
+      for (var i = 0; i < data.length; i++){
+        data[i]['areaName'] = $routeParams.area;
+      }
       $scope.areas = data;
-      console.log(data);
+      //console.log(data);
+      //$scope.route.areaName = data[0];
     });
 
+    console.log($routeParams.area);
     //get the area name
-    $scope.areaName = $routeParams.area;
+    //$scope.areaName = $routeParams.area;
+
+
     $scope.save = function() {
-      Routes.areaName = $routeParams.area;
+      /*Routes.areaName = $routeParams.area;*/
       Routes.routeById().save($scope.route, function(route) {
         $location.path('/area');
       });

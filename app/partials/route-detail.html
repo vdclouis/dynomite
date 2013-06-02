@@ -15,8 +15,9 @@
 
   <div class="control-group" ng-class="{error: editRoute.rating.$invalid}">
     <label>Area name</label>
-    <select type="number" ng-model="route.areaName" ng-selected="{{areaName}}" >
-      <option value="{{area.name}}" data-ng-repeat="area in areas">{{area.name}}</option>
+    <select type="number" ng-model="route.areaName" ng-options="area.name for area in areas" ng-selected="{{areaName}}">
+    <!-- <select ng-model="route.areaName"> -->
+      <option value="{{area.name}}" data-ng-repeat="area in areas" ng-selected="route.areaName">{{area.name}}</option>
     </select>
     <!-- <span ng-show="editRoute.rating.$error.required" class="help-inline">Required</span>
     <span ng-show="editRoute.rating.$error.number" class="help-inline">Not a number</span> -->
