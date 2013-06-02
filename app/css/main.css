@@ -26,21 +26,34 @@
 /* Styles */
 /* line 51, main.scss */
 body {
-  font-family: 'Maven'; }
+  font-family: 'Maven';
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none; }
 
-/* line 55, main.scss */
+/* line 61, main.scss */
 h1 {
   font-family: 'Arvil';
   font-size: 3em;
   color: #e3694e; }
 
-/* line 62, main.scss */
+/* line 67, main.scss */
+#open-left {
+  text-decoration: none;
+  font-size: 2em;
+  color: #a0a0a0;
+  padding-left: .3em;
+  display: inline-block; }
+
+/* line 76, main.scss */
 .content ul {
   padding: 0;
   width: 95%;
   margin: 10px auto;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.3); }
-  /* line 68, main.scss */
+  /* line 82, main.scss */
   .content ul li {
     list-style: none;
     text-align: left;
@@ -48,54 +61,55 @@ h1 {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     background: white; }
-    /* line 76, main.scss */
+    /* line 90, main.scss */
     .content ul li:nth-child(odd) {
       background-color: #f8f8f8; }
-  /* line 81, main.scss */
+  /* line 95, main.scss */
   .content ul a {
     text-decoration: none;
     color: #a0a0a0; }
 
-/* line 88, main.scss */
+/* line 102, main.scss */
 .home {
   text-align: center; }
-  /* line 91, main.scss */
+  /* line 105, main.scss */
   .home .temp {
     display: inline-block;
     color: #e3694e;
     vertical-align: top;
+    margin-top: -10px;
     font-size: 10em;
     font-family: 'Blanch'; }
-  /* line 98, main.scss */
+  /* line 113, main.scss */
   .home canvas {
     display: inline-block; }
-  /* line 101, main.scss */
+  /* line 116, main.scss */
   .home img {
     width: 132px;
     padding: 40px; }
 
-/* line 107, main.scss */
+/* line 122, main.scss */
 .area {
   text-align: center; }
-  /* line 110, main.scss */
+  /* line 130, main.scss */
   .area google-map {
     display: block;
     width: 100%;
     height: 150px; }
 
-/* line 117, main.scss */
+/* line 137, main.scss */
 .area-map {
   text-align: center; }
-  /* line 120, main.scss */
+  /* line 140, main.scss */
   .area-map .angular-leaflet-map {
     display: block;
     width: 100%;
     height: 640px; }
 
-/* line 127, main.scss */
+/* line 147, main.scss */
 .area-id {
   text-align: center; }
 
-/* line 131, main.scss */
+/* line 151, main.scss */
 .area-routes {
   text-align: center; }

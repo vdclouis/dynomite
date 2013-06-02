@@ -50,12 +50,26 @@ $black: #333333;
 /* Styles */
 body {
   font-family: 'Maven';
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+
 }
 
 h1 {
   font-family: 'Arvil';
   font-size: 3em;
   color: $red;
+}
+
+#open-left {
+  text-decoration: none;
+  font-size: 2em;
+  color: $dg;
+  padding-left: .3em;
+  display: inline-block;
 }
 
 .content {
@@ -92,6 +106,7 @@ h1 {
     display: inline-block;
     color: $red;
     vertical-align: top;
+    margin-top: -10px;
     font-size: 10em;
     font-family: 'Blanch';
   }
@@ -106,6 +121,11 @@ h1 {
 
 .area {
   text-align: center;
+  
+  input[type=search] {
+    //font-size: 16px;
+    //display: inline-block;
+  }
   
   google-map {
     display: block;
