@@ -24,30 +24,46 @@ angular.module('Dynomite.controllers', [])
   }])
   .controller('AreaCtrl', ['$scope', 'Areas', function($scope, Areas) {
             
-    
     $scope.areas = Areas.allAreas().query({}, function(data) {
-      for (var i=0; i < data.length; i++) {
-        console.log(data[i].coord.lat);
-        console.log(data[i].coord.lon);
-      };
+      $scope.findMe();
+      $scope.addMarker();
     });
       
-    //google-maps directive
-    google.maps.visualRefresh = true;
+    $scope.center = {
+      latitude: 33,
+      longitude: 3.7
+    };
+
+    $scope.zoom = 8;
+
+    $scope.markers = [];
+
+    $scope.geolocationAvailable = navigator.geolocation ? true : false;
+
+    $scope.findMe = function () {
+      if( $scope.geolocationAvailable ) {
+	navigator.geolocation.getCurrentPosition(function(position) {
+	  $scope.center = {
+	    latitude: position.coords.latitude,
+	    longitude: position.coords.longitude
+	  };
+
+	  $scope.$apply();
+	}, function() {
+
+	});
+      }
+    };
+
+    $scope.addMarker = function() {
+      $scope.markers.push({
+	latitude: parseFloat($scope.markertLat),
+	longitude: parseFloat($scope.markerLng)
+      });
       
-    angular.extend($scope, {
-      center: {
-        latitude: 51.0500,
-        longitude: 3.7167
-      },
-      markers: [
-        {
-          latitude: 40.095,
-          longitude: -3.823,
-        }
-      ],
-      zoom: 8
-    });
+      $scope.markerLat = null;
+      $scope.markerLng = null;
+    };
     
     //default order
     $scope.orderAreas = 'name';
@@ -60,16 +76,16 @@ angular.module('Dynomite.controllers', [])
       });
     };
   }])
-  .controller('AreaEditCtrl', ['$scope', '$location', '$routeParams', 'Areas', function($scope, $location, $routeParams, Areas) {
+  .controller('AreaEditCtrl', ['$scope', '$location', '$routeParams', 'AreaEdit', function($scope, $location, $routeParams, AreaEdit) {
     var self = this;
     
-    Areas.getArea().get({id: $routeParams.areaId}, function(area) {
+    AreaEdit.get({id: $routeParams.areaId}, function(area) {
       self.original = area;
-      $scope.area = new Areas(self.original);
+      $scope.area = new AreaEdit(self.original);
     });
     
     $scope.isClean = function() {
-      return angular.equals(self.original, $scope.area)
+      return angular.equals(self.original, $scope.area);
     };
     
     $scope.destroy = function() {
@@ -81,8 +97,8 @@ angular.module('Dynomite.controllers', [])
     $scope.save = function() {
       $scope.area.update(function() {
         $location.path('/area');
-      })
-    }
+      });
+    };
   }])
   .controller('AreaRoutesCtrl', ['$scope', '$routeParams', 'Routes', 'Areas', function($scope, $routeParams, Routes, Areas) {
 
@@ -108,7 +124,7 @@ angular.module('Dynomite.controllers', [])
       $scope.route = new Routes(self.original);
     });
     $scope.isClean = function() {
-      return angular.equals(self.original, $scope.route)
+      return angular.equals(self.original, $scope.route);
     };
     $scope.destroy = function() {
       self.original.destroy(function() {
@@ -118,7 +134,7 @@ angular.module('Dynomite.controllers', [])
     $scope.save = function() {
       $scope.area.update(function() {
         $location.path('/route');
-      })
+      });
     };
   }])
   .controller('RouteIdDeleteCtrl', [function() {
