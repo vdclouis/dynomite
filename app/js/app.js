@@ -38,19 +38,20 @@ angular.module('Dynomite', ['Dynomite.filters', 'Dynomite.services', 'Dynomite.d
       })
       .otherwise({redirectTo: '/'});
   }]);
-  
+
+/* Snapjs */
 var snapper = new Snap({
   element: document.getElementById('snapper'),
   disable: 'right',
   touchToDrag: false
 });
 
-  document.getElementById('open-left').addEventListener('click', function() {
+document.getElementById('open-left').addEventListener('click', function() {
 
   if( snapper.state().state=="left" ) {
-    snapper.close();
+  snapper.close();
   } else {
-    snapper.open("left");
+  snapper.open("left");
   }
   
 });

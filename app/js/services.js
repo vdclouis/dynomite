@@ -38,9 +38,31 @@ angular.module('Dynomite.services', ['ngResource'])
         Areas.prototype.destroy = function(cb) {
           return Areas.remove({id: this._id.$oid}, cb);
         };
+
         return Areas;
       }
-    }
+    };
+  })
+  .factory('AreaEdit', function($resource) {
+    var AreaEdit = $resource(
+      'https://api.mongolab.com/api/1/databases/dynomite/collections/areas/:id?apiKey=' + apikey,
+      {}
+      ,{
+	update: { method: 'PUT' }
+      }
+    );
+
+    AreaEdit.prototype.update = function(cb) {
+      return AreaEdit.update({id: this._id.$oid},
+	angular.extend({}, this, {_id:undefined}), cb);
+    };
+
+    AreaEdit.prototype.destroy = function(cb) {
+      return AreaEdit.remove({id: this._id.$oid}, cb);
+    };
+
+    return AreaEdit;
+
   })
   .factory('Routes', function($resource) {
     return {
@@ -84,7 +106,7 @@ angular.module('Dynomite.services', ['ngResource'])
         };
         return Routes;
       }
-    }
+    };
   })
   .factory('Weather', function($resource) {
     var Resource = $resource('https://api.forecast.io/forecast/4c327a918629278ca227b67846a110f3/:lat,:lon',
