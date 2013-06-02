@@ -17,8 +17,8 @@
   <!-- coords -->
   <div class="control-group" ng-class="{error: editArea.coord.$invalid}">
     <label>Coordinates</label>
-    <input type="number" ng-model="area.coord.lat" name="markerLat" required>
-    <input type="number" ng-model="area.coord.lon" name="markerLng" required>
+    <input type="text" ng-model="area.coord.lat" name="markerLat" required>
+    <input type="text" ng-model="area.coord.lon" name="markerLng" required>
     <span ng-show="editArea.coord.$error.required" class="help-inline">Required</span>
   </div>
   
@@ -33,7 +33,7 @@
   <!-- buttons -->
   <br />
   <a href="#/area" class="btn">Cancel</a>
-  <button ng-click="save()" ng-disabled="isClean() || editArea.$invalid" class="btn btn-primary">Save</button>
+  <button ng-click="save(); addMarker()" ng-disabled="isClean() || editArea.$invalid" class="btn btn-primary">Save</button>
   <button ng-click="destroy()" ng-show="area._id" class="btn btn-danger">Delete</button>
   
 </form>

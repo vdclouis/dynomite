@@ -112,6 +112,7 @@ angular.module('Dynomite.services', ['ngResource'])
     var Resource = $resource('https://api.forecast.io/forecast/4c327a918629278ca227b67846a110f3/:lat,:lon',
       {
         callback:'JSON_CALLBACK',
+        units: 'si',
         lat: '@lat',
         lon: '@lon'
       },

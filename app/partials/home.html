@@ -4,8 +4,7 @@
   <!-- weather -->
   <div class="forecast">
     <div class="temp">
-      <!-- fahrenheit to Celsius -->
-      {{ ((weather.currently.temperature - 32) / 1.8)|number:0 }}°
+      {{weather.currently.temperature|number:0}}°
     </div>
     <canvas id="ico" width="140" height="140"></canvas>
   </div>

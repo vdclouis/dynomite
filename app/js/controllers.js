@@ -26,43 +26,41 @@ angular.module('Dynomite.controllers', [])
             
     $scope.areas = Areas.allAreas().query({}, function(data) {
       $scope.findMe();
-      $scope.addMarker();
-    });
       
+      for (var i=0; i<data.length; i++) {
+        var lat = data[i].coord.lat;
+        var lon = data[i].coord.lon;
+        
+        $scope.markers.push({
+          latitude: lat,
+          longitude: lon
+        });
+      }
+    });
+    
+    //gmap  
     $scope.center = {
       latitude: 33,
       longitude: 3.7
     };
-
     $scope.zoom = 8;
-
+    
     $scope.markers = [];
-
+    
+    //get pos
     $scope.geolocationAvailable = navigator.geolocation ? true : false;
-
-    $scope.findMe = function () {
+    $scope.findMe = function() {
       if( $scope.geolocationAvailable ) {
-	navigator.geolocation.getCurrentPosition(function(position) {
-	  $scope.center = {
-	    latitude: position.coords.latitude,
-	    longitude: position.coords.longitude
-	  };
+        navigator.geolocation.getCurrentPosition(function(position) {
+          $scope.center = {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+          };
+          $scope.$apply();
+        }, function() {
 
-	  $scope.$apply();
-	}, function() {
-
-	});
+        });
       }
-    };
-
-    $scope.addMarker = function() {
-      $scope.markers.push({
-	latitude: parseFloat($scope.markertLat),
-	longitude: parseFloat($scope.markerLng)
-      });
-      
-      $scope.markerLat = null;
-      $scope.markerLng = null;
     };
     
     //default order
@@ -74,7 +72,7 @@ angular.module('Dynomite.controllers', [])
       Areas.getArea().save($scope.area, function(area) {
         $location.path('/area');
       });
-    };
+    };  
   }])
   .controller('AreaEditCtrl', ['$scope', '$location', '$routeParams', 'AreaEdit', function($scope, $location, $routeParams, AreaEdit) {
     var self = this;
@@ -164,14 +162,4 @@ angular.module('Dynomite.controllers', [])
         $location.path('/area');
       });
     };
-  }])
-  .controller('UserCtrl', [function() {
-  }])
-  .controller('UserIdCtrl', [function() {
-  }])
-  .controller('UserIdEditCtrl', [function() {
-  }])
-  .controller('LoginCtrl', [function() {
-  }])
-  .controller('RegisterCtrl', [function() {
   }]);
