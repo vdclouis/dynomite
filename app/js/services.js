@@ -55,7 +55,7 @@ angular.module('Dynomite.services', ['ngResource'])
             get: { method: 'GET' }
           }
         );
-        console.log(Routes);
+        //console.log(Routes);
         Routes.prototype.update = function(cb) {
           return Routes.update({id: this._id.$oid},
           angular.extend({}, this, {_id:undefined}), cb);

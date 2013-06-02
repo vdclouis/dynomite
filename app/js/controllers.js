@@ -23,15 +23,16 @@ angular.module('Dynomite.controllers', [])
     });
   }])
   .controller('AreaCtrl', ['$scope', 'Areas', function($scope, Areas) {
-    //get all areas
-    $scope.areas = Areas.query({}, function(data) {
+            
+    
+    $scope.areas = Areas.allAreas().query({}, function(data) {
       for (var i=0; i < data.length; i++) {
         //console.log(data);
         console.log(data[i].coord.lat);
-        console.log(data[i].coord.lon); 
-      }
+        console.log(data[i].coord.lon);
+      };
     });
-    
+      
     //google-maps directive
     google.maps.visualRefresh = true;
       
