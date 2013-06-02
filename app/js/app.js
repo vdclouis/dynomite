@@ -38,7 +38,7 @@ angular.module('Dynomite', ['Dynomite.filters', 'Dynomite.services', 'Dynomite.d
       })
       .otherwise({redirectTo: '/'});
   }]);
-
+  
 /* Snapjs */
 var snapper = new Snap({
   element: document.getElementById('snapper'),
