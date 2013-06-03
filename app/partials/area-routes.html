@@ -1,13 +1,22 @@
-<h1>{{area.name}}</h1>
-<h2>Route list</h2>
 <div class="area-routes">
-  <ul>
-    <li data-ng-repeat="route in routes">
-      <a href="#/route/{{route.name}}">
-        {{route.name}} - {{route.areaName}}
-      </a>
-      <span><a href="#/route/edit/{{route.name}}">edit</a></span>
-    </li>
-  </ul>
-  <a ng-href="#/route/add?area={{area.name}}">add route</a>
+  <div id="mySwipe" class="swipe">
+    <div class="swipe-wrap">
+      <img src="http://placekitten.com/320/150" alt="" />
+      <img src="http://placekitten.com/320/151" alt="" />
+      <img src="http://placekitten.com/320/152" alt="" />
+    </div>
+  </div>
+  <h1>{{area.name}}</h1>
+  <h2>Route list</h2>
+  <div class="area-routes">
+    <ul>
+      <li data-ng-repeat="route in routes">
+        <a href="#/route/{{route.name}}">
+          {{route.name}} - {{route.areaName}}
+        </a>
+        <span><a href="#/route/edit/{{route.name}}">edit</a></span>
+      </li>
+    </ul>
+    <a ng-href="#/route/add?area={{area.name}}">add route</a>
+  </div>
 </div>

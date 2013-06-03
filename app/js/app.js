@@ -48,7 +48,7 @@ var snapper = new Snap({
 
 document.getElementById('open-left').addEventListener('click', function() {
 
-  if( snapper.state().state=="left" ) {
+  if( snapper.state().state === "left" ) {
   snapper.close();
   } else {
   snapper.open("left");

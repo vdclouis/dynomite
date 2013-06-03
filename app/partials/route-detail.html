@@ -1,26 +1,28 @@
 <form name='editRoute'>
-
+  
+  <!-- name -->
   <div class="control-group" ng-class="{error: editRoute.name.$invalid}">
     <label>Name</label>
     <input type="text" name="name" ng-model="route.name" required>
     <span ng-show="editRoute.name.$error.required" class="help-inline">Required</span>
   </div>
   
+  <!-- rating -->
   <div class="control-group" ng-class="{error: editRoute.rating.$invalid}">
     <label>Rating</label>
-    <input type="number" ng-model="route.rating" required/>
+    <input type="number" min="0" max="5" name="rating" ng-model="route.rating" required>
     <span ng-show="editRoute.rating.$error.required" class="help-inline">Required</span>
     <span ng-show="editRoute.rating.$error.number" class="help-inline">Not a number</span>
   </div>
-
-  <div class="control-group" ng-class="{error: editRoute.rating.$invalid}">
+  
+  <!-- areaName -->
+  <div class="control-group" ng-class="{error: editRoute.areaname.$invalid}">
     <label>Area name</label>
-    <select type="number" ng-model="route.areaName" ng-options="area.name for area in areas" ng-selected="{{areaName}}">
-    <!-- <select ng-model="route.areaName"> -->
+    <select name="areaname" ng-model="route.areaName" ng-options="area.name for area in areas" ng-selected="{{areaName}}" required>
+      <!-- <select ng-model="route.areaName"> -->
       <option value="{{area.name}}" data-ng-repeat="area in areas" ng-selected="route.areaName">{{area.name}}</option>
     </select>
-    <!-- <span ng-show="editRoute.rating.$error.required" class="help-inline">Required</span>
-    <span ng-show="editRoute.rating.$error.number" class="help-inline">Not a number</span> -->
+    <span ng-show="editRoute.areaname.$error.required" class="help-inline">Required</span>
   </div>
 
   <br />

@@ -50,12 +50,12 @@ $black: #333333;
 /* Styles */
 body {
   font-family: 'Maven';
+  
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
-
 }
 
 h1 {
@@ -150,4 +150,22 @@ h1 {
 
 .area-routes {
   text-align: center;
+}
+
+/* slideshow */
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+}
+
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+
+.swipe-wrap > img {
+  float: left;
+  width: 100%;
+  position: relative;
 }

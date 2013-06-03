@@ -37,7 +37,9 @@ angular.module('Dynomite.controllers', [])
       }
     });
     
-    //gmap  
+    //gmap
+    google.maps.visualRefresh = true;
+    
     $scope.center = {
       latitude: 33,
       longitude: 3.7
@@ -106,16 +108,20 @@ angular.module('Dynomite.controllers', [])
     };
   }])
   .controller('AreaRoutesCtrl', ['$scope', '$routeParams', 'Routes', 'Areas', function($scope, $routeParams, Routes, Areas) {
-
+    // get areaname
     Areas.getArea().query({id: $routeParams.name}, function(area) {
       console.log(area);
       $scope.area = area['0'];
     });
-    /*Areas.getArea().get({id: $routeParams.name}, function (data) {
-      $scope.area = data;
-    });*/
-
+    
+    // get routes with x areaname
     $scope.routes = Routes.getR().query({areaName: $routeParams.name});
+    
+    // Swipejs
+    window.mySwipe = new Swipe(document.getElementById('mySwipe'), {
+      auto: 3000,
+      continuous: true
+    });
   }])
   .controller('RouteIdCtrl', ['$scope', '$routeParams', 'Routes', function($scope, $routeParams, Routes) {
     console.log('RouteIdCtrl');
@@ -154,7 +160,6 @@ angular.module('Dynomite.controllers', [])
         data[i]['areaName'] = $routeParams.area;
       }
       $scope.areas = data;
-      //console.log(data);
       //$scope.route.areaName = data[0];
     });
 
@@ -166,7 +171,9 @@ angular.module('Dynomite.controllers', [])
     $scope.save = function() {
       /*Routes.areaName = $routeParams.area;*/
       Routes.routeById().save($scope.route, function(route) {
-        $location.path('/area');
+        // should become /area/areaName
+        $location.path('/area/' + $routeParams.area);
+        console.log(route);
       });
     };
   }]);
