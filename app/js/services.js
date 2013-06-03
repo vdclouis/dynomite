@@ -49,13 +49,16 @@ angular.module('Dynomite.services', ['ngResource'])
       'https://api.mongolab.com/api/1/databases/dynomite/collections/areas/:id?apiKey=' + apikey,
       {}
       ,{
-	update: { method: 'PUT' }
+        update: { method: 'PUT' }
       }
     );
 
     AreaEdit.prototype.update = function(cb) {
-      return AreaEdit.update({id: this._id.$oid},
-	angular.extend({}, this, {_id:undefined}), cb);
+      return AreaEdit.update(
+        {id: this._id.$oid},
+        angular.extend({}, this, {_id:undefined}), 
+        cb
+      );
     };
 
     AreaEdit.prototype.destroy = function(cb) {
@@ -63,7 +66,6 @@ angular.module('Dynomite.services', ['ngResource'])
     };
 
     return AreaEdit;
-
   })
   .factory('Routes', function($resource) {
     return {
@@ -84,15 +86,15 @@ angular.module('Dynomite.services', ['ngResource'])
           angular.extend({}, this, {_id:undefined}), cb);
         };
         Routes.prototype.destroy = function(cb) {
-          return Routes.remove({id: this._id.$oid}, cb);
+          return  Routes.remove({id: this._id.$oid}, cb);
         };
         return Routes;
       },
       routeById: function() {
         var Routes = $resource(
-          'https://api.mongolab.com/api/1/databases/dynomite/collections/routes?q={"routeName"\\:":routeName"}&apiKey=' + apikey,
+          'https://api.mongolab.com/api/1/databases/dynomite/collections/routes?q={"name"\\:":name"}&fo=true&apiKey=' + apikey,
           {
-            routeName: '@routeName'
+            name: '@name'
           },
           {
             update: { method: 'PUT' }
@@ -100,7 +102,7 @@ angular.module('Dynomite.services', ['ngResource'])
         );
         Routes.prototype.update = function(cb) {
           return Routes.update({id: this._id.$oid},
-          angular.extend({}, this, {_id:undefined}), cb);
+          angular.extendq({}, this, {_id:undefined}), cb);
         };
         Routes.prototype.destroy = function(cb) {
           return Routes.remove({id: this._id.$oid}, cb);

@@ -19,7 +19,6 @@ angular.module('Dynomite.controllers', [])
         skycons.add('ico', Skycons[icon]);
         skycons.play();
       });
-      
     });
   }])
   .controller('AreaCtrl', ['$scope', 'Areas', function($scope, Areas) {
@@ -66,7 +65,6 @@ angular.module('Dynomite.controllers', [])
     
     //default order
     $scope.orderAreas = 'name';
-    
   }])
   .controller('AreaAddCtrl', ['$scope', '$location', 'Areas', function($scope, $location, Areas){
     $scope.save = function() {
@@ -81,7 +79,6 @@ angular.module('Dynomite.controllers', [])
         $scope.lon = position.coords.longitude;
       })
     }
-    
   }])
   .controller('AreaEditCtrl', ['$scope', '$location', '$routeParams', 'AreaEdit', function($scope, $location, $routeParams, AreaEdit) {
     var self = this;
@@ -123,8 +120,12 @@ angular.module('Dynomite.controllers', [])
       continuous: true
     });
   }])
-  .controller('RouteIdCtrl', ['$scope', '$routeParams', 'Routes', function($scope, $routeParams, Routes) {
+  .controller('RouteIdCtrl', ['$scope', '$routeParams', 'Routes', '$log', function($scope, $routeParams, Routes, $log) {
     console.log('RouteIdCtrl');
+    Routes.routeById().get({name: $routeParams.routeId}, function(route) {
+      console.log(route);
+      $scope.route = route;
+    });
   }])
   .controller('RouteIdPicturesCtrl', [function() {
   }])
