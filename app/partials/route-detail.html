@@ -18,10 +18,9 @@
   <!-- areaName -->
   <div class="control-group" ng-class="{error: editRoute.areaname.$invalid}">
     <label>Area name</label>
-    <select name="areaname" ng-model="route.areaName" ng-options="area.name for area in areas" ng-selected="{{areaName}}" required>
-      <!-- <select ng-model="route.areaName"> -->
-      <option value="{{area.name}}" data-ng-repeat="area in areas" ng-selected="route.areaName">{{area.name}}</option>
-    </select>
+    
+    <select type="text" name="areaname" ng-model="route.areaName" ng-options="area.areaName as area.name for area in areas"></select>
+    
     <span ng-show="editRoute.areaname.$error.required" class="help-inline">Required</span>
   </div>
 

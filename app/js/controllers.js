@@ -151,29 +151,17 @@ angular.module('Dynomite.controllers', [])
   .controller('RouteIdDeleteCtrl', [function() {
   }])
   .controller('RouteAddCtrl', ['$scope', '$location', '$routeParams', '$log', 'Routes', 'Areas', function($scope, $location, $routeParams, $log, Routes, Areas) {
-    //var t = $location.search;
 
-    //get all areas for the dropdown
+    //get areaName from current area for the dropdown
     Areas.allAreas().query({}, function (data){
-      //console.log(data.length);
-      for (var i = 0; i < data.length; i++){
-        data[i]['areaName'] = $routeParams.area;
-      }
+      data[0]['areaName'] = $routeParams.area;
+      console.log(data);
       $scope.areas = data;
-      //$scope.route.areaName = data[0];
     });
 
-    console.log($routeParams.area);
-    //get the area name
-    //$scope.areaName = $routeParams.area;
-
-
     $scope.save = function() {
-      /*Routes.areaName = $routeParams.area;*/
       Routes.routeById().save($scope.route, function(route) {
-        // should become /area/areaName
         $location.path('/area/' + $routeParams.area);
-        console.log(route);
       });
     };
   }]);

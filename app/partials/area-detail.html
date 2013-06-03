@@ -3,22 +3,22 @@
   <!-- name -->
   <div class="control-group" ng-class="{error: editArea.name.$invalid}">
     <label>Name</label>
-    <input type="text" name="name" ng-model="area.name" required>
+    <input type="text" name="name" ng-model="area.name">
     <span ng-show="editArea.name.$error.required" class="help-inline">Required</span>
   </div>
   
   <!-- description -->
   <div class="control-group" ng-class="{error: editArea.description.$invalid}">
     <label>Description</label>
-    <input type="text" name="description" ng-model="area.description" required>
+    <input type="text" name="description" ng-model="area.description">
     <span ng-show="editArea.description.$error.required" class="help-inline">Required</span>
   </div>
   
   <!-- coords -->
   <div class="control-group" ng-class="{error: editArea.coord.$invalid}">
     <label>Coordinates</label>
-    <input type="text" ng-model="area.coord.lat" name="markerLat" placeholder="{{lat|number:3}}" required>
-    <input type="text" ng-model="area.coord.lon" name="markerLng" placeholder="{{lon|number:3}}" required>
+    <input type="text" ng-model="lat" name="markerLat" >
+    <input type="text" ng-model="lon" name="markerLng" >
     <span ng-show="editArea.coord.$error.required" class="help-inline">Required</span>
     <button ng-click="locateMe()">Find Me</button>
   </div>
@@ -26,7 +26,7 @@
   <!-- rating -->
   <div class="control-group" ng-class="{error: editArea.rating.$invalid}">
     <label>Rating</label>
-    <input type="number" min="0" max="5" ng-model="area.rating" required>
+    <input type="number" min="0" max="5" ng-model="area.rating" >
     <span ng-show="editArea.rating.$error.required" class="help-inline">Required</span>
     <span ng-show="editArea.rating.$error.number" class="help-inline">Not a number</span>
   </div>
