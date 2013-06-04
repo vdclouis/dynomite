@@ -23,6 +23,7 @@ angular.module('Dynomite.controllers', [])
   }])
   .controller('AreaCtrl', ['$scope', 'Areas', function($scope, Areas) {
     $scope.areas = Areas.allAreas().query({}, function(data) {
+      console.log(data);
       $scope.findMe();
       
       for (var i=0; i<data.length; i++) {

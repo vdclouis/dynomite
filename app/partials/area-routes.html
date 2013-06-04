@@ -7,6 +7,7 @@
     </div>
   </div>
   <h1>{{area.name}}</h1>
+  <p>{{area.description}}</p>
   <h2>Route list</h2>
   <div class="area-routes">
     <ul>
@@ -17,6 +18,8 @@
         <span><a href="#/route/edit/{{route.name}}">edit</a></span>
       </li>
     </ul>
+    <a ng-href="#/area/edit/{{area._id.$oid}}">edit area</a>
+    <a ng-href="#/area/delete/{{area._id.$oid}}">delete area</a>
     <a ng-href="#/route/add?area={{area.name}}">add route</a>
   </div>
 </div>
