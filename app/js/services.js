@@ -150,4 +150,8 @@ angular.module('Dynomite.services', ['ngResource'])
     
     return Resource;
     
-  });
+  })
+  .factory('routeCache', function($cacheFactory) {
+    return $cacheFactory('routeCache', {capacity:1})
+  })
+  ;

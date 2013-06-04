@@ -127,14 +127,26 @@ angular.module('Dynomite.controllers', [])
       continuous: true
     });
   }])
-  .controller('RouteIdCtrl', ['$scope', '$routeParams', 'Routes', '$log', function($scope, $routeParams, Routes, $log) {
-    console.log('RouteIdCtrl');
+  .controller('RouteIdCtrl', ['$scope', '$routeParams', 'Routes', '$log', 'routeCache', function($scope, $routeParams, Routes, $log, routeCache) {
     Routes.routeById().get({name: $routeParams.routeId}, function(route) {
       console.log(route);
       $scope.route = route;
+      routeCache.put('thisRoute', route)
     });
   }])
-  .controller('RouteIdPicturesCtrl', [function() {
+  .controller('RouteIdPicturesCtrl', ['$scope', '$routeParams', 'Routes', '$log', 'routeCache', function($scope, $routeParams, Routes, $log, routeCache) {
+    if( typeof routeCache.get('thisRoute') === 'undefined' ){
+      console.log('undefined');
+      console.log(typeof routeCache.get('thisRoute'));
+      Routes.routeById().get({name: $routeParams.routeId}, function(route) {
+        console.log(route);
+        $scope.route = route;
+      });
+    } else {
+      console.log('existing');
+      console.log(typeof routeCache.get('thisRoute'));
+      $scope.route = routeCache.get('thisRoute');
+    }
   }])
   .controller('RouteIdEditCtrl', ['$scope', '$location', '$routeParams', 'RouteEdit', 'Areas', function($scope, $location, $routeParams, RouteEdit, Areas) {
     Areas.allAreas().query({}, function (data){
