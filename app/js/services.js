@@ -47,15 +47,15 @@ angular.module('Dynomite.services', ['ngResource'])
   .factory('AreaEdit', function($resource) {
     var AreaEdit = $resource(
       'https://api.mongolab.com/api/1/databases/dynomite/collections/areas/:id?apiKey=' + apikey,
-      {}
-      ,{
+      {},
+      {
         update: { method: 'PUT' }
       }
     );
 
     AreaEdit.prototype.update = function(cb) {
       return AreaEdit.update(
-        {id: this._id.$oid},
+	{ id: this._id.$oid },
         angular.extend({}, this, {_id:undefined}), 
         cb
       );
@@ -110,6 +110,29 @@ angular.module('Dynomite.services', ['ngResource'])
         return Routes;
       }
     };
+  })
+  .factory('RouteEdit', function($resource) {
+    var RouteEdit = $resource(
+      'https://api.mongolab.com/api/1/databases/dynomite/collections/routes/:id?apiKey=' + apikey,
+      {},
+      {
+	update: { method: 'PUT' }
+      }
+    );
+
+    RouteEdit.prototype.update = function(cb) {
+      return RouteEdit.update(
+	{ id: this._id.$oid },
+	angular.extend({}, this, {_id:undefined}),
+	cb
+      );
+    }
+
+    RouteEdit.prototype.destroy = function(cb) {
+      return RouteEdit.remove({id: this._id.$oid}, cb);
+    };
+
+    return RouteEdit;
   })
   .factory('Weather', function($resource) {
     var Resource = $resource('https://api.forecast.io/forecast/:apikey/:lat,:lon',

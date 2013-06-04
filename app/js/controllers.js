@@ -21,6 +21,12 @@ angular.module('Dynomite.controllers', [])
       });
     });
   }])
+  .controller('AboutCtrl', ['$scope', function($scope) {
+
+  }])
+  .controller('GradesCtrl', ['$scope', function($scope) {
+
+  }])
   .controller('AreaCtrl', ['$scope', 'Areas', function($scope, Areas) {
     $scope.areas = Areas.allAreas().query({}, function(data) {
       console.log(data);
@@ -130,29 +136,39 @@ angular.module('Dynomite.controllers', [])
   }])
   .controller('RouteIdPicturesCtrl', [function() {
   }])
-  .controller('RouteIdEditCtrl', ['$scope', '$routeParams', 'Routes', function($scope, $routeParams, Routes) {
-    var self = this;
-    Routes.getR().get({id: $routeParams.routeId}, function(route) {
-      self.original = route;
-      $scope.route = new Routes(self.original);
+  .controller('RouteIdEditCtrl', ['$scope', '$location', '$routeParams', 'RouteEdit', 'Areas', function($scope, $location, $routeParams, RouteEdit, Areas) {
+    Areas.allAreas().query({}, function (data){
+      data[0]['areaName'] = $routeParams.area;
+      console.log(data);
+      $scope.areas = data;
     });
+
+    var self = this;
+
+    RouteEdit.get({id: $routeParams.routeId}, function(route) {
+      self.original = route;
+      $scope.route = new RouteEdit(self.original);
+    });
+
     $scope.isClean = function() {
       return angular.equals(self.original, $scope.route);
     };
+
     $scope.destroy = function() {
       self.original.destroy(function() {
-        $location.path('/route');
+	$location.path('/area');
       });
     };
+
     $scope.save = function() {
-      $scope.area.update(function() {
-        $location.path('/route');
+      $scope.route.update(function() {
+	$location.path('/area');
       });
     };
   }])
   .controller('RouteIdDeleteCtrl', [function() {
   }])
-  .controller('RouteAddCtrl', ['$scope', '$location', '$routeParams', '$log', 'Routes', 'Areas', function($scope, $location, $routeParams, $log, Routes, Areas) {
+  .controller('RouteAddCtrl', ['$scope', '$routeParams', 'Routes', 'Areas', function($scope, $routeParams, Routes, Areas) {
 
     //get areaName from current area for the dropdown
     Areas.allAreas().query({}, function (data){

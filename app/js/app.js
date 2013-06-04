@@ -5,6 +5,14 @@ angular.module('Dynomite', ['Dynomite.filters', 'Dynomite.services', 'Dynomite.d
         templateUrl: 'partials/home.html',
         controller: 'HomeCtrl'
       })
+      .when('/about', {
+	templateUrl: 'partials/about.html',
+	controller: 'AboutCtrl'
+      })
+      .when('/grades', {
+	templateUrl: 'partials/grades.html',
+	controller: 'GradesCtrl'
+      })
       .when('/area', {
         templateUrl: 'partials/area.html',
         controller: 'AreaCtrl'

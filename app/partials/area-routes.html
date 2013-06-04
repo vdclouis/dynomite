@@ -15,7 +15,7 @@
         <a href="#/route/{{route.name}}">
           {{route.name}} - {{route.areaName}}
         </a>
-        <span><a href="#/route/edit/{{route.name}}">edit</a></span>
+	<span><a href="#/route/edit/{{route._id.$oid}}">edit</a></span>
       </li>
     </ul>
     <a ng-href="#/area/edit/{{area._id.$oid}}">edit area</a>
