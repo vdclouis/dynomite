@@ -168,14 +168,22 @@ h1 {
   width: 100%;
   position: relative; }
 
-/* line 173, main.scss */
-.picture {
-  position: relative; }
-  /* line 175, main.scss */
-  .picture img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto; }
+/* line 225, main.scss */
+.heading .title {
+  float: left; }
+/* line 228, main.scss */
+.heading .elements {
+  margin-left: 110px; }
+  /* line 230, main.scss */
+  .heading .elements li {
+    cursor: pointer;
+    padding: 5px;
+    display: block;
+    float: left;
+    margin-left: 30px;
+    border: 1px solid grey; }
+
+/* line 242, main.scss */
+.picture img {
+  margin: auto;
+  width: 100%; }

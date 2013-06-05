@@ -134,19 +134,22 @@ angular.module('Dynomite.controllers', [])
       routeCache.put('thisRoute', route)
     });
   }])
-  .controller('RouteIdPicturesCtrl', ['$scope', '$routeParams', 'Routes', '$log', 'routeCache', function($scope, $routeParams, Routes, $log, routeCache) {
+  .controller('RouteIdPicturesCtrl', ['$scope', '$routeParams', 'Routes', '$log', 'routeCache', '$timeout', function($scope, $routeParams, Routes, $log, routeCache, $timeout) {
     if( typeof routeCache.get('thisRoute') === 'undefined' ){
-      console.log('undefined');
-      console.log(typeof routeCache.get('thisRoute'));
       Routes.routeById().get({name: $routeParams.routeId}, function(route) {
         console.log(route);
         $scope.route = route;
       });
     } else {
-      console.log('existing');
-      console.log(typeof routeCache.get('thisRoute'));
       $scope.route = routeCache.get('thisRoute');
     }
+    $scope.elements = [
+      { 'title': 'start', 'drag': true },
+      { 'title': 'end', 'drag': true },
+      { 'title': 'grip', 'drag': true },
+      { 'title': 'move', 'drag': true },
+      { 'title': 'dyno', 'drag': true }
+    ];
   }])
   .controller('RouteIdEditCtrl', ['$scope', '$location', '$routeParams', 'RouteEdit', 'Areas', function($scope, $location, $routeParams, RouteEdit, Areas) {
     Areas.allAreas().query({}, function (data){
@@ -168,13 +171,13 @@ angular.module('Dynomite.controllers', [])
 
     $scope.destroy = function() {
       self.original.destroy(function() {
-	$location.path('/area');
+	      $location.path('/area');
       });
     };
 
     $scope.save = function() {
       $scope.route.update(function() {
-	$location.path('/area');
+	      $location.path('/area');
       });
     };
   }])
