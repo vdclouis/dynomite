@@ -1,0 +1,16 @@
+<div class="heading">
+  <p class="title">pictures: {{route.name}}</p>
+  <ol class="elements" ng-cloak="">
+    <li ng-repeat="element in elements" ng-show="item.title" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list1" jqyoui-draggable="{index: {{$index}},animate:true}"></li>
+    <!-- <li>start</li>
+    <li>end</li>
+    <li>grip</li>
+    <li>move</li>
+    <li>dyno</li> -->
+  </ol>
+</div>
+<div class="picture">
+  <img src="img/wall.jpg" alt="">
+</div>
+<script src="vendors/jquery-ui.min.js"></script>
+<script src="vendors/angular-dragdrop.min.js"></script>

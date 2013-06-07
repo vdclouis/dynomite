@@ -256,3 +256,29 @@ h1 {
   width: 100%;
   position: relative;
 }
+
+.heading{
+  .title{
+    float: left;
+  }
+  .elements{
+    margin-left: 110px;
+    li{
+      cursor: pointer;
+      padding: 5px;
+      display: block;
+      float: left;
+      margin-left: 30px;
+      border: 1px solid grey;
+    }
+  }
+}
+
+.picture{
+  img{
+   //position: absolute;
+    margin: auto; 
+    width: 100%;
+
+  }
+}

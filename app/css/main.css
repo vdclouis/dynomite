@@ -205,3 +205,23 @@ h1 {
   float: left;
   width: 100%;
   position: relative; }
+
+/* line 261, main.scss */
+.heading .title {
+  float: left; }
+/* line 264, main.scss */
+.heading .elements {
+  margin-left: 110px; }
+  /* line 266, main.scss */
+  .heading .elements li {
+    cursor: pointer;
+    padding: 5px;
+    display: block;
+    float: left;
+    margin-left: 30px;
+    border: 1px solid grey; }
+
+/* line 278, main.scss */
+.picture img {
+  margin: auto;
+  width: 100%; }

@@ -1,7 +1,7 @@
 //mongolab API key
 var apikey = 'zmU_BDz4u4CsCpTltEbxOlPazJOFZtPE';
 
-angular.module('Dynomite.services', ['ngResource'])
+angular.module('Dynomite.services', ['ngResource', 'ngDragDrop'])
   .value('version', '0.1')
   .factory('Areas', function($resource) {
     return{
@@ -150,4 +150,8 @@ angular.module('Dynomite.services', ['ngResource'])
     
     return Resource;
     
-  });
+  })
+  .factory('routeCache', function($cacheFactory) {
+    return $cacheFactory('routeCache', {capacity:1})
+  })
+  ;

@@ -33,6 +33,10 @@ angular.module('Dynomite', ['Dynomite.filters', 'Dynomite.services', 'Dynomite.d
         templateUrl: 'partials/route-detail.html',
         controller: 'RouteAddCtrl'
       })
+      .when('/route/pictures/:routeId', {
+        templateUrl: 'partials/route-pictures.html',
+        controller: 'RouteIdPicturesCtrl'
+      })
       .when('/route/edit/:routeId', {
         templateUrl: 'partials/route-detail.html',
         controller: 'RouteIdEditCtrl'
