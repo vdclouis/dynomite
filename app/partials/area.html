@@ -1,14 +1,13 @@
 <div class="area">
-  <!-- filter options -->
-  <input type="search" results="" data-ng-model="search.name" />
-  <select data-ng-model="orderAreas">
-    <option value="name">Alphabetical</option>
-    <option value="rating">Rating</option>
-    <option value="routes">Routes</option>
-  </select>
-  
   <!-- title -->
   <h1>Areas</h1>
+  
+  <!-- filter options -->
+  <input type="search" results="" data-ng-model="search.name" placeholder="Search Dynomite" />
+  <select ng-model="orderAreas">
+    <option value="name">Alphabetical</option>
+    <option value="rating">Rating</option>
+  </select>
   
  <!--  map -->
     <google-map

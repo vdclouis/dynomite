@@ -6,12 +6,12 @@ angular.module('Dynomite', ['Dynomite.filters', 'Dynomite.services', 'Dynomite.d
         controller: 'HomeCtrl'
       })
       .when('/about', {
-	templateUrl: 'partials/about.html',
-	controller: 'AboutCtrl'
+        templateUrl: 'partials/about.html',
+        controller: 'AboutCtrl'
       })
       .when('/grades', {
-	templateUrl: 'partials/grades.html',
-	controller: 'GradesCtrl'
+        templateUrl: 'partials/grades.html',
+        controller: 'GradesCtrl'
       })
       .when('/area', {
         templateUrl: 'partials/area.html',
@@ -54,12 +54,37 @@ var snapper = new Snap({
   touchToDrag: false
 });
 
+/* Slideshow */
 document.getElementById('open-left').addEventListener('click', function() {
-
   if( snapper.state().state === "left" ) {
   snapper.close();
   } else {
   snapper.open("left");
   }
-  
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -50,7 +50,6 @@ $black: #333333;
 /* Styles */
 body {
   font-family: 'Maven';
-  
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -60,8 +59,11 @@ body {
 
 h1 {
   font-family: 'Arvil';
-  font-size: 3em;
+  font-size: 1.7em;
   color: $red;
+  margin-top: -1.6em;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(0,0,0,.1);
 }
 
 #open-left {
@@ -70,6 +72,10 @@ h1 {
   color: $dg;
   padding-left: .3em;
   display: inline-block;
+  
+  a {
+    display: inline-block;
+  }
 }
 
 .content {
@@ -123,15 +129,36 @@ h1 {
   h1 {
     text-align: center;
   }
-
   p {
     padding: 0 20px;
+  }
+  span {
+    color: $green;
+  }
+  .fotos {
+    margin: 0 auto;
+    text-align: center;
+  }
+  a {
+    color: $green;
+    text-decoration: none;
+    text-align: center;
+    margin: 0 auto;
+    
+    img {
+      width: 40%;
+      height: 40%;
+    }
   }
 }
 
 .grades {
   h1 {
     text-align: center;
+  }
+  
+  p {
+    padding: 0 20px;
   }
 
   table {
@@ -149,8 +176,6 @@ h1 {
     overflow-x: scroll;
     overflow-y: hidden;
   }
-
-
 
   .glass {
     width: 80px;
@@ -173,9 +198,12 @@ h1 {
 .area {
   text-align: center;
   
+  h1 {
+    margin-bottom: 0;
+  }
+  
   input[type=search] {
-    //font-size: 16px;
-    //display: inline-block;
+    width: 314px;
   }
   
   google-map {
@@ -201,6 +229,14 @@ h1 {
 
 .area-routes {
   text-align: center;
+  
+  h1 {
+    margin-bottom: 0;
+  }
+  
+  input[type=search] {
+    width: 314px;
+  }
 }
 
 /* slideshow */

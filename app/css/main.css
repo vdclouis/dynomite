@@ -33,27 +33,33 @@ body {
   -o-user-select: none;
   user-select: none; }
 
-/* line 61, main.scss */
+/* line 60, main.scss */
 h1 {
   font-family: 'Arvil';
-  font-size: 3em;
-  color: #e3694e; }
+  font-size: 1.7em;
+  color: #e3694e;
+  margin-top: -1.6em;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
 
-/* line 67, main.scss */
+/* line 69, main.scss */
 #open-left {
   text-decoration: none;
   font-size: 2em;
   color: #a0a0a0;
   padding-left: .3em;
   display: inline-block; }
+  /* line 76, main.scss */
+  #open-left a {
+    display: inline-block; }
 
-/* line 76, main.scss */
+/* line 82, main.scss */
 .content ul {
   padding: 0;
   width: 95%;
   margin: 10px auto;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.3); }
-  /* line 82, main.scss */
+  /* line 88, main.scss */
   .content ul li {
     list-style: none;
     text-align: left;
@@ -61,18 +67,18 @@ h1 {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     background: white; }
-    /* line 90, main.scss */
+    /* line 96, main.scss */
     .content ul li:nth-child(odd) {
       background-color: #f8f8f8; }
-  /* line 95, main.scss */
+  /* line 101, main.scss */
   .content ul a {
     text-decoration: none;
     color: #a0a0a0; }
 
-/* line 102, main.scss */
+/* line 108, main.scss */
 .home {
   text-align: center; }
-  /* line 105, main.scss */
+  /* line 111, main.scss */
   .home .temp {
     display: inline-block;
     color: #e3694e;
@@ -80,38 +86,58 @@ h1 {
     margin-top: -10px;
     font-size: 10em;
     font-family: 'Blanch'; }
-  /* line 113, main.scss */
+  /* line 119, main.scss */
   .home canvas {
     display: inline-block; }
-  /* line 116, main.scss */
+  /* line 122, main.scss */
   .home img {
     width: 132px;
     padding: 40px; }
 
-/* line 123, main.scss */
+/* line 129, main.scss */
 .about h1 {
   text-align: center; }
-/* line 127, main.scss */
+/* line 132, main.scss */
 .about p {
   padding: 0 20px; }
+/* line 135, main.scss */
+.about span {
+  color: #1bc6b0; }
+/* line 138, main.scss */
+.about .fotos {
+  margin: 0 auto;
+  text-align: center; }
+/* line 142, main.scss */
+.about a {
+  color: #1bc6b0;
+  text-decoration: none;
+  text-align: center;
+  margin: 0 auto; }
+  /* line 148, main.scss */
+  .about a img {
+    width: 40%;
+    height: 40%; }
 
-/* line 133, main.scss */
+/* line 156, main.scss */
 .grades h1 {
   text-align: center; }
-/* line 137, main.scss */
+/* line 160, main.scss */
+.grades p {
+  padding: 0 20px; }
+/* line 164, main.scss */
 .grades table {
   width: 340px;
   overflow-y: scroll; }
-  /* line 141, main.scss */
+  /* line 168, main.scss */
   .grades table td {
     padding: 10px; }
-/* line 146, main.scss */
+/* line 173, main.scss */
 .grades .slide {
   background: white;
   padding: 10px;
   overflow-x: scroll;
   overflow-y: hidden; }
-/* line 155, main.scss */
+/* line 180, main.scss */
 .grades .glass {
   width: 80px;
   height: 100px;
@@ -124,45 +150,57 @@ h1 {
   border-radius: 5px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5), inset 0 1px rgba(255, 255, 255, 0.3), inset 0 10px rgba(255, 255, 255, 0.2), inset 0 10px 20px rgba(255, 255, 255, 0.25), inset 0 -15px 30px rgba(0, 0, 0, 0.3); }
 
-/* line 173, main.scss */
+/* line 198, main.scss */
 .area {
   text-align: center; }
-  /* line 181, main.scss */
+  /* line 201, main.scss */
+  .area h1 {
+    margin-bottom: 0; }
+  /* line 205, main.scss */
+  .area input[type=search] {
+    width: 314px; }
+  /* line 209, main.scss */
   .area google-map {
     display: block;
     width: 100%;
     height: 150px; }
 
-/* line 188, main.scss */
+/* line 216, main.scss */
 .area-map {
   text-align: center; }
-  /* line 191, main.scss */
+  /* line 219, main.scss */
   .area-map .angular-leaflet-map {
     display: block;
     width: 100%;
     height: 640px; }
 
-/* line 198, main.scss */
+/* line 226, main.scss */
 .area-id {
   text-align: center; }
 
-/* line 202, main.scss */
+/* line 230, main.scss */
 .area-routes {
   text-align: center; }
+  /* line 233, main.scss */
+  .area-routes h1 {
+    margin-bottom: 0; }
+  /* line 237, main.scss */
+  .area-routes input[type=search] {
+    width: 314px; }
 
 /* slideshow */
-/* line 207, main.scss */
+/* line 243, main.scss */
 .swipe {
   overflow: hidden;
   visibility: hidden;
   position: relative; }
 
-/* line 213, main.scss */
+/* line 249, main.scss */
 .swipe-wrap {
   overflow: hidden;
   position: relative; }
 
-/* line 218, main.scss */
+/* line 254, main.scss */
 .swipe-wrap > img {
   float: left;
   width: 100%;

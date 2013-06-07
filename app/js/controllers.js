@@ -126,6 +126,9 @@ angular.module('Dynomite.controllers', [])
       auto: 3000,
       continuous: true
     });
+    
+    //default order
+    $scope.orderRoutes = 'name';
   }])
   .controller('RouteIdCtrl', ['$scope', '$routeParams', 'Routes', '$log', function($scope, $routeParams, Routes, $log) {
     console.log('RouteIdCtrl');
