@@ -55,7 +55,7 @@ angular.module('Dynomite.services', ['ngResource', 'ngDragDrop'])
 
     AreaEdit.prototype.update = function(cb) {
       return AreaEdit.update(
-	{ id: this._id.$oid },
+        { id: this._id.$oid },
         angular.extend({}, this, {_id:undefined}), 
         cb
       );
@@ -116,15 +116,15 @@ angular.module('Dynomite.services', ['ngResource', 'ngDragDrop'])
       'https://api.mongolab.com/api/1/databases/dynomite/collections/routes/:id?apiKey=' + apikey,
       {},
       {
-	update: { method: 'PUT' }
+        update: { method: 'PUT' }
       }
     );
 
     RouteEdit.prototype.update = function(cb) {
       return RouteEdit.update(
-	{ id: this._id.$oid },
-	angular.extend({}, this, {_id:undefined}),
-	cb
+        { id: this._id.$oid },
+        angular.extend({}, this, {_id:undefined}),
+        cb
       );
     }
 
@@ -149,7 +149,6 @@ angular.module('Dynomite.services', ['ngResource', 'ngDragDrop'])
     );
     
     return Resource;
-    
   })
   .factory('routeCache', function($cacheFactory) {
     return $cacheFactory('routeCache', {capacity:1})

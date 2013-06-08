@@ -1,7 +1,7 @@
 <div class="heading">
   <p class="title">pictures: {{route.name}}</p>
   <ol class="elements" ng-cloak="">
-    <li ng-repeat="element in elements" ng-show="item.title" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list1" jqyoui-draggable="{index: {{$index}},animate:true}"></li>
+    <li ng-repeat="item in elements" ng-show="item.title" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list1" jqyoui-draggable="{index: {{$index}},animate:true}">{{element.title}}</li>
     <!-- <li>start</li>
     <li>end</li>
     <li>grip</li>

@@ -153,6 +153,29 @@ angular.module('Dynomite.controllers', [])
       { 'title': 'move', 'drag': true },
       { 'title': 'dyno', 'drag': true }
     ];
+    $scope.startCallback = function(event, ui) {
+      console.log('You started draggin');
+    };
+
+    $scope.stopCallback = function(event, ui) {
+      console.log('Why did you stop draggin me?');
+    };
+
+    $scope.dragCallback = function(event, ui) {
+      console.log('hey, look I`m flying');
+    };
+
+    $scope.dropCallback = function(event, ui) {
+      console.log('hey, you dumped me :-(');
+    };
+
+    $scope.overCallback = function(event, ui) {
+      console.log('Look, I`m over you');
+    };
+
+    $scope.outCallback = function(event, ui) {
+      console.log('I`m not, hehe');
+    };
   }])
   .controller('RouteIdEditCtrl', ['$scope', '$location', '$routeParams', 'RouteEdit', 'Areas', function($scope, $location, $routeParams, RouteEdit, Areas) {
     Areas.allAreas().query({}, function (data){
