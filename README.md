@@ -14,7 +14,7 @@ Follow our project on [facetube](https://www.facebook.com/dynomiteapp)
 
 ##how to deploy
 ###super easy:
-Just run the index.html
+Just run the `index.html`
 
 ###easy:
-set up a local server and run index.html
+set up a local server and run `index.html`
