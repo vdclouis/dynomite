@@ -92,7 +92,7 @@ angular.module('Dynomite.services', ['ngResource'])
       },
       routeById: function() {
         var Routes = $resource(
-          'https://api.mongolab.com/api/1/databases/dynomite/collections/routes?q={"name"\\:":name"}&fo=true&apiKey=' + apikey,
+          'https://api.mongolab.com/api/1/databases/dynomite/collections/routes/:name?fo=true&apiKey=' + apikey,
           {
             name: '@name'
           },

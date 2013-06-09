@@ -142,9 +142,8 @@ angular.module('Dynomite.controllers', [])
     Routes.routeById().get({name: $routeParams.routeId}, function(route) {
       console.log(route);
       $scope.route = route;
+      routeCache.put('thisRoute', route);
     });
-
-    
   }])
   .controller('RouteIdPicturesCtrl', ['$scope', '$routeParams', 'Routes', '$log', 'routeCache', function($scope, $routeParams, Routes, $log, routeCache) {
     if( typeof routeCache.get('thisRoute') === 'undefined' ){
