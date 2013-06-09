@@ -83,10 +83,6 @@ angular.module('Dynomite.controllers', [])
     
     $scope.area = new AreaEdit();
     
-    //$scope.area.coord = { lat: 0, lon: 0 };
-    
-    //console.log($scope.save);
-    
     $scope.locateMe = function() {
       navigator.geolocation.getCurrentPosition(function(position) {
         $scope.area.coord = { lat: position.coords.latitude, lon: position.coords.longitude };
@@ -132,7 +128,7 @@ angular.module('Dynomite.controllers', [])
   .controller('AreaRoutesCtrl', ['$scope', '$routeParams', 'Routes', 'Areas', function($scope, $routeParams, Routes, Areas) {
     // get areaname
     Areas.getArea().query({id: $routeParams.name}, function(area) {
-      console.log(area);
+      //console.log(area);
       $scope.area = area['0'];
     });
     
@@ -153,6 +149,12 @@ angular.module('Dynomite.controllers', [])
       //console.log(route);
       $scope.route = route;
       routeCache.put('thisRoute', route);
+    });
+
+    // Swipejs
+    window.mySwipe = new Swipe(document.getElementById('mySwipe'), {
+      auto: 3000,
+      continuous: true
     });
   }])
   .controller('RouteIdPicturesCtrl', ['$scope', '$routeParams', 'Routes', '$log', 'routeCache', function($scope, $routeParams, Routes, $log, routeCache) {

@@ -164,6 +164,7 @@ h1 {
   table {
     width: 340px;
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 
     td {
       padding: 10px;
@@ -223,11 +224,12 @@ h1 {
   }
 }
 
-.area-id {
+.route-id {
   text-align: center;
   
   .center-cropped {
-    width: 100%;
+    width: 320px;
+    max-width: 100%;
     display: block;
     background-position: center center;
     height: 150px;
@@ -258,8 +260,9 @@ h1 {
   position: relative;
 }
 
-.swipe-wrap > img {
+.swipe-wrap > img, .swipe-wrap > a, .swipe-wrap > div {
   float: left;
+  display: block;
   width: 100%;
   position: relative;
 }

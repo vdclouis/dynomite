@@ -1,10 +1,15 @@
-<div class="area-id">
+<div class="route-id">
   <h1>{{route.name}}</h1>
-  <a href="#route/pictures/{{route.name}}" class="center-cropped" style="background-image: url({{route.img}});"></a>
+  <div id="mySwipe" class="swipe">
+    <div class="swipe-wrap">
+      <a href="#/route/pictures/{{route.name}}" ng-repeat="r in route.img" class="center-cropped" style="background-image: url( {{ r }} ); background-repeat: no-repeat;"></a>
+    </div>
+  </div>
+
   <p>{{route.description}}</p>
   <h2>difficulty: {{route.grade}}</h2>
   <h2>rating: {{route.rating}}/5</h2>
-  <h2>type: {{route.type}}</h2>
+  <h2>type: <span ng-repeat="t in route.type">{{t}} </span></h2>
   
 </div>
 <a href="#/route/pictures/{{route.name}}">pictures</a>

@@ -127,17 +127,18 @@ h1 {
 /* line 164, main.scss */
 .grades table {
   width: 340px;
-  overflow-y: scroll; }
-  /* line 168, main.scss */
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch; }
+  /* line 169, main.scss */
   .grades table td {
     padding: 10px; }
-/* line 173, main.scss */
+/* line 174, main.scss */
 .grades .slide {
   background: white;
   padding: 10px;
   overflow-x: scroll;
   overflow-y: hidden; }
-/* line 180, main.scss */
+/* line 181, main.scss */
 .grades .glass {
   width: 80px;
   height: 100px;
@@ -150,75 +151,77 @@ h1 {
   border-radius: 5px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5), inset 0 1px rgba(255, 255, 255, 0.3), inset 0 10px rgba(255, 255, 255, 0.2), inset 0 10px 20px rgba(255, 255, 255, 0.25), inset 0 -15px 30px rgba(0, 0, 0, 0.3); }
 
-/* line 198, main.scss */
+/* line 199, main.scss */
 .area {
   text-align: center; }
-  /* line 201, main.scss */
+  /* line 202, main.scss */
   .area h1 {
     margin-bottom: 0; }
-  /* line 205, main.scss */
+  /* line 206, main.scss */
   .area input[type=search] {
     width: 314px; }
-  /* line 209, main.scss */
+  /* line 210, main.scss */
   .area google-map {
     display: block;
     width: 100%;
     height: 150px; }
 
-/* line 216, main.scss */
+/* line 217, main.scss */
 .area-map {
   text-align: center; }
-  /* line 219, main.scss */
+  /* line 220, main.scss */
   .area-map .angular-leaflet-map {
     display: block;
     width: 100%;
     height: 640px; }
 
-/* line 226, main.scss */
-.area-id {
+/* line 227, main.scss */
+.route-id {
   text-align: center; }
-  /* line 229, main.scss */
-  .area-id .center-cropped {
-    width: 100%;
+  /* line 230, main.scss */
+  .route-id .center-cropped {
+    width: 320px;
+    max-width: 100%;
     display: block;
     background-position: center center;
     height: 150px; }
 
-/* line 237, main.scss */
+/* line 239, main.scss */
 .area-routes {
   text-align: center; }
-  /* line 240, main.scss */
+  /* line 242, main.scss */
   .area-routes h1 {
     margin-bottom: 0; }
-  /* line 244, main.scss */
+  /* line 246, main.scss */
   .area-routes input[type=search] {
     width: 314px; }
 
 /* slideshow */
-/* line 250, main.scss */
+/* line 252, main.scss */
 .swipe {
   overflow: hidden;
   visibility: hidden;
   position: relative; }
 
-/* line 256, main.scss */
+/* line 258, main.scss */
 .swipe-wrap {
   overflow: hidden;
   position: relative; }
 
-/* line 261, main.scss */
-.swipe-wrap > img {
+/* line 263, main.scss */
+.swipe-wrap > img, .swipe-wrap > a, .swipe-wrap > div {
   float: left;
+  display: block;
   width: 100%;
   position: relative; }
 
-/* line 268, main.scss */
+/* line 271, main.scss */
 .heading .title {
   float: left; }
-/* line 271, main.scss */
+/* line 274, main.scss */
 .heading .elements {
   margin-left: 110px; }
-  /* line 273, main.scss */
+  /* line 276, main.scss */
   .heading .elements li {
     cursor: pointer;
     padding: 5px;
@@ -227,7 +230,7 @@ h1 {
     margin-left: 30px;
     border: 1px solid grey; }
 
-/* line 285, main.scss */
+/* line 288, main.scss */
 .picture img {
   margin: auto;
   width: 100%; }

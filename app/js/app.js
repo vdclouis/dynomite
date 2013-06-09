@@ -58,7 +58,6 @@ var snapper = new Snap({
   touchToDrag: false
 });
 
-/* Slideshow */
 document.getElementById('open-left').addEventListener('click', function() {
   if( snapper.state().state === "left" ) {
   snapper.close();
