@@ -19,7 +19,7 @@
   <!-- list -->
   <ul>
     <li data-ng-repeat="route in routes | filter:search | orderBy:orderRoutes">
-      <a href="#/route/{{route.name}}">
+      <a href="#/route/{{route._id.$oid}}">
         {{route.name}} - {{route.areaName}}
       </a>
       <span><a href="#/route/edit/{{route._id.$oid}}">edit</a></span>
