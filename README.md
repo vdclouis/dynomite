@@ -3,7 +3,7 @@
 
 Dope project from [@vdclouis](http://www.twitter.com/vdclouis) & [@peecken](http://www.twitter.com/peecken)
 
-Using the MEAN stack:
+###Using the MEAN stack:
 * __M__ongoDB
 * __E__xpressJS
 * __A__ngularJS
@@ -13,8 +13,8 @@ Using the MEAN stack:
 Follow our project on [facetube](https://www.facebook.com/dynomiteapp)
 
 ##how to deploy
-super easy:
+###super easy:
 Just run the index.html
 
-easy:
+###easy:
 set up a local server and run index.html
