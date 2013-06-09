@@ -1,16 +1,20 @@
-<div class="heading">
-  <p class="title">pictures: {{route.name}}</p>
-  <ol class="elements" ng-cloak="">
-    <li ng-repeat="item in elements" ng-show="item.title" data-drag="{{item.drag}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="list1" jqyoui-draggable="{index: {{$index}},animate:true}">{{element.title}}</li>
-    <!-- <li>start</li>
-    <li>end</li>
-    <li>grip</li>
-    <li>move</li>
-    <li>dyno</li> -->
-  </ol>
+<div ng-controller="canvasCtrl">
+  <div class="heading">
+    <p class="title">pictures: {{route.name}}</p>
+      <img src="vendors/images/layers.png" alt="layers" id="start">
+      <img src="vendors/images/marker-icon.png" alt="layers" id="end">
+      <!-- <ul class="elements" ng-cloak="">
+        <li id="start">start</li>
+        <li>end</li>
+        <li>grip</li>
+        <li>move</li>
+        <li>dyno</li>
+      </ul> -->
+  </div>
+  <div class="picture">
+    <!-- <img src="img/wall.jpg" alt=""> -->
+  </div>
+
+  <!-- <div id="dragarea" style="border-color: red; border-style:solid; border-width:5px; margin-right:10px; margin-left:10px;"></div> -->
+  <div id="droparea" style="border-style:solid; border-width:5px; margin-right:10px; margin-left:10px;"></div>
 </div>
-<div class="picture">
-  <img src="img/wall.jpg" alt="">
-</div>
-<script src="vendors/jquery-ui.min.js"></script>
-<script src="vendors/angular-dragdrop.min.js"></script>

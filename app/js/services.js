@@ -1,7 +1,7 @@
 //mongolab API key
 var apikey = 'zmU_BDz4u4CsCpTltEbxOlPazJOFZtPE';
 
-angular.module('Dynomite.services', ['ngResource', 'ngDragDrop'])
+angular.module('Dynomite.services', ['ngResource'])
   .value('version', '0.1')
   .factory('Areas', function($resource) {
     return{
