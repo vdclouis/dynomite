@@ -73,7 +73,7 @@ angular.module('Dynomite.controllers', [])
     //default order
     $scope.orderAreas = 'name';
   }])
-  .controller('AreaAddCtrl', ['$scope', '$location', 'Areas', function($scope, $location, Areas){
+  .controller('AreaAddCtrl', ['$scope', '$location', 'Areas', 'AreaEdit', function($scope, $location, Areas, AreaEdit){
     
     $scope.save = function() {
       Areas.getArea().save($scope.area, function(area) {
@@ -81,12 +81,15 @@ angular.module('Dynomite.controllers', [])
       });
     };
     
-    console.log($scope.save);
+    $scope.area = new AreaEdit();
+    
+    //$scope.area.coord = { lat: 0, lon: 0 };
+    
+    //console.log($scope.save);
     
     $scope.locateMe = function() {
       navigator.geolocation.getCurrentPosition(function(position) {
-        $scope.area.coord.lat = position.coords.latitude;
-        $scope.area.coord.lon = position.coords.longitude;
+        $scope.area.coord = { lat: position.coords.latitude, lon: position.coords.longitude };
         $scope.$apply();
       });
     };
@@ -147,7 +150,7 @@ angular.module('Dynomite.controllers', [])
   }])
   .controller('RouteIdCtrl', ['$scope', '$routeParams', 'Routes', '$log', 'routeCache', function($scope, $routeParams, Routes, $log, routeCache) {
     Routes.routeById().get({name: $routeParams.routeId}, function(route) {
-      console.log(route);
+      //console.log(route);
       $scope.route = route;
       routeCache.put('thisRoute', route);
     });
