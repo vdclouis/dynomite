@@ -31,6 +31,12 @@
     <span ng-show="editArea.rating.$error.number" class="help-inline">Not a number</span>
   </div>
   
+  <!-- file upload -->
+  <div class="control-group">
+    <button ng-click="uploadFile()">upload img</button>
+    <input type="text" ng-model="area.img" value="{{vrom}}">
+  </div>
+
   <!-- buttons -->
   <br />
   <a href="#/area" class="btn">Cancel</a>

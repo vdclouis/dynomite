@@ -115,8 +115,8 @@ h1 {
   margin: 0 auto; }
   /* line 148, main.scss */
   .about a img {
-    width: 40%;
-    height: 40%; }
+    width: 150px;
+    height: 150px; }
 
 /* line 156, main.scss */
 .grades h1 {

@@ -55,9 +55,9 @@ angular.module('Dynomite.services', ['ngResource', 'ngDragDrop'])
 
     AreaEdit.prototype.update = function(cb) {
       return AreaEdit.update(
-        { id: this._id.$oid },
-        angular.extend({}, this, {_id:undefined}), 
-        cb
+	{ id: this._id.$oid },
+	angular.extend({}, this, {_id:undefined}),
+	cb
       );
     };
 
@@ -152,5 +152,4 @@ angular.module('Dynomite.services', ['ngResource', 'ngDragDrop'])
   })
   .factory('routeCache', function($cacheFactory) {
     return $cacheFactory('routeCache', {capacity:1})
-  })
-  ;
+  });
