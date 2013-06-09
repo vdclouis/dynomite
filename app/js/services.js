@@ -55,9 +55,9 @@ angular.module('Dynomite.services', ['ngResource', 'ngDragDrop'])
 
     AreaEdit.prototype.update = function(cb) {
       return AreaEdit.update(
-	{ id: this._id.$oid },
-	angular.extend({}, this, {_id:undefined}),
-	cb
+        { id: this._id.$oid },
+        angular.extend({}, this, {_id:undefined}),
+        cb
       );
     };
 

@@ -74,17 +74,20 @@ angular.module('Dynomite.controllers', [])
     $scope.orderAreas = 'name';
   }])
   .controller('AreaAddCtrl', ['$scope', '$location', 'Areas', function($scope, $location, Areas){
-
+    
     $scope.save = function() {
       Areas.getArea().save($scope.area, function(area) {
         $location.path('/area');
       });
     };
     
+    console.log($scope.save);
+    
     $scope.locateMe = function() {
       navigator.geolocation.getCurrentPosition(function(position) {
-        $scope.lat = position.coords.latitude;
-        $scope.lon = position.coords.longitude;
+        $scope.area.coord.lat = position.coords.latitude;
+        $scope.area.coord.lon = position.coords.longitude;
+        $scope.$apply();
       });
     };
 
@@ -92,12 +95,12 @@ angular.module('Dynomite.controllers', [])
 
     $scope.uploadFile = function() {
       filepicker.pick(function(FPFile){
-	console.log(FPFile.url);
-	$scope.vrom = FPFile.url;
+        console.log(FPFile.url);
+        $scope.area.img = FPFile.url;
+        $scope.$apply();
       });
-    }
+    };
 
-    console.log($scope.vrom);
   }])
   .controller('AreaEditCtrl', ['$scope', '$location', '$routeParams', 'AreaEdit', function($scope, $location, $routeParams, AreaEdit) {
     var self = this;

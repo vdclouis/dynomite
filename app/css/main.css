@@ -177,42 +177,48 @@ h1 {
 /* line 226, main.scss */
 .area-id {
   text-align: center; }
+  /* line 229, main.scss */
+  .area-id .center-cropped {
+    width: 100%;
+    display: block;
+    background-position: center center;
+    height: 150px; }
 
-/* line 230, main.scss */
+/* line 237, main.scss */
 .area-routes {
   text-align: center; }
-  /* line 233, main.scss */
+  /* line 240, main.scss */
   .area-routes h1 {
     margin-bottom: 0; }
-  /* line 237, main.scss */
+  /* line 244, main.scss */
   .area-routes input[type=search] {
     width: 314px; }
 
 /* slideshow */
-/* line 243, main.scss */
+/* line 250, main.scss */
 .swipe {
   overflow: hidden;
   visibility: hidden;
   position: relative; }
 
-/* line 249, main.scss */
+/* line 256, main.scss */
 .swipe-wrap {
   overflow: hidden;
   position: relative; }
 
-/* line 254, main.scss */
+/* line 261, main.scss */
 .swipe-wrap > img {
   float: left;
   width: 100%;
   position: relative; }
 
-/* line 261, main.scss */
+/* line 268, main.scss */
 .heading .title {
   float: left; }
-/* line 264, main.scss */
+/* line 271, main.scss */
 .heading .elements {
   margin-left: 110px; }
-  /* line 266, main.scss */
+  /* line 273, main.scss */
   .heading .elements li {
     cursor: pointer;
     padding: 5px;
@@ -221,7 +227,7 @@ h1 {
     margin-left: 30px;
     border: 1px solid grey; }
 
-/* line 278, main.scss */
+/* line 285, main.scss */
 .picture img {
   margin: auto;
   width: 100%; }
