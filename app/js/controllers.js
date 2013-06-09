@@ -29,7 +29,7 @@ angular.module('Dynomite.controllers', [])
   }])
   .controller('AreaCtrl', ['$scope', 'Areas', function($scope, Areas) {
     $scope.areas = Areas.allAreas().query({}, function(data) {
-      console.log(data);
+      //console.log(data);
       $scope.findMe();
       
       for (var i=0; i<data.length; i++) {
@@ -209,11 +209,11 @@ angular.module('Dynomite.controllers', [])
   }])
   .controller('RouteIdDeleteCtrl', [function() {
   }])
-  .controller('RouteAddCtrl', ['$scope', '$routeParams', 'Routes', 'Areas', function($scope, $routeParams, Routes, Areas) {
+  .controller('RouteAddCtrl', ['$scope', '$location', '$routeParams', 'Routes', 'Areas', function($scope, $location, $routeParams, Routes, Areas) {
 
     //get areaName from current area for the dropdown
     Areas.allAreas().query({}, function (data){
-      data[0]['areaName'] = $routeParams.area;
+      //data[0]['areaName'] = $routeParams.area;
       console.log(data);
       $scope.areas = data;
     });
@@ -221,6 +221,16 @@ angular.module('Dynomite.controllers', [])
     $scope.save = function() {
       Routes.routeById().save($scope.route, function(route) {
         $location.path('/area/' + $routeParams.area);
+      });
+    };
+    
+    filepicker.setKey('Aw1KqJloRli2yInj47Sthz');
+
+    $scope.uploadFile = function() {
+      filepicker.pick(function(FPFile){
+        console.log(FPFile.url);
+        $scope.area.img = FPFile.url;
+        $scope.$apply();
       });
     };
   }])

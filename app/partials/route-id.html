@@ -1,11 +1,6 @@
 <div class="route-id">
   <h1>{{route.name}}</h1>
-  <div id="mySwipe" class="swipe">
-    <div class="swipe-wrap">
-      <a href="#/route/pictures/{{route.name}}" ng-repeat="r in route.img" class="center-cropped" style="background-image: url( {{ r }} ); background-repeat: no-repeat;"></a>
-    </div>
-  </div>
-
+  <a href="#/route/pictures/{{route.name}}" class="center-cropped" style="background-image: url( {{ route.img }} ); background-repeat: no-repeat;"></a>
   <p>{{route.description}}</p>
   <h2>difficulty: {{route.grade}}</h2>
   <h2>rating: {{route.rating}}/5</h2>
