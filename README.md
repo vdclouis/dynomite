@@ -17,4 +17,4 @@ Follow our project on [facetube](https://www.facebook.com/dynomiteapp)
 Just run the `index.html`
 
 ###easy:
-set up a local server and run `index.html`
+Set up a local server and run `index.html`
