@@ -24,7 +24,7 @@
   <!-- areaName -->
   <div class="control-group" ng-class="{error: editRoute.areaname.$invalid}">
     <label>Area name</label>
-    <select type="text" name="areaname" ng-model="route.areaName" ng-options="a.name as a.name for a in areas" required></select>
+    <select type="text" name="areaname" ng-model="route.areaName" ng-options="a.name as a.name for a in areas"></select>
     <span ng-show="editRoute.areaname.$error.required" class="help-inline">Required</span>
   </div>
   
@@ -46,7 +46,7 @@
   <!-- img -->
   <div class="control-group" ng-class="{error: editRoute.image.$invalid}">
     <button class="pure-button" ng-click="uploadFile()">upload img</button>
-    <input class="pure-input-1" type="url" name="image" ng-model="route.img">
+    <input class="pure-input-1" type="url" name="image" ng-model="route.img" required>
     <span ng-show="editRoute.image.$error.required" class="help-inline">Required</span>
     <span ng-show="editRoute.image.$error.url" class="help-inline">Not a  URL</span>
   </div>

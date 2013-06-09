@@ -181,20 +181,21 @@ h1 {
   /* line 230, main.scss */
   .route-id .center-cropped {
     width: 100%;
+    max-width: 100%;
     display: block;
     background-position: center center;
     height: 150px; }
 
-/* line 238, main.scss */
+/* line 239, main.scss */
 .area-routes {
   text-align: center; }
-  /* line 241, main.scss */
+  /* line 242, main.scss */
   .area-routes h1 {
     margin-bottom: 0; }
-  /* line 245, main.scss */
+  /* line 246, main.scss */
   .area-routes input[type=search] {
     width: 314px; }
-  /* line 249, main.scss */
+  /* line 250, main.scss */
   .area-routes .center-cropped {
     width: 100%;
     display: block;
@@ -202,31 +203,31 @@ h1 {
     height: 150px; }
 
 /* slideshow */
-/* line 258, main.scss */
+/* line 259, main.scss */
 .swipe {
   overflow: hidden;
   visibility: hidden;
   position: relative; }
 
-/* line 264, main.scss */
+/* line 265, main.scss */
 .swipe-wrap {
   overflow: hidden;
   position: relative; }
 
-/* line 269, main.scss */
+/* line 270, main.scss */
 .swipe-wrap > img, .swipe-wrap > a, .swipe-wrap > div {
   float: left;
   display: block;
   width: 100%;
   position: relative; }
 
-/* line 277, main.scss */
+/* line 278, main.scss */
 .heading .title {
   float: left; }
-/* line 280, main.scss */
+/* line 281, main.scss */
 .heading .elements {
   margin-left: 110px; }
-  /* line 282, main.scss */
+  /* line 283, main.scss */
   .heading .elements li {
     cursor: pointer;
     padding: 5px;
@@ -235,7 +236,7 @@ h1 {
     margin-left: 30px;
     border: 1px solid grey; }
 
-/* line 294, main.scss */
+/* line 295, main.scss */
 .picture img {
   margin: auto;
   width: 100%; }

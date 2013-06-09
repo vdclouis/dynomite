@@ -135,16 +135,27 @@ angular.module('Dynomite.controllers', [])
     // get routes with x areaname
     $scope.routes = Routes.getR().query({areaName: $routeParams.name});
     
+    // Swipejs
+    window.mySwipe = new Swipe(document.getElementById('mySwipe'), {
+      auto: 3000,
+      continuous: true
+    });
+    
     //default order
     $scope.orderRoutes = 'name';
   }])
   .controller('RouteIdCtrl', ['$scope', '$routeParams', 'Routes', '$log', 'routeCache', function($scope, $routeParams, Routes, $log, routeCache) {
     Routes.routeById().get({name: $routeParams.routeId}, function(route) {
-      console.log(route);
+      //console.log(route);
       $scope.route = route;
+      routeCache.put('thisRoute', route);
     });
 
-    
+    // Swipejs
+    window.mySwipe = new Swipe(document.getElementById('mySwipe'), {
+      auto: 3000,
+      continuous: true
+    });
   }])
   .controller('RouteIdPicturesCtrl', ['$scope', '$routeParams', 'Routes', '$log', 'routeCache', function($scope, $routeParams, Routes, $log, routeCache) {
     if( typeof routeCache.get('thisRoute') === 'undefined' ){
@@ -168,7 +179,8 @@ angular.module('Dynomite.controllers', [])
   }])
   .controller('RouteIdEditCtrl', ['$scope', '$location', '$routeParams', 'RouteEdit', 'Areas', function($scope, $location, $routeParams, RouteEdit, Areas) {
     Areas.allAreas().query({}, function (data){
-      //console.log(data);
+      data[0]['areaName'] = $routeParams.area;
+      console.log(data);
       $scope.areas = data;
     });
 
@@ -185,13 +197,13 @@ angular.module('Dynomite.controllers', [])
 
     $scope.destroy = function() {
       self.original.destroy(function() {
-        $location.path('/area');
+	$location.path('/area');
       });
     };
 
     $scope.save = function() {
       $scope.route.update(function() {
-        $location.path('/area');
+	$location.path('/area');
       });
     };
   }])
@@ -201,13 +213,14 @@ angular.module('Dynomite.controllers', [])
 
     //get areaName from current area for the dropdown
     Areas.allAreas().query({}, function (data){
+      //data[0]['areaName'] = $routeParams.area;
       console.log(data);
       $scope.areas = data;
     });
 
     $scope.save = function() {
       Routes.routeById().save($scope.route, function(route) {
-        $location.path('/area/' + route._id.$oid);
+        $location.path('/area/' + $routeParams.area);
       });
     };
     
