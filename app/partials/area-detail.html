@@ -17,8 +17,8 @@
   <!-- coords -->
   <div class="control-group" ng-class="{error: editArea.coord.$invalid}">
     <label>Coordinates</label>
-    <input type="text" ng-model="lat" name="markerLat" >
-    <input type="text" ng-model="lon" name="markerLng" >
+    <input type="text" ng-model="area.coord.lat" value={{lat}} name="markerLat" >
+    <input type="text" ng-model="area.coord.lon" value={{lon}} name="markerLng" >
     <span ng-show="editArea.coord.$error.required" class="help-inline">Required</span>
     <button ng-click="locateMe()">Find Me</button>
   </div>
@@ -31,6 +31,12 @@
     <span ng-show="editArea.rating.$error.number" class="help-inline">Not a number</span>
   </div>
   
+  <!-- file upload -->
+  <div class="control-group">
+    <button ng-click="uploadFile()">upload img</button>
+    <input type="text" ng-model="area.img" value={{vorm}} >
+  </div>
+
   <!-- buttons -->
   <br />
   <a href="#/area" class="btn">Cancel</a>

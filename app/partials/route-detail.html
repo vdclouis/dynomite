@@ -7,6 +7,25 @@
     <span ng-show="editRoute.name.$error.required" class="help-inline">Required</span>
   </div>
   
+  <!-- description -->
+  <div class="control-group">
+    <label>Description</label>
+    <input type="text" name="description" ng-model="route.description" />
+  </div>
+  
+  <!-- type -->
+  <div class="control-group">
+    <label>Type</label>
+    <input type="text" name="type" ng-model="route.type" />
+  </div>
+  
+  <!-- areaName -->
+  <div class="control-group" ng-class="{error: editRoute.areaname.$invalid}">
+    <label>Area name</label>
+    <select type="text" name="areaname" ng-model="route.areaName" ng-options="area.areaName as area.name for area in areas"></select>
+    <span ng-show="editRoute.areaname.$error.required" class="help-inline">Required</span>
+  </div>
+  
   <!-- rating -->
   <div class="control-group" ng-class="{error: editRoute.rating.$invalid}">
     <label>Rating</label>
@@ -15,13 +34,15 @@
     <span ng-show="editRoute.rating.$error.number" class="help-inline">Not a number</span>
   </div>
   
-  <!-- areaName -->
-  <div class="control-group" ng-class="{error: editRoute.areaname.$invalid}">
-    <label>Area name</label>
-    
-    <select type="text" name="areaname" ng-model="route.areaName" ng-options="area.areaName as area.name for area in areas"></select>
-    
-    <span ng-show="editRoute.areaname.$error.required" class="help-inline">Required</span>
+  <!-- grade -->
+  <div class="control-group">
+    <label>Grade</label>
+    <input type="text" name="grade" ng-model="route.grade" />
+  </div>
+  
+  <div class="control-group">
+    <label>Upload image</label>
+    <input type="text" name="image" ng-modal="route.img" />
   </div>
 
   <br />

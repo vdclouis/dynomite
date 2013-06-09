@@ -73,19 +73,37 @@ angular.module('Dynomite.controllers', [])
     //default order
     $scope.orderAreas = 'name';
   }])
-  .controller('AreaAddCtrl', ['$scope', '$location', 'Areas', function($scope, $location, Areas){
+  .controller('AreaAddCtrl', ['$scope', '$location', 'Areas', 'AreaEdit', function($scope, $location, Areas, AreaEdit){
+    
     $scope.save = function() {
       Areas.getArea().save($scope.area, function(area) {
         $location.path('/area');
       });
     };
     
+    $scope.area = new AreaEdit();
+    
+    //$scope.area.coord = { lat: 0, lon: 0 };
+    
+    //console.log($scope.save);
+    
     $scope.locateMe = function() {
       navigator.geolocation.getCurrentPosition(function(position) {
-        $scope.lat = position.coords.latitude;
-        $scope.lon = position.coords.longitude;
-      })
-    }
+        $scope.area.coord = { lat: position.coords.latitude, lon: position.coords.longitude };
+        $scope.$apply();
+      });
+    };
+
+    filepicker.setKey('Aw1KqJloRli2yInj47Sthz');
+
+    $scope.uploadFile = function() {
+      filepicker.pick(function(FPFile){
+        console.log(FPFile.url);
+        $scope.area.img = FPFile.url;
+        $scope.$apply();
+      });
+    };
+
   }])
   .controller('AreaEditCtrl', ['$scope', '$location', '$routeParams', 'AreaEdit', function($scope, $location, $routeParams, AreaEdit) {
     var self = this;
@@ -132,9 +150,9 @@ angular.module('Dynomite.controllers', [])
   }])
   .controller('RouteIdCtrl', ['$scope', '$routeParams', 'Routes', '$log', 'routeCache', function($scope, $routeParams, Routes, $log, routeCache) {
     Routes.routeById().get({name: $routeParams.routeId}, function(route) {
-      console.log(route);
+      //console.log(route);
       $scope.route = route;
-      routeCache.put('thisRoute', route)
+      routeCache.put('thisRoute', route);
     });
   }])
   .controller('RouteIdPicturesCtrl', ['$scope', '$routeParams', 'Routes', '$log', 'routeCache', function($scope, $routeParams, Routes, $log, routeCache) {
@@ -177,13 +195,13 @@ angular.module('Dynomite.controllers', [])
 
     $scope.destroy = function() {
       self.original.destroy(function() {
-	      $location.path('/area');
+	$location.path('/area');
       });
     };
 
     $scope.save = function() {
       $scope.route.update(function() {
-	      $location.path('/area');
+	$location.path('/area');
       });
     };
   }])
