@@ -238,7 +238,6 @@ angular.module('Dynomite.controllers', [])
     RouteEdit.get({id: $routeParams.routeId}, function(route) {
       self.original = route;
       $scope.route = new RouteEdit(self.original);
-      console.log($scope.route.overlay.length);
       for (var i = 0 ; i <= $scope.route.overlay.length; i++) {
         console.log(i);
         var rectHeigth = 50;
@@ -269,17 +268,10 @@ angular.module('Dynomite.controllers', [])
           id: 'circle'
         });
         startCircleGroup.add(startCircle);
-        //startCircleGroup.add(removeLabel);
-        //startGroup.add(startCircleGroup);
-        //startGroup.add(simpleLabel);
+
         layer.add(startCircleGroup);
         layer.draw();
         startCircleGroup.on('touchmove dragend', function(e) {
-          console.log(this.getPosition().x);
-          console.log(this.getPosition().y);
-          //console.log(e);
-          //console.log(this.attrs.id);
-          //console.log(overlay[this.attrs.id]);
           overlay[this.attrs.id] = {
             x: this.getPosition().x,
             y: this.getPosition().y
@@ -292,8 +284,6 @@ angular.module('Dynomite.controllers', [])
         });
       };
     });
-
-
     $scope.saveData = function(){
       $scope.route.overlay = overlay;
       $scope.route.update(function() {
@@ -373,144 +363,19 @@ angular.module('Dynomite.controllers', [])
     con.addEventListener('dragover',function(e){
       e.preventDefault(); //@important
     });
-/*
-    // simple label
-    var simpleLabel = new Kinetic.Label({
-      // x: 350,
-      // y: 50,
-      opacity: 0.75
-    });
-    
-    simpleLabel.add(new Kinetic.Tag({
-      fill: 'yellow'
-    }));
-    
-    simpleLabel.add(new Kinetic.Text({
-      text: 'Simple label',
-      fontFamily: 'Calibri',
-      fontSize: 18,
-      padding: 5,
-      fill: 'black'
-    }));
-*/
-/*    
-    function update(activeAnchor) {
-      var group = activeAnchor.getParent();
-
-      var topLeft = group.get('.topLeft')[0];
-      var topRight = group.get('.topRight')[0];
-      var bottomRight = group.get('.bottomRight')[0];
-      var bottomLeft = group.get('.bottomLeft')[0];
-      var image = group.get('#circle')[0];
-
-      var anchorX = activeAnchor.getX();
-      var anchorY = activeAnchor.getY();
-
-      // update anchor positions
-      switch (activeAnchor.getName()) {
-        case 'topLeft':
-          topRight.setY(anchorY);
-          bottomLeft.setX(anchorX);
-          break;
-        case 'topRight':
-          topLeft.setY(anchorY);
-          bottomRight.setX(anchorX);
-          break;
-        case 'bottomRight':
-          bottomLeft.setY(anchorY);
-          topRight.setX(anchorX); 
-          break;
-        case 'bottomLeft':
-          bottomRight.setY(anchorY);
-          topLeft.setX(anchorX); 
-          break;
-      }
-
-      image.setPosition(topLeft.getPosition());
-
-      var width = Math.abs(topRight.getX() - topLeft.getX());
-      var height = Math.abs(bottomLeft.getY() - topLeft.getY());
-      if(width && height) {
-        image.setSize(width, height);
-      }
-    }
-    function addAnchor(group, x, y, name) {
-      var stage = group.getStage();
-      var layer = group.getLayer();
-
-      var anchor = new Kinetic.Circle({
-        x: x,
-        y: y,
-        stroke: '#666',
-        fill: '#ddd',
-        strokeWidth: 2,
-        radius: 8,
-        name: name,
-        draggable: true,
-        dragOnTop: false
-      });
-
-      anchor.on('dragmove', function() {
-        update(this);
-        layer.draw();
-      });
-      anchor.on('mousedown touchstart', function() {
-        group.setDraggable(false);
-        this.moveToTop();
-      });
-      anchor.on('dragend', function() {
-        group.setDraggable(true);
-        layer.draw();
-      });
-      // add hover styling
-      anchor.on('mouseover', function() {
-        var layer = this.getLayer();
-        document.body.style.cursor = 'pointer';
-        this.setStrokeWidth(4);
-        layer.draw();
-      });
-      anchor.on('mouseout', function() {
-        var layer = this.getLayer();
-        document.body.style.cursor = 'default';
-        this.setStrokeWidth(2);
-        layer.draw();
-      });
-
-      group.add(anchor);
-    }
-
-    function getWidth(thisGroup){
-      var children = thisGroup.getChildren();
-      var width = 0;
-      for( var i=0; i< children.length; i++){
-        if(children[i].getWidth() > width)
-          width = children[i].getWidth();
-      }
-      return width;
-    }
-*/
 
     //insert image to stage
     con.addEventListener('drop',function(e){
       var itemName = layer.children.length;
       overlay.push({name:itemName, x:0, y:0});
-      console.log(overlay);
-      console.log(layer.children.length);
-      
-      console.log(e.clientX);
-      console.log(e.clientY);
       var dropX = e.clientX,
           dropY = e.clientY;
-
       var rectHeigth = 50;
       var rectWidth = 50;
       var minX=stage.getX()+25;
       var maxX=stage.getX()+stage.getWidth()-25;
       var minY=stage.getY()+25;
       var maxY=stage.getY()+stage.getHeight()-25;
-
-
-
       switch(dragSrcEl.id){
         case 'start':
           console.log('startobj');
@@ -519,9 +384,6 @@ angular.module('Dynomite.controllers', [])
             x:25,
             y:25,
             draggable:true,
-            //offsetX:-25,
-            //offsetY:-25
-            // offsetY:getWidth(this)/2
             dragBoundFunc: function(pos) {
               var X=pos.x;
               var Y=pos.y;
@@ -532,57 +394,17 @@ angular.module('Dynomite.controllers', [])
               return({x:X, y:Y});
             },
           });
-          /*var removeLabel = new Kinetic.Label({
-            opacity:1,
-            x:0,
-            y:0
-          });
-          removeLabel.add(new Kinetic.Text({
-            x:0,
-            y:0,
-            offsetX:0,
-            offsetY:0,
-            text: 'X',
-            fontFamily: 'Calibri',
-            fontSize: 18,
-            padding: 0,
-            margin: 0,
-            fill: 'red',
-            align: 'left'
-          }));*/
           startCircle = new Kinetic.Circle({
-
-            //x:0,
-            //y:0,
-            /*offsetX:50,
-            offsetY:50,*/
             radius: 25,
             stroke: 'red',
             strokeWidth: 2,
             id: 'circle'
           });
-
           var startGroup = new Kinetic.Group({
             //draggable : true,
             x: 0,
             y: 0,
           });
-          /*var simpleLabel = new Kinetic.Label({
-            x: 0,
-            y: 0,
-            opacity: 0.75
-          });
-          simpleLabel.add(new Kinetic.Tag({
-            fill: 'yellow'
-          }));
-          simpleLabel.add(new Kinetic.Text({
-            text: 'RH',
-            fontFamily: 'Calibri',
-            fontSize: 18,
-            padding: 5,
-            fill: 'black'
-          }));*/
-
           startCircleGroup.add(startCircle);
           //startCircleGroup.add(removeLabel);
           startGroup.add(startCircleGroup);
@@ -592,44 +414,13 @@ angular.module('Dynomite.controllers', [])
           startCircleGroup.on('touchmove dragend', function(e) {
             console.log(this.getPosition().x);
             console.log(this.getPosition().y);
-            //console.log(e);
-            //console.log(this.attrs.id);
-            //console.log(overlay[this.attrs.id]);
             overlay[this.attrs.id] = {
               x: this.getPosition().x,
               y: this.getPosition().y
             }
             console.log(overlay);
             var touchPos = stage.getTouchPosition();
-            /*var x = touchPos.x - 190;
-            var y = touchPos.y - 40;
-            writeMessage(messageLayer, 'x: ' + x + ', y: ' + y);*/
           });
-          /*simpleLabel.on('click', function(e) {
-            console.log(e);
-            var name = e.targetNode.partialText;
-            simpleLabel.destroy();
-            console.log(e);
-            layer.draw();
-
-              var tween = new Kinetic.Tween({
-                node: startCircle, 
-                duration: 0.5,
-                opacity: 1,
-                scaleX: 2,
-                scaleY: 2,
-                //width: 100,
-                //height: 100,
-                //offsetX: ,
-                //offsetY: 
-              });
-              tween.play();
-              addAnchor(startCircleGroup, 0, 0, 'topLeft');
-              addAnchor(startCircleGroup, 40, 0, 'topRight');
-              addAnchor(startCircleGroup, 40, 38, 'bottomRight');
-              addAnchor(startCircleGroup, 0, 38, 'bottomLeft');
-          });*/
-
         break;
         case 'end':
           var image = new Kinetic.Image({
@@ -640,16 +431,10 @@ angular.module('Dynomite.controllers', [])
           layer.add(image);
           imageObj = new Image();
           imageObj.src = dragSrcEl.src;
-          //imageObj.src = "vendors/images/layers.png";
           imageObj.onload = function(){
             image.setImage(imageObj);
             layer.draw();
             console.log(layer);
-            /*elements.element1 = {
-              'type':'start'
-              'x':
-              'y':
-            }*/
             console.log(elements);
           };        
         break;
