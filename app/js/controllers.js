@@ -152,7 +152,7 @@ angular.module('Dynomite.controllers', [])
     Routes.routeById().get({name: $routeParams.routeId}, function(route) {
       console.log(route);
       $scope.route = route;
-      routeCache.put('thisRoute', route);
+      routeCache.put('thisRoute', route); 
     });
   }])
   .controller('RouteIdPicturesCtrl', ['$scope', '$routeParams', 'Routes', '$log', 'routeCache', function($scope, $routeParams, Routes, $log, routeCache) {
@@ -231,10 +231,74 @@ angular.module('Dynomite.controllers', [])
       });
     };
   }])
-  .controller('canvasCtrl', ['$scope', function($scope) {
+  .controller('canvasCtrl', ['$scope', '$location', '$routeParams', 'RouteEdit', 'Routes', function($scope, $location, $routeParams, RouteEdit, Routes) {
+    
+    var self = this;
+
+    RouteEdit.get({id: $routeParams.routeId}, function(route) {
+      self.original = route;
+      $scope.route = new RouteEdit(self.original);
+      console.log($scope.route.overlay.length);
+      for (var i = 0 ; i <= $scope.route.overlay.length; i++) {
+        console.log(i);
+        var rectHeigth = 50;
+        var rectWidth = 50;
+        var minX=stage.getX()+25;
+        var maxX=stage.getX()+stage.getWidth()-25;
+        var minY=stage.getY()+25;
+        var maxY=stage.getY()+stage.getHeight()-25;
+        var startCircleGroup = new Kinetic.Group({
+          id:i,
+          x:25,
+          y:25,
+          draggable:true,
+          dragBoundFunc: function(pos) {
+            var X=pos.x;
+            var Y=pos.y;
+            if(X<minX){X=minX;};
+            if(X>maxX){X=maxX;};
+            if(Y<minY){Y=minY;};
+            if(Y>maxY){Y=maxY;};
+            return({x:X, y:Y});
+          },
+        });
+        startCircle = new Kinetic.Circle({
+          radius: 25,
+          stroke: 'red',
+          strokeWidth: 2,
+          id: 'circle'
+        });
+        startCircleGroup.add(startCircle);
+        //startCircleGroup.add(removeLabel);
+        //startGroup.add(startCircleGroup);
+        //startGroup.add(simpleLabel);
+        layer.add(startCircleGroup);
+        layer.draw();
+        startCircleGroup.on('touchmove dragend', function(e) {
+          console.log(this.getPosition().x);
+          console.log(this.getPosition().y);
+          //console.log(e);
+          //console.log(this.attrs.id);
+          //console.log(overlay[this.attrs.id]);
+          overlay[this.attrs.id] = {
+            x: this.getPosition().x,
+            y: this.getPosition().y
+          }
+          console.log(overlay);
+          var touchPos = stage.getTouchPosition();
+          /*var x = touchPos.x - 190;
+          var y = touchPos.y - 40;
+          writeMessage(messageLayer, 'x: ' + x + ', y: ' + y);*/
+        });
+      };
+    });
+
 
     $scope.saveData = function(){
-
+      $scope.route.overlay = overlay;
+      $scope.route.update(function() {
+        $location.path('/area');
+      });
     };
 
     var overlay = [];
@@ -294,103 +358,6 @@ angular.module('Dynomite.controllers', [])
 
     console.log(stage.getWidth());
     console.log(stage.getHeight());
-    
-
-    //dragarea test
-    /*var dragarea = new Kinetic.Stage({
-      container : "dragarea",
-      width : 440,
-      height : 100,
-    });
-
-    var startGroup = new Kinetic.Group({
-      draggable: true
-      ,id: "startgroup"
-    });
-
-    var circle = new Kinetic.Circle({
-      //x: stage.getWidth() / 2,
-      //y: stage.getHeight() / 2,
-      x: 20,
-      y: 20,
-      radius: 10,
-      //fill: 'red',
-      stroke: 'red',
-      strokeWidth: 4
-    });
-
-    startGroup.add(circle);
-    var startLayer = new Kinetic.Layer();
-
-    startLayer.add(startGroup);
-    //dragarea.add(startLayer);*/
-
-    //rect test
-    /*
-        var rectHeigth = 50;
-        var rectWidth = 50;
-        var minX=stage.getX();
-        var maxX=stage.getX()+stage.getWidth()-rectWidth;
-        var minY=stage.getY();
-        var maxY=stage.getY()+stage.getHeight()-rectHeigth;
-
-        var rect = new Kinetic.Rect({
-          x: 239,
-          y: 75,
-          width: rectWidth,
-          height: rectHeigth,
-          //opacity: 0,
-          fill: 'green',
-          stroke: 'black',
-          strokeWidth: 4,
-          draggable: true,
-          offsetX:rectWidth/2,
-          offsetY:rectHeigth/2,
-          dragBoundFunc: function(pos) {
-            var X=pos.x;
-            var Y=pos.y;
-            if(X<minX){X=minX;};
-            if(X>maxX){X=maxX;};
-            if(Y<minY){Y=minY;};
-            if(Y>maxY){Y=maxY;};
-            return({x:X, y:Y});
-          },
-        });
-        layer.add(rect);
-        stage.add(layer);
-
-        rect.on('dragstart', function() {
-        });
-        rect.on('dragend', function() {
-          console.log(rect.attrs.x)
-          console.log(rect.attrs.y);
-        });
-
-        rect.on('click', function() {
-          console.log('rect clicked');
-          
-          var tween = new Kinetic.Tween({
-            node: rect, 
-            duration: 0.5,
-            opacity: 1,
-            scaleX: 2,
-            scaleY: 2,
-            //width: 100,
-            //height: 100,
-            //offsetX: ,
-            //offsetY: 
-          });
-          tween.play();
-        });
-
-        // add cursor styling
-        rect.on('mouseover', function() {
-          document.body.style.cursor = 'pointer';
-        });
-        rect.on('mouseout', function() {
-          document.body.style.cursor = 'default';
-        });
-    */
 
     var dragSrcEl = null;
     document.getElementById("start").addEventListener('dragstart', function(e){
