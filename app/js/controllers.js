@@ -124,6 +124,16 @@ angular.module('Dynomite.controllers', [])
         $location.path('/area');
       });
     };
+    
+    filepicker.setKey('Aw1KqJloRli2yInj47Sthz');
+
+    $scope.uploadFile = function() {
+      filepicker.pick(function(FPFile){
+        console.log(FPFile.url);
+        $scope.area.img = FPFile.url;
+        $scope.$apply();
+      });
+    };
   }])
   .controller('AreaRoutesCtrl', ['$scope', '$routeParams', 'Routes', 'Areas', function($scope, $routeParams, Routes, Areas) {
     // get areaname
@@ -184,10 +194,20 @@ angular.module('Dynomite.controllers', [])
         $location.path('/area');
       });
     };
+    
+    filepicker.setKey('Aw1KqJloRli2yInj47Sthz');
+
+    $scope.uploadFile = function() {
+      filepicker.pick(function(FPFile){
+        console.log(FPFile.url);
+        $scope.area.img = FPFile.url;
+        $scope.$apply();
+      });
+    };
   }])
   .controller('RouteIdDeleteCtrl', [function() {
   }])
-  .controller('RouteAddCtrl', ['$scope', '$location', '$routeParams', 'Routes', 'Areas', function($scope, $location, $routeParams, Routes, Areas) {
+  .controller('RouteAddCtrl', ['$scope', '$location', '$routeParams', 'RouteEdit', 'Areas', function($scope, $location, $routeParams, RouteEdit, Areas) {
 
     //get areaName from current area for the dropdown
     Areas.allAreas().query({}, function (data){
@@ -196,8 +216,8 @@ angular.module('Dynomite.controllers', [])
     });
 
     $scope.save = function() {
-      Routes.routeById().save($scope.route, function(route) {
-        $location.path('/area/' + route._id.$oid);
+      RouteEdit.save($scope.route, function(route) {
+        $location.path('/route/' + route._id.$oid);
       });
     };
     
