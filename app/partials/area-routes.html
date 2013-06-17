@@ -10,7 +10,8 @@
   </select>
   
   <!-- slideshow -->
-  <img class="center-cropped" style="background-image: url( {{ area.img }} ); background-repeat: no-repeat;">
+  <!-- <img class="center-cropped" style="background-image: url( {{ area.img }} ); background-repeat: no-repeat;"> -->
+  <img class="center-cropped" ng-style="{'background-image': 'url(' + area.img + ')'}">
   
   <!-- titles -->
   <p>{{area.description}}</p>
