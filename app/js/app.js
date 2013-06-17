@@ -1,76 +1,90 @@
-angular.module('Dynomite', ['Dynomite.filters', 'Dynomite.services', 'Dynomite.directives', 'Dynomite.controllers']).
+angular.module('Dynomite', ['Dynomite.filters', 'Dynomite.services', 'Dynomite.directives', 'Dynomite.controllers', 'google-maps']).
   config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'partials/home.html',
         controller: 'HomeCtrl'
       })
+      .when('/about', {
+        templateUrl: 'partials/about.html',
+        controller: 'AboutCtrl'
+      })
+      .when('/grades', {
+        templateUrl: 'partials/grades.html',
+        controller: 'GradesCtrl'
+      })
       .when('/area', {
         templateUrl: 'partials/area.html',
         controller: 'AreaCtrl'
       })
-      .when('/area/map', {
-        templateUrl: 'partials/area-map.html',
-        controller: 'AreaMapCtrl'
-      })
-      .when('/area/list', {
-        templateUrl: 'partials/area-list.html',
-        controller: 'AreaListCtrl'
-      })
-      .when('/area/:id', {
-        templateUrl: 'partials/area-id.html',
-        controller: 'AreaIdCtrl'
-      })
-      .when('/area/:id/pictures', {
-        templateUrl: 'partials/area-id-pictures.html',
-        controller: 'ArezIdPicturesCtrl'
-      })
-      .when('/area/:id/edit', {
-        templateUrl: 'partials/area-id-edit.html',
-        controller: 'AreaIdEditCtrl'
+      .when('/area/edit/:areaId', {
+        templateUrl: 'partials/area-detail.html',
+        controller: 'AreaEditCtrl'
       })
       .when('/area/add', {
-        templateUrl: 'partials/area-add.html',
+        templateUrl: 'partials/area-detail.html',
         controller: 'AreaAddCtrl'
       })
-      .when('/route/:id', {
-        templateUrl: 'partials/route-id.html',
-        controller: 'RouteIdCtrl'
-      })
-      .when('/route/:id/edit', {
-        templateUrl: 'partials/route-id-edit.html',
-        controller: 'RouteIdEditCtrl'
-      })
-      .when('/route/:id/delete', {
-        controller: 'RouteIdDeleteCtrl'
+      .when('/area/:name', {
+        templateUrl: 'partials/area-routes.html',
+        controller: 'AreaRoutesCtrl'
       })
       .when('/route/add', {
-        templateUrl: 'partials/route-add.html',
+        templateUrl: 'partials/route-detail.html',
         controller: 'RouteAddCtrl'
       })
-      .when('/user', {
-        templateUrl: 'partials/user.html',
-        controller: 'UserCtrl'
+      .when('/route/pictures/:routeId', {
+        templateUrl: 'partials/route-pictures.html',
+        controller: 'RouteIdPicturesCtrl'
       })
-      .when('/user/:id', {
-        templateUrl: 'partials/user-id.html',
-        controller: 'UserIdCtrl'
+      .when('/route/edit/:routeId', {
+        templateUrl: 'partials/route-detail.html',
+        controller: 'RouteIdEditCtrl'
       })
-      .when('/user/:id/edit', {
-        templateUrl: 'partials/user-id-edit.html',
-        controller: 'UserIdEditCtrl'
-      })
-      .when('/login', {
-        templateUrl: 'partials/login.html',
-        controller: 'LoginCtrl'
-      })
-      .when('/register', {
-        templateUrl: 'partials/register.html',
-        controller: 'RegisterCtrl'
+      .when('/route/:routeId', {
+        templateUrl: 'partials/route-id.html',
+        controller: 'RouteIdCtrl'
       })
       .otherwise({redirectTo: '/'});
   }]);
   
+/* Snapjs */
 var snapper = new Snap({
-  element: document.getElementById('snapper')
+  element: document.getElementById('snapper'),
+  disable: 'right',
+  touchToDrag: false
 });
+
+document.getElementById('open-left').addEventListener('click', function() {
+  if( snapper.state().state === "left" ) {
+  snapper.close();
+  } else {
+  snapper.open("left");
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

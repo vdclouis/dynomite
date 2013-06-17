@@ -1,12 +1,12 @@
 <div class="home">
-  <h1>Home</h1>
+  <h1>dynomite</h1>
   
   <!-- weather -->
   <div class="forecast">
     <div class="temp">
-      {{ ((weather.currently.temperature - 32) / 1.8)|number:0 }}°
+      {{weather.currently.temperature|number:0}}°
     </div>
-    <canvas id="ico" width="150" height="150"></canvas>
+    <canvas id="ico" width="140" height="140"></canvas>
   </div>
   <a href="#/area"><img draggable="false" src="../img/logo.png" alt="Dynomite's logo" /></a>
   
