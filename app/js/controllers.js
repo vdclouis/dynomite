@@ -232,56 +232,30 @@ angular.module('Dynomite.controllers', [])
     };
   }])
   .controller('canvasCtrl', ['$scope', '$location', '$routeParams', 'RouteEdit', 'Routes', function($scope, $location, $routeParams, RouteEdit, Routes) {
-    
+
     var self = this;
 
     RouteEdit.get({id: $routeParams.routeId}, function(route) {
       self.original = route;
       $scope.route = new RouteEdit(self.original);
       for (var i = 0 ; i <= $scope.route.overlay.length; i++) {
-        console.log(i);
-        var rectHeigth = 50;
-        var rectWidth = 50;
-        var minX=stage.getX()+25;
-        var maxX=stage.getX()+stage.getWidth()-25;
-        var minY=stage.getY()+25;
-        var maxY=stage.getY()+stage.getHeight()-25;
-        var startCircleGroup = new Kinetic.Group({
-          id:i,
-          x:25,
-          y:25,
-          draggable:true,
-          dragBoundFunc: function(pos) {
-            var X=pos.x;
-            var Y=pos.y;
-            if(X<minX){X=minX;};
-            if(X>maxX){X=maxX;};
-            if(Y<minY){Y=minY;};
-            if(Y>maxY){Y=maxY;};
-            return({x:X, y:Y});
-          },
-        });
-        startCircle = new Kinetic.Circle({
-          radius: 25,
-          stroke: 'red',
-          strokeWidth: 2,
-          id: 'circle'
-        });
-        startCircleGroup.add(startCircle);
+        
+        var cc = new newCircle(itemName, '25', '25', '50', '50');
 
-        layer.add(startCircleGroup);
+        layer.add(cc);
         layer.draw();
-        startCircleGroup.on('touchmove dragend', function(e) {
+
+        /*startCircleGroup.on('touchmove dragend', function(e) {
           overlay[this.attrs.id] = {
             x: this.getPosition().x,
             y: this.getPosition().y
           }
           console.log(overlay);
           var touchPos = stage.getTouchPosition();
-          /*var x = touchPos.x - 190;
-          var y = touchPos.y - 40;
-          writeMessage(messageLayer, 'x: ' + x + ', y: ' + y);*/
-        });
+          //var x = touchPos.x - 190;
+          //var y = touchPos.y - 40;
+          //writeMessage(messageLayer, 'x: ' + x + ', y: ' + y);
+        });*/
       };
     });
     $scope.saveData = function(){
@@ -364,69 +338,96 @@ angular.module('Dynomite.controllers', [])
       e.preventDefault(); //@important
     });
 
+    var newCircle = function(name, xval, yval, width, heigth){
+      this.thisName = name;
+      this.thisx = xval;
+      this.thisy = yval;
+      this.thisWidth = width;
+      this.thisHeigth = heigth;
+
+      var minX=stage.getX()+this.width/2;
+      var maxX=stage.getX()+stage.getWidth()-this.width/2;
+      var minY=stage.getY()+this.heigth/2;
+      var maxY=stage.getY()+stage.getHeight()-this.heigth/2;
+
+      var startCircleGroup = new Kinetic.Group({
+        id: this.thisName,
+        x:25,
+        y:25,
+        draggable:true,
+        dragBoundFunc: function(pos) {
+          var X=pos.x;
+          var Y=pos.y;
+          if(X<minX){X=minX;};
+          if(X>maxX){X=maxX;};
+          if(Y<minY){Y=minY;};
+          if(Y>maxY){Y=maxY;};
+          return({x:X, y:Y});
+        },
+      });
+      console.log(startCircleGroup);
+
+      var startCircle = new Kinetic.Circle({
+        radius: 25,
+        stroke: 'red',
+        strokeWidth: 2,
+        id: 'circle'
+      });
+      startCircleGroup.add(startCircle);
+
+      startCircleGroup.on('touchmove dragend', function(e) {
+        console.log(this.getPosition().x);
+        console.log(this.getPosition().y);
+        startCircleGroup = {
+          x: this.getPosition().x,
+          y: this.getPosition().y
+        }
+        console.log(overlay);
+        var touchPos = stage.getTouchPosition();
+      });
+
+      return startCircleGroup;
+    }
+
     //insert image to stage
     con.addEventListener('drop',function(e){
       var itemName = layer.children.length;
-      overlay.push({name:itemName, x:0, y:0});
-      var dropX = e.clientX,
-          dropY = e.clientY;
-      var rectHeigth = 50;
-      var rectWidth = 50;
-      var minX=stage.getX()+25;
-      var maxX=stage.getX()+stage.getWidth()-25;
-      var minY=stage.getY()+25;
-      var maxY=stage.getY()+stage.getHeight()-25;
-      switch(dragSrcEl.id){
+
+      var cc = new newCircle(itemName, '25', '25', '50', '50');
+      //console.log(cc);
+      overlay.push(cc);
+      console.log(overlay);
+
+      layer.add(cc);
+      layer.draw();
+
+      /*switch(dragSrcEl.id){
         case 'start':
           console.log('startobj');
-          var startCircleGroup = new Kinetic.Group({
-            id:itemName,
-            x:25,
-            y:25,
-            draggable:true,
-            dragBoundFunc: function(pos) {
-              var X=pos.x;
-              var Y=pos.y;
-              if(X<minX){X=minX;};
-              if(X>maxX){X=maxX;};
-              if(Y<minY){Y=minY;};
-              if(Y>maxY){Y=maxY;};
-              return({x:X, y:Y});
-            },
-          });
-          startCircle = new Kinetic.Circle({
-            radius: 25,
-            stroke: 'red',
-            strokeWidth: 2,
-            id: 'circle'
-          });
+
           var startGroup = new Kinetic.Group({
             //draggable : true,
             x: 0,
             y: 0,
           });
-          startCircleGroup.add(startCircle);
           //startCircleGroup.add(removeLabel);
-          startGroup.add(startCircleGroup);
+          //startGroup.add(startCircleGroup);
           //startGroup.add(simpleLabel);
-          layer.add(startGroup);
+          //layer.add(startGroup);
+
+
+          
+
+          layer.add(cc);
+
           layer.draw();
-          startCircleGroup.on('touchmove dragend', function(e) {
-            console.log(this.getPosition().x);
-            console.log(this.getPosition().y);
-            overlay[this.attrs.id] = {
-              x: this.getPosition().x,
-              y: this.getPosition().y
-            }
-            console.log(overlay);
-            var touchPos = stage.getTouchPosition();
-          });
+
         break;
         case 'end':
           var image = new Kinetic.Image({
             draggable : true,
-            /* x: e.clientX/2,
-            y: e.clientY/2*/
+            //x: e.clientX/2,
+            //y: e.clientY/2
           });
           layer.add(image);
           imageObj = new Image();
@@ -438,7 +439,7 @@ angular.module('Dynomite.controllers', [])
             console.log(elements);
           };        
         break;
-      };
-
+      };*/
     });
+
   }]);
