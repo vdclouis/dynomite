@@ -1,0 +1,33 @@
+<div class="area-routes">
+  <!-- title -->
+  <h1>{{area.name}}</h1>
+  
+  <!-- filters 'n shit -->
+  <input type="search" results="" ng-model="search.name" placeholder="Search Routes" />
+  <select ng-model="orderRoutes">
+    <option value="name">Alphabetical</option>
+    <option value="rating">Rating</option>
+  </select>
+  
+  <!-- slideshow -->
+  <!-- <img class="center-cropped" style="background-image: url( {{ area.img }} ); background-repeat: no-repeat;"> -->
+  <img class="center-cropped" ng-style="{'background-image': 'url(' + area.img + ')'}">
+  
+  <!-- titles -->
+  <p>{{area.description}}</p>
+  <h2>Route list</h2>
+  
+  <!-- list -->
+  <ul>
+    <li data-ng-repeat="route in routes | filter:search | orderBy:orderRoutes">
+      <a href="#/route/{{route._id.$oid}}">
+        {{route.name}} - {{route.areaName}}
+      </a>
+      <span><a href="#/route/edit/{{route._id.$oid}}">edit</a></span>
+    </li>
+  </ul>
+  <a ng-href="#/area/edit/{{area._id.$oid}}">edit area</a>
+  <a ng-href="#/area/edit/{{area._id.$oid}}">delete area</a>
+  <a ng-href="#/route/add?area={{area.name}}">add route</a>
+
+</div>

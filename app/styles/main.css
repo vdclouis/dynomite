@@ -1,0 +1,241 @@
+@import url(normalize.css);
+/* Imports */
+/* Fonts */
+@font-face {
+  font-family: 'Blanch';
+  src: url("../fonts/blanch_condensed-webfont.eot");
+  src: url("../fonts/blanch_condensed-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/blanch_condensed-webfont.woff") format("font/x-woff"), url("../fonts/blanch_condensed-webfont.ttf") format("truetype"), url("../fonts/blanch_condensed-webfont.svg#blanchcondensed") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Arvil';
+  src: url("../fonts/arvil_sans-webfont.eot");
+  src: url("../fonts/arvil_sans-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/arvil_sans-webfont.woff") format("font/x-woff"), url("../fonts/arvil_sans-webfont.ttf") format("truetype"), url("../fonts/arvil_sans-webfont.svg#arvil_sansregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Maven';
+  src: url("../fonts/mavenprolight-200-webfont.eot");
+  src: url("../fonts/mavenprolight-200-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/mavenprolight-200-webfont.woff") format("font/x-woff"), url("../fonts/mavenprolight-200-webfont.ttf") format("truetype"), url("../fonts/mavenprolight-200-webfont.svg#maven_pro_light200") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+/* Colors */
+/* Styles */
+/* line 51, main.scss */
+body {
+  font-family: 'Maven';
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none; }
+
+/* line 60, main.scss */
+h1 {
+  font-family: 'Arvil';
+  font-size: 1.7em;
+  color: #e3694e;
+  margin-top: -1.6em;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+
+/* line 69, main.scss */
+#open-left {
+  text-decoration: none;
+  font-size: 2em;
+  color: #a0a0a0;
+  padding-left: .3em;
+  display: inline-block; }
+  /* line 76, main.scss */
+  #open-left a {
+    display: inline-block; }
+
+/* line 82, main.scss */
+.content ul {
+  padding: 0;
+  width: 95%;
+  margin: 10px auto;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.3); }
+  /* line 88, main.scss */
+  .content ul li {
+    list-style: none;
+    text-align: left;
+    padding: 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: white; }
+    /* line 96, main.scss */
+    .content ul li:nth-child(odd) {
+      background-color: #f8f8f8; }
+  /* line 101, main.scss */
+  .content ul a {
+    text-decoration: none;
+    color: #a0a0a0; }
+
+/* line 108, main.scss */
+.home {
+  text-align: center; }
+  /* line 111, main.scss */
+  .home .temp {
+    display: inline-block;
+    color: #e3694e;
+    vertical-align: top;
+    margin-top: -10px;
+    font-size: 10em;
+    font-family: 'Blanch'; }
+  /* line 119, main.scss */
+  .home canvas {
+    display: inline-block; }
+  /* line 122, main.scss */
+  .home img {
+    width: 132px;
+    padding: 40px; }
+
+/* line 129, main.scss */
+.about h1 {
+  text-align: center; }
+/* line 132, main.scss */
+.about p {
+  padding: 0 20px; }
+/* line 135, main.scss */
+.about span {
+  color: #1bc6b0; }
+/* line 138, main.scss */
+.about .fotos {
+  margin: 0 auto;
+  text-align: center; }
+/* line 142, main.scss */
+.about a {
+  color: #1bc6b0;
+  text-decoration: none;
+  text-align: center;
+  margin: 0 auto; }
+  /* line 148, main.scss */
+  .about a img {
+    width: 150px;
+    height: 150px; }
+
+/* line 156, main.scss */
+.grades h1 {
+  text-align: center; }
+/* line 160, main.scss */
+.grades p {
+  padding: 0 20px; }
+/* line 164, main.scss */
+.grades table {
+  width: 340px;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch; }
+  /* line 169, main.scss */
+  .grades table td {
+    padding: 10px; }
+/* line 174, main.scss */
+.grades .slide {
+  background: white;
+  padding: 10px;
+  overflow-x: scroll;
+  overflow-y: hidden; }
+/* line 181, main.scss */
+.grades .glass {
+  width: 80px;
+  height: 100px;
+  position: absolute;
+  left: -webkit-calc(50% - 40px);
+  left: calc(50% - 40px);
+  margin-top: -14px;
+  padding: 0;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5), inset 0 1px rgba(255, 255, 255, 0.3), inset 0 10px rgba(255, 255, 255, 0.2), inset 0 10px 20px rgba(255, 255, 255, 0.25), inset 0 -15px 30px rgba(0, 0, 0, 0.3); }
+
+/* line 199, main.scss */
+.area {
+  text-align: center; }
+  /* line 202, main.scss */
+  .area h1 {
+    margin-bottom: 0; }
+  /* line 206, main.scss */
+  .area input[type=search] {
+    width: 314px; }
+  /* line 210, main.scss */
+  .area google-map {
+    display: block;
+    width: 100%;
+    height: 150px; }
+
+/* line 217, main.scss */
+.area-map {
+  text-align: center; }
+  /* line 220, main.scss */
+  .area-map .angular-leaflet-map {
+    display: block;
+    width: 100%;
+    height: 640px; }
+
+/* line 227, main.scss */
+.route-id {
+  text-align: center; }
+  /* line 230, main.scss */
+  .route-id .center-cropped {
+    width: 100%;
+    display: block;
+    background-position: center center;
+    height: 150px; }
+
+/* line 238, main.scss */
+.area-routes {
+  text-align: center; }
+  /* line 241, main.scss */
+  .area-routes h1 {
+    margin-bottom: 0; }
+  /* line 245, main.scss */
+  .area-routes input[type=search] {
+    width: 314px; }
+  /* line 249, main.scss */
+  .area-routes .center-cropped {
+    width: 100%;
+    display: block;
+    background-position: center center;
+    height: 150px; }
+
+/* slideshow */
+/* line 258, main.scss */
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative; }
+
+/* line 264, main.scss */
+.swipe-wrap {
+  overflow: hidden;
+  position: relative; }
+
+/* line 269, main.scss */
+.swipe-wrap > img, .swipe-wrap > a, .swipe-wrap > div {
+  float: left;
+  display: block;
+  width: 100%;
+  position: relative; }
+
+/* line 277, main.scss */
+.heading .title {
+  float: left; }
+/* line 280, main.scss */
+.heading .elements {
+  margin-left: 110px; }
+  /* line 282, main.scss */
+  .heading .elements li {
+    cursor: pointer;
+    padding: 5px;
+    display: block;
+    float: left;
+    margin-left: 30px;
+    border: 1px solid grey; }
+
+/* line 294, main.scss */
+.picture img {
+  margin: auto;
+  width: 100%; }
