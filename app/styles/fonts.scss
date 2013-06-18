@@ -1,0 +1,36 @@
+/* Fonts */
+// numbers
+@font-face {
+  font-family: 'Blanch';
+  src: url('../fonts/blanch_condensed-webfont.eot');
+  src: url('../fonts/blanch_condensed-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/blanch_condensed-webfont.woff') format('font/x-woff'),
+       url('../fonts/blanch_condensed-webfont.ttf') format('truetype'),
+       url('../fonts/blanch_condensed-webfont.svg#blanchcondensed') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// h-tags
+@font-face {
+  font-family: 'Arvil';
+  src: url('../fonts/arvil_sans-webfont.eot');
+  src: url('../fonts/arvil_sans-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/arvil_sans-webfont.woff') format('font/x-woff'),
+       url('../fonts/arvil_sans-webfont.ttf') format('truetype'),
+       url('../fonts/arvil_sans-webfont.svg#arvil_sansregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// body
+@font-face {
+  font-family: 'Maven';
+  src: url('../fonts/mavenprolight-200-webfont.eot');
+  src: url('../fonts/mavenprolight-200-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/mavenprolight-200-webfont.woff') format('font/x-woff'),
+       url('../fonts/mavenprolight-200-webfont.ttf') format('truetype'),
+       url('../fonts/mavenprolight-200-webfont.svg#maven_pro_light200') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
