@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('dynomiteApp')
-  .controller('HomeCtrl', ['$scope', '$filter', 'Weather', function($scope, $filter, Weather) {
+  .controller('HomeCtrl', function($scope, $filter, Weather) {
     navigator.geolocation.getCurrentPosition(function(pos) {
       $scope.lat = pos.coords.latitude;
       $scope.lon = pos.coords.longitude;
@@ -18,6 +18,7 @@ angular.module('dynomiteApp')
         var skycons = new Skycons({"color": "#a0a0a0"});
         skycons.add('ico', Skycons[icon]);
         skycons.play();
-      });
+      }); // eo weather
     });
-  }])
+  });
+

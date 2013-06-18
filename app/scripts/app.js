@@ -1,57 +1,53 @@
 'use strict';
 
-angular.module('dynomiteApp', [])
+angular.module('dynomiteApp', ['ngResource'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/About', {
-        templateUrl: 'views/About.html',
-        controller: 'AboutCtrl'
-      })
-      .when('/Home', {
         templateUrl: 'views/Home.html',
         controller: 'HomeCtrl'
       })
-      .when('/Grades', {
+      .when('/about', {
+        templateUrl: 'views/About.html',
+        controller: 'AboutCtrl'
+      })
+      .when('/home', {
+        templateUrl: 'views/Home.html',
+        controller: 'HomeCtrl'
+      })
+      .when('/grades', {
         templateUrl: 'views/Grades.html',
         controller: 'GradesCtrl'
       })
-      .when('/Area', {
+      .when('/area', {
         templateUrl: 'views/Area.html',
         controller: 'AreaCtrl'
       })
-      .when('/AreaAdd', {
+      .when('/area/add', {
         templateUrl: 'views/AreaAdd.html',
         controller: 'AreaAddCtrl'
       })
-      .when('/AreaEdit', {
+      .when('/area/edit/:areaId', {
         templateUrl: 'views/AreaEdit.html',
         controller: 'AreaEditCtrl'
       })
-      .when('/AreaRoutes', {
+      .when('/area/:name', {
         templateUrl: 'views/AreaRoutes.html',
         controller: 'AreaRoutesCtrl'
       })
-      .when('/RouteId', {
+      .when('/route/:routeId', {
         templateUrl: 'views/RouteId.html',
         controller: 'RouteIdCtrl'
       })
-      .when('/RouteIdPictures', {
+      .when('/route/pictures/:routeId', {
         templateUrl: 'views/RouteIdPictures.html',
         controller: 'RouteIdPicturesCtrl'
       })
-      .when('/RouteIdEdit', {
+      .when('/route/edit/:routeId', {
         templateUrl: 'views/RouteIdEdit.html',
         controller: 'RouteIdEditCtrl'
       })
-      .when('/RouteIdDelete', {
-        templateUrl: 'views/RouteIdDelete.html',
-        controller: 'RouteIdDeleteCtrl'
-      })
-      .when('/RouteAdd', {
+      .when('/route/add', {
         templateUrl: 'views/RouteAdd.html',
         controller: 'RouteAddCtrl'
       })
@@ -59,3 +55,18 @@ angular.module('dynomiteApp', [])
         redirectTo: '/'
       });
   });
+  
+/* Snapjs */
+var snapper = new Snap({
+  element: document.getElementById('snapper'),
+  disable: 'right',
+  touchToDrag: false
+});
+
+document.getElementById('open-left').addEventListener('click', function() {
+  if( snapper.state().state === "left" ) {
+  snapper.close();
+  } else {
+  snapper.open("left");
+  }
+});

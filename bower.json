@@ -8,11 +8,11 @@
     "angular-resource": "~1.0.5",
     "angular-cookies": "~1.0.5",
     "angular-sanitize": "~1.0.5",
-    "Snap.js": "latest",
     "jquery": "~2.0.2",
     "angular-google-maps": "latest",
     "skycons": "latest",
-    "Swipe": "~2.0.0"
+    "Swipe": "~2.0.0",
+    "Snap.js": "latest"
   },
   "devDependencies": {
     "angular-mocks": "~1.0.5",

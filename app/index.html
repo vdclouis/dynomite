@@ -6,9 +6,12 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <title>Dynomite</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="Integral Studios">
+    <meta name="keywords" content="social, climbing, app, boulder, bouldering, integral, studios">
+    <meta name="description" content="Social Climbing app for mobile devices">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/0.1.0/forms-min.css&pure/0.1.0/buttons-min.css" />
@@ -43,7 +46,7 @@
     <!-- Add your site or application content here -->
     <div id="snapper" class="content snap-content">
       <a href="" id="open-left">&#9776</a>
-        <div class="container" ng-view></div>
+        <div ng-view=""></div>
       </div>
     </div>
 
@@ -53,14 +56,14 @@
     <script src="components/angular-resource/angular-resource.js"></script>
     <script src="components/angular-cookies/angular-cookies.js"></script>
     <script src="components/angular-sanitize/angular-sanitize.js"></script>
-
+    <script src="//api.filepicker.io/v1/filepicker.js"></script>
+    
     <!-- build:js scripts/scripts.js -->
-    <script src="components/Snap.js/snap.min.js"></script>
     <script src="components/jquery/jquery.min.js"></script>
+    <script src="components/Snap.js/snap.min.js"></script>
     <script src="components/angular-google-maps/src/angular-google-maps.js"></script>
     <script src="components/skycons/skycons.js"></script>
     <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/Home.js"></script>
     <script src="scripts/controllers/About.js"></script>
     <script src="scripts/controllers/Grades.js"></script>
@@ -79,6 +82,9 @@
     <script src="scripts/services/RoutesEdit.js"></script>
     <script src="scripts/services/Weather.js"></script>
     <script src="scripts/services/routeCache.js"></script>
+    <script src="scripts/controllers/test.js"></script>
+    <script src="scripts/filters/reverse.js"></script>
+    <script src="scripts/filters/underscore.js"></script>
     <!-- endbuild -->
 
     <!-- move this to specific view -->

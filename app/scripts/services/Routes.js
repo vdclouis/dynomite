@@ -1,5 +1,7 @@
 'use strict';
 
+var apikey = 'zmU_BDz4u4CsCpTltEbxOlPazJOFZtPE';
+
 angular.module('dynomiteApp')
   .factory('Routes', function($resource) {
     return {
