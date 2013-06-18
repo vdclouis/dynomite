@@ -5,6 +5,6 @@ angular.module('dynomiteApp')
     Routes.routeById().get({name: $routeParams.routeId}, function(route) {
       console.log(route);
       $scope.route = route;
-      routeCache.put('thisRoute', route); 
+      routeCache.put('thisRoute', route);
     });
-  }])
+  }]);
