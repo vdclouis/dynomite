@@ -18,11 +18,11 @@ angular.module('dynomiteApp')
         angular.extend({}, this, {_id:undefined}),
         cb
       );
-    }
+    };
 
     RouteEdit.prototype.destroy = function(cb) {
       return RouteEdit.remove({id: this._id.$oid}, cb);
     };
 
     return RouteEdit;
-  })
+  });

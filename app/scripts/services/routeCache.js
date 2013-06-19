@@ -2,5 +2,5 @@
 
 angular.module('dynomiteApp')
   .factory('routeCache', function($cacheFactory) {
-    return $cacheFactory('routeCache', {capacity:1})
+    return $cacheFactory('routeCache', {capacity:1});
   });

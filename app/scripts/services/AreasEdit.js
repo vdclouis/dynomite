@@ -25,4 +25,4 @@ angular.module('dynomiteApp')
     };
 
     return AreaEdit;
-  })
+  });
