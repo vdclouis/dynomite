@@ -16,4 +16,4 @@ angular.module('dynomiteApp')
     );
     
     return Resource;
-  })
+  });

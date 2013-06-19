@@ -43,4 +43,4 @@ angular.module('dynomiteApp')
         return Areas;
       }
     };
-  })
+  });
