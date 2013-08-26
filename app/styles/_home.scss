@@ -1,0 +1,27 @@
+@import "colors";
+
+.home {
+  text-align: center;
+
+  .forecast {
+    cursor: default;
+  }
+
+  .temp {
+    display: inline-block;
+    color: $red;
+    vertical-align: top;
+    margin-top: -10px;
+    font-size: 10em;
+    font-family: 'Blanch';
+  }
+
+  canvas {
+    display: inline-block;
+  }
+
+  img {
+    width: 132px;
+    //padding: 40px;
+  }
+}

@@ -2,15 +2,12 @@
 
 angular.module('dynomiteApp')
   .controller('AreaAddCtrl', ['$scope', '$location', 'Areas', 'AreaEdit', function($scope, $location, Areas, AreaEdit){
-    
     $scope.save = function() {
       Areas.getArea().save($scope.area, function(area) {
         $location.path('/area');
       });
     };
-    
     $scope.area = new AreaEdit();
-    
     $scope.locateMe = function() {
       navigator.geolocation.getCurrentPosition(function(position) {
         $scope.area.coord = { lat: position.coords.latitude, lon: position.coords.longitude };
@@ -27,4 +24,4 @@ angular.module('dynomiteApp')
         $scope.$apply();
       });
     };
-  }])
+  }]);

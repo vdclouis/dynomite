@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('dynomiteApp', ['ngResource'])
+angular.module('dynomiteApp', ['ngResource', 'google-maps'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
@@ -55,18 +55,3 @@ angular.module('dynomiteApp', ['ngResource'])
         redirectTo: '/'
       });
   });
-  
-/* Snapjs */
-var snapper = new Snap({
-  element: document.getElementById('snapper'),
-  disable: 'right',
-  touchToDrag: false
-});
-
-document.getElementById('open-left').addEventListener('click', function() {
-  if( snapper.state().state === "left" ) {
-  snapper.close();
-  } else {
-  snapper.open("left");
-  }
-});

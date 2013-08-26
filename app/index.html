@@ -12,13 +12,15 @@
     <meta name="keywords" content="social, climbing, app, boulder, bouldering, integral, studios">
     <meta name="description" content="Social Climbing app for mobile devices">
     <meta name="viewport" content="width=device-width, user-scalable=no">
-    <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="components/normalize-css/normalize.css">
-    <link rel="stylesheet" href="http://yui.yahooapis.com/combo?pure/0.1.0/forms-min.css&pure/0.1.0/buttons-min.css">
+
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css"/>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/snap.css">
     <link rel="stylesheet" href="styles/demo.css">
     <!-- endbuild -->
+
   </head>
   <body ng-app="dynomiteApp">
     <!--[if lt IE 7]>
@@ -26,8 +28,8 @@
     <![endif]-->
 
     <!--[if lt IE 9]>
-      <script src="components/es5-shim/es5-shim.js"></script>
-      <script src="components/json3/lib/json3.min.js"></script>
+      <script src="bower_components/es5-shim/es5-shim.js"></script>
+      <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
     <nav class="snap-drawers">
@@ -49,21 +51,25 @@
       </div>
     </div>
 
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCN02ut-Z3iVvlbo8pSpR9E4Pob-Wu_kkE&sensor=true"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false&language=en"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-google-maps/src/angular-google-maps.js"></script>
 
-    <script src="components/angular/angular.js"></script>
-    <script src="components/angular-resource/angular-resource.js"></script>
-    <script src="components/angular-cookies/angular-cookies.js"></script>
-    <script src="components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="//api.filepicker.io/v1/filepicker.js"></script>
-    <script src="scripts/kinetic-v4.5.3.min.js"></script>
-    
-    <!-- build:js scripts/scripts.js -->
-    <script src="components/jquery/jquery.min.js"></script>
-    <script src="components/Snap.js/snap.min.js"></script>
-    <script src="components/angular-google-maps/src/angular-google-maps.js"></script>
-    <script src="components/skycons/skycons.js"></script>
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js scripts/plugins.js -->
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="//api.filepicker.io/v1/filepicker.js"></script>
+    <script src="bower_components/jquery/jquery.min.js"></script>
+    <script src="bower_components/snapjs/snap.min.js"></script>
+    <script src="bower_components/skycons/skycons.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js scripts/modules.js -->
     <script src="scripts/controllers/Home.js"></script>
     <script src="scripts/controllers/About.js"></script>
     <script src="scripts/controllers/Grades.js"></script>
@@ -85,6 +91,7 @@
     <script src="scripts/filters/reverse.js"></script>
     <script src="scripts/filters/underscore.js"></script>
     <script src="scripts/controllers/canvas.js"></script>
+    <script src="scripts/main.js"></script>
     <!-- endbuild -->
   </body>
 </html>

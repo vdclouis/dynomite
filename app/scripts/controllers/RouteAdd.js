@@ -14,7 +14,7 @@ angular.module('dynomiteApp')
         $location.path('/route/' + route._id.$oid);
       });
     };
-    
+
     filepicker.setKey('Aw1KqJloRli2yInj47Sthz');
 
     $scope.uploadFile = function() {
@@ -24,4 +24,4 @@ angular.module('dynomiteApp')
         $scope.$apply();
       });
     };
-  }])
+  }]);

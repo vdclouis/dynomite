@@ -9,11 +9,12 @@
     "angular-cookies": "~1.0.7",
     "angular-sanitize": "~1.0.7",
     "jquery": "~2.0.2",
-    "angular-google-maps": "latest",
     "skycons": "latest",
     "Swipe": "~2.0.0",
-    "normalize-css": "~2.1.2",
-    "snapjs": "*"
+    "snapjs": "*",
+    "angular-google-maps": "*",
+    "bootstrap": "~3.0.0",
+    "kineticjs": "~4.5.2"
   },
   "devDependencies": {
     "angular-mocks": "~1.0.7",

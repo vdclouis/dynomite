@@ -7,10 +7,10 @@ angular.module('dynomiteApp')
       //console.log(area);
       $scope.area = area['0'];
     });
-    
+
     // get routes with x areaname
     $scope.routes = Routes.getR().query({areaName: $routeParams.name});
-    
+
     //default order
     $scope.orderRoutes = 'name';
-  }])
+  }]);

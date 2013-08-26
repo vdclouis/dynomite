@@ -1,0 +1,28 @@
+@import "colors";
+
+.about {
+  h1 {
+    text-align: center;
+  }
+  p {
+    padding: 0 20px;
+  }
+  span {
+    color: $green;
+  }
+  .fotos {
+    margin: 0 auto;
+    text-align: center;
+  }
+  a {
+    color: $green;
+    text-decoration: none;
+    text-align: center;
+    margin: 0 auto;
+
+    img {
+      width: 150px;
+      height: 150px;
+    }
+  }
+}
