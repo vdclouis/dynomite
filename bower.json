@@ -2,21 +2,21 @@
   "name": "dynomite",
   "version": "0.0.0",
   "dependencies": {
-    "angular": "~1.0.5",
+    "angular": "~1.0.7",
     "json3": "~3.2.4",
     "es5-shim": "~2.0.8",
-    "angular-resource": "~1.0.5",
-    "angular-cookies": "~1.0.5",
-    "angular-sanitize": "~1.0.5",
+    "angular-resource": "~1.0.7",
+    "angular-cookies": "~1.0.7",
+    "angular-sanitize": "~1.0.7",
     "jquery": "~2.0.2",
     "angular-google-maps": "latest",
     "skycons": "latest",
     "Swipe": "~2.0.0",
-    "Snap.js": "latest",
-    "normalize-css": "~2.1.2"
+    "normalize-css": "~2.1.2",
+    "snapjs": "*"
   },
   "devDependencies": {
-    "angular-mocks": "~1.0.5",
-    "angular-scenario": "~1.0.5"
+    "angular-mocks": "~1.0.7",
+    "angular-scenario": "~1.0.7"
   }
 }
