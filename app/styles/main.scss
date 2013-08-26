@@ -70,7 +70,9 @@ h1 {
 
 .home {
   text-align: center;
-  
+  .forecast{
+    cursor: default;
+  }
   .temp{
     display: inline-block;
     color: $red;
