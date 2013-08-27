@@ -1,18 +1,21 @@
 'use strict';
 
 angular.module('dynomiteApp')
-  .controller('RouteAddCtrl', ['$scope', '$location', '$routeParams', 'RouteEdit', 'Areas', function($scope, $location, $routeParams, RouteEdit, Areas) {
+  .controller('RouteAddCtrl', ['$scope', '$location', '$routeParams', '$http', function($scope, $location, $routeParams, $http) {
 
-    //get areaName from current area for the dropdown
-    Areas.allAreas().query({}, function (data){
-      console.log(data);
-      $scope.areas = data;
-    });
+    $scope.route = {
+      area: $routeParams.areaId
+    };
 
     $scope.save = function() {
-      RouteEdit.save($scope.route, function(route) {
-        $location.path('/route/' + route._id.$oid);
-      });
+      $http.post('/routes', $scope.route)
+        .success(function() {
+          console.log('yay');
+          $location.path('#/area/' + $routeParams.areaId);
+        })
+        .error(function() {
+          console.log('nay');
+        });
     };
 
     filepicker.setKey('Aw1KqJloRli2yInj47Sthz');

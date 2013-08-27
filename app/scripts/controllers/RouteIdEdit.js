@@ -1,33 +1,38 @@
 'use strict';
 
 angular.module('dynomiteApp')
-  .controller('RouteIdEditCtrl', ['$scope', '$location', '$routeParams', 'RouteEdit', 'Areas', function($scope, $location, $routeParams, RouteEdit, Areas) {
-    Areas.allAreas().query({}, function (data){
-      //console.log(data);
-      $scope.areas = data;
-    });
+  .controller('RouteIdEditCtrl', ['$scope', '$location', '$routeParams', '$http', function($scope, $location, $routeParams, $http) {
+    // Get Area
+    $http.get('/routes/' + $routeParams.routeId)
+      .success(function(data) {
+        console.log('yay');
+        $scope.route = data;
+      })
+      .error(function() {
+        console.log('nay');
+      });
 
-    var self = this;
-
-    RouteEdit.get({id: $routeParams.routeId}, function(route) {
-      self.original = route;
-      $scope.route = new RouteEdit(self.original);
-    });
-
-    $scope.isClean = function() {
-      return angular.equals(self.original, $scope.route);
-    };
-
+    // Delete Area
     $scope.destroy = function() {
-      self.original.destroy(function() {
-        $location.path('/area');
-      });
+      $http.delete('/routes/' + $routeParams.routeId)
+        .success(function() {
+          console.log('yay');
+        })
+        .error(function() {
+          console.log('nay');
+        });
     };
 
+    // Update Area
     $scope.save = function() {
-      $scope.route.update(function() {
-        $location.path('/area');
-      });
+      $http.put('/routes/' + $routeParams.routeId, $scope.route)
+        .success(function() {
+          console.log('yay');
+          $location.path('/route/' + $routeParams.routeId);
+        })
+        .error(function() {
+          console.log('nay');
+        });
     };
 
     filepicker.setKey('Aw1KqJloRli2yInj47Sthz');

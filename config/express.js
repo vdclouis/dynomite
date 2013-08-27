@@ -1,11 +1,8 @@
-
 var express = require('express')
   , helpers = require('view-helpers')
   , mongoStore = require('connect-mongo')(express)
   , flash = require('connect-flash')
   //, connect = require('connect')
-
-
 
 module.exports = function (app, config, passport) {
 

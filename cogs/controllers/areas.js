@@ -86,6 +86,11 @@ exports.show = function(req, res) {
   res.jsonp(req.area);
 };
 
+/**
+ * Show all Areas
+ * @param req
+ * @param res
+ */
 exports.all = function(req, res) {
   Area.find().sort('-created').populate('user').exec(function(err, area) {
     if (err) {

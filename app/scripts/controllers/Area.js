@@ -1,21 +1,30 @@
 'use strict';
 
 angular.module('dynomiteApp')
-  .controller('AreaCtrl', ['$scope', 'Areas', function($scope, Areas) {
-    $scope.areas = Areas.allAreas().query({}, function(data) {
-      //console.log(data);
-      $scope.findMe();
-      for (var i=0; i<data.length; i++) {
-        var lat = data[i].coord.lat;
-        var lon = data[i].coord.lon;
-        $scope.markers.push({
-          latitude: lat,
-          longitude: lon
-        });
-      }
-    });
+  .controller('AreaCtrl', ['$scope', '$http', function($scope, $http) {
 
-    //gmap
+    // Get all Areas
+    $http({method: 'GET', url: '/areas'}).
+      success(function(data, status, headers, config) {
+        console.log('success');
+        $scope.findMe();
+        for (var i=0; i<data.length; i++) {
+          var lat = data[i].lat;
+          var lng = data[i].lng;
+          $scope.markers.push({
+            latitude: lat,
+            longitude: lng
+          });
+        }
+        $scope.areas = data;
+      }).
+      error(function(data, status, headers, config) {
+        console.log('nay:', headers);
+        console.log('nay:', config);
+      });
+
+
+    // Google maps
     google.maps.visualRefresh = true;
     $scope.center = {
       latitude: 33,
@@ -25,6 +34,8 @@ angular.module('dynomiteApp')
     $scope.markers = [];
     //get pos
     $scope.geolocationAvailable = navigator.geolocation ? true : false;
+
+    // Get current location
     $scope.findMe = function() {
       if( $scope.geolocationAvailable ) {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -38,6 +49,7 @@ angular.module('dynomiteApp')
         });
       }
     };
-    //default order
+
+    // Default order
     $scope.orderAreas = 'name';
   }]);
