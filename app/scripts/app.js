@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('dynomiteApp', ['ngResource'])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/Home.html',
@@ -51,9 +51,14 @@ angular.module('dynomiteApp', ['ngResource'])
         templateUrl: 'views/RouteAdd.html',
         controller: 'RouteAddCtrl'
       })
-      .otherwise({
+      .when('/register', {
+        templateUrl: 'views/Register.html',
+        controller: 'RegisterCtrl'
+      })
+      /*.otherwise({
         redirectTo: '/'
-      });
+      });*/
+    $locationProvider.html5Mode(true);
   });
   
 /* Snapjs */

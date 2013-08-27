@@ -1,8 +1,23 @@
 {
   "name": "dynomite",
   "version": "0.0.2",
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "scripts": {
+    "start": "NODE_ENV=development ./node_modules/.bin/nodemon server.js"
+  },
   "dependencies": {
-    "express": "latest"
+    "express": "latest",
+    "view-helpers": "latest",
+    "async": "latest",
+    "ejs": "~0.8.4",
+    "connect-mongo": "~0.3.3",
+    "connect-flash": "~0.1.1",
+    "mongoose": "~3.6.18",
+    "passport": "~0.1.17",
+    "passport-local": "~0.1.6",
+    "underscore": "~1.5.1"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -26,9 +41,7 @@
     "grunt-open": "~0.2.0",
     "matchdep": "~0.1.1",
     "grunt-google-cdn": "~0.1.1",
-    "grunt-ngmin": "~0.0.2"
-  },
-  "engines": {
-    "node": ">=0.8.0"
+    "grunt-ngmin": "~0.0.2",
+    "nodemon": "latest"
   }
 }
