@@ -13,18 +13,18 @@ angular.module('dynomiteApp')
           overlay[i] = cc.circleData;
           layer.add(cc.circleGroup);
           layer.draw();
-        };
+        }
       }
     });
     $scope.saveData = function(){
-      console.log(overlay)
+      console.log(overlay);
       $scope.route.overlay = overlay;
       $scope.route.update(function() {
         $location.path('/area');
       });
     };
     $(window).on('resize',function(){
-      if(this.resizeTO) clearTimeout(this.resizeTO);
+      if(this.resizeTO) { clearTimeout(this.resizeTO); }
       this.resizeTO = setTimeout(function(){
         $(this).trigger('resizeEnd');
       },500);
@@ -35,7 +35,7 @@ angular.module('dynomiteApp')
       //RunHeaderAnim();
     });
     var droparea = $('#droparea');
-    var wallImage = $("#wallImage[0]");
+    var wallImage = $('#wallImage[0]');
 /*
     function RunHeaderAnim() {
       stage.setWidth(window.innerWidth);
@@ -65,7 +65,7 @@ angular.module('dynomiteApp')
     }
 */
     var stage = new Kinetic.Stage({
-      container : "droparea",
+      container : 'droparea',
       width : window.innerWidth,
       height : window.innerHeight-90,
     });
@@ -81,7 +81,7 @@ angular.module('dynomiteApp')
       dragSrcEl = this;
     });
 */
-    var con = stage.getContainer(); 
+    var con = stage.getContainer();
     con.addEventListener('dragover',function(e){
       e.preventDefault(); //@important
     });
@@ -109,12 +109,12 @@ angular.module('dynomiteApp')
         dragBoundFunc: function(pos) {
           var X=pos.x;
           var Y=pos.y;
-          if(X<minX){X=minX;};
-          if(X>maxX){X=maxX;};
-          if(Y<minY){Y=minY;};
-          if(Y>maxY){Y=maxY;};
+          if(X<minX){X=minX;}
+          if(X>maxX){X=maxX;}
+          if(Y<minY){Y=minY;}
+          if(Y>maxY){Y=maxY;}
           return({x:X, y:Y});
-        },
+        }
       });
       this.circle = new Kinetic.Circle({
         radius: 25,
@@ -127,12 +127,12 @@ angular.module('dynomiteApp')
         overlay[self.thisName] = {
           x: this.getPosition().x,
           y: this.getPosition().y
-        }
+        };
         //var touchPos = stage.getTouchPosition();
       });
-      console.log(this)
+      console.log(this);
       return this;
-    }
+    };
 
     //insert image to stage
     con.addEventListener('drop',function(e){

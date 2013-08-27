@@ -14,6 +14,6 @@ angular.module('dynomiteApp')
         get: {method:'JSONP', params:{ isArray: true }}
       }
     );
-    
+
     return Resource;
   });

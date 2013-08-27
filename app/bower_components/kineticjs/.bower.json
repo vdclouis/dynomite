@@ -1,0 +1,15 @@
+{
+  "name": "kineticjs",
+  "homepage": "https://github.com/ericdrowell/KineticJS",
+  "version": "4.5.2",
+  "_release": "4.5.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v4.5.2",
+    "commit": "3cfd49a03ece39d40fb127f9db2dbf6866abfcbd"
+  },
+  "_source": "git://github.com/ericdrowell/KineticJS.git",
+  "_target": "~4.5.2",
+  "_originalSource": "kineticjs",
+  "_direct": true
+}

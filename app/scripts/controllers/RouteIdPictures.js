@@ -10,4 +10,4 @@ angular.module('dynomiteApp')
     } else {
       $scope.route = routeCache.get('thisRoute');
     }
-  }])
+  }]);

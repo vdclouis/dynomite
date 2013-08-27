@@ -1,0 +1,14 @@
+{
+  "name": "skycons",
+  "main": "skycons.js",
+  "homepage": "https://github.com/karlosgliberal/skycons",
+  "_release": "3f4b042df6",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "3f4b042df6abdeee28ffbefaacc254ef9accd959"
+  },
+  "_source": "git://github.com/karlosgliberal/skycons.git",
+  "_target": "*",
+  "_originalSource": "skycons"
+}
