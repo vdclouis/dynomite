@@ -1,15 +1,23 @@
-<form class="signup">
-  <label for="name">full name</label>
-  <input type="text" id="name" placeholder="Full name" ng-model="user.name">
+<form name="registerForm" class="signup">
+  <div class="form-group" ng-class="{error: registerForm.name.$invalid}">
+    <label for="name">full name</label>
+    <input class="form-control" required type="text" id="name" placeholder="Full name" ng-model="user.name">
+  </div>
 
-  <label for="email">email</label>
-  <input type="text" id="email" placeholder="email" ng-model="user.email">
+  <div class="form-group" ng-class="{error: registerForm.email.$invalid}">
+    <label for="email">email</label>
+    <input class="form-control" required type="email" id="email" placeholder="email" ng-model="user.email">
+  </div>
 
-  <label for="username">username</label>
-  <input type="text" id="username" placeholder="username" ng-model="user.username">
+  <div class="form-group" ng-class="{error: registerForm.username.$invalid}">
+    <label for="username">username</label>
+    <input class="form-control" required type="text" id="username" placeholder="username" ng-model="user.username">
+  </div>
 
-  <label for="password">password</label>
-  <input type="text" id="password" placeholder="password" ng-model="user.password">
+  <div class="form-group" ng-class="{error: registerForm.password.$invalid}">
+    <label for="password">password</label>
+    <input class="form-control" required type="password" id="password" placeholder="password" ng-model="user.password">
+  </div>
 
-  <button type="submit" data-ng-click="save()">register</button>
+  <button class="btn btn-primary" type="submit" data-ng-click="save()">register</button>
 </form>
