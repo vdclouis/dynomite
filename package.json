@@ -1,6 +1,7 @@
 {
   "name": "dynomite",
   "version": "0.0.2",
+  "author": "Integral",
   "engines": {
     "node": ">=0.8.0"
   },
