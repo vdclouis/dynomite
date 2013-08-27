@@ -22,7 +22,7 @@
     <!-- endbuild -->
 
   </head>
-  <body ng-app="dynomiteApp">
+  <body ng-app="dynomiteApp" data-ng-controller="InitCtrl">
     <!--[if lt IE 7]>
       <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
@@ -38,6 +38,7 @@
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/area">Explore</a></li>
+          <li><a href="/user">User</a></li>
           <li><a href="/grades">Grades</a></li>
           <li><a href="/about">About</a></li>
         </ul>
@@ -70,6 +71,7 @@
     <!-- endbuild -->
 
     <!-- build:js scripts/modules.js -->
+    <script src="scripts/controllers/Init.js"></script>
     <script src="scripts/controllers/Home.js"></script>
     <script src="scripts/controllers/About.js"></script>
     <script src="scripts/controllers/Grades.js"></script>
@@ -83,6 +85,8 @@
     <script src="scripts/controllers/RouteIdDelete.js"></script>
     <script src="scripts/controllers/RouteAdd.js"></script>
     <script src="scripts/controllers/Register.js"></script>
+    <script src="scripts/controllers/Login.js"></script>
+    <script src="scripts/services/Global.js"></script>
     <script src="scripts/services/Areas.js"></script>
     <script src="scripts/services/AreasEdit.js"></script>
     <script src="scripts/services/Routes.js"></script>

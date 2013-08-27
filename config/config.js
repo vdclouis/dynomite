@@ -10,7 +10,7 @@ module.exports = {
     app: {
       name: 'MEAN - A Modern Stack - Development'
     },
-    /*facebook: {
+    facebook: {
       clientID: "APP_ID",
       clientSecret: "APP_SECRET",
       callbackURL: "http://localhost:3000/auth/facebook/callback"
@@ -29,7 +29,7 @@ module.exports = {
       clientID: "APP_ID",
       clientSecret: "APP_SECRET",
       callbackURL: "http://localhost:3000/auth/google/callback"
-    },*/
+    },
   },
   /*
   test: {

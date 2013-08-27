@@ -3,7 +3,9 @@ var async = require('async')
 
 exports.index = function(req, res){
   //console.log('index.html');
-  res.render('index');
+  res.render('index', {
+    user: req.user ? JSON.stringify(req.user) : "null"
+  })
 }
 
 exports.test = function(req, res){
@@ -12,6 +14,6 @@ exports.test = function(req, res){
 }
 
 exports.area = function(req, res){
-  //console.log('test.html');
+  console.log('area.html');
   //res.render('area');
 }

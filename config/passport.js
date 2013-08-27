@@ -5,7 +5,7 @@ var mongoose = require('mongoose')
 
 
 module.exports = function (passport, config) {
-  // require('./initializer')
+  // returnequire('./initializer')
 
   // serialize sessions
   passport.serializeUser(function(user, done) {
@@ -25,11 +25,16 @@ module.exports = function (passport, config) {
     },
     function(email, password, done) {
       User.findOne({ email: email }, function (err, user) {
-        if (err) { return done(err) }
+        if (err) {
+          console.log(err);
+          return done(err);
+        }
         if (!user) {
+          console.log("unknown user");
           return done(null, false, { message: 'Unknown user' })
         }
         if (!user.authenticate(password)) {
+          console.log("invalid password");
           return done(null, false, { message: 'Invalid password' })
         }
         return done(null, user)

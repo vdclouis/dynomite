@@ -7,6 +7,22 @@ angular.module('dynomiteApp', ['ngResource', 'google-maps'])
         templateUrl: 'views/Home.html',
         controller: 'HomeCtrl'
       })
+      .when('/register', {
+        templateUrl: 'views/Register.html',
+        controller: 'RegisterCtrl'
+      })
+      .when('/login', {
+        templateUrl: 'views/Login.html',
+        controller: 'LoginCtrl'
+      })
+      .when('/logout', {
+        /*templateUrl: 'views/Login.html',
+        controller: 'LoginCtrl'*/
+      })
+      .when('/user/:username', {
+        templateUrl: 'views/User.html',
+        controller: 'UserCtrl'
+      })
       .when('/about', {
         templateUrl: 'views/About.html',
         controller: 'AboutCtrl'
@@ -51,12 +67,10 @@ angular.module('dynomiteApp', ['ngResource', 'google-maps'])
         templateUrl: 'views/RouteAdd.html',
         controller: 'RouteAddCtrl'
       })
-      .when('/register', {
-        templateUrl: 'views/Register.html',
-        controller: 'RegisterCtrl'
-      })
       .otherwise({
         redirectTo: '/'
       });
     $locationProvider.html5Mode(true);
   });
+
+

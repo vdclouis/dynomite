@@ -3,6 +3,8 @@ var express = require('express')
   , helpers = require('view-helpers')
   , mongoStore = require('connect-mongo')(express)
   , flash = require('connect-flash')
+  //, connect = require('connect')
+
 
 
 module.exports = function (app, config, passport) {
@@ -38,8 +40,6 @@ module.exports = function (app, config, passport) {
     app.use(express.bodyParser())
     app.use(express.methodOverride())
 
-
-
     // express/mongo session storage
     app.use(express.session({
       secret: 'MEAN',
@@ -58,9 +58,6 @@ module.exports = function (app, config, passport) {
     // use passport session
     app.use(passport.initialize())
     app.use(passport.session())
-
-
-
 
     // routes should be at the last
     app.use(app.router)
@@ -84,6 +81,19 @@ module.exports = function (app, config, passport) {
     app.use(function(req, res, next){
       res.status(404).render('404', { url: req.originalUrl, error: 'Not found' })
     })
+
+
+    // development only
+    if ('development' == app.get('env')) {
+      //app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+      
+      //log in the console 
+      //app.use(connect.logger(':method :url - :referrer'));
+    }
+    // production only
+    if ('production' == app.get('env')) {
+
+    }
 
   })
 }

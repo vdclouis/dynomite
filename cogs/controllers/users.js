@@ -42,7 +42,7 @@ exports.signup = function (req, res) {
  * Logout
  */
 
-exports.signout = function (req, res) {
+exports.logout = function (req, res) {
   req.logout()
   res.redirect('/')
 }
@@ -52,6 +52,7 @@ exports.signout = function (req, res) {
  */
 
 exports.session = function (req, res) {
+  console.log("user session")
   res.redirect('/')
 }
 
