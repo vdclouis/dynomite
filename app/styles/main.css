@@ -1,0 +1,295 @@
+/* Imports */
+/* Fonts */
+@font-face {
+  font-family: 'Blanch';
+  src: url("fonts/blanch_condensed-webfont.eot");
+  src: url("fonts/blanch_condensed-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/blanch_condensed-webfont.woff") format("font/x-woff"), url("fonts/blanch_condensed-webfont.ttf") format("truetype"), url("fonts/blanch_condensed-webfont.svg#blanchcondensed") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Arvil';
+  src: url("fonts/arvil_sans-webfont.eot");
+  src: url("fonts/arvil_sans-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/arvil_sans-webfont.woff") format("font/x-woff"), url("fonts/arvil_sans-webfont.ttf") format("truetype"), url("fonts/arvil_sans-webfont.svg#arvil_sansregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Maven';
+  src: url("fonts/mavenprolight-200-webfont.eot");
+  src: url("fonts/mavenprolight-200-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/mavenprolight-200-webfont.woff") format("font/x-woff"), url("fonts/mavenprolight-200-webfont.ttf") format("truetype"), url("fonts/mavenprolight-200-webfont.svg#maven_pro_light200") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_area\.scss}line{font-family:\000031}}
+.area {
+  text-align: center;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_area\.scss}line{font-family:\000034}}
+.area h1 {
+  margin-bottom: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_area\.scss}line{font-family:\000038}}
+.area input[type=search] {
+  width: 314px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_area\.scss}line{font-family:\0000312}}
+.area google-map {
+  display: block;
+  width: 100%;
+  height: 150px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_area\.scss}line{font-family:\0000319}}
+.area-map {
+  text-align: center;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_area\.scss}line{font-family:\0000322}}
+.area-map .angular-leaflet-map {
+  display: block;
+  width: 100%;
+  height: 640px;
+}
+
+/* Colors */
+/* Colors */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_home\.scss}line{font-family:\000033}}
+.home {
+  text-align: center;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_home\.scss}line{font-family:\000036}}
+.home .forecast {
+  cursor: default;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_home\.scss}line{font-family:\0000310}}
+.home .temp {
+  display: inline-block;
+  color: #e3694e;
+  vertical-align: top;
+  margin-top: -10px;
+  font-size: 10em;
+  font-family: 'Blanch';
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_home\.scss}line{font-family:\0000319}}
+.home canvas {
+  display: inline-block;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_home\.scss}line{font-family:\0000323}}
+.home img {
+  width: 132px;
+}
+
+/* Colors */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_about\.scss}line{font-family:\000034}}
+.about h1 {
+  text-align: center;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_about\.scss}line{font-family:\000037}}
+.about p {
+  padding: 0 20px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_about\.scss}line{font-family:\0000310}}
+.about span {
+  color: #1bc6b0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_about\.scss}line{font-family:\0000313}}
+.about .fotos {
+  margin: 0 auto;
+  text-align: center;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_about\.scss}line{font-family:\0000317}}
+.about a {
+  color: #1bc6b0;
+  text-decoration: none;
+  text-align: center;
+  margin: 0 auto;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_about\.scss}line{font-family:\0000323}}
+.about a img {
+  width: 150px;
+  height: 150px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_arearoutes\.scss}line{font-family:\000031}}
+.area-routes {
+  text-align: center;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_arearoutes\.scss}line{font-family:\000034}}
+.area-routes h1 {
+  margin-bottom: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_arearoutes\.scss}line{font-family:\000038}}
+.area-routes input[type=search] {
+  width: 314px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_arearoutes\.scss}line{font-family:\0000312}}
+.area-routes .center-cropped {
+  width: 100%;
+  display: block;
+  background-position: center center;
+  height: 150px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_grades\.scss}line{font-family:\000032}}
+.grades h1 {
+  text-align: center;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_grades\.scss}line{font-family:\000036}}
+.grades p {
+  padding: 0 20px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_grades\.scss}line{font-family:\0000310}}
+.grades table {
+  width: 340px;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_grades\.scss}line{font-family:\0000315}}
+.grades table td {
+  padding: 10px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_grades\.scss}line{font-family:\0000320}}
+.grades .slide {
+  background: white;
+  padding: 10px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_grades\.scss}line{font-family:\0000327}}
+.grades .glass {
+  width: 80px;
+  height: 100px;
+  position: absolute;
+  left: -webkit-calc(50% - 40px);
+  left: -moz-calc(50% - 40px);
+  left: calc(50% - 40px);
+  margin-top: -14px;
+  padding: 0;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5), inset 0 1px rgba(255, 255, 255, 0.3), inset 0 10px rgba(255, 255, 255, 0.2), inset 0 10px 20px rgba(255, 255, 255, 0.25), inset 0 -15px 30px rgba(0, 0, 0, 0.3);
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_routeid\.scss}line{font-family:\000031}}
+.route-id {
+  text-align: center;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_routeid\.scss}line{font-family:\000034}}
+.route-id .center-cropped {
+  width: 100%;
+  display: block;
+  background-position: center center;
+  height: 150px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_slideshow\.scss}line{font-family:\000031}}
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_slideshow\.scss}line{font-family:\000037}}
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_slideshow\.scss}line{font-family:\0000312}}
+.swipe-wrap > img, .swipe-wrap > a, .swipe-wrap > div {
+  float: left;
+  display: block;
+  width: 100%;
+  position: relative;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_snap\.scss}line{font-family:\000031}}
+#open-left {
+  text-decoration: none;
+  font-size: 2em;
+  color: #a0a0a0;
+  padding-left: .3em;
+  display: inline-block;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/_snap\.scss}line{font-family:\000038}}
+#open-left a {
+  display: inline-block;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/main\.scss}line{font-family:\0000314}}
+body {
+  font-family: 'Maven';
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/main\.scss}line{font-family:\0000323}}
+h1 {
+  font-family: 'Arvil';
+  font-size: 1.7em;
+  color: #e3694e;
+  margin-top: -1.6em;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/main\.scss}line{font-family:\0000333}}
+.content .list {
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  width: 95%;
+  margin: 0 auto;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/main\.scss}line{font-family:\0000340}}
+.content .list ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/main\.scss}line{font-family:\0000345}}
+.content .list ul li {
+  list-style: none;
+  border-bottom: 1px solid #ccc;
+  padding: 7px 5px;
+  text-align: left;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/main\.scss}line{font-family:\0000351}}
+.content .list ul li:last-child {
+  border: none;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/main\.scss}line{font-family:\0000357}}
+.content .list ul a {
+  text-decoration: none;
+  color: #a0a0a0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/main\.scss}line{font-family:\0000368}}
+.heading .title {
+  float: left;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/main\.scss}line{font-family:\0000371}}
+.heading .elements {
+  margin-left: 110px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/main\.scss}line{font-family:\0000373}}
+.heading .elements li {
+  cursor: pointer;
+  padding: 5px;
+  display: block;
+  float: left;
+  margin-left: 30px;
+  border: 1px solid grey;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Untitled\/Users\/louis\/Sites\/dynomite2\/app\/styles\/main\.scss}line{font-family:\0000385}}
+.picture img {
+  margin: auto;
+  width: 100%;
+}
