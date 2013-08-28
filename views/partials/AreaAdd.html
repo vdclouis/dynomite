@@ -2,29 +2,29 @@
   <fieldset>
 
     <!-- name -->
-
     <div class="form-group" ng-class="{error: editArea.name.$invalid}">
       <label>Name</label>
       <input class="form-control" type="text" name="name" ng-model="area.name" required>
       <span ng-show="editArea.name.$error.required" class="help-inline">Required</span>
     </div>
-    
+
     <!-- description -->
     <div class="form-group" ng-class="{error: editArea.description.$invalid}">
       <label>Description</label>
       <input class="form-control" type="text" name="description" ng-model="area.description" required>
       <span ng-show="editArea.description.$error.required" class="help-inline">Required</span>
     </div>
-    
+
     <!-- coords -->
     <div class="form-group" ng-class="{error: editArea.coord.$invalid}">
       <label>Coordinates</label>
-      <input type="text" class="form-control" ng-model="area.coord.lat" value={{lat}} name="markerLat" required>
-      <input type="text" class="form-control" ng-model="area.coord.lon" value={{lon}} name="markerLng" required>
-      <span ng-show="editArea.coord.$error.required" class="help-inline">Required</span>
-      <button class="btn btn-default" ng-click="locateMe()">Find Me</button>
+      <input type="text" class="form-control" name="lat" ng-model="area.lat" value={{lat}} required>
+      <span ng-show="editArea.lat.$error.required" class="help-inline">Required</span>
+      <input type="text" class="form-control" name="lng" ng-model="area.lng" value={{lng}} required>
+      <span ng-show="editArea.lng.$error.required" class="help-inline">Required</span>
+      <button class="btn btn-default" ng-click="locateMe(); $event.preventDefault()">Find Me</button>
     </div>
-    
+
     <!-- rating -->
     <div class="form-group" ng-class="{error: editArea.rating.$invalid}">
       <label>Rating</label>
@@ -32,20 +32,19 @@
       <span data-ng-show="editArea.rating.$error.required" class="help-inline">Required</span>
       <span data-ng-show="editArea.rating.$error.number" class="help-inline">Not a number</span>
     </div>
-    
-    <!-- file upload -->
 
+    <!-- file upload -->
     <div class="form-group" ng-class="{error: editArea.image.$invalid}">
       <button class="btn btn-default" ng-click="uploadFile()">upload img</button>
       <input class="form-control" name="image" type="url" ng-model="area.img">
       <span ng-show="editArea.image.$error.required" class="help-inline">Required</span>
       <span ng-show="editArea.image.$error.url" class="help-inline">Not a  URL</span>
     </div>
-  
+
     <!-- buttons -->
     <br />
-    <a href="#/area" class="btn btn-default">Cancel</a>
-    <button class="btn btn-primary" ng-click="save(); addMarker()" ng-disabled="isClean() || editArea.$invalid" class="btn btn-primary">Save</button>
+    <a href="/area" class="btn btn-default">Cancel</a>
+    <button class="btn btn-primary" ng-click="save(); addMarker()" ng-disabled="isClean() || editArea.$invalid">Save</button>
     <button ng-click="destroy()" ng-show="area._id" class="btn btn-danger">Delete</button>
   </fieldset>
 </form>

@@ -6,7 +6,7 @@ exports.index = function(req, res, next){
     user: req.user ? JSON.stringify(req.user) : "null"
   }
   )*/
-  res.render('index')
+  res.render('index');
 }
 
 exports.partials = function(req, res){

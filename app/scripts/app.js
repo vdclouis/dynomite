@@ -4,7 +4,7 @@ angular.module('dynomiteApp', ['ngResource', 'google-maps'])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/Home',
+        templateUrl: '/views/Home',
         controller: 'HomeCtrl'
       })
       .when('/register', {
@@ -74,5 +74,5 @@ angular.module('dynomiteApp', ['ngResource', 'google-maps'])
       .otherwise({
         redirectTo: '/'
       });
-    //$locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(true);
   });
