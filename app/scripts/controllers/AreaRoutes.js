@@ -4,7 +4,7 @@ angular.module('dynomiteApp')
   .controller('AreaRoutesCtrl', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
 
     // Get Area with specific id
-    $http.get('areas/' + $routeParams.areaId)
+    $http.get('/areas/' + $routeParams.areaId)
       .success(function(data) {
         console.log('yay');
         $scope.area = data;
@@ -14,7 +14,7 @@ angular.module('dynomiteApp')
       });
 
     // Get routes with specific areaId
-    $http.get('routez/' + $routeParams.areaId)
+    $http.get('/routez/' + $routeParams.areaId)
       .success(function(data) {
         console.log('yay');
         $scope.routes = data;
