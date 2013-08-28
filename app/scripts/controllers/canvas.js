@@ -35,7 +35,7 @@ angular.module('dynomiteApp')
       //RunHeaderAnim();
     });
     var droparea = $('#droparea');
-    var wallImage = $('#wallImage[0]');
+    // var wallImage = $('#wallImage[0]'); // commented to remove error
 /*
     function RunHeaderAnim() {
       stage.setWidth(window.innerWidth);

@@ -2,8 +2,6 @@ var async = require('async');
 
 module.exports = function (app, passport, auth) {
 
-  // home route
-
   var index = require('../cogs/controllers/index');
   app.get('/', index.index);
   //app.get('/area', auth.requiresLogin)

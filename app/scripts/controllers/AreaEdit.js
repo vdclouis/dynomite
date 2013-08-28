@@ -6,12 +6,11 @@ angular.module('dynomiteApp')
     // Get Unique Area
     $http.get('/areas/' + $routeParams.areaId).
       success(function(data, status, headers, config) {
-        console.log('success');
+        console.log('yay');
         $scope.area = data;
       }).
       error(function(data, status, headers, config) {
-        console.log('nay:', headers);
-        console.log('nay:', config);
+        console.log('nay');
       });
 
     // On Click Update Area

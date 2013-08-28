@@ -31,7 +31,7 @@ require('./config/express')(app, config, passport);
 // Bootstrap routes
 require('./config/routes')(app, passport, auth);
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 1337;
 app.listen(port);
 console.log('Express app started on port ' + port);
 
