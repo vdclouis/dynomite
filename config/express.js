@@ -14,6 +14,7 @@ module.exports = function (app, config, passport) {
   app.set('showStackError', true);
   // should be placed before express.static
 
+  console.log(config.root);
   app.use(express.favicon(config.root + '/app/favicon.ico'));
 
   //compress static files
