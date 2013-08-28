@@ -1,4 +1,8 @@
 
+/*
+ *  Server initialization
+ */
+
 var express = require('express')
   , fs = require('fs')
   , passport = require('passport')
@@ -10,6 +14,19 @@ var env = process.env.NODE_ENV || 'development'
 
 // Bootstrap db connection
 var db = mongoose.connect(config.db);
+
+// Watch the connection
+var cdb = mongoose.connection;
+
+// warn if connection is lost
+cdb.on('error', console.error.bind(
+  console, 'database connection error:'
+));
+
+// warn when connection is established
+cdb.once('open', function callback () {
+  console.log('Connected to DB');
+});
 
 // Bootstrap models
 var models_path = __dirname + '/cogs/models';

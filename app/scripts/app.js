@@ -16,14 +16,14 @@ angular.module('dynomiteApp', ['ngResource', 'google-maps'])
         controller: 'LoginCtrl'
       })
       .when('/logout', {
-        /*templateUrl: 'views/Login',
-        controller: 'LoginCtrl'*/
+        templateUrl: '/logout',
+        controller: 'LogoutCtrl'
       })
       .when('/users', {
         templateUrl: '/views/users',
         controller: 'UsersCtrl'
       })
-      .when('/user/pro', {
+      .when('/user/:pro', {
         templateUrl: '/views/user',
         controller: 'UserCtrl'
       })

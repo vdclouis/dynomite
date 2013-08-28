@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('dynomiteApp')
-  .controller('LoginCtrl', function ($scope, $http, $location) {
+  .controller('LoginCtrl', ['$scope', '$location', '$http', function($scope, $location, $http) {
 
     $scope.login = function(data) {
       console.log('test');
@@ -18,4 +18,4 @@ angular.module('dynomiteApp')
       ;
 
     };
-  });
+  }]);
