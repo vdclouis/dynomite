@@ -8,15 +8,15 @@ angular.module('dynomiteApp', ['ngResource', 'google-maps'])
         controller: 'HomeCtrl'
       })
       .when('/register', {
-        templateUrl: 'views/Register.html',
+        templateUrl: '/views/Register',
         controller: 'RegisterCtrl'
       })
       .when('/login', {
-        templateUrl: 'views/Login',
+        templateUrl: '/views/Login',
         controller: 'LoginCtrl'
       })
       .when('/logout', {
-        /*templateUrl: 'views/Login.html',
+        /*templateUrl: 'views/Login',
         controller: 'LoginCtrl'*/
       })
       .when('/users', {
@@ -24,19 +24,19 @@ angular.module('dynomiteApp', ['ngResource', 'google-maps'])
         controller: 'UsersCtrl'
       })
       .when('/user/pro', {
-        templateUrl: 'views/user.html',
+        templateUrl: '/views/user',
         controller: 'UserCtrl'
       })
       .when('/about', {
-        templateUrl: 'views/About.html',
+        templateUrl: '/views/About',
         controller: 'AboutCtrl'
       })
       .when('/home', {
-        templateUrl: 'views/Home.html',
+        templateUrl: '/views/Home',
         controller: 'HomeCtrl'
       })
       .when('/grades', {
-        templateUrl: 'views/Grades.html',
+        templateUrl: '/views/Grades',
         controller: 'GradesCtrl'
       })
       .when('/area', {
@@ -48,27 +48,27 @@ angular.module('dynomiteApp', ['ngResource', 'google-maps'])
         controller: 'AreaAddCtrl'
       })
       .when('/area/edit/:areaId', {
-        templateUrl: '/views/AreaEdit.html',
+        templateUrl: '/views/AreaEdit',
         controller: 'AreaEditCtrl'
       })
       .when('/area/:areaId', {
-        templateUrl: 'views/AreaRoutes.html',
+        templateUrl: '/views/AreaRoutes',
         controller: 'AreaRoutesCtrl'
       })
       .when('/route/add/:areaId', {
-        templateUrl: 'views/RouteAdd.html',
+        templateUrl: '/views/RouteAdd',
         controller: 'RouteAddCtrl'
       })
       .when('/route/:routeId', {
-        templateUrl: 'views/RouteId.html',
+        templateUrl: '/views/RouteId',
         controller: 'RouteIdCtrl'
       })
       .when('/route/pictures/:routeId', {
-        templateUrl: 'views/RouteIdPictures.html',
+        templateUrl: '/views/RouteIdPictures',
         controller: 'RouteIdPicturesCtrl'
       })
       .when('/route/edit/:routeId', {
-        templateUrl: 'views/RouteIdEdit.html',
+        templateUrl: '/views/RouteIdEdit',
         controller: 'RouteIdEditCtrl'
       })
       .otherwise({

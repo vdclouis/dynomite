@@ -2,7 +2,6 @@
 
 angular.module('dynomiteApp')
   .controller('AreaCtrl', ['$scope', '$http', function($scope, $http) {
-
     // Get all Areas
     $http({method: 'GET', url: '/areas'}).
       success(function(data, status, headers, config) {

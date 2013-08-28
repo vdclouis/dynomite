@@ -36,4 +36,5 @@ angular.module('dynomiteApp')
         $scope.$apply();
       });
     };
+
   }]);

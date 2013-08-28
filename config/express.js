@@ -1,3 +1,8 @@
+
+/*
+ *  Express middelware setup
+ */
+
 var express = require('express')
   , helpers = require('view-helpers')
   , mongoStore = require('connect-mongo')(express)
@@ -19,7 +24,14 @@ module.exports = function (app, config, passport) {
     level: 9
   }))*/
 
-  app.use(express.static(config.root + '/app/'));
+  app.use(express.static(
+    config.root + '/app', 
+    { 
+      //maxAge: oneDay,
+      //hidden: true
+      //redirect: true
+    }
+  ));
 
   // set views path, template engine and default layout
   app.set('views', config.root + '/views');
@@ -27,6 +39,7 @@ module.exports = function (app, config, passport) {
   //app.set('view engine', 'jade')
   app.engine('html', require('ejs').renderFile);
   app.set('view engine', 'html');
+  // app.set('view options', { layout: false });
 
   // enable jsonp
   app.enable("jsonp callback")

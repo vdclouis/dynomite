@@ -5,14 +5,15 @@ module.exports = function (app, passport, auth) {
   // home route
 
   var index = require('../cogs/controllers/index');
-  //app.get('/', index.index);
-  app.get('/area', auth.requiresLogin)
+  app.get('/', index.index);
+  //app.get('/area', auth.requiresLogin)
   //app.get('/views/area', index.area)
   //app.get('/test', index.test)
 
   //app.get('/views/*', index.test);
-  app.get('/views/:partial', index.partials)
-  app.get('/views/secure/:partial', auth.requiresLogin, index.partials)
+  app.get('/views/:partial', index.partials);
+  app.get('/views/secure/:partial', auth.requiresLogin, index.partials);
+
 
   var users = require('../cogs/controllers/users')
   //app.get('/signin', users.signin)
@@ -66,7 +67,7 @@ module.exports = function (app, passport, auth) {
   app.param('areaId', routes.routebyarea);
 
   // Home route
-  var index = require('../cogs/controllers/index');
-  app.get('/', index.index);
+/*  var index = require('../cogs/controllers/index');
+  app.get('/', index.index);*/
   app.get('*', index.index);
 };
