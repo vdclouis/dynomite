@@ -32,13 +32,6 @@ exports.area = function(req, res, next, id) {
 exports.create = function(req, res) {
   var area = new Area(req.body);
 
-  fs.readFile(req.files.areaImg.path, function(err, data) {
-    var newPath = config.root + '/uploads/uploadedFileName';
-    fs.writeFile(newPath, data, function(err) {
-      res.redirect('back');
-    });
-  });
-
   area.user = req.user;
   area.save();
   res.jsonp(area);

@@ -21,8 +21,6 @@ angular.module('dynomiteApp')
       $scope.$apply();
     });
 
-
-    /*
     filepicker.setKey('Aw1KqJloRli2yInj47Sthz');
 
     $scope.uploadFile = function() {
@@ -31,5 +29,5 @@ angular.module('dynomiteApp')
         $scope.area.img = FPFile.url;
         $scope.$apply();
       });
-    };*/
+    };
   }]);

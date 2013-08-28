@@ -33,6 +33,9 @@ module.exports = function (app, config, passport) {
     }
   ));
 
+  // Necesarry for filereader etc
+  app.use(express.bodyParser());
+
   // set views path, template engine and default layout
   app.set('views', config.root + '/views');
   //app.set('views', config.root + '/app/views/partials');
