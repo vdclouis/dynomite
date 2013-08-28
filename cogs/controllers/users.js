@@ -6,8 +6,6 @@
 var mongoose = require('mongoose')
   , User = mongoose.model('User')
 
-//exports.signin = function (req, res) {}
-
 /**
  * Auth callback
  */
@@ -20,7 +18,7 @@ exports.authCallback = function (req, res, next) {
  * Show login form
  */
 
-exports.signin = function (req, res) {
+exports.loginView = function (req, res) {
   res.render('users/signin', {
     title: 'Signin',
     message: req.flash('error')
@@ -48,11 +46,12 @@ exports.logout = function (req, res) {
 }
 
 /**
+ * Login succesful redirect
  * Session
  */
 
-exports.session = function (req, res) {
-  console.log("user session");
+exports.loginSuccesRedirect = function (req, res) {
+  console.log("login succesful");
   res.redirect('/')
 }
 
@@ -80,10 +79,11 @@ exports.create = function (req, res) {
 
 exports.show = function (req, res) {
   var user = req.profile
-  res.render('users/show', {
+  console.log(user);
+  /*res.render('user/show', {
     title: user.name,
     user: user
-  })
+  })*/
 }
 
 exports.me = function (req, res) {
@@ -94,13 +94,24 @@ exports.me = function (req, res) {
  * Find user by id
  */
 
-exports.user = function (req, res, next, id) {
+exports.userId = function (req, res, next, id) {
   User
-    .findOne({ _id : id })
-    .exec(function (err, user) {
-      if (err) return next(err)
-      if (!user) return next(new Error('Failed to load User ' + id))
-      req.profile = user
-      next()
-    })
+  .findOne({ _id : id })
+  .exec(function (err, user) {
+    if (err) return next(err);
+    if (!user) return next(new Error('Failed to load User ' + id));
+    req.profile = user;
+    next();
+  })
+}
+
+exports.userName = function (req, res, next, name) {
+  User
+  .findOne({ name : name })
+  .exec(function (err, user) {
+    if (err) return next(err);
+    if (!user) return next(new Error('Failed to load User ' + name));
+    req.profile = user;
+    next();
+  })
 }

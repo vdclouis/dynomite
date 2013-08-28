@@ -12,7 +12,6 @@
     <meta name="keywords" content="social, climbing, app, boulder, bouldering, integral, studios">
     <meta name="description" content="Social Climbing app for mobile devices">
     <meta name="viewport" content="width=device-width, user-scalable=no">
-
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link type="text/css" rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css"/>
     <link type="text/css" rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css"/>
@@ -20,38 +19,45 @@
     <link type="text/css" rel="stylesheet" href="/styles/snap.css">
     <link type="text/css" rel="stylesheet" href="/styles/demo.css">
     <!-- endbuild -->
-
   </head>
-  <body>
+    <script type="text/javascript">
+      if(<%- user %>){window.user = <%- user %>;}
+    </script>
+  <body data-ng-controller="InitCtrl">
     <!--[if lt IE 7]>
       <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
-
     <!--[if lt IE 9]>
       <script src="bower_components/es5-shim/es5-shim.js"></script>
       <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
-
     <nav class="snap-drawers">
       <div class="snap-drawer snap-drawer-left">
         <h3>Menu</h3>
         <ul>
-          <li><a href="#/">Home</a></li>
-          <li><a href="#/area">Explore</a></li>
-          <li><a href="#/users">User</a></li>
-          <li><a href="#/grades">Grades</a></li>
-          <li><a href="#/about">About</a></li>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/area">Explore</a>
+          </li>
+          <li data-ng-hide="global.authenticated">
+            <a href="/signin">Signin</a>
+          </li>
+          <li data-ng-show="global.authenticated">
+            <a href="/user/{{global.user.name}}">{{global.user.name}}</a>
+          </li>
+          <li><a href="/grades">Grades</a></li>
+          <li><a href="/about">About</a></li>
         </ul>
       </div>
     </nav>
-
     <!-- Add your site or application content here -->
     <div id="snapper" class="content snap-content">
       <a href="" id="open-left">&#9776</a>
-        <div ng-view=""></div>
+      <div data-ng-view="">
       </div>
-    </div/>
-
+    </div>
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false&language=en"></script>
     <script src="/bower_components/angular/angular.js"></script>
     <script src="/bower_components/angular-google-maps/src/angular-google-maps.js"></script>
@@ -86,6 +92,7 @@
     <script src="/scripts/controllers/RouteAdd.js"></script>
     <script src="/scripts/controllers/Register.js"></script>
     <script src="/scripts/controllers/Login.js"></script>
+    <script src="/scripts/controllers/Logout.js"></script>
     <script src="/scripts/controllers/users.js"></script>
     <script src="/scripts/controllers/user.js"></script>
     <script src="/scripts/services/Global.js"></script>

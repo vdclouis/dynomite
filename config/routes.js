@@ -4,25 +4,18 @@ module.exports = function (app, passport, auth) {
 
   var index = require('../cogs/controllers/index');
   app.get('/', index.index);
-  //app.get('/area', auth.requiresLogin)
-  //app.get('/views/area', index.area)
-  //app.get('/test', index.test)
-
-  //app.get('/views/*', index.test);
   app.get('/views/:partial', index.partials);
   app.get('/views/secure/:partial', auth.requiresLogin, index.partials);
 
+  var users = require('../cogs/controllers/users');
 
-  var users = require('../cogs/controllers/users')
-  //app.get('/signin', users.signin)
-  //app.get('/signup', users.signup)
-  //app.get('/signout', users.signout)
-  app.get('/logout', users.logout)
+  app.get('/logout', users.logout);
+  app.get('/users', auth.requiresLogin);
+  app.get('/users/me', users.me);
+  //app.get('/users/:userId', users.show);
+  app.get('/users/:userName', users.show);
 
-  app.get('/users', auth.requiresLogin)
-
-  app.post('/register', users.create)
-
+  app.post('/register', users.create);
   app.post(
     //the form post route
     '/users/session',
@@ -33,12 +26,15 @@ module.exports = function (app, passport, auth) {
         '/register', 
         failureFlash: 'Invalid email or password.'
       }
+      //,successRedirect : "/"
     ),
     //redirect after succesfull login
-    users.session
+    users.loginSuccesRedirect
   );
-  //app.get('/users/me', users.me);
-  //app.get('/users/:userId', users.show);
+
+  //Finish with setting up the userId param
+  app.param('userId', users.userId);
+  app.param('userName', users.userName);
 
   // Area Routes
   var areas = require('../cogs/controllers/areas');

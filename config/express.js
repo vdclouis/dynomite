@@ -7,7 +7,6 @@ var express = require('express')
   , helpers = require('view-helpers')
   , mongoStore = require('connect-mongo')(express)
   , flash = require('connect-flash')
-  //, connect = require('connect')
 
 module.exports = function (app, config, passport) {
 
@@ -16,7 +15,7 @@ module.exports = function (app, config, passport) {
 
   app.use(express.favicon());
 
-  //compress static files
+  //compress static   files
   /*app.use(express.compress({
     filter: function (req, res) {
       return /json|text|javascript|css/.test(res.getHeader('Content-Type'));
@@ -27,8 +26,11 @@ module.exports = function (app, config, passport) {
   app.use(express.static(
     config.root + '/app', 
     { 
+      //Browser cache maxAge in milliseconds. defaults to 0
       //maxAge: oneDay,
+      //Allow transfer of hidden files. defaults to false
       //hidden: true
+      //Redirect to trailing "/" when the pathname is a dir. defaults to true
       //redirect: true
     }
   ));

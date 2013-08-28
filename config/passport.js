@@ -7,25 +7,23 @@ var mongoose = require('mongoose')
   , LocalStrategy = require('passport-local').Strategy
   , User = mongoose.model('User')
 
-
 module.exports = function (passport, config) {
   // returnequire('./initializer')
 
   // serialize sessions
   passport.serializeUser(function(user, done) {
-    console.log("serializeUser");
-    done(null, user.id)
-  })
+    done(null, user.id);
+  });
 
   passport.deserializeUser(function(id, done) {
-    User.findOne({ _id: id }, function (err, user) {
-      console.log("deserializeUser");
-      console.log(user);
-
-      done(err, user)
-
-    })
-  })
+    //gives back all of the user info
+    /*User.findOne({ _id: id }, function (err, user) {
+      done(err, user);
+    })*/
+    User.findOne({ _id: id }).select('name username email').exec(function(err, user) {
+      done(err, user);
+    });
+  });
 
   // use local strategy
   passport.use(new LocalStrategy({
@@ -35,7 +33,7 @@ module.exports = function (passport, config) {
     function(email, password, done) {
       User.findOne({ email: email }, function (err, user) {
         if (err) {
-          console.log(err);
+          console.log(err)
           return done(err);
         }
         if (!user) {
