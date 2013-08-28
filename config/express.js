@@ -14,7 +14,7 @@ module.exports = function (app, config, passport) {
   app.set('showStackError', true);
   // should be placed before express.static
 
-  app.use(express.favicon());
+  app.use(express.favicon(config.root + '/app/favicon.ico'));
 
   //compress static files
   /*app.use(express.compress({
@@ -66,9 +66,6 @@ module.exports = function (app, config, passport) {
         collection : 'sessions'
       })
     }));
-
-    // Tell express to use the bodyParse middleware and set upload dir
-    app.use(express.bodyParser({ keepExtensions: true, uploadDir: "uploads" }));
 
     // connect flash for flash messages
     app.use(flash());

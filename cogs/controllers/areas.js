@@ -32,8 +32,12 @@ exports.area = function(req, res, next, id) {
 exports.create = function(req, res) {
   var area = new Area(req.body);
 
-  console.log('express yay');
-  console.log('file path:', req.files.file.path);
+  fs.readFile(req.files.areaImg.path, function(err, data) {
+    var newPath = config.root + '/uploads/uploadedFileName';
+    fs.writeFile(newPath, data, function(err) {
+      res.redirect('back');
+    });
+  });
 
   area.user = req.user;
   area.save();
