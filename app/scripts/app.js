@@ -4,7 +4,7 @@ angular.module('dynomiteApp', ['ngResource', 'google-maps'])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/Home.html',
+        templateUrl: 'views/Home',
         controller: 'HomeCtrl'
       })
       .when('/register', {
@@ -12,15 +12,19 @@ angular.module('dynomiteApp', ['ngResource', 'google-maps'])
         controller: 'RegisterCtrl'
       })
       .when('/login', {
-        templateUrl: 'views/Login.html',
+        templateUrl: 'views/Login',
         controller: 'LoginCtrl'
       })
       .when('/logout', {
         /*templateUrl: 'views/Login.html',
         controller: 'LoginCtrl'*/
       })
-      .when('/user/:username', {
-        templateUrl: 'views/User.html',
+      .when('/users', {
+        templateUrl: '/views/users',
+        controller: 'UsersCtrl'
+      })
+      .when('/user/pro', {
+        templateUrl: 'views/user.html',
         controller: 'UserCtrl'
       })
       .when('/about', {
@@ -36,15 +40,15 @@ angular.module('dynomiteApp', ['ngResource', 'google-maps'])
         controller: 'GradesCtrl'
       })
       .when('/area', {
-        templateUrl: 'views/Area.html',
+        templateUrl: '/views/secure/Area',
         controller: 'AreaCtrl'
       })
       .when('/area/add', {
-        templateUrl: 'views/AreaAdd.html',
+        templateUrl: '/views/secure/AreaAdd',
         controller: 'AreaAddCtrl'
       })
       .when('/area/edit/:areaId', {
-        templateUrl: 'views/AreaEdit.html',
+        templateUrl: '/views/AreaEdit.html',
         controller: 'AreaEditCtrl'
       })
       .when('/area/:name', {

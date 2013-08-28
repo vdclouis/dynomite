@@ -5,12 +5,15 @@ module.exports = function (app, passport, auth) {
 
   // home route
 
-  var index = require('../cogs/controllers/index')
-  //app.get('/', index.index)
+  var index = require('../cogs/controllers/index');
+  //app.get('/', index.index);
   app.get('/area', auth.requiresLogin)
   //app.get('/views/area', index.area)
   //app.get('/test', index.test)
-  
+
+  //app.get('/views/*', index.test);
+  app.get('/views/:partial', index.partials)
+  app.get('/views/secure/:partial', auth.requiresLogin, index.partials)
 
   var users = require('../cogs/controllers/users')
   //app.get('/signin', users.signin)
@@ -18,8 +21,10 @@ module.exports = function (app, passport, auth) {
   //app.get('/signout', users.signout)
   app.get('/logout', users.logout)
 
-  app.post('/register', users.create)
 
+  app.get('/users', auth.requiresLogin)
+
+  app.post('/register', users.create)
   app.post(
     //the form post route
     '/users/session',

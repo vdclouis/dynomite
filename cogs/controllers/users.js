@@ -31,7 +31,7 @@ exports.signin = function (req, res) {
  * Show sign up form
  */
 
-exports.signup = function (req, res) {
+exports.register = function (req, res) {
   res.render('users/signup', {
     title: 'Sign up',
     user: new User()
@@ -52,7 +52,7 @@ exports.logout = function (req, res) {
  */
 
 exports.session = function (req, res) {
-  console.log("user session")
+  console.log("user session");
   res.redirect('/')
 }
 

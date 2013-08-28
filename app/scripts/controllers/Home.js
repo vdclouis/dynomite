@@ -1,7 +1,11 @@
 'use strict';
 
 angular.module('dynomiteApp')
-  .controller('HomeCtrl', function($scope, $filter, Weather) {
+  .controller('HomeCtrl', function($scope, $filter, Weather, Global) {
+    console.log('go home');
+    $scope.global = Global;
+    console.log('after home');
+
     navigator.geolocation.getCurrentPosition(function(pos) {
       $scope.lat = pos.coords.latitude;
       $scope.lon = pos.coords.longitude;

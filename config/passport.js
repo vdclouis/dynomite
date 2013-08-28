@@ -9,12 +9,17 @@ module.exports = function (passport, config) {
 
   // serialize sessions
   passport.serializeUser(function(user, done) {
+    console.log("serializeUser");
     done(null, user.id)
   })
 
   passport.deserializeUser(function(id, done) {
     User.findOne({ _id: id }, function (err, user) {
+      console.log("deserializeUser");
+      console.log(user);
+
       done(err, user)
+
     })
   })
 
