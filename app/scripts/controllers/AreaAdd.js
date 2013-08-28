@@ -6,12 +6,11 @@ angular.module('dynomiteApp')
     $scope.save = function() {
       $http.post('/areas', $scope.area)
         .success(function() {
-          console.log('success');
-          console.log($scope.area);
+          console.log('yay');
           $location.path('/');
         })
         .error(function() {
-          console.log('error');
+          console.log('nay');
         });
     };
 

@@ -32,6 +32,9 @@ exports.area = function(req, res, next, id) {
 exports.create = function(req, res) {
   var area = new Area(req.body);
 
+  console.log('express yay');
+  console.log('file path:', req.files.file.path);
+
   area.user = req.user;
   area.save();
   res.jsonp(area);

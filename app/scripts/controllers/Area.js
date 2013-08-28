@@ -6,7 +6,7 @@ angular.module('dynomiteApp')
     // Get all Areas
     $http({method: 'GET', url: '/areas'}).
       success(function(data, status, headers, config) {
-        console.log('success');
+        console.log('yay');
         $scope.findMe();
         for (var i=0; i<data.length; i++) {
           var lat = data[i].lat;
@@ -19,8 +19,7 @@ angular.module('dynomiteApp')
         $scope.areas = data;
       }).
       error(function(data, status, headers, config) {
-        console.log('nay:', headers);
-        console.log('nay:', config);
+        console.log('nay');
       });
 
 

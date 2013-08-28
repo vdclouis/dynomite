@@ -54,6 +54,9 @@ module.exports = function (app, config, passport) {
       })
     }));
 
+    // Tell express to use the bodyParse middleware and set upload dir
+    app.use(express.bodyParser({ keepExtensions: true, uploadDir: "uploads" }));
+
     // connect flash for flash messages
     app.use(flash());
 
@@ -105,4 +108,4 @@ module.exports = function (app, config, passport) {
     }
 
   })
-}
+};
