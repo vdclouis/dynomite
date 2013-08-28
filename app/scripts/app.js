@@ -23,7 +23,7 @@ angular.module('dynomiteApp', ['ngResource', 'google-maps'])
         templateUrl: '/views/users',
         controller: 'UsersCtrl'
       })
-      .when('/user/:pro', {
+      .when('/user/:userName', {
         templateUrl: '/views/user',
         controller: 'UserCtrl'
       })

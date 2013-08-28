@@ -4,20 +4,31 @@ module.exports = function (app, passport, auth) {
 
   var index = require('../cogs/controllers/index');
   app.get('/', index.index);
+
+  //public views
+  //accecible by anyone
   app.get('/views/:partial', index.partials);
+
+  //private views:
+  //ng-controllers of these views should not be visible for 
+  //unauthenticated users or the app will choke
   app.get('/views/secure/:partial', auth.requiresLogin, index.partials);
 
   var users = require('../cogs/controllers/users');
-
   app.get('/logout', users.logout);
   app.get('/users', auth.requiresLogin);
   app.get('/users/me', users.me);
   //app.get('/users/:userId', users.show);
-  app.get('/users/:userName', users.show);
+  app.get('/usersData/:userName', users.show);
 
+  // User params
+  app.param('userId', users.userId);
+  app.param('userName', users.userName);
+
+  // registere + login POST request
   app.post('/register', users.create);
   app.post(
-    //the form post route
+    // the form post route
     '/users/session',
     //
     passport.authenticate(
@@ -28,13 +39,9 @@ module.exports = function (app, passport, auth) {
       }
       //,successRedirect : "/"
     ),
-    //redirect after succesfull login
+    // redirect after succesfull login
     users.loginSuccesRedirect
   );
-
-  //Finish with setting up the userId param
-  app.param('userId', users.userId);
-  app.param('userName', users.userName);
 
   // Area Routes
   var areas = require('../cogs/controllers/areas');
@@ -60,8 +67,6 @@ module.exports = function (app, passport, auth) {
   app.param('routeId', routes.route);
   app.param('areaId', routes.routebyarea);
 
-  // Home route
-/*  var index = require('../cogs/controllers/index');
-  app.get('/', index.index);*/
+  // wildcard
   app.get('*', index.index);
 };
