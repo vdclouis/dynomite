@@ -21,14 +21,14 @@
   <div class="list">
     <ul>
       <li data-ng-repeat="route in routes | filter:search | orderBy:orderRoutes">
-        <a href="#/route/{{route._id}}">
+        <a href="/route/{{route._id}}">
           {{route.name}} - {{route.areaName}}
         </a>
-        <span><a href="#/route/edit/{{route._id}}">edit</a></span>
+        <span><a href="/route/edit/{{route._id}}">edit</a></span>
       </li>
     </ul>
   </div>
-  <a ng-href="#/area/edit/{{area._id}}">edit area</a>
-  <a ng-href="#/route/add/{{area._id}}">add route</a>
+  <a ng-href="/area/edit/{{area._id}}">edit area</a>
+  <a ng-href="/route/add/{{area._id}}">add route</a>
 
 </div>

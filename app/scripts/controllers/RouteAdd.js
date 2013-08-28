@@ -11,7 +11,7 @@ angular.module('dynomiteApp')
       $http.post('/routes', $scope.route)
         .success(function() {
           console.log('yay');
-          $location.path('#/area/' + $routeParams.areaId);
+          $location.path('/area/' + $routeParams.areaId);
         })
         .error(function() {
           console.log('nay');

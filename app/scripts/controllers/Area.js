@@ -3,8 +3,8 @@
 angular.module('dynomiteApp')
   .controller('AreaCtrl', ['$scope', '$http', function($scope, $http) {
     // Get all Areas
-    $http({method: 'GET', url: '/areas'}).
-      success(function(data, status, headers, config) {
+    $http.get('/areas')
+      .success(function(data) {
         console.log('yay');
         $scope.findMe();
         for (var i=0; i<data.length; i++) {
@@ -16,8 +16,8 @@ angular.module('dynomiteApp')
           });
         }
         $scope.areas = data;
-      }).
-      error(function(data, status, headers, config) {
+      })
+      .error(function(data) {
         console.log('nay');
       });
 
