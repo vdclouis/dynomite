@@ -1,6 +1,6 @@
 'use strict';
 
 angular.module('dynomiteApp')
-  .controller('UserCtrl', function ($scope) {
+  .controller('UserCtrl', ['$scope', '$http', function($scope, $http) {
     
   });
