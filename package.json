@@ -1,5 +1,9 @@
 {
   "name": "dynomite",
+  "repository" :{
+    "type" : "git",
+    "url" : "https://github.com/vdclouis/dynomite.git"
+  },
   "version": "0.0.2",
   "author": "Integral",
   "engines": {

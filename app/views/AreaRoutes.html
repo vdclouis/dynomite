@@ -14,22 +14,21 @@
   <img class="center-cropped" ng-style="{'background-image': 'url(' + area.img + ')'}">
   
   <!-- titles -->
-  <p>{{area.description}}</p>
+  <p>Description: {{area.description}}</p>
   <h2>Route list</h2>
   
   <!-- list -->
   <div class="list">
     <ul>
       <li data-ng-repeat="route in routes | filter:search | orderBy:orderRoutes">
-        <a href="#/route/{{route._id.$oid}}">
+        <a href="#/route/{{route._id}}">
           {{route.name}} - {{route.areaName}}
         </a>
-        <span><a href="#/route/edit/{{route._id.$oid}}">edit</a></span>
+        <span><a href="#/route/edit/{{route._id}}">edit</a></span>
       </li>
     </ul>
   </div>
-  <a ng-href="#/area/edit/{{area._id.$oid}}">edit area</a>
-  <a ng-href="#/area/edit/{{area._id.$oid}}">delete area</a>
-  <a ng-href="#/route/add?area={{area.name}}">add route</a>
+  <a ng-href="#/area/edit/{{area._id}}">edit area</a>
+  <a ng-href="#/route/add/{{area._id}}">add route</a>
 
 </div>

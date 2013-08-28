@@ -62,6 +62,11 @@ RouteSchema.statics = {
     this.findOne({
       _id: id
     }).populate('area user').exec(cb);
+  },
+  byarea: function(areaId, cb) {
+    this.find({
+      area: areaId
+    }).populate('area user').exec(cb);
   }
 };
 

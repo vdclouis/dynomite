@@ -1,59 +1,50 @@
-<form class="pure-form pure-form-aligned" name='editRoute'>
+<form name='editRoute'>
   
   <!-- name -->
-  <div class="control-group" ng-class="{error: editRoute.name.$invalid}">
+  <div class="form-group" ng-class="{error: editRoute.name.$invalid}">
     <label>Name</label>
-    <input class="pure-input-1" type="text" name="name" ng-model="route.name" required>
-    <span ng-show="editRoute.name.$error.required" class="help-inline">Required</span>
+    <input class="form-control" type="text" name="name" ng-model="route.name" required>
   </div>
   
   <!-- description -->
-  <div class="control-group" ng-class="{error: editRoute.description.$invalid}">
+  <div class="form-group" ng-class="{error: editRoute.description.$invalid}">
     <label>Description</label>
-    <input class="pure-input-1" type="text" name="description" ng-model="route.description" required>
-    <span ng-show="editRoute.description.$error.required" class="help-inline">Required</span>
+    <input class="form-control" type="text" name="description" ng-model="route.description" required>
   </div>
   
   <!-- type -->
-  <div class="control-group" ng-class="{error: editRoute.type.$invalid}">
+  <div class="form-group" ng-class="{error: editRoute.type.$invalid}">
     <label>Type</label>
-    <input class="pure-input-1" type="text" name="type" ng-model="route.type" required>
-    <span ng-show="editRoute.type.$error.required" class="help-inline">Required</span>
+    <input class="form-control" type="text" name="type" ng-model="route.type" required>
   </div>
   
   <!-- areaName -->
-  <div class="control-group" ng-class="{error: editRoute.areaname.$invalid}">
+  <div style="display: none" class="form-group" ng-class="{error: editRoute.areaname.$invalid}">
     <label>Area name</label>
-    <select type="text" name="areaname" ng-model="route.areaName" ng-options="a.name as a.name for a in areas" required></select>
-    <span ng-show="editRoute.areaname.$error.required" class="help-inline">Required</span>
+    <input class="form-control" type="text" name="areaname" ng-model="route.area._id" required>
   </div>
   
   <!-- rating -->
-  <div class="control-group" ng-class="{error: editRoute.rating.$invalid}">
+  <div class="form-group" ng-class="{error: editRoute.rating.$invalid}">
     <label>Rating</label>
     <input type="number" min="0" max="5" name="rating" ng-model="route.rating" required>
-    <span ng-show="editRoute.rating.$error.required" class="help-inline">Required</span>
-    <span ng-show="editRoute.rating.$error.number" class="help-inline">Not a number</span>
   </div>
   
   <!-- grade -->
-  <div class="control-group" ng-class="{error: editRoute.grade.$invalid}">
+  <div class="form-group" ng-class="{error: editRoute.grade.$invalid}">
     <label>Grade</label>
-    <input class="pure-input-1" type="text" name="grade" ng-model="route.grade" required>
-    <span ng-show="editRoute.grade.$error.required" class="help-inline">Required</span>
+    <input class="form-control" type="text" name="grade" ng-model="route.grade" required>
   </div>
   
   <!-- img -->
-  <div class="control-group" ng-class="{error: editRoute.image.$invalid}">
-    <button class="pure-button" ng-click="uploadFile()">upload img</button>
-    <input class="pure-input-1" type="url" name="image" ng-model="route.img">
-    <span ng-show="editRoute.image.$error.required" class="help-inline">Required</span>
-    <span ng-show="editRoute.image.$error.url" class="help-inline">Not a  URL</span>
+  <div class="form-group" ng-class="{error: editRoute.image.$invalid}">
+    <button class="btn btn-default" ng-click="uploadFile()">upload img</button>
+    <input class="form-control" type="url" name="image" ng-model="route.img">
   </div>
 
   <br />
-  <a href="#/area" class="btn pure-button pure-button-active">Cancel</a>
-  <button ng-click="save()" ng-disabled="isClean() || editRoute.$invalid" class="btn btn-primary pure-button pure-button-active">Save</button>
-  <button ng-click="destroy()" ng-show="route._id" class="btn btn-danger pure-button pure-button-active">Delete</button>
+  <a href="#/area" class="btn btn-default">Cancel</a>
+  <button ng-click="save()" ng-disabled="isClean() || editRoute.$invalid" class="btn btn-primary">Save</button>
+  <button ng-click="destroy()" ng-show="route._id" class="btn btn-danger">Delete</button>
   
 </form>

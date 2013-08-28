@@ -1,4 +1,3 @@
-
 var express = require('express')
   , helpers = require('view-helpers')
   , mongoStore = require('connect-mongo')(express)

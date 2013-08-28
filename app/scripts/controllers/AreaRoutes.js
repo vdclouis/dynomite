@@ -1,16 +1,28 @@
 'use strict';
 
 angular.module('dynomiteApp')
-  .controller('AreaRoutesCtrl', ['$scope', '$routeParams', 'Routes', 'Areas', function($scope, $routeParams, Routes, Areas) {
-    // get areaname
-    Areas.getArea().query({id: $routeParams.name}, function(area) {
-      //console.log(area);
-      $scope.area = area['0'];
-    });
+  .controller('AreaRoutesCtrl', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
 
-    // get routes with x areaname
-    $scope.routes = Routes.getR().query({areaName: $routeParams.name});
+    // Get Area with specific id
+    $http.get('areas/' + $routeParams.areaId)
+      .success(function(data) {
+        console.log('yay');
+        $scope.area = data;
+      })
+      .error(function(){
+        console.log('nay');
+      });
 
-    //default order
+    // Get routes with specific areaId
+    $http.get('routez/' + $routeParams.areaId)
+      .success(function(data) {
+        console.log('yay');
+        $scope.routes = data;
+      })
+      .error(function() {
+        console.log('nay');
+      });
+
+    // Default Search order
     $scope.orderRoutes = 'name';
   }]);

@@ -23,8 +23,8 @@
   <div class="list">
     <ul>
       <li data-ng-repeat="area in areas | filter:search | orderBy:orderAreas">
-        <a href="#/area/{{area.name}}">{{area.name}}</a>
-        <a  class="pull-right" href="#/area/edit/{{area._id.$oid}}">Edit</a>
+        <a href="#/area/{{area._id}}">{{area.name}}</a>
+        <a  class="pull-right" href="#/area/edit/{{area._id}}">Edit</a>
       </li>
     </ul>
   </div>

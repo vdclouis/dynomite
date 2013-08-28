@@ -51,9 +51,13 @@ angular.module('dynomiteApp', ['ngResource', 'google-maps'])
         templateUrl: '/views/AreaEdit.html',
         controller: 'AreaEditCtrl'
       })
-      .when('/area/:name', {
+      .when('/area/:areaId', {
         templateUrl: 'views/AreaRoutes.html',
         controller: 'AreaRoutesCtrl'
+      })
+      .when('/route/add/:areaId', {
+        templateUrl: 'views/RouteAdd.html',
+        controller: 'RouteAddCtrl'
       })
       .when('/route/:routeId', {
         templateUrl: 'views/RouteId.html',
@@ -67,14 +71,8 @@ angular.module('dynomiteApp', ['ngResource', 'google-maps'])
         templateUrl: 'views/RouteIdEdit.html',
         controller: 'RouteIdEditCtrl'
       })
-      .when('/route/add', {
-        templateUrl: 'views/RouteAdd.html',
-        controller: 'RouteAddCtrl'
-      })
       .otherwise({
         redirectTo: '/'
       });
-    $locationProvider.html5Mode(true);
+    //$locationProvider.html5Mode(true);
   });
-
-

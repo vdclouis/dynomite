@@ -18,9 +18,10 @@
     <!-- coords -->
     <div class="pure-control-group" ng-class="{error: editArea.coord.$invalid}">
       <label>Coordinates</label>
-      <input type="text" class="form-control" ng-model="area.coord.lat" value={{lat}} name="markerLat" required>
-      <input type="text" class="form-control" ng-model="area.coord.lon" value={{lon}} name="markerLng" required>
-      <span ng-show="editArea.coord.$error.required" class="help-inline">Required</span>
+      <input type="text" class="form-control" ng-model="area.lat" value={{lat}} name="markerLat" required>
+      <span ng-show="editArea.lat.$error.required" class="help-inline">Required</span>
+      <input type="text" class="form-control" ng-model="area.lng" value={{lng}} name="markerLng" required>
+      <span ng-show="editArea.lng.$error.required" class="help-inline">Required</span>
       <button class="btn btn-default" ng-click="locateMe()">Find Me</button>
     </div>
     

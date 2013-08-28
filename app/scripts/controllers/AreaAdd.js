@@ -1,16 +1,23 @@
 'use strict';
 
 angular.module('dynomiteApp')
-  .controller('AreaAddCtrl', ['$scope', '$location', 'Areas', 'AreaEdit', function($scope, $location, Areas, AreaEdit){
+  .controller('AreaAddCtrl', ['$scope', '$location', '$http', function($scope, $location, $http){
+
     $scope.save = function() {
-      Areas.getArea().save($scope.area, function(area) {
-        $location.path('/area');
-      });
+      $http.post('/areas', $scope.area)
+        .success(function() {
+          console.log('success');
+          console.log($scope.area);
+          $location.path('/');
+        })
+        .error(function() {
+          console.log('error');
+        });
     };
-    $scope.area = new AreaEdit();
+
     $scope.locateMe = function() {
       navigator.geolocation.getCurrentPosition(function(position) {
-        $scope.area.coord = { lat: position.coords.latitude, lon: position.coords.longitude };
+        $scope.area = { lat: position.coords.latitude, lng: position.coords.longitude };
         $scope.$apply();
       });
     };

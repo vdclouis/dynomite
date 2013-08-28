@@ -1,28 +1,30 @@
 'use strict';
 
 angular.module('dynomiteApp')
-  .controller('AreaEditCtrl', ['$scope', '$location', '$routeParams', 'AreaEdit', function($scope, $location, $routeParams, AreaEdit) {
-    var self = this;
+  .controller('AreaEditCtrl', ['$scope', '$location', '$http', '$routeParams', function($scope, $location, $http, $routeParams) {
 
-    AreaEdit.get({id: $routeParams.areaId}, function(area) {
-      self.original = area;
-      $scope.area = new AreaEdit(self.original);
-    });
-
-    $scope.isClean = function() {
-      return angular.equals(self.original, $scope.area);
-    };
-
-    $scope.destroy = function() {
-      self.original.destroy(function() {
-        $location.path('/area');
+    // Get Unique Area
+    $http.get('/areas/' + $routeParams.areaId).
+      success(function(data, status, headers, config) {
+        console.log('success');
+        $scope.area = data;
+      }).
+      error(function(data, status, headers, config) {
+        console.log('nay:', headers);
+        console.log('nay:', config);
       });
-    };
 
+    // On Click Update Area
     $scope.save = function() {
-      $scope.area.update(function() {
-        $location.path('/area');
-      });
+      $http.put('/areas/' + $routeParams.areaId, $scope.area)
+        .success(function() {
+          console.log('success');
+          console.log($scope.area);
+          $location.path('/');
+        })
+        .error(function() {
+          console.log('error');
+        });
     };
 
     filepicker.setKey('Aw1KqJloRli2yInj47Sthz');
