@@ -25,7 +25,19 @@ angular.module('dynomiteApp', ['ngResource', 'google-maps'])
       })
       .when('/user/:userName', {
         templateUrl: '/views/user',
-        controller: 'UserCtrl'
+        controller: 'UserCtrl',
+        resolve: {
+          //at this point the routeParams has not
+          //been populated with his data yet
+          user: function($q, $route, UsersService) {
+            var deferred = $q.defer();
+            UsersService.currentUser($route.current.params.userName)
+            .then(function(data){
+              deferred.resolve(data);
+            });
+            return deferred.promise;
+          }
+        }
       })
       .when('/about', {
         templateUrl: '/views/About',
@@ -40,11 +52,11 @@ angular.module('dynomiteApp', ['ngResource', 'google-maps'])
         controller: 'GradesCtrl'
       })
       .when('/area', {
-        templateUrl: '/views/secure/Area',
+        templateUrl: '/views/Area',
         controller: 'AreaCtrl'
       })
       .when('/area/add', {
-        templateUrl: '/views/secure/AreaAdd',
+        templateUrl: '/views/AreaAdd',
         controller: 'AreaAddCtrl'
       })
       .when('/area/edit/:areaId', {

@@ -38,11 +38,17 @@ module.exports = function (passport, config) {
         }
         if (!user) {
           console.log("unknown user");
-          return done(null, false, { message: 'Unknown user' })
+          return done(null, false, {
+            type: 'user',
+            message: 'Unknown user'
+          })
         }
         if (!user.authenticate(password)) {
           console.log("invalid password");
-          return done(null, false, { message: 'Invalid password' })
+          return done(null, false, {
+            type: 'password',
+            message: 'Invalid password'
+          })
         }
         return done(null, user)
       })

@@ -10,20 +10,15 @@ angular.module('dynomiteApp')
         // check if user is not in cache already
         if( typeof currentUserCache.get(username) === 'undefined' ){
           $http.get('/usersData/'+username)
-          /*.success(function(data) {
-            $scope.area = data;
-          })
-          .error(function(){
-          })*/
-          .then(function(data){
+          .success(function(data) {
             // store the data in cache
             currentUserCache.put(username, data);
             // resolve the promise
             deferred.resolve(data);
+          })
+          .error(function(response){
+            deferred.reject(response);
           });
-          //.error(function(){
-          //  deferred.reject();
-          //});
         // get data from cache
         } else {
           // get user from cache

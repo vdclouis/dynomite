@@ -42,7 +42,7 @@
             <a href="/area">Explore</a>
           </li>
           <li data-ng-hide="global.authenticated">
-            <a href="/signin">Signin</a>
+            <a href="/login">Login</a>
           </li>
           <li data-ng-show="global.authenticated">
             <a href="/user/{{global.user.name}}">{{global.user.name}}</a>
@@ -93,8 +93,8 @@
     <script src="/scripts/controllers/Register.js"></script>
     <script src="/scripts/controllers/Login.js"></script>
     <script src="/scripts/controllers/Logout.js"></script>
-    <script src="/scripts/controllers/Users.js"></script>
-    <script src="/scripts/controllers/User.js"></script>
+    <script src="/scripts/controllers/users.js"></script>
+    <script src="/scripts/controllers/user.js"></script>
     <script src="/scripts/services/Global.js"></script>
     <script src="/scripts/services/Areas.js"></script>
     <script src="/scripts/services/AreasEdit.js"></script>

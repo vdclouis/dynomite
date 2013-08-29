@@ -29,18 +29,35 @@ module.exports = function (app, passport, auth) {
   app.post('/register', users.create);
   app.post(
     // the form post route
-    '/users/session',
-    //
-    passport.authenticate(
-      'local',
-      {failureRedirect: 
-        '/register', 
-        failureFlash: 'Invalid email or password.'
-      }
-      //,successRedirect : "/"
-    ),
+    '/users/session'
+    ,function(req, res, next) {
+      passport.authenticate(
+        'local'
+        // arguments are what is returned from passport function
+        , function(err, user, info) {
+
+          if (err) {
+            return res.send({ 'status':'err', 'message':err.message });
+          }
+          if (!user) {
+            return res.send({ 'status':'fail', 'type': info.type, 'message': info.message });
+          }
+          req.logIn(user, function(err) {
+            if (err) { 
+              return res.send({ 'status':'err', 'message':err.message }); 
+            }
+            return res.send({ 'status':'ok', 'username': user.name });
+          });
+
+        }
+      )(req, res, next);
+    }
+    ,function(err, req, res, next) {
+      // 
+      return res.send({'status':'err','message':err.message});
+    }
     // redirect after succesfull login
-    users.loginSuccesRedirect
+    //users.loginSuccesRedirect
   );
 
   // Area Routes
