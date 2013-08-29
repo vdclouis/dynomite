@@ -2,8 +2,9 @@
 
 angular.module('dynomiteApp')
   .controller('AreaCtrl', ['$scope', '$http', function($scope, $http) {
+
     // Get all Areas
-    $http.get('/areas')
+    $http.get('/api/v1/areas')
       .success(function(data) {
         console.log('yay');
         $scope.findMe();
@@ -17,10 +18,9 @@ angular.module('dynomiteApp')
         }
         $scope.areas = data;
       })
-      .error(function(data) {
+      .error(function() {
         console.log('nay');
       });
-
 
     // Google maps
     google.maps.visualRefresh = true;
