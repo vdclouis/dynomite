@@ -3,7 +3,7 @@
 angular.module('dynomiteApp')
   .controller('RouteIdEditCtrl', ['$scope', '$location', '$routeParams', '$http', function($scope, $location, $routeParams, $http) {
     // Get Route
-    $http.get('/routes/' + $routeParams.routeId)
+    $http.get('/api/v1/routes/' + $routeParams.routeId)
       .success(function(data) {
         console.log('yay');
         $scope.route = data;
@@ -14,7 +14,7 @@ angular.module('dynomiteApp')
 
     // Delete Route
     $scope.destroy = function() {
-      $http.delete('/routes/' + $routeParams.routeId)
+      $http.delete('/api/v1/routes/' + $routeParams.routeId)
         .success(function() {
           console.log('yay');
           $location.path('/route')
@@ -26,7 +26,7 @@ angular.module('dynomiteApp')
 
     // Update Route
     $scope.save = function() {
-      $http.put('/routes/' + $routeParams.routeId, $scope.route)
+      $http.put('/api/v1/routes/' + $routeParams.routeId, $scope.route)
         .success(function() {
           console.log('yay');
           $location.path('/route/' + $routeParams.routeId);

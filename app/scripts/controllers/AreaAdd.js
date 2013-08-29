@@ -5,10 +5,10 @@ angular.module('dynomiteApp')
 
     // Post new area on save()
     $scope.save = function() {
-      $http.post('/areas', $scope.area)
+      $http.post('/api/v1/areas', $scope.area)
         .success(function() {
           console.log('yay');
-          $location.path('/area');
+          $location.path('/');
         })
         .error(function() {
           console.log('nay');
