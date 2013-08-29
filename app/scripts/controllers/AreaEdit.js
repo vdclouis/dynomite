@@ -26,6 +26,18 @@ angular.module('dynomiteApp')
         });
     };
 
+    // Delete Area
+    $scope.destroy = function() {
+      $http.delete('/areas/' + $routeParams.areaId)
+        .success(function() {
+          console.log('yay');
+          $location.path('/area')
+        })
+        .error(function() {
+          console.log('nay');
+        });
+    };
+
     filepicker.setKey('Aw1KqJloRli2yInj47Sthz');
 
     $scope.uploadFile = function() {

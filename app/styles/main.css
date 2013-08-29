@@ -122,6 +122,8 @@
 
 .route-id {
   text-align: center; }
+  .route-id h1 {
+    margin-bottom: 0; }
   .route-id .center-cropped {
     width: 100%;
     display: block;
@@ -142,21 +144,6 @@
   display: block;
   margin: 0 auto; }
 
-.swipe {
-  overflow: hidden;
-  visibility: hidden;
-  position: relative; }
-
-.swipe-wrap {
-  overflow: hidden;
-  position: relative; }
-
-.swipe-wrap > img, .swipe-wrap > a, .swipe-wrap > div {
-  float: left;
-  display: block;
-  width: 100%;
-  position: relative; }
-
 #open-left {
   text-decoration: none;
   font-size: 2em;
@@ -166,6 +153,20 @@
   padding-top: 5px; }
   #open-left a {
     display: inline-block; }
+
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative; }
+
+.swipe-wrap {
+  overflow: hidden;
+  position: relative; }
+
+.swipe-wrap > img, .swipe-wrap > div {
+  float: left;
+  width: 100%;
+  position: relative; }
 
 body {
   font-family: 'Maven';
@@ -221,7 +222,7 @@ a.crud {
       padding: 2px 7px;
       color: white;
       border-radius: 15px;
-      background: #007aff; }
+      background: #1bc6b0; }
 
 .heading .title {
   float: left; }

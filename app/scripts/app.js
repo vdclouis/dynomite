@@ -75,10 +75,6 @@ angular.module('dynomiteApp', ['ngResource', 'google-maps'])
         templateUrl: '/views/RouteId',
         controller: 'RouteIdCtrl'
       })
-      .when('/route/pictures/:routeId', {
-        templateUrl: '/views/RouteIdPictures',
-        controller: 'RouteIdPicturesCtrl'
-      })
       .when('/route/edit/:routeId', {
         templateUrl: '/views/RouteIdEdit',
         controller: 'RouteIdEditCtrl'

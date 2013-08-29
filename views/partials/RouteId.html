@@ -1,8 +1,11 @@
 <div class="route-id">
   <h1>{{route.name}}</h1>
 
-  <a href=""></a>
-  <img class="center-cropped" style="background-image: url( {{ route.img }} ); background-repeat: no-repeat;">
+  <div id="slider" class="swipe" swipe="{auto: 3000, continuous: true}">
+    <div class="swipe-wrap">
+      <img ng-repeat="url in route.img" ng-src="{{ url }}" alt=""/>
+    </div>
+  </div>
   
   <p>description: {{ route.description }}</p>
   <div class="list">
@@ -13,7 +16,5 @@
     </ul>
   </div>
 
-  
-  <a class="crud" href="/route/pictures/{{route._id}}">pictures</a>
   <a class="crud" href="/route/edit/{{route._id}}">edit</a>
 </div>
