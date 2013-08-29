@@ -10,16 +10,18 @@
   </div>
   <a href="/area"><img draggable="false" src="../images/logo.png" alt="Dynomite's logo" /></a>
   <ul class="nav">
-    {{global}}
-    {{global.authenticated}}
+    <p>{{globa}}</p>
+    <p>{{global.authenticated}}</p>
     <li data-ng-repeat="item in menu" data-ng-show="global.user" data-ng-class="{active: isSelected(item)}"><a href="/{{item.link}}">{{item.title}}</a></li>
   </ul>
+  <ul>
     <li>
       <a href="/logout">logout</a>
     </li>
     <li>
       <a href="/login">login</a>
     </li>
+  </ul>
   <ul class="nav pull-right" data-ng-hide="global.authenticated">
     <p>not authenticated in view</p>
   </ul>
