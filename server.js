@@ -31,6 +31,8 @@ cdb.once('open', function callback () {
 // Bootstrap models
 var models_path = __dirname + '/cogs/models';
 fs.readdirSync(models_path).forEach(function (file) {
+  //var re = 
+  //if(file.match(re))
   //HAHA!
   if(file!='.DS_Store'){
     require(models_path+'/'+file)

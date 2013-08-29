@@ -8,24 +8,7 @@
     </div>
     <canvas id="ico" width="140" height="140"></canvas>
   </div>
-  <a href="/area"><img draggable="false" src="../images/logo.png" alt="Dynomite's logo" /></a>
-  <ul class="nav">
-    <li>{{global.user.name}}</li>
-    <li>authenticated: {{global.authenticated}}</li>
-    <li data-ng-repeat="item in menu" data-ng-show="global.user" data-ng-class="{active: isSelected(item)}">
-      <a href="/{{item.link}}">title: {{item.title}}</a>
-    </li>
-    <li>
-      <a href="/logout">logout</a>
-    </li>
-    <li>
-      <a href="/login">login</a>
-    </li>
-  </ul>
-  <ul class="nav pull-right" data-ng-hide="global.authenticated">
-    <li>not authenticated in view</li>
-  </ul>
-  <ul class="nav pull-right" data-ng-show="global.authenticated">
-    <li>authenticated in view</li>
-  </ul>
-</div>
+  <a href="/area">
+    <img draggable="false" src="../images/logo.png" alt="Dynomite's logo" />
+  </a>
+

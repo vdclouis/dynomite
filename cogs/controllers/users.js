@@ -11,7 +11,8 @@ var mongoose = require('mongoose')
  */
 
 exports.authCallback = function (req, res, next) {
-  res.redirect('/')
+  //res.redirect('/');
+  
 }
 
 /**
@@ -49,9 +50,12 @@ exports.logout = function (req, res) {
  * Login succesful redirect
  * Session
  */
-
+//DEPRECATED
 exports.loginSuccesRedirect = function (req, res) {
-  res.redirect('/')
+  //res.redirect('/')
+  //res.render('error', {
+  //  status: 500
+  //});
 }
 
 /**
