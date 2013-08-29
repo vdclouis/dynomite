@@ -2,9 +2,8 @@
 
 angular.module('dynomiteApp')
   .controller('HomeCtrl', function($scope, $filter, Weather, Global) {
-    console.log('go home');
+    //call the global factory, this gets the user information
     $scope.global = Global;
-    console.log('after home');
 
     navigator.geolocation.getCurrentPosition(function(pos) {
       $scope.lat = pos.coords.latitude;
