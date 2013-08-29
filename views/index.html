@@ -41,14 +41,31 @@
           <li>
             <a href="/area">Explore</a>
           </li>
+          
+          <li>
+            <a href="/grades">Grades</a>
+          </li>
+          <li>
+            <a href="/about">About</a>
+          </li>
+          <li class="separator"></li>
           <li data-ng-hide="global.authenticated">
             <a href="/login">Login</a>
           </li>
-          <li data-ng-show="global.authenticated">
-            <a href="/user/{{global.user.name}}">{{global.user.name}}</a>
-          </li>
-          <li><a href="/grades">Grades</a></li>
-          <li><a href="/about">About</a></li>
+          <div data-ng-show="global.authenticated">
+            <li>
+              <a class="pull-right" href="/user/edit/{{global.user.name}}">
+                <span class="glyphicon glyphicon-cog"></span>
+              </a>
+              <a href="/user/{{global.user.name}}"><span class="glyphicon glyphicon-user"></span>&nbsp;{{global.user.name}}</a>
+            </li>
+            <li>
+              <a href="/logout">My routes</a>
+            </li>
+            <li>
+              <a href="/logout">Logout</a>
+            </li>
+          </div>
         </ul>
       </div>
     </nav>
@@ -102,7 +119,6 @@
     <script src="/scripts/services/RoutesEdit.js"></script>
     <script src="/scripts/services/Weather.js"></script>
     <script src="/scripts/services/routeCache.js"></script>
-    <script src="/scripts/services/currentUserCache.js"></script>
     <script src="/scripts/services/users.js"></script>
     <script src="/scripts/filters/reverse.js"></script>
     <script src="/scripts/filters/underscore.js"></script>

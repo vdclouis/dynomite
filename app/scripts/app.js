@@ -16,7 +16,7 @@ angular.module('dynomiteApp', ['ngResource', 'google-maps'])
         controller: 'LoginCtrl'
       })
       .when('/logout', {
-        templateUrl: '/logout',
+        /*templateUrl: '/logout',*/
         controller: 'LogoutCtrl'
       })
       .when('/users', {

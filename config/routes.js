@@ -15,7 +15,7 @@ module.exports = function (app, passport, auth) {
   app.get('/views/secure/:partial', auth.requiresLogin, index.partials);
 
   var users = require('../cogs/controllers/users');
-  app.get('/logout', users.logout);
+  app.get('/users/logout', users.logout);
   app.get('/users', auth.requiresLogin);
   app.get('/users/me', users.me);
   //app.get('/users/:userId', users.show);
@@ -54,7 +54,12 @@ module.exports = function (app, passport, auth) {
     }
     ,function(err, req, res, next) {
       // 
-      return res.send({'status':'err','message':err.message});
+      var t = {
+        'status':'err',
+        'message':err.message,
+        'user': req.user ? JSON.stringify(req.user) : "null"
+      };
+      return res.send(t);
     }
     // redirect after succesfull login
     //users.loginSuccesRedirect

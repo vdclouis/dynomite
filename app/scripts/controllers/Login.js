@@ -3,9 +3,11 @@
 angular.module('dynomiteApp')
   .controller('LoginCtrl', ['$scope', '$location', '$http', function($scope, $location, $http) {
 
+    $scope.error = {};
+
     $scope.login = function(data) {
       console.log('test');
- 
+
       $http.post('/users/session', $scope.user)
       .success(function(data, status, headers, config) {
 
@@ -19,8 +21,7 @@ angular.module('dynomiteApp')
             $scope.error.password = data.message;
           }
         }
-
-
+        
         //console.log("data", data);
         //console.log("status", status);
         //console.log("headers", headers);

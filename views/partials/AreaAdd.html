@@ -5,14 +5,14 @@
 
       <!-- name -->
       <div class="form-group" ng-class="{error: editArea.name.$invalid}">
-        <label>Name</label>
-        <input class="form-control" type="text" name="name" ng-model="area.name" required>
+        <label for="areaName">Name</label>
+        <input class="form-control" id="areaName" type="text" name="name" ng-model="area.name" required>
       </div>
 
       <!-- description -->
       <div class="form-group" ng-class="{error: editArea.description.$invalid}">
-        <label>Description</label>
-        <input class="form-control" type="text" name="description" ng-model="area.description" required>
+        <label for="areaDescription">Description</label>
+        <input class="form-control" id="areaDescription" type="text" name="description" ng-model="area.description" required>
       </div>
 
       <!-- coords -->
