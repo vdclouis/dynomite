@@ -19,7 +19,7 @@ angular.module('dynomiteApp')
         .success(function() {
           console.log('success');
           console.log($scope.area);
-          $location.path('/');
+          $location.path('/area');
         })
         .error(function() {
           console.log('error');

@@ -5,23 +5,10 @@
     margin-bottom: 0;
   }
 
-  input[type=search] {
-    width: 314px;
-  }
-
   google-map {
     display: block;
     width: 100%;
     height: 150px;
-  }
-}
-
-.area-map {
-  text-align: center;
-
-  .angular-leaflet-map {
-    display: block;
-    width: 100%;
-    height: 640px;
+    margin-bottom: 20px;
   }
 }

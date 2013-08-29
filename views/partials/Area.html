@@ -3,33 +3,34 @@
   <h1>Areas</h1>
   
   <!-- filter options -->
-  <input type="search" results="" data-ng-model="search.name" placeholder="Search Dynomite" />
-  <select ng-model="orderAreas">
-    <option value="name">Alphabetical</option>
-    <option value="rating">Rating</option>
-  </select>
+  <div class="filter">
+    <input type="search" results="" data-ng-model="search.name" placeholder="Search Dynomite" />
+    <select ng-model="orderAreas">
+      <option value="name">Alphabetical</option>
+      <option value="rating">Rating</option>
+    </select>
+  </div>
 
   <!--  map -->
-  <!-- <google-map
+  <google-map
     center="center"
     draggable="true"
     zoom="zoom"
     markers="markers"
     fit="false"
     mark-click="false">
-  </google-map> -->
+  </google-map>
 
   <!-- list -->
   <div class="list">
     <ul>
       <li data-ng-repeat="area in areas | filter:search | orderBy:orderAreas">
         <a href="/area/{{area._id}}">{{area.name}}</a>
-        <a  class="pull-right" href="/area/edit/{{area._id}}">Edit</a>
+        <a class="pull-right crud" href="/area/edit/{{area._id}}">Edit</a>
       </li>
     </ul>
   </div>
-  <a href="area/add">Add</a>
-  {{global}}
-  {{global.user.name}}
+  <a href="area/add" class="crud">Add</a>
+  <p>{{global.user.name}}</p>
 
 </div>

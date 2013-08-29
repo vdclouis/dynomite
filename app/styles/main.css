@@ -25,19 +25,23 @@
   text-align: center; }
   .area h1 {
     margin-bottom: 0; }
-  .area input[type=search] {
-    width: 314px; }
   .area google-map {
     display: block;
     width: 100%;
-    height: 150px; }
+    height: 150px;
+    margin-bottom: 20px; }
 
-.area-map {
+.areaEdit h1 {
   text-align: center; }
-  .area-map .angular-leaflet-map {
-    display: block;
-    width: 100%;
-    height: 640px; }
+.areaEdit form {
+  width: 90%;
+  display: block;
+  margin: 0 auto; }
+
+.areaadd form {
+  width: 90%;
+  display: block;
+  margin: 0 auto; }
 
 /* Colors */
 /* Colors */
@@ -124,6 +128,20 @@
     background-position: center center;
     height: 150px; }
 
+.routeadd h1 {
+  text-align: center; }
+.routeadd form {
+  width: 90%;
+  display: block;
+  margin: 0 auto; }
+
+.routeedit h1 {
+  text-align: center; }
+.routeedit form {
+  width: 90%;
+  display: block;
+  margin: 0 auto; }
+
 .swipe {
   overflow: hidden;
   visibility: hidden;
@@ -163,7 +181,16 @@ h1 {
   color: #e3694e;
   margin-top: -1.8em;
   padding: 11px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3); }
+
+a.crud {
+  color: #007aff; }
+
+.filter {
+  background: #ccc;
+  padding: 5px 0; }
+  .filter input[type="search"] {
+    width: 60%; }
 
 .content .list {
   border-radius: 4px;
@@ -185,6 +212,16 @@ h1 {
     .content .list ul a {
       text-decoration: none;
       color: #a0a0a0; }
+      .content .list ul a.crud {
+        color: #007aff; }
+    .content .list ul span {
+      float: right;
+      vertical-align: top;
+      margin-top: -2px;
+      padding: 2px 7px;
+      color: white;
+      border-radius: 15px;
+      background: #007aff; }
 
 .heading .title {
   float: left; }
