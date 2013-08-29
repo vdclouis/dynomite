@@ -1,5 +1,5 @@
 var async = require('async');
-var v1 = 'api/v1';
+var v1 = '/api/v1';
 
 module.exports = function (app, passport, auth) {
 
