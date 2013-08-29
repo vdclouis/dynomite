@@ -35,20 +35,12 @@
       <div class="snap-drawer snap-drawer-left">
         <h3>Menu</h3>
         <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/area">Explore</a>
-          </li>
-          <li data-ng-hide="global.authenticated">
-            <a href="/signin">Signin</a>
-          </li>
-          <li data-ng-show="global.authenticated">
-            <a href="/user/{{global.user.name}}">{{global.user.name}}</a>
-          </li>
-          <li><a href="/grades">Grades</a></li>
-          <li><a href="/about">About</a></li>
+          <li><a ng-class="{active:isActive('/')}" href="/">Home</a></li>
+          <li><a ng-class="{active:isActive('/area')}" href="/area">Explore</a></li>
+          <li ng-hide="global.authenticated" ><a ng-class="{active:isActive('/signin')}" href="/signin">Signin</a></li>
+          <li ng-show="global.authenticated"><a href="/user/{{global.user.name}}">{{global.user.name}}</a></li>
+          <li><a ng-class="{active:isActive('/grades')}" href="/grades">Grades</a></li>
+          <li><a ng-class="{active:isActive('/about')}" href="/about">About</a></li>
         </ul>
       </div>
     </nav>
@@ -58,22 +50,25 @@
       <div data-ng-view="">
       </div>
     </div>
+
+    <!-- Le Javascript -->
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false&language=en"></script>
     <script src="/bower_components/angular/angular.js"></script>
     <script src="/bower_components/angular-google-maps/src/angular-google-maps.js"></script>
 
-    <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="/scripts/app.js"></script>
-    <!-- endbuild -->
-
     <!-- build:js scripts/plugins.js -->
+    <script src="/bower_components/jquery/jquery.min.js"></script>
+    <script src="/bower_components/Swipe/swipe.js"></script>
+    <script src="//api.filepicker.io/v1/filepicker.js"></script>
+    <script src="/bower_components/snapjs/snap.min.js"></script>
+    <script src="/bower_components/skycons/skycons.js"></script>
     <script src="/bower_components/angular-resource/angular-resource.js"></script>
     <script src="/bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="//api.filepicker.io/v1/filepicker.js"></script>
-    <script src="/bower_components/jquery/jquery.min.js"></script>
-    <script src="/bower_components/snapjs/snap.min.js"></script>
-    <script src="/bower_components/skycons/skycons.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="/scripts/app.js"></script>
     <!-- endbuild -->
 
     <!-- build:js scripts/modules.js -->
@@ -86,9 +81,7 @@
     <script src="/scripts/controllers/AreaEdit.js"></script>
     <script src="/scripts/controllers/AreaRoutes.js"></script>
     <script src="/scripts/controllers/RouteId.js"></script>
-    <script src="/scripts/controllers/RouteIdPictures.js"></script>
     <script src="/scripts/controllers/RouteIdEdit.js"></script>
-    <script src="/scripts/controllers/RouteIdDelete.js"></script>
     <script src="/scripts/controllers/RouteAdd.js"></script>
     <script src="/scripts/controllers/Register.js"></script>
     <script src="/scripts/controllers/Login.js"></script>
@@ -107,7 +100,7 @@
     <script src="/scripts/filters/reverse.js"></script>
     <script src="/scripts/filters/underscore.js"></script>
     <script src="/scripts/controllers/canvas.js"></script>
-    <script src="/scripts/main.js"></script>
+    <script src="/scripts/directives/swipe.js"></script>
     <!-- endbuild -->
     <script src="/scripts/init.js"></script>
   </body>

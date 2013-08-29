@@ -3,15 +3,13 @@
   visibility: hidden;
   position: relative;
 }
-
 .swipe-wrap {
   overflow: hidden;
   position: relative;
 }
-
-.swipe-wrap > img, .swipe-wrap > a, .swipe-wrap > div {
-  float: left;
-  display: block;
-  width: 100%;
+.swipe-wrap > img, .swipe-wrap > div {
+  float:left;
+  width:100%;
   position: relative;
+  //display: block;
 }

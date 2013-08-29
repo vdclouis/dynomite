@@ -2,7 +2,7 @@
 
 angular.module('dynomiteApp')
   .controller('RouteIdEditCtrl', ['$scope', '$location', '$routeParams', '$http', function($scope, $location, $routeParams, $http) {
-    // Get Area
+    // Get Route
     $http.get('/routes/' + $routeParams.routeId)
       .success(function(data) {
         console.log('yay');
@@ -12,18 +12,19 @@ angular.module('dynomiteApp')
         console.log('nay');
       });
 
-    // Delete Area
+    // Delete Route
     $scope.destroy = function() {
       $http.delete('/routes/' + $routeParams.routeId)
         .success(function() {
           console.log('yay');
+          $location.path('/route')
         })
         .error(function() {
           console.log('nay');
         });
     };
 
-    // Update Area
+    // Update Route
     $scope.save = function() {
       $http.put('/routes/' + $routeParams.routeId, $scope.route)
         .success(function() {

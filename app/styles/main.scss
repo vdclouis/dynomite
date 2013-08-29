@@ -12,8 +12,8 @@
 @import "routeid";
 @import "routeadd";
 @import "routeedit";
-@import "slideshow";
 @import "snap";
+@import "swipe";
 
 body {
   font-family: 'Maven';
@@ -86,7 +86,7 @@ a.crud {
         padding: 2px 7px;
         color: white;
         border-radius: 15px;
-        background: $blue;
+        background: $green;
       }
     }
 
