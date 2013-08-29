@@ -20,9 +20,10 @@ angular.module('dynomiteApp')
           if(data.type === "password"){
             $scope.error.password = data.message;
           }
+          $scope.error.general = data.message;
         }
         
-        //console.log("data", data);
+        console.log("data", data);
         //console.log("status", status);
         //console.log("headers", headers);
         //console.log("config", config);
