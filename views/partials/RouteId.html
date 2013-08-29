@@ -1,12 +1,19 @@
 <div class="route-id">
   <h1>{{route.name}}</h1>
+
+  <a href=""></a>
   <img class="center-cropped" style="background-image: url( {{ route.img }} ); background-repeat: no-repeat;">
-  <p>{{route.description}}</p>
-  <h2>difficulty: {{route.grade}}</h2>
-  <h2>rating: {{route.rating}}/5</h2>
-  <h2>type: {{route.type}}</h2>
   
-  <a href="/route/pictures/{{route._id}}">pictures</a>
-  <a href="/route/edit/{{route._id}}">edit</a>
-  <a href="/route/delete/{{route._id}}">delete</a>
+  <p>description: {{ route.description }}</p>
+  <div class="list">
+    <ul>
+      <li>difficulty: <span>{{route.grade}}</span></li>
+      <li>rating: <span>{{route.rating}}/5</span></li>
+      <li>type: <span>{{route.type}}</span></li>
+    </ul>
+  </div>
+
+  
+  <a class="crud" href="/route/pictures/{{route._id}}">pictures</a>
+  <a class="crud" href="/route/edit/{{route._id}}">edit</a>
 </div>

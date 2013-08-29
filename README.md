@@ -1,10 +1,17 @@
 # Dynomite
-### The interactive climbing app
+The interactive climbing app
+
+## Prerequisites
+1. Node & NPM
+2. Bower
+3. Mongo
+4. Git
 
 ## Deploy
-1. run `npm install`
-2. run `bower install`
-3. run `grunt server`
+1. run `mongod`
+2. run `npm install`
+3. run `bower install`
+4. run `npm start`
 
 ## Technologies
 ### MEAN stack

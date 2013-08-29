@@ -8,7 +8,7 @@ angular.module('dynomiteApp')
       $http.post('/areas', $scope.area)
         .success(function() {
           console.log('yay');
-          $location.path('/');
+          $location.path('/area');
         })
         .error(function() {
           console.log('nay');

@@ -1,13 +1,17 @@
 /* Imports */
-@import "compass/css3";
+//@import "compass/css3";
 @import "fonts";
 @import "area";
+@import "areaedit";
+@import "areaadd";
 @import "colors";
 @import "home";
 @import "about";
 @import "arearoutes";
 @import "grades";
 @import "routeid";
+@import "routeadd";
+@import "routeedit";
 @import "slideshow";
 @import "snap";
 
@@ -24,9 +28,22 @@ h1 {
   font-family: 'Arvil';
   font-size: 1.7em;
   color: $red;
-  margin-top: -1.6em;
+  margin-top: -1.8em;
   padding: 11px 0;
-  border-bottom: 1px solid rgba(0,0,0,.1);
+  border-bottom: 1px solid rgba(0,0,0,.3);
+}
+
+a.crud {
+  color: $blue;
+}
+
+.filter {
+  background: #ccc;
+  padding: 5px 0;
+
+  input[type="search"] {
+    width: 60%;
+  }
 }
 
 .content {
@@ -51,12 +68,25 @@ h1 {
         &:last-child {
           border: none;
         }
-
       }
 
       a {
         text-decoration: none;
         color: $dg;
+
+        &.crud{
+          color: $blue;
+        }
+      }
+
+      span {
+        float: right;
+        vertical-align: top;
+        margin-top: -2px;
+        padding: 2px 7px;
+        color: white;
+        border-radius: 15px;
+        background: $blue;
       }
     }
 
