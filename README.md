@@ -14,7 +14,7 @@ The interactive climbing app
 4. run `npm start`
 
 ## Technologies
-### MEAN stack
+The MEAN stack:
 * __M__ongoDB
 * __E__xpressJS
 * __A__ngularJS
