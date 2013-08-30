@@ -1,10 +1,7 @@
 'use strict';
 
 angular.module('dynomiteApp')
-  .controller('HomeCtrl', function($scope, $filter, Weather, Global) {
-    // Call the global factory, this gets the user information
-    $scope.global = Global;
-
+  .controller('HomeCtrl', ['$scope', '$filter', 'Weather', function($scope, $filter, Weather) {
     navigator.geolocation.getCurrentPosition(function(pos) {
       $scope.lat = pos.coords.latitude;
       $scope.lon = pos.coords.longitude;
@@ -23,5 +20,5 @@ angular.module('dynomiteApp')
         skycons.play();
       }); // eo weather
     });
-  });
+  }]);
 

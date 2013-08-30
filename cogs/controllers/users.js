@@ -42,6 +42,7 @@ exports.register = function (req, res) {
  */
 
 exports.logout = function (req, res) {
+  console.log("logout");
   req.logout()
   res.redirect('/')
 }
@@ -104,6 +105,7 @@ exports.show = function(req, res) {
 exports.userId = function (req, res, next, id) {
   User
   .findOne({ _id : id })
+  .select('name username email')
   .exec(function (err, user) {
     if (err) return next(err);
     if (!user) return next(new Error('Failed to load User ' + id));
@@ -115,6 +117,7 @@ exports.userId = function (req, res, next, id) {
 exports.userName = function (req, res, next, name) {
   User
   .findOne({ name : name })
+  .select('name username email')
   .exec(function (err, user) {
     if (err) return next(err);
     if (!user) return next(new Error('Failed to load User ' + name));

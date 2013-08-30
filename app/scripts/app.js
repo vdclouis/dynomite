@@ -1,7 +1,14 @@
 'use strict';
 
-angular.module('dynomiteApp', ['ngResource', 'google-maps'])
-  .config(function ($routeProvider, $locationProvider) {
+var dynomiteApp = angular.module("dynomiteApp", ['ngResource', 'google-maps']);
+
+dynomiteApp
+  //removes # from routes, but now template request should be handled by server
+  .config(function ($locationProvider) {
+    $locationProvider.html5Mode(true);
+  })
+  //configuration of the routes
+  .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: '/views/Home',
@@ -13,7 +20,10 @@ angular.module('dynomiteApp', ['ngResource', 'google-maps'])
       })
       .when('/login', {
         templateUrl: '/views/Login',
-        controller: 'LoginCtrl'
+        controller: 'LoginCtrl',
+        access: {
+          isFree: false
+        }
       })
       .when('/logout', {
         /*templateUrl: '/logout',*/
@@ -29,14 +39,7 @@ angular.module('dynomiteApp', ['ngResource', 'google-maps'])
         resolve: {
           //at this point the routeParams has not
           //been populated with his data yet
-          user: function($q, $route, UsersService) {
-            var deferred = $q.defer();
-            UsersService.currentUser($route.current.params.userName)
-            .then(function(data){
-              deferred.resolve(data);
-            });
-            return deferred.promise;
-          }
+          user: UserCtrl.loadUser
         }
       })
       .when('/about', {
@@ -56,11 +59,11 @@ angular.module('dynomiteApp', ['ngResource', 'google-maps'])
         controller: 'AreaCtrl'
       })
       .when('/area/add', {
-        templateUrl: '/views/AreaAdd',
+        templateUrl: '/secure/views/AreaAdd',
         controller: 'AreaAddCtrl'
       })
       .when('/area/edit/:areaId', {
-        templateUrl: '/views/AreaEdit',
+        templateUrl: '/secure/views/AreaEdit',
         controller: 'AreaEditCtrl'
       })
       .when('/area/:areaId', {
@@ -86,5 +89,29 @@ angular.module('dynomiteApp', ['ngResource', 'google-maps'])
       .otherwise({
         redirectTo: '/'
       });
-    $locationProvider.html5Mode(true);
-  });
+  })
+;
+
+/*dynomiteApp.controller('InitCtrl', ['$rootScope', '$scope', '$location', 'Global', function($rootScope, $scope, $location, Global) {
+    console.log('test');
+
+    //handle when things go bad
+    
+
+    $rootScope.$on("$routeChangeSuccess", function (event, current, previous, rejection) {
+      console.log('proroutechange');
+    });
+
+    $rootScope.$on("$routeChangeError", function(event, current, previous, rejection) {
+      console.log(rejection);
+    })
+
+    // Call the global factory, this gets the user information from the view
+    $scope.global = Global;
+    // Active link checker
+    $scope.isActive = function(route) {
+      return route === $location.path();
+    };
+  }])
+;*/
+
