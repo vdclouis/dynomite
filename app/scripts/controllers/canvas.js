@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('dynomiteApp')
-  .controller('canvasCtrl', ['$scope', '$location', '$routeParams', 'RouteEdit', 'Routes', function($scope, $location, $routeParams, RouteEdit, Routes) {
+  .controller('CanvasCtrl', ['$scope', '$location', '$routeParams', 'RouteEdit', 'Routes', function($scope, $location, $routeParams, RouteEdit, Routes) {
     var self = this;
     var overlay = [];
     RouteEdit.get({id: $routeParams.routeId}, function(route) {
