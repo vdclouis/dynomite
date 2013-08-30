@@ -83,7 +83,7 @@ dynomiteApp
         controller: 'CommentAddCtrl'
       })
       .when('/route/comments/:routeId', {
-        templateUrl: '/views/comments.html',
+        templateUrl: '/views/comments',
         controller: 'CommentsCtrl'
       })
       .otherwise({
