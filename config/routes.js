@@ -13,7 +13,7 @@ module.exports = function (app, passport, auth) {
   //private views:
   //ng-controllers of these views should not be visible for 
   //unauthenticated users or the app will choke
-  app.get('/views/secure/:partial', auth.requiresLogin, index.partials);
+  app.get('/secure/views/:partial', auth.requiresLogin, index.partials);
 
   var users = require('../cogs/controllers/users');
   app.get('/users/logout', users.logout);
