@@ -168,9 +168,9 @@
   width: 100%;
   position: relative; }
 
-.comment h1 {
+.comments h1, .commentAdd h1 {
   text-align: center; }
-.comment form {
+.comments form, .commentAdd form {
   width: 90%;
   display: block;
   margin: 0 auto; }

@@ -13,6 +13,14 @@ angular.module('dynomiteApp')
         console.log('nay');
       });
 
-
+    // Get comments
+    $http.get('/api/v1/commentz/' + $routeParams.routeId)
+      .success(function(data) {
+        console.log('yay');
+        $scope.comments = data;
+      })
+      .error(function() {
+        console.log('nay');
+      });
 
   }]);

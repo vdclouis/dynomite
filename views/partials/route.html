@@ -13,7 +13,7 @@
       <li>difficulty: <span>{{route.grade}}</span></li>
       <li>rating: <span>{{route.rating}}/5</span></li>
       <li>type: <span>{{route.type}}</span></li>
-      <li>Comments: <span>{{ comment.length  }}</span></li>
+      <li>Comments: <span><a href="/route/comments/{{ route._id }}">{{ comments.length }}</a></span></li>
     </ul>
   </div>
 

@@ -101,11 +101,13 @@ module.exports = function (app, passport, auth) {
   app.get(v1 + '/comments', comments.all);
   app.post(v1 + '/comments', comments.create);
   app.get(v1 + '/comments/:commentId', comments.show);
+  app.get(v1 + '/commentz/:routeId', comments.showbyroute);
   app.put(v1 + '/comments/:commentId', comments.update);
   app.del(v1 + '/comments/:commentId', comments.destroy);
 
   // Finsh by setting the commentId param
   app.param('commentId', comments.comment);
+  app.param('routeId', comments.commentbyroute);
 
   // wildcard
   app.get('*', index.index);

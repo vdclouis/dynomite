@@ -50,6 +50,11 @@ CommentSchema.statics = {
     this.findOne({
       _id: id
     }).populate('route user').exec(cb);
+  },
+  byroute: function(routeId, cb) {
+    this.find({
+      route: routeId
+    }).populate('route user').exec(cb);
   }
 };
 

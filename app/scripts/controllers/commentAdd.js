@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('dynomiteApp')
-  .controller('CommentCtrl', function ($scope, $http, $routeParams, $location) {
+  .controller('CommentAddCtrl', function ($scope, $http, $routeParams, $location) {
 
     $scope.comment = {
       route: $routeParams.routeId

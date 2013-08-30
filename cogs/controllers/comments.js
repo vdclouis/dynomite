@@ -26,6 +26,25 @@ exports.comment = function(req, res, next, id) {
 };
 
 /**
+ * Find comments by routeId
+ * @param req
+ * @param res
+ * @param next
+ * @param routeId
+ */
+exports.commentbyroute = function(req, res, next, routeId) {
+  var User = mongoose.model('User');
+  var Route = mongoose.model('Route');
+
+  Comment.byroute(routeId, function(err, commentbyroute) {
+    if (err) return next(err);
+    if (!commentbyroute) return next(new Error('Failed to load ' + routeId));
+    req.commentbyroute = commentbyroute;
+    next();
+  });
+};
+
+/**
  * Create a comment
  * @param req
  * @param res
@@ -90,6 +109,10 @@ exports.destroy = function(req, res) {
  */
 exports.show = function(req, res) {
   res.jsonp(req.comment);
+};
+
+exports.showbyroute = function(req, res) {
+  res.jsonp(req.commentbyroute);
 };
 
 /**
