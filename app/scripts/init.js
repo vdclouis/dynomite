@@ -18,7 +18,22 @@ $(document).ready(function() {
 });
 
 angular.module('dynomiteApp')
-  .controller('InitCtrl', ['$scope', '$location', function($scope, $location) {
+  .controller('InitCtrl', ['$scope', '$location', '$rootScope', 'Global', function($scope, $location, $rootScope, Global) {
+
+    $rootScope.$on("$routeChangeSuccess", function (event, current, previous, rejection) {
+      //console.log('proroutechange');
+    });
+
+    $rootScope.$on("$routeChangeError", function(event, current, previous, rejection) {
+      console.log(event);
+      console.log(current);
+      console.log(previous);
+      console.log(rejection);
+      //$location.path('/');
+    })
+
+    // Call the global factory, this gets the user information from the view
+    $scope.global = Global;
     // Active link checker
     $scope.isActive = function(route) {
       return route === $location.path();

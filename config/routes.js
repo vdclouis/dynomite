@@ -39,13 +39,13 @@ module.exports = function (app, passport, auth) {
           if (err) {
             return res.send({ 'status':'err', 'message':err.message });
           }
-          console.log(user);
-          if (!user.name || !user.password) {
+          //console.log(user);
+          /*if (!user.name || !user.password) {
             return res.send({
               type: 'general',
               message: 'OEPS'
             })
-          }
+          }*/
           if (!user) {
             return res.send({ 'status':'fail', 'type': info.type, 'message': info.message });
           }

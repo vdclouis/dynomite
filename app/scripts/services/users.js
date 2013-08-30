@@ -23,7 +23,8 @@ angular.module('dynomiteApp')
             deferred.resolve(data);
           })
           .error(function(response){
-            deferred.reject(response);
+            console.log('error')
+            deferred.resolve(response);
           });
         // get data from cache
         } else {
@@ -36,4 +37,13 @@ angular.module('dynomiteApp')
         return deferred.promise;
       }
     }
-  });
+  })
+  .factory('authenticatedUser', [function() {
+    var sdo = {
+      isLogged: false,
+      username: ''
+    };
+    return sdo;
+  }])
+
+;
