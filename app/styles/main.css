@@ -379,5 +379,5 @@ a.crud {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\00003133}}
 .backarrow a {
   text-decoration: none;
-  color: black;
+  color: #a0a0a0;
 }
