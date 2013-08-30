@@ -82,9 +82,9 @@ dynomiteApp
         templateUrl: '/views/RouteIdEdit',
         controller: 'RouteIdEditCtrl'
       })
-      //.otherwise({
-      //  redirectTo: '/'
-      //});
+      .otherwise({
+        redirectTo: '/'
+      });
   })
 ;
 
