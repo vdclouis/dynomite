@@ -79,6 +79,10 @@ angular.module('dynomiteApp', ['ngResource', 'google-maps'])
         templateUrl: '/views/RouteIdEdit',
         controller: 'RouteIdEditCtrl'
       })
+      .when('/route/comment/:routeId', {
+        templateUrl: '/views/comment',
+        controller: 'CommentCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

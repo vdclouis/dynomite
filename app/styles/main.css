@@ -168,6 +168,13 @@
   width: 100%;
   position: relative; }
 
+.comment h1 {
+  text-align: center; }
+.comment form {
+  width: 90%;
+  display: block;
+  margin: 0 auto; }
+
 body {
   font-family: 'Maven';
   -webkit-user-select: none;
