@@ -29,9 +29,7 @@ angular.module('dynomiteApp')
           User.isLogged = true;
           User.username = data.username;
 
-
           $location.path('/user/'+data.username);
-
 
         } else {
 

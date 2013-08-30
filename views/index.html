@@ -77,8 +77,9 @@
     </nav>
     <!-- Add your site or application content here -->
     <div id="snapper" class="content snap-content">
-      <a href="" id="open-left">&#9776</a>
-      <div data-ng-view=""></div>
+      <!-- <back></back> -->
+      <a href="" id="open-right" class="pull-right">&#9776</a>
+      <div data-ng-view="" class="viewblock"></div>
     </div>
     <!-- Le Javascript -->
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false&language=en"></script>
@@ -128,6 +129,7 @@
     <script src="/scripts/controllers/canvas.js"></script>
     <script src="/scripts/directives/swipe.js"></script>
     <script src="/scripts/directives/auth.js"></script>
+    <script src="/scripts/directives/nav.js"></script>
     <!-- endbuild -->
     <script src="/scripts/init.js"></script>
   </body>

@@ -1,18 +1,20 @@
+'use strict';
+
 $(document).ready(function() {
   angular.bootstrap(document, ['dynomiteApp']);
 
   // SnapJS
   var snapper = new Snap({
     element: document.getElementById('snapper'),
-    disable: 'right',
+    disable: 'left',
     touchToDrag: false
   });
 
-  document.getElementById('open-left').addEventListener('click', function() {
-    if( snapper.state().state === 'left' ) {
+  document.getElementById('open-right').addEventListener('click', function() {
+    if( snapper.state().state === 'right' ) {
       snapper.close();
     } else {
-      snapper.open('left');
+      snapper.open('right');
     }
   });
 });
@@ -20,17 +22,20 @@ $(document).ready(function() {
 angular.module('dynomiteApp')
   .controller('InitCtrl', ['$scope', '$location', '$rootScope', 'Global', function($scope, $location, $rootScope, Global) {
 
-    $rootScope.$on("$routeChangeSuccess", function (event, current, previous, rejection) {
+    /*
+     * Arguments: event, current, previous, rejection
+     */
+    $rootScope.$on('$routeChangeSuccess', function () {
       //console.log('proroutechange');
     });
 
-    $rootScope.$on("$routeChangeError", function(event, current, previous, rejection) {
-      console.log(event);
-      console.log(current);
-      console.log(previous);
+    /*
+     * Arguments: event, current, previous, rejection
+     */
+    $rootScope.$on('$routeChangeError', function(event, current, previous, rejection) {
       console.log(rejection);
       //$location.path('/');
-    })
+    });
 
     // Call the global factory, this gets the user information from the view
     $scope.global = Global;
