@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('dynomiteApp')
-  .controller('AreaRoutesCtrl', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
+  .controller('RoutesCtrl', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
 
     // Get Area with specific id
     $http.get('/api/v1/areas/' + $routeParams.areaId)

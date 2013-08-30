@@ -249,7 +249,18 @@
   position: relative;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000318}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_comment\.scss}line{font-family:\000032}}
+.comments h1, .commentAdd h1 {
+  text-align: center;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_comment\.scss}line{font-family:\000036}}
+.comments form, .commentAdd form {
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000319}}
 body {
   font-family: 'Maven';
   -webkit-user-select: none;
@@ -259,7 +270,7 @@ body {
   user-select: none;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000327}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000328}}
 h1 {
   font-family: 'Arvil';
   font-size: 1.7em;
@@ -269,22 +280,22 @@ h1 {
   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000336}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000337}}
 a.crud {
   color: #007aff;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000340}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000341}}
 .filter {
   background: #ccc;
   padding: 5px 0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000344}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000345}}
 .filter input[type="search"] {
   width: 60%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000350}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000351}}
 .content .list {
   border-radius: 4px;
   border: 1px solid #ccc;
@@ -292,33 +303,33 @@ a.crud {
   width: 95%;
   margin: 0 auto;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000357}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000358}}
 .content .list ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000362}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000363}}
 .content .list ul li {
   list-style: none;
   border-bottom: 1px solid #ccc;
   padding: 7px 5px;
   text-align: left;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000368}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000369}}
 .content .list ul li:last-child {
   border: none;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000373}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000374}}
 .content .list ul a {
   text-decoration: none;
   color: #a0a0a0;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000377}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000378}}
 .content .list ul a.crud {
   color: #007aff;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000382}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000383}}
 .content .list ul span {
   float: right;
   vertical-align: top;
@@ -329,15 +340,15 @@ a.crud {
   background: #1bc6b0;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000398}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000399}}
 .heading .title {
   float: left;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\00003101}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\00003102}}
 .heading .elements {
   margin-left: 110px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\00003103}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\00003104}}
 .heading .elements li {
   cursor: pointer;
   padding: 5px;
@@ -347,25 +358,25 @@ a.crud {
   border: 1px solid grey;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\00003115}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\00003116}}
 .picture img {
   margin: auto;
   width: 100%;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\00003123}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\00003124}}
 .viewblock {
   padding-top: 45px;
 }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\00003127}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\00003128}}
 .backarrow {
   font-size: 2em;
   padding-left: .3em;
   display: inline-block;
   padding-top: 5px;
 }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\00003132}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\00003133}}
 .backarrow a {
   text-decoration: none;
   color: black;

@@ -1,7 +1,7 @@
 //'use strict';
 //
 //angular.module('dynomiteApp')
-//  .controller('canvasCtrl', ['$scope', '$location', '$routeParams', 'RouteEdit', '//Routes', function($scope, $location, $routeParams, RouteEdit, Routes) {
+//  .controller('CanvasCtrl', ['$scope', '$location', '$routeParams', 'RouteEdit', 'Routes', function($scope, $//location, $routeParams, RouteEdit, Routes) {
 //    var self = this;
 //    var overlay = [];
 //    RouteEdit.get({id: $routeParams.routeId}, function(route) {
@@ -9,7 +9,7 @@
 //      $scope.route = new RouteEdit(self.original);
 //      if(typeof $scope.route.overlay !== 'undefined'){
 //        for (var i = 0 ; i <= $scope.route.overlay.length-1; i++) {
-//          var cc = new newCircle(i, $scope.route.overlay[i].x, $scope.route.overlay[//i].y, 50, 50);
+//          var cc = new newCircle(i, $scope.route.overlay[i].x, $scope.route.overlay[i].y, 50, 50);
 //          overlay[i] = cc.circleData;
 //          layer.add(cc.circleGroup);
 //          layer.draw();

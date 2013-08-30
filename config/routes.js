@@ -96,6 +96,19 @@ module.exports = function (app, passport, auth) {
   app.param('routeId', routes.route);
   app.param('areaId', routes.routebyarea);
 
+  // Comments Routes
+  var comments = require('../cogs/controllers/comments');
+  app.get(v1 + '/comments', comments.all);
+  app.post(v1 + '/comments', comments.create);
+  app.get(v1 + '/comments/:commentId', comments.show);
+  app.get(v1 + '/commentz/:routeId', comments.showbyroute);
+  app.put(v1 + '/comments/:commentId', comments.update);
+  app.del(v1 + '/comments/:commentId', comments.destroy);
+
+  // Finsh by setting the commentId param
+  app.param('commentId', comments.comment);
+  app.param('routeId', comments.commentbyroute);
+
   // wildcard
   app.get('*', index.index);
 };

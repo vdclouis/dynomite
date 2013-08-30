@@ -14,14 +14,31 @@ var CommentSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  body: {
+  modified: {
+    type: Date,
+    default: Date.now
+  },
+  deleted: {
+    type: Date,
+    default: Date.now
+  },
+  title: {
+    type: String,
+    default: '',
+    trim: true
+  },
+  content: {
     type: String,
     default: '',
     trim: true
   },
   user: {
     type: Schema.ObjectId,
-    red: 'User'
+    ref: 'User'
+  },
+  route: {
+    type: Schema.ObjectId,
+    ref: 'Route'
   }
 });
 
@@ -32,7 +49,12 @@ CommentSchema.statics = {
   load: function(id, cb) {
     this.findOne({
       _id: id
-    }).populate('user').exec(cb);
+    }).populate('route user').exec(cb);
+  },
+  byroute: function(routeId, cb) {
+    this.find({
+      route: routeId
+    }).populate('route user').exec(cb);
   }
 };
 

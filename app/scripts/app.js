@@ -1,6 +1,6 @@
 'use strict';
 
-var dynomiteApp = angular.module('dynomiteApp', ['ngResource', 'google-maps']);
+var dynomiteApp = angular.module("dynomiteApp", ['ngResource', 'google-maps', 'angulartics', 'angulartics.google.analytics']);
 
 dynomiteApp
   //removes # from routes, but now template request should be handled by server
@@ -11,15 +11,15 @@ dynomiteApp
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: '/views/Home',
+        templateUrl: '/views/home',
         controller: 'HomeCtrl'
       })
       .when('/register', {
-        templateUrl: '/views/Register',
+        templateUrl: '/views/register',
         controller: 'RegisterCtrl'
       })
       .when('/login', {
-        templateUrl: '/views/Login',
+        templateUrl: '/views/login',
         controller: 'LoginCtrl',
         access: {
           isFree: false
@@ -43,44 +43,48 @@ dynomiteApp
         }
       })
       .when('/about', {
-        templateUrl: '/views/About',
-        controller: 'AboutCtrl'
-      })
-      .when('/home', {
-        templateUrl: '/views/Home',
-        controller: 'HomeCtrl'
+        templateUrl: '/views/about',
+        controller: 'DefaultCtrl'
       })
       .when('/grades', {
-        templateUrl: '/views/Grades',
-        controller: 'GradesCtrl'
+        templateUrl: '/views/grades',
+        controller: 'DefaultCtrl'
       })
-      .when('/area', {
-        templateUrl: '/views/Area',
+      .when('/areas', {
+        templateUrl: '/views/areas',
         controller: 'AreaCtrl'
       })
       .when('/area/add', {
-        templateUrl: '/secure/views/AreaAdd',
+        templateUrl: '/secure/views/areaAdd',
         controller: 'AreaAddCtrl'
       })
       .when('/area/edit/:areaId', {
-        templateUrl: '/secure/views/AreaEdit',
+        templateUrl: '/secure/views/areaEdit',
         controller: 'AreaEditCtrl'
       })
       .when('/area/:areaId', {
-        templateUrl: '/views/AreaRoutes',
-        controller: 'AreaRoutesCtrl'
+        templateUrl: '/views/routes',
+        controller: 'RoutesCtrl'
       })
       .when('/route/add/:areaId', {
-        templateUrl: '/views/RouteAdd',
+        templateUrl: '/views/routeAdd',
         controller: 'RouteAddCtrl'
       })
       .when('/route/:routeId', {
-        templateUrl: '/views/RouteId',
-        controller: 'RouteIdCtrl'
+        templateUrl: '/views/route',
+        controller: 'RouteCtrl'
       })
       .when('/route/edit/:routeId', {
-        templateUrl: '/views/RouteIdEdit',
-        controller: 'RouteIdEditCtrl'
+        templateUrl: '/views/routeEdit',
+        controller: 'RouteEditCtrl'
+      })
+      .when('/route/commentAdd/:routeId', {
+        templateUrl: '/views/commentAdd',
+        controller: 'CommentAddCtrl'
+      })
+      .when('/route/comments/:routeId', {
+        templateUrl: '/views/comments.html',
+        controller: 'CommentsCtrl'
       })
       .otherwise({
         redirectTo: '/'
