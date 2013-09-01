@@ -9,14 +9,14 @@
 @import "about";
 @import "arearoutes";
 @import "grades";
-@import "routeid";
+@import "route";
 @import "routeadd";
 @import "routeedit";
 @import "snap";
 @import "swipe";
 @import "comment";
 
-body {
+body, h2, h3 {
   font-family: 'Maven';
   -webkit-user-select: none;
   -moz-user-select: none;
