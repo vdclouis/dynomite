@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('dynomiteApp')
-  .controller('NavCtrl', ['$scope', '$location', 'Auth', function($scope, $location, Auth) {
+  .controller('NavCtrl', ['$scope', '$location', 'Auth', '$rootScope', function($scope, $location, Auth, $rootScope) {
     $scope.user = Auth.user;
     $scope.userRoles = Auth.userRoles;
     $scope.accessLevels = Auth.accessLevels;
@@ -75,7 +75,7 @@ angular.module('dynomiteApp')
         //console.log('error');
       })
       ;
-    }
+    };
   }])
   .controller('LogoutCtrl', ['$scope', '$location', '$http', function($scope, $location, $http) {
     console.log('LogoutCtrl');
@@ -89,7 +89,7 @@ angular.module('dynomiteApp')
       $location.path('/');
     })
     .error(function(err) {
-      console.log(err)
+      console.log(err);
     })
     ;
   }]);

@@ -8,7 +8,7 @@ angular.module('dynomiteApp')
       // responsible for registering DOM listeners as well as updating the DOM
       link: function (scope, element, attrs) {
         $timeout(function() {
-          $(element).Swipe(scope.$eval(attrs.swipe))
+          $(element).Swipe(scope.$eval(attrs.swipe));
         }, 100);
       }
     };

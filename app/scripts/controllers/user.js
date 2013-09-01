@@ -6,7 +6,7 @@ var UserCtrl = angular.module('dynomiteApp')
   }]);
 
 UserCtrl.loadUser = function($q, $route, UsersService) {
-  console.log('resolve user')
+  console.log('resolve user');
   var deferred = $q.defer();
   UsersService.currentUser($route.current.params.userName)
   .then(function(data){
@@ -18,4 +18,4 @@ UserCtrl.loadUser = function($q, $route, UsersService) {
     }
   });
   return deferred.promise;
-}
+};
