@@ -36,7 +36,7 @@ angular.module('dynomiteApp')
       $http.post('/users/session', $scope.user)
       .success(function(data, status, headers, config) {
         if(data.status === 'ok'){
-          // succefull login
+          // successful login
           User.isLogged = true;
           User.username = data.user;
           $location.path('/user/'+data.user.username);
@@ -81,7 +81,7 @@ angular.module('dynomiteApp')
     console.log('LogoutCtrl');
     $http.get('/users/logout')
     .success(function() {
-      console.log('logout succes');
+      console.log('logout success');
       $scope.global = {
         user: {},
         authenticated: false

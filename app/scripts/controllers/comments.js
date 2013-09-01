@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('dynomiteApp')
-  .controller('CommentsCtrl', function ($scope, $http, $routeParams) {
+  .controller('CommentsCtrl', ['$scope', '$http', '$routeParams', function ($scope, $http, $routeParams) {
     // Get comments
     $http.get('/api/v1/commentz/' + $routeParams.routeId)
       .success(function(data) {
@@ -11,4 +11,4 @@ angular.module('dynomiteApp')
       .error(function() {
         console.log('nay');
       })
-  });
+  }]);
