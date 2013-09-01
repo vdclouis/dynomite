@@ -17,7 +17,7 @@ angular.module('dynomiteApp')
       $http.delete('/api/v1/routes/' + $routeParams.routeId)
         .success(function() {
           console.log('yay');
-          $location.path('/route')
+          $location.path('/route');
         })
         .error(function() {
           console.log('nay');
