@@ -1,7 +1,7 @@
 'use strict';
 
-var UserCtrl = angular.module('dynomiteApp')
-  .controller('UserCtrl', ['$scope', '$route', function($scope, $route) {
+var UserCtrl = angular.module('dynomiteApp');
+  UserCtrl.controller('UserCtrl', ['$scope', '$route', function($scope, $route) {
     $scope.user = $route.current.locals.user;
   }]);
 

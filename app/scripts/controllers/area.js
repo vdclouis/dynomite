@@ -1,7 +1,7 @@
 'use strict';
 
-var AreaCtrl = angular.module('dynomiteApp')
-  .controller('AreaCtrl', ['$scope', '$route', function($scope, $route) {
+var AreaCtrl = angular.module('dynomiteApp');
+  AreaCtrl.controller('AreaCtrl', ['$scope', '$route', function($scope, $route) {
 
     var data = $route.current.locals.areas;
     $scope.areas = data;
