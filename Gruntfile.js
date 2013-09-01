@@ -180,7 +180,7 @@ module.exports = function (grunt) {
     useminPrepare: {
       html: '<%= yeoman.views %>/index.html',
       options: {
-        dest: '<%= yeoman.cviews %>'
+        dest: '<%= yeoman.dist %>'
       }
     },
     usemin: {
