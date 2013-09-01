@@ -53,12 +53,13 @@ module.exports = function (app, passport, auth) {
             if (err) { 
               return res.send({ 'status':'err', 'message':err.message }); 
             }
-            return res.send({ 'status':'ok', 'username': user.name });
+            return res.send({ 'status':'ok', 'user': user });
           });
-
         }
+        //, index.index
       )(req, res, next);
     }
+    //
     ,function(err, req, res, next) {
       // 
       var t = {

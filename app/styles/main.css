@@ -283,10 +283,20 @@ a.crud {
   padding-top: 45px; }
 
 .backarrow {
-  font-size: 2em;
+  font-size: 1.4em;
   padding-left: .3em;
   display: inline-block;
+<<<<<<< HEAD
+  padding-top: 12px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\00003133}}
+.backarrow a {
+  text-decoration: none;
+  color: #a0a0a0;
+}
+=======
   padding-top: 5px; }
   .backarrow a {
     text-decoration: none;
     color: #a0a0a0; }
+>>>>>>> 2f37061eec270ee34570795b89a847ce57e30da4

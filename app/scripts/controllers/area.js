@@ -1,27 +1,11 @@
 'use strict';
 
-angular.module('dynomiteApp')
-  .controller('AreaCtrl', ['$scope', '$http', function($scope, $http) {
+var AreaCtrl = angular.module('dynomiteApp')
+  .controller('AreaCtrl', ['$scope', '$route', function($scope, $route) {
 
-    // Get all Areas
-    $http.get('/api/v1/areas')
-      .success(function(data) {
-        console.log('yay');
-        $scope.findMe();
-        for (var i=0; i<data.length; i++) {
-          var lat = data[i].lat;
-          var lng = data[i].lng;
-          $scope.markers.push({
-            latitude: lat,
-            longitude: lng
-          });
-        }
-        $scope.areas = data;
-      })
-      .error(function() {
-        console.log('nay');
-      });
-
+    var data = $route.current.locals.areas;
+    $scope.areas = data
+    
     // Google maps
     google.maps.visualRefresh = true;
     $scope.center = {
@@ -34,20 +18,43 @@ angular.module('dynomiteApp')
     $scope.geolocationAvailable = navigator.geolocation ? true : false;
 
     // Get current location
-    $scope.findMe = function() {
-      if( $scope.geolocationAvailable ) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          $scope.center = {
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude
-          };
-          $scope.$apply();
-        }, function() {
+    if( $scope.geolocationAvailable ) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        $scope.center = {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude
+        };
+        $scope.$apply();
+      }, function() {
 
-        });
-      }
-    };
+      });
+    }
+    
+    //new array for the markers
+    $scope.markers = [];
+    //populate the makers
+    for (var i=0; i<data.length; i++) {
+      var lat = data[i].lat;
+      var lng = data[i].lng;
+      $scope.markers.push({
+        latitude: lat,
+        longitude: lng
+      });
+    }
 
     // Default order
     $scope.orderAreas = 'name';
   }]);
+
+AreaCtrl.loadAreas = function($q, AreasService) {
+  var defer = $q.defer();
+  AreasService.allAreas()
+  .then(function(data){
+    //if(data){
+      defer.resolve(data);
+    /*}else{
+      defer.reject(data);
+    }*/
+  });
+  return defer.promise;
+}

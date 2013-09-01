@@ -12,7 +12,7 @@ angular.module('dynomiteApp')
     return{
       currentUser : function(username) {
         // start the promise
-        var deferred = $q.defer();
+        var defer = $q.defer();
         // check if user is not in cache already
         if( typeof currentUserCache.get(username) === 'undefined' ){
           $http.get('/usersData/'+username)
@@ -20,30 +20,80 @@ angular.module('dynomiteApp')
             // store the data in cache
             currentUserCache.put(username, data);
             // resolve the promise
-            deferred.resolve(data);
+            defer.resolve(data);
           })
           .error(function(response){
             console.log('error');
-            deferred.resolve(response);
+            defer.resolve(response);
           });
         // get data from cache
         } else {
           // get user from cache
           var user = currentUserCache.get(username);
           // resolve promise
-          deferred.resolve(user);
+          defer.resolve(user);
         }
         // return the promise
-        return deferred.promise;
+        return defer.promise;
       }
     };
   })
-  .factory('authenticatedUser', [function() {
+  /*.factory('authenticatedUser', function($http) {
+
     var sdo = {
       isLogged: false,
       username: ''
     };
     return sdo;
-  }])
+  })*/
+  .factory('Auth', function($http, $cookieStore){
 
+    var accessLevels = routingConfig.accessLevels
+      , userRoles = routingConfig.userRoles
+      , currentUser = $cookieStore.get('user') || { username: '', role: userRoles.public };
+
+    $cookieStore.remove('user');
+
+    function changeUser(user) {
+      _.extend(currentUser, user);
+    };
+
+    return {
+      authorize: function(accessLevel, role) {
+        if(role === undefined)
+          role = currentUser.role;
+
+        return accessLevel.bitMask & role.bitMask;
+      },
+      isLoggedIn: function(user) {
+        if(user === undefined)
+          user = currentUser;
+        return user.role.title == userRoles.user.title || user.role.title == userRoles.admin.title;
+      },
+      register: function(user, success, error) {
+        $http.post('/register', user).success(function(res) {
+          changeUser(res);
+          success();
+        }).error(error);
+      },
+      login: function(user, success, error) {
+        $http.post('/login', user).success(function(user){
+          changeUser(user);
+          success(user);
+        }).error(error);
+      },
+      logout: function(success, error) {
+        $http.post('/logout').success(function(){
+          changeUser({
+            username: '',
+            role: userRoles.public
+          });
+          success();
+        }).error(error);
+      },
+      accessLevels: accessLevels,
+      userRoles: userRoles,
+      user: currentUser
+    };
+  });
 ;

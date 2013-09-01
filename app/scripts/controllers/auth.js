@@ -1,6 +1,19 @@
 'use strict';
 
 angular.module('dynomiteApp')
+  .controller('NavCtrl', ['$scope', '$location', 'Auth', function($scope, $location, Auth) {
+    $scope.user = Auth.user;
+    $scope.userRoles = Auth.userRoles;
+    $scope.accessLevels = Auth.accessLevels;
+
+    $scope.logout = function() {
+      Auth.logout(function() {
+        $location.path('/login');
+      }, function() {
+        $rootScope.error = "Failed to logout";
+      });
+    };
+  }])
   .controller('RegisterCtrl', ['$scope', '$location', '$http', function($scope, $location, $http) {
     $scope.save = function(data) {
       console.log('test');
@@ -22,17 +35,12 @@ angular.module('dynomiteApp')
       console.log('test');
       $http.post('/users/session', $scope.user)
       .success(function(data, status, headers, config) {
-
         if(data.status === "ok"){
-
           // succefull login
           User.isLogged = true;
-          User.username = data.username;
-
-          $location.path('/user/'+data.username);
-
+          User.username = data.user;
+          $location.path('/user/'+data.user.username);
         } else {
-
           User.isLogged = false;
           User.username = '';
 
