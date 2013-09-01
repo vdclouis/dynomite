@@ -8,7 +8,7 @@ angular.module('dynomiteApp')
     });
   }])
   //
-  .service('AreasService', ['$q', '$http', 'areaCache', function ($q, $http, areasCache) {
+  .service('AreasService', ['$q', '$http', 'areasCache', function($q, $http, areasCache) {
     return{
       allAreas: function() {
         var defer = $q.defer();

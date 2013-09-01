@@ -1,7 +1,7 @@
 'use strict';
 
-var AreaCtrl = angular.module('dynomiteApp');
-  AreaCtrl.controller('AreaCtrl', ['$scope', '$route', function($scope, $route) {
+var AreaCtrl = angular.module('dynomiteApp')
+  .controller('AreaCtrl', ['$scope', '$route', function($scope, $route) {
 
     var data = $route.current.locals.areas;
     $scope.areas = data;
@@ -46,7 +46,7 @@ var AreaCtrl = angular.module('dynomiteApp');
     $scope.orderAreas = 'name';
   }]);
 
-AreaCtrl.loadAreas = ['$q', 'AreaService', function($q, AreasService) {
+AreaCtrl.loadAreas = function($q, AreasService) {
   var defer = $q.defer();
   AreasService.allAreas()
   .then(function(data){
@@ -57,4 +57,4 @@ AreaCtrl.loadAreas = ['$q', 'AreaService', function($q, AreasService) {
     }*/
   });
   return defer.promise;
-}];
+};
