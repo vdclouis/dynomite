@@ -1,8 +1,12 @@
 <div class="comments">
   <h1>Comments</h1>
-  <div class="list">
-    <ul>
-      <li ng-repeat="comment in comments">{{ comment.title }}</li>
-    </ul>
+
+  <input class="form-control" placeholder="Search..." type="search" ng-model="search" />
+  
+  <div class="comments">
+    <div class="comment" ng-repeat="comment in comments | filter:search">
+      <h3>{{ comment.title }}</h3>
+      <p>"{{ comment.content }}" <br/>&mdash;{{ comment.user.name }} on {{ comment.created | date:'yyyy-MM-dd @ h:mma' }}</p>
+    </div>
   </div>
 </div>

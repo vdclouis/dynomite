@@ -106,7 +106,7 @@ module.exports = function (app, passport, auth) {
   app.put(v1 + '/comments/:commentId', comments.update);
   app.del(v1 + '/comments/:commentId', comments.destroy);
 
-  // Finsh by setting the commentId param
+  // Finish by setting the commentId param
   app.param('commentId', comments.comment);
   app.param('routeId', comments.commentbyroute);
 

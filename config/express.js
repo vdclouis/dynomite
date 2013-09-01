@@ -16,6 +16,9 @@ module.exports = function (app, config, passport) {
   console.log(config.root);
   app.use(express.favicon(config.root + '/app/favicon.ico'));
 
+  console.log("trust proxy");
+  //app.enable('trust proxy');
+
   //compress static   files
   /*app.use(express.compress({
     filter: function (req, res) {

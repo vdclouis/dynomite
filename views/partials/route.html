@@ -1,4 +1,4 @@
-<div class="route-id">
+<div class="route">
   <h1>{{route.name}}</h1>
 
   <div id="slider" class="swipe" swipe="{auto: 3000, continuous: true}">
@@ -7,16 +7,25 @@
     </div>
   </div>
   
-  <p>description: {{ route.description }}</p>
+  <h2>description</h2>
+  <p>{{ route.description }}</p>
   <div class="list">
     <ul>
-      <li>difficulty: <span>{{route.grade}}</span></li>
-      <li>rating: <span>{{route.rating}}/5</span></li>
-      <li>type: <span>{{route.type}}</span></li>
+      <li>Difficulty: <span>{{route.grade}}</span></li>
+      <li>Rating: <span>{{route.rating}}/5</span></li>
+      <li>Type: <span>{{route.type}}</span></li>
       <li>Comments: <span><a href="/route/comments/{{ route._id }}">{{ comments.length }}</a></span></li>
     </ul>
   </div>
 
-  <a class="crud" href="/route/comment/{{ route._id }}">Comment</a>
+  <a class="crud" href="/route/commentAdd/{{ route._id }}">Comment</a>
   <a class="crud" href="/route/edit/{{ route._id }}">Edit</a>
+
+  <h2>Latest comments:</h2>
+  <div class="comments">
+    <div class="comment" ng-repeat="comment in comments | limitTo:3 | orderBy:title">
+      <h3>{{ comment.title }}</h3>
+      <p>"{{ comment.content }}" <br/>&mdash;{{ comment.user.name }} on {{ comment.created | date:'yyyy-MM-dd @ h:mma' }}</p>
+    </div>
+  </div>
 </div>

@@ -1,12 +1,14 @@
-.comments, .commentAdd {
-  h1 {
-    text-align: center;
-  }
+.route {
+   text-align: center;
 
-  form {
-    width: 90%;
+  h1 {
+    margin-bottom: 0;
+  }
+  .center-cropped {
+    width: 100%;
     display: block;
-    margin: 0 auto;
+    background-position: center center;
+    height: 150px;
   }
 
   .comment {
@@ -27,11 +29,5 @@
     p {
       padding: 5px;
     }
-  }
-
-  input[type="search"] {
-    width: 95%;
-    margin: 0 auto;
-    display: block;
   }
 }

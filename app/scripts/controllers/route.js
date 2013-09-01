@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('dynomiteApp')
-  .controller('RouteCtrl', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
+  .controller('RouteCtrl', ['$scope', '$routeParams', '$http', '$filter', function($scope, $routeParams, $http, $filter) {
 
     // Get unique route
     $http.get('/api/v1/routes/' + $routeParams.routeId)

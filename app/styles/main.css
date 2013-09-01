@@ -5,164 +5,108 @@
   src: url("fonts/blanch_condensed-webfont.eot");
   src: url("fonts/blanch_condensed-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/blanch_condensed-webfont.woff") format("font/x-woff"), url("fonts/blanch_condensed-webfont.ttf") format("truetype"), url("fonts/blanch_condensed-webfont.svg#blanchcondensed") format("svg");
   font-weight: normal;
-  font-style: normal;
-}
+  font-style: normal; }
 
 @font-face {
   font-family: 'Arvil';
   src: url("fonts/arvil_sans-webfont.eot");
   src: url("fonts/arvil_sans-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/arvil_sans-webfont.woff") format("font/x-woff"), url("fonts/arvil_sans-webfont.ttf") format("truetype"), url("fonts/arvil_sans-webfont.svg#arvil_sansregular") format("svg");
   font-weight: normal;
-  font-style: normal;
-}
+  font-style: normal; }
 
 @font-face {
   font-family: 'Maven';
   src: url("fonts/mavenprolight-200-webfont.eot");
   src: url("fonts/mavenprolight-200-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/mavenprolight-200-webfont.woff") format("font/x-woff"), url("fonts/mavenprolight-200-webfont.ttf") format("truetype"), url("fonts/mavenprolight-200-webfont.svg#maven_pro_light200") format("svg");
   font-weight: normal;
-  font-style: normal;
-}
+  font-style: normal; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_area\.scss}line{font-family:\000031}}
 .area {
-  text-align: center;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_area\.scss}line{font-family:\000034}}
-.area h1 {
-  margin-bottom: 0;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_area\.scss}line{font-family:\000038}}
-.area google-map {
-  display: block;
-  width: 100%;
-  height: 150px;
-  margin-bottom: 20px;
-}
+  text-align: center; }
+  .area h1 {
+    margin-bottom: 0; }
+  .area google-map {
+    display: block;
+    width: 100%;
+    height: 150px;
+    margin-bottom: 20px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_areaedit\.scss}line{font-family:\000032}}
 .areaEdit h1 {
-  text-align: center;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_areaedit\.scss}line{font-family:\000035}}
+  text-align: center; }
 .areaEdit form {
   width: 90%;
   display: block;
-  margin: 0 auto;
-}
+  margin: 0 auto; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_areaadd\.scss}line{font-family:\000032}}
 .areaadd form {
   width: 90%;
   display: block;
-  margin: 0 auto;
-}
+  margin: 0 auto; }
 
 /* Colors */
 /* Colors */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_home\.scss}line{font-family:\000033}}
 .home {
-  text-align: center;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_home\.scss}line{font-family:\000036}}
-.home .forecast {
-  cursor: default;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_home\.scss}line{font-family:\0000310}}
-.home .temp {
-  display: inline-block;
-  color: #e3694e;
-  vertical-align: top;
-  margin-top: -10px;
-  font-size: 10em;
-  font-family: 'Blanch';
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_home\.scss}line{font-family:\0000319}}
-.home canvas {
-  display: inline-block;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_home\.scss}line{font-family:\0000323}}
-.home img {
-  width: 132px;
-}
+  text-align: center; }
+  .home .forecast {
+    cursor: default; }
+  .home .temp {
+    display: inline-block;
+    color: #e3694e;
+    vertical-align: top;
+    margin-top: -10px;
+    font-size: 10em;
+    font-family: 'Blanch'; }
+  .home canvas {
+    display: inline-block; }
+  .home img {
+    width: 132px; }
 
 /* Colors */
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_about\.scss}line{font-family:\000034}}
 .about h1 {
-  text-align: center;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_about\.scss}line{font-family:\000037}}
+  text-align: center; }
 .about p {
-  padding: 0 20px;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_about\.scss}line{font-family:\0000310}}
+  padding: 0 20px; }
 .about span {
-  color: #1bc6b0;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_about\.scss}line{font-family:\0000313}}
+  color: #1bc6b0; }
 .about .fotos {
   margin: 0 auto;
-  text-align: center;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_about\.scss}line{font-family:\0000317}}
+  text-align: center; }
 .about a {
   color: #1bc6b0;
   text-decoration: none;
   text-align: center;
-  margin: 0 auto;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_about\.scss}line{font-family:\0000323}}
-.about a img {
-  width: 150px;
-  height: 150px;
-}
+  margin: 0 auto; }
+  .about a img {
+    width: 150px;
+    height: 150px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_arearoutes\.scss}line{font-family:\000031}}
 .area-routes {
-  text-align: center;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_arearoutes\.scss}line{font-family:\000034}}
-.area-routes h1 {
-  margin-bottom: 0;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_arearoutes\.scss}line{font-family:\000038}}
-.area-routes input[type=search] {
-  width: 314px;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_arearoutes\.scss}line{font-family:\0000312}}
-.area-routes .center-cropped {
-  width: 100%;
-  display: block;
-  background-position: center center;
-  height: 150px;
-}
+  text-align: center; }
+  .area-routes h1 {
+    margin-bottom: 0; }
+  .area-routes input[type=search] {
+    width: 314px; }
+  .area-routes .center-cropped {
+    width: 100%;
+    display: block;
+    background-position: center center;
+    height: 150px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_grades\.scss}line{font-family:\000032}}
 .grades h1 {
-  text-align: center;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_grades\.scss}line{font-family:\000036}}
+  text-align: center; }
 .grades p {
-  padding: 0 20px;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_grades\.scss}line{font-family:\0000310}}
+  padding: 0 20px; }
 .grades table {
   width: 340px;
   overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_grades\.scss}line{font-family:\0000315}}
-.grades table td {
-  padding: 10px;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_grades\.scss}line{font-family:\0000320}}
+  -webkit-overflow-scrolling: touch; }
+  .grades table td {
+    padding: 10px; }
 .grades .slide {
   background: white;
   padding: 10px;
   overflow-x: scroll;
-  overflow-y: hidden;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_grades\.scss}line{font-family:\0000327}}
+  overflow-y: hidden; }
 .grades .glass {
   width: 80px;
   height: 100px;
@@ -174,206 +118,175 @@
   padding: 0;
   border: 1px solid rgba(0, 0, 0, 0.5);
   border-radius: 5px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5), inset 0 1px rgba(255, 255, 255, 0.3), inset 0 10px rgba(255, 255, 255, 0.2), inset 0 10px 20px rgba(255, 255, 255, 0.25), inset 0 -15px 30px rgba(0, 0, 0, 0.3);
-}
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.5), inset 0 1px rgba(255, 255, 255, 0.3), inset 0 10px rgba(255, 255, 255, 0.2), inset 0 10px 20px rgba(255, 255, 255, 0.25), inset 0 -15px 30px rgba(0, 0, 0, 0.3); }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_routeid\.scss}line{font-family:\000031}}
-.route-id {
-  text-align: center;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_routeid\.scss}line{font-family:\000034}}
-.route-id h1 {
-  margin-bottom: 0;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_routeid\.scss}line{font-family:\000037}}
-.route-id .center-cropped {
-  width: 100%;
-  display: block;
-  background-position: center center;
-  height: 150px;
-}
+.route {
+  text-align: center; }
+  .route h1 {
+    margin-bottom: 0; }
+  .route .center-cropped {
+    width: 100%;
+    display: block;
+    background-position: center center;
+    height: 150px; }
+  .route .comment {
+    background: #FFF;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 95%;
+    margin: 10px auto;
+    display: block;
+    text-align: left; }
+    .route .comment h3 {
+      border-bottom: 1px solid #ccc;
+      margin: 0;
+      padding: 5px; }
+    .route .comment p {
+      padding: 5px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_routeadd\.scss}line{font-family:\000032}}
 .routeadd h1 {
-  text-align: center;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_routeadd\.scss}line{font-family:\000036}}
+  text-align: center; }
 .routeadd form {
   width: 90%;
   display: block;
-  margin: 0 auto;
-}
+  margin: 0 auto; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_routeedit\.scss}line{font-family:\000032}}
 .routeedit h1 {
-  text-align: center;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_routeedit\.scss}line{font-family:\000036}}
+  text-align: center; }
 .routeedit form {
   width: 90%;
   display: block;
-  margin: 0 auto;
-}
+  margin: 0 auto; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_snap\.scss}line{font-family:\000031}}
 #open-right {
   text-decoration: none;
   font-size: 2em;
   color: #a0a0a0;
   padding-right: .3em;
   display: inline-block;
-  padding-top: 5px;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_snap\.scss}line{font-family:\000039}}
-#open-right a {
-  margin-right: 10px;
-}
+  padding-top: 5px; }
+  #open-right a {
+    margin-right: 10px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_swipe\.scss}line{font-family:\000031}}
 .swipe {
   overflow: hidden;
   visibility: hidden;
-  position: relative;
-}
+  position: relative; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_swipe\.scss}line{font-family:\000036}}
 .swipe-wrap {
   overflow: hidden;
-  position: relative;
-}
+  position: relative; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_swipe\.scss}line{font-family:\0000310}}
 .swipe-wrap > img, .swipe-wrap > div {
   float: left;
   width: 100%;
-  position: relative;
-}
+  position: relative; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_comment\.scss}line{font-family:\000032}}
 .comments h1, .commentAdd h1 {
-  text-align: center;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/_comment\.scss}line{font-family:\000036}}
+  text-align: center; }
 .comments form, .commentAdd form {
   width: 90%;
   display: block;
+  margin: 0 auto; }
+.comments .comment, .commentAdd .comment {
+  background: #FFF;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 95%;
+  margin: 10px auto;
+  display: block;
+  text-align: left; }
+  .comments .comment h3, .commentAdd .comment h3 {
+    border-bottom: 1px solid #ccc;
+    margin: 0;
+    padding: 5px; }
+  .comments .comment p, .commentAdd .comment p {
+    padding: 5px; }
+.comments input[type="search"], .commentAdd input[type="search"] {
+  width: 95%;
   margin: 0 auto;
-}
+  display: block; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000319}}
-body {
+body, h2, h3 {
   font-family: 'Maven';
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   -o-user-select: none;
-  user-select: none;
-}
+  user-select: none; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000328}}
 h1 {
   font-family: 'Arvil';
   font-size: 1.7em;
   color: #e3694e;
   margin-top: -1.8em;
   padding: 11px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-}
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3); }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000337}}
 a.crud {
-  color: #007aff;
-}
+  color: #007aff; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000341}}
 .filter {
   background: #ccc;
-  padding: 5px 0;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000345}}
-.filter input[type="search"] {
-  width: 60%;
-}
+  padding: 5px 0; }
+  .filter input[type="search"] {
+    width: 60%; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000351}}
 .content .list {
   border-radius: 4px;
   border: 1px solid #ccc;
   background: #fff;
   width: 95%;
-  margin: 0 auto;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000358}}
-.content .list ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000363}}
-.content .list ul li {
-  list-style: none;
-  border-bottom: 1px solid #ccc;
-  padding: 7px 5px;
-  text-align: left;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000369}}
-.content .list ul li:last-child {
-  border: none;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000374}}
-.content .list ul a {
-  text-decoration: none;
-  color: #a0a0a0;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000378}}
-.content .list ul a.crud {
-  color: #007aff;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000383}}
-.content .list ul span {
-  float: right;
-  vertical-align: top;
-  margin-top: -2px;
-  padding: 2px 7px;
-  color: white;
-  border-radius: 15px;
-  background: #1bc6b0;
-}
+  margin: 0 auto; }
+  .content .list ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+    .content .list ul li {
+      list-style: none;
+      border-bottom: 1px solid #ccc;
+      padding: 7px 5px;
+      text-align: left; }
+      .content .list ul li:last-child {
+        border: none; }
+    .content .list ul a {
+      text-decoration: none;
+      color: #a0a0a0; }
+      .content .list ul a.crud {
+        color: #007aff; }
+    .content .list ul span {
+      float: right;
+      vertical-align: top;
+      margin-top: -2px;
+      padding: 2px 7px;
+      color: white;
+      border-radius: 15px;
+      background: #1bc6b0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\0000399}}
 .heading .title {
-  float: left;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\00003102}}
+  float: left; }
 .heading .elements {
-  margin-left: 110px;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\00003104}}
-.heading .elements li {
-  cursor: pointer;
-  padding: 5px;
-  display: block;
-  float: left;
-  margin-left: 30px;
-  border: 1px solid grey;
-}
+  margin-left: 110px; }
+  .heading .elements li {
+    cursor: pointer;
+    padding: 5px;
+    display: block;
+    float: left;
+    margin-left: 30px;
+    border: 1px solid grey; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\00003116}}
 .picture img {
   margin: auto;
-  width: 100%;
-}
+  width: 100%; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\00003124}}
 .viewblock {
-  padding-top: 45px;
-}
+  padding-top: 45px; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\00003128}}
 .backarrow {
   font-size: 1.4em;
   padding-left: .3em;
   display: inline-block;
+<<<<<<< HEAD
   padding-top: 12px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\00003133}}
@@ -381,3 +294,9 @@ a.crud {
   text-decoration: none;
   color: #a0a0a0;
 }
+=======
+  padding-top: 5px; }
+  .backarrow a {
+    text-decoration: none;
+    color: #a0a0a0; }
+>>>>>>> 2f37061eec270ee34570795b89a847ce57e30da4
