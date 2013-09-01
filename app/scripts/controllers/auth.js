@@ -10,7 +10,7 @@ angular.module('dynomiteApp')
       Auth.logout(function() {
         $location.path('/login');
       }, function() {
-        $rootScope.error = "Failed to logout";
+        $rootScope.error = 'Failed to logout';
       });
     };
   }])
@@ -35,7 +35,7 @@ angular.module('dynomiteApp')
       console.log('test');
       $http.post('/users/session', $scope.user)
       .success(function(data, status, headers, config) {
-        if(data.status === "ok"){
+        if(data.status === 'ok'){
           // succefull login
           User.isLogged = true;
           User.username = data.user;
@@ -44,29 +44,29 @@ angular.module('dynomiteApp')
           User.isLogged = false;
           User.username = '';
 
-          if(data.type === "user"){
+          if(data.type === 'user'){
             $scope.error.user = data.message;
           }
-          if(data.type === "password"){
+          if(data.type === 'password'){
             $scope.error.password = data.message;
           }
           $scope.error.general = data.message;
         }
 
        
-        console.log("data", data);
-        //console.log("status", status);
-        //console.log("headers", headers);
-        //console.log("config", config);
+        console.log('data', data);
+        //console.log('status', status);
+        //console.log('headers', headers);
+        //console.log('config', config);
 
         //console.log('success');
         //console.log($scope.user);
       })
       .error(function(data, status, headers, config) {
-        //console.log("data", data);
-        //console.log("status", status);
-        //console.log("headers", headers);
-        //console.log("config", config);
+        //console.log('data', data);
+        //console.log('status', status);
+        //console.log('headers', headers);
+        //console.log('config', config);
         
         User.isLogged = false;
         User.username = '';
@@ -80,7 +80,7 @@ angular.module('dynomiteApp')
   .controller('LogoutCtrl', ['$scope', '$location', '$http', function($scope, $location, $http) {
     console.log('LogoutCtrl');
     $http.get('/users/logout')
-    .succes(function() {
+    .success(function() {
       console.log('logout succes');
       $scope.global = {
         user: {},

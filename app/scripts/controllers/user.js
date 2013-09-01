@@ -3,7 +3,7 @@
 var UserCtrl = angular.module('dynomiteApp')
   .controller('UserCtrl', ['$scope', '$route', function($scope, $route) {
     $scope.user = $route.current.locals.user;
-  }])
+  }]);
 
 UserCtrl.loadUser = function($q, $route, UsersService) {
   console.log('resolve user')

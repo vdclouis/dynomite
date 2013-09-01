@@ -5,11 +5,11 @@ angular.module('dynomiteApp')
 
     // Get Unique Area
     $http.get('/api/v1/areas/' + $routeParams.areaId).
-      success(function(data, status, headers, config) {
+      success(function(data) {
         console.log('yay');
         $scope.area = data;
       }).
-      error(function(data, status, headers, config) {
+      error(function() {
         console.log('nay');
       });
 
@@ -31,7 +31,7 @@ angular.module('dynomiteApp')
       $http.delete('/api/v1/areas/' + $routeParams.areaId)
         .success(function() {
           console.log('yay');
-          $location.path('/area')
+          $location.path('/area');
         })
         .error(function() {
           console.log('nay');
