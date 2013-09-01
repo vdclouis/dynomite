@@ -9,7 +9,6 @@ dynomiteApp
   })
   //configuration of the routes
   .config(['$routeProvider', function ($routeProvider) {
-    var access = routingConfig.accessLevels;
     $routeProvider
       .when('/', {
         templateUrl: '/views/home',
@@ -21,8 +20,7 @@ dynomiteApp
       })
       .when('/login', {
         templateUrl: '/views/login',
-        controller: 'LoginCtrl',
-        access: access.anon
+        controller: 'LoginCtrl'
       })
       .when('/logout', {
         /*templateUrl: '/logout',*/
@@ -108,7 +106,7 @@ dynomiteApp
       }
       return function(promise) {
         return promise.then(success, error);
-      }
+      };
     }];
     $httpProvider.responseInterceptors.push(interceptor);
   }])
