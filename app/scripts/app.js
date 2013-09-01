@@ -36,7 +36,7 @@ dynomiteApp
         resolve: {
           //at this point the routeParams has not
           //been populated with his data yet
-          user: UserCtrl.loadUser
+          user: 'loadUser'
         }
       })
       .when('/about', {
@@ -51,7 +51,7 @@ dynomiteApp
         templateUrl: '/views/areas',
         controller: 'AreaCtrl',
         resolve: {
-          areas: AreaCtrl.loadAreas
+          areas: 'loadAreas'
         }
       })
       .when('/area/add', {
@@ -89,7 +89,7 @@ dynomiteApp
       .otherwise({
         redirectTo: '/'
       });
-    }]) /*eo config*/
+  }]) /*eo config*/
   .config(['$httpProvider', function ($httpProvider) {
     var interceptor = ['$location', '$q', function($location, $q) {
       function success(response) {

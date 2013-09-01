@@ -1,11 +1,12 @@
 'use strict';
 
-var UserCtrl = angular.module('dynomiteApp');
-  UserCtrl.controller('UserCtrl', ['$scope', '$route', function($scope, $route) {
-    $scope.user = $route.current.locals.user;
-  }]);
+var app = angular.module('dynomiteApp');
 
-UserCtrl.loadUser = function($q, $route, UsersService) {
+app.controller('UserCtrl', ['$scope', '$route', function($scope, $route) {
+  $scope.user = $route.current.locals.user;
+}]);
+
+app.factory('loadUser', ['$q', '$route', 'UsersService', function($q, $route, UsersService) {
   console.log('resolve user');
   var deferred = $q.defer();
   UsersService.currentUser($route.current.params.userName)
@@ -18,4 +19,4 @@ UserCtrl.loadUser = function($q, $route, UsersService) {
     }
   });
   return deferred.promise;
-};
+}]);

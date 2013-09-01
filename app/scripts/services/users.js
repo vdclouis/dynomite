@@ -46,6 +46,7 @@ angular.module('dynomiteApp')
     };
     return sdo;
   })*/
+  /*
   .factory('Auth', ['$http', '$cookieStory', function($http, $cookieStore){
 
     var accessLevels = routingConfig.accessLevels
@@ -96,4 +97,6 @@ angular.module('dynomiteApp')
       user: currentUser
     };
   }]);
+  */
+
 ;
