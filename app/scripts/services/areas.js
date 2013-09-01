@@ -2,13 +2,13 @@
 
 angular.module('dynomiteApp')
   //
-  .factory('areasCache', function($cacheFactory) {
+  .factory('areasCache', ['$cacheFactory', function($cacheFactory) {
     return $cacheFactory('areasCache', {
       capacity: 5
     });
-  })
+  }])
   //
-  .service('AreasService', function AreasService($q, $http, areasCache) {
+  .service('AreasService', ['$q', '$http', 'areaCache', function AreasService($q, $http, areasCache) {
     return{
       allAreas: function() {
         var defer = $q.defer();
@@ -29,5 +29,5 @@ angular.module('dynomiteApp')
         return defer.promise;
       }
     };
-  })
+  }])
 ;

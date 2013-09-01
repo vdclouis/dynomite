@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('dynomiteApp')
-  .factory('routeCache', function($cacheFactory) {
+  .factory('routeCache', ['$cacheFactory', function($cacheFactory) {
     return $cacheFactory('routeCache', {
       capacity:5
     });
-  });
+  }]);

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('dynomiteApp')
-  .directive('swipe', function ($timeout) {
+  .directive('swipe', ['$timeout', function ($timeout) {
     return {
       // Restrict it to be an attribute
       restrict: 'A',
@@ -12,4 +12,4 @@ angular.module('dynomiteApp')
         }, 100);
       }
     };
-  });
+  }]);

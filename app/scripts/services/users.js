@@ -2,13 +2,13 @@
 
 angular.module('dynomiteApp')
   //
-  .factory('currentUserCache', function($cacheFactory) {
+  .factory('currentUserCache', ['$cacheFactory', function($cacheFactory) {
     return $cacheFactory('currentUserCache', {
       capacity:1
     });
-  })
+  }])
   //
-  .service('UsersService', function UsersService($q, $http, currentUserCache) {
+  .service('UsersService', ['$q', '$http', 'currentUserCache', function UsersService($q, $http, currentUserCache) {
     return{
       currentUser : function(username) {
         // start the promise
@@ -37,7 +37,7 @@ angular.module('dynomiteApp')
         return defer.promise;
       }
     };
-  })
+  }])
   /*.factory('authenticatedUser', function($http) {
 
     var sdo = {
@@ -46,7 +46,7 @@ angular.module('dynomiteApp')
     };
     return sdo;
   })*/
-  .factory('Auth', function($http, $cookieStore){
+  .factory('Auth', ['$http', '$cookieStory', function($http, $cookieStore){
 
     var accessLevels = routingConfig.accessLevels
       , userRoles = routingConfig.userRoles
@@ -95,5 +95,5 @@ angular.module('dynomiteApp')
       userRoles: userRoles,
       user: currentUser
     };
-  });
+  }]);
 ;

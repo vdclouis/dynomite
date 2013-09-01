@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('dynomiteApp')
-  .factory('Weather', function($resource) {
+  .factory('Weather', ['$resource', function($resource) {
     var Resource = $resource('https://api.forecast.io/forecast/:apikey/:lat,:lon',
       {
         callback:'JSON_CALLBACK',
@@ -16,4 +16,4 @@ angular.module('dynomiteApp')
     );
 
     return Resource;
-  });
+  }]);
