@@ -27,17 +27,26 @@ module.exports = function (app, config, passport) {
     level: 9
   }))*/
 
-  app.use(express.static(
-    config.root + '/app', 
-    {
-      //Browser cache maxAge in milliseconds. defaults to 0
-      //maxAge: oneDay,
-      //Allow transfer of hidden files. defaults to false
-      //hidden: true
-      //Redirect to trailing "/" when the pathname is a dir. defaults to true
-      //redirect: true
-    }
-  ));
+  // development only
+  if ('development' == app.get('env')) {
+    app.use(express.static(
+      config.root + '/app',
+      {
+        //Browser cache maxAge in milliseconds. defaults to 0
+        //maxAge: oneDay,
+        //Allow transfer of hidden files. defaults to false
+        //hidden: true
+        //Redirect to trailing "/" when the pathname is a dir. defaults to true
+        //redirect: true
+      }
+    ));
+  }
+  // production only
+  if ('production' == app.get('env')) {
+    app.use(express.static(
+      config.root + '/dist'
+    ));
+  }
 
   // Necesarry for filereader etc
   app.use(express.bodyParser());
