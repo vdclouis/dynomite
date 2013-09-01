@@ -24,7 +24,8 @@ angular.module('dynomiteApp')
 
     $scope.uploadFile = function() {
       filepicker.pickAndStore({
-        multiple: true
+        multiple: true,
+        mimetype: 'image/*'
       }, {
         path: '/uploads/'
       },
