@@ -1,22 +1,53 @@
 'use strict';
 
 angular.module('dynomiteApp')
-  .directive('auth', ['$rootScope', '$location', 'authenticatedUser', function ($root, $location, authenticatedUser) {
-  return {
-    link: function (scope, elem, attrs, ctrl) {
-      $root.$on('$routeChangeStart', function(event, currRoute, prevRoute){
-        console.log('auth rootchange test');
-        if (!prevRoute.access.isFree && !authenticatedUser.isLogged) {
-          // reload the login route
+  .directive('accessLevel', ['Auth', function(Auth) {
+    return {
+      restrict: 'A',
+      link: function($scope, element, attrs) {
+        var prevDisp = element.css('display')
+          , userRole
+          , accessLevel;
+
+        $scope.user = Auth.user;
+        $scope.$watch('user', function(user) {
+          if(user.role)
+            userRole = user.role;
+          updateCSS();
+        }, true);
+
+        attrs.$observe('accessLevel', function(al) {
+          if(al) accessLevel = $scope.$eval(al);
+          updateCSS();
+        });
+
+        function updateCSS() {
+          if(userRole && accessLevel) {
+            if(!Auth.authorize(accessLevel, userRole))
+              element.css('display', 'none');
+            else
+              element.css('display', prevDisp);
+          }
         }
-        /*
-        * IMPORTANT:
-        * It's not difficult to fool the previous control,
-        * so it's really IMPORTANT to repeat the control also in the backend,
-        * before sending back from the server reserved information.
-        */
+      }
+    };
+  }])
+  .directive('activeNav', ['$location', function($location) {
+  return {
+    restrict: 'A',
+    link: function(scope, element, attrs) {
+      var nestedA = element.find('a')[0];
+      var path = nestedA.href;
+
+      scope.location = $location;
+      scope.$watch('location.absUrl()', function(newPath) {
+        if (path === newPath) {
+          element.addClass('active');
+        } else {
+          element.removeClass('active');
+        }
       });
     }
   };
-  }])
-;
+
+}]);

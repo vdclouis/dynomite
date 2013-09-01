@@ -8,7 +8,8 @@ dynomiteApp
     $locationProvider.html5Mode(true);
   })
   //configuration of the routes
-  .config(function ($routeProvider) {
+  .config(['$routeProvider', function ($routeProvider) {
+    var access = routingConfig.accessLevels;
     $routeProvider
       .when('/', {
         templateUrl: '/views/home',
@@ -21,9 +22,7 @@ dynomiteApp
       .when('/login', {
         templateUrl: '/views/login',
         controller: 'LoginCtrl',
-        access: {
-          isFree: false
-        }
+        access: access.anon
       })
       .when('/logout', {
         /*templateUrl: '/logout',*/
@@ -52,7 +51,10 @@ dynomiteApp
       })
       .when('/areas', {
         templateUrl: '/views/areas',
-        controller: 'AreaCtrl'
+        controller: 'AreaCtrl',
+        resolve: {
+          areas: AreaCtrl.loadAreas
+        }
       })
       .when('/area/add', {
         templateUrl: '/secure/views/areaAdd',
@@ -89,29 +91,34 @@ dynomiteApp
       .otherwise({
         redirectTo: '/'
       });
-  })
-;
-
-/*dynomiteApp.controller('InitCtrl', ['$rootScope', '$scope', '$location', 'Global', function($rootScope, $scope, $location, Global) {
-    console.log('test');
-
-    //handle when things go bad
-    
-
-    $rootScope.$on("$routeChangeSuccess", function (event, current, previous, rejection) {
-      console.log('proroutechange');
-    });
-
-    $rootScope.$on("$routeChangeError", function(event, current, previous, rejection) {
-      console.log(rejection);
-    })
-
-    // Call the global factory, this gets the user information from the view
-    $scope.global = Global;
-    // Active link checker
-    $scope.isActive = function(route) {
-      return route === $location.path();
-    };
+    }]) /*eo config*/
+  .config(['$httpProvider', function ($httpProvider) {
+    var interceptor = ['$location', '$q', function($location, $q) {
+      function success(response) {
+        return response;
+      }
+      function error(response) {
+        if(response.status === 401) {
+          $location.path('/login');
+          return $q.reject(response);
+        }
+        else {
+          return $q.reject(response);
+        }
+      }
+      return function(promise) {
+        return promise.then(success, error);
+      }
+    }];
+    $httpProvider.responseInterceptors.push(interceptor);
   }])
-;*/
-
+  //.run(['$rootScope', '$location', 'Auth', function ($rootScope, $location, Auth) {
+  //  $rootScope.$on("$routeChangeStart", function (event, next, current) {
+  //    $rootScope.error = null;
+  //    if (!Auth.authorize(next.access)) {
+  //      if(Auth.isLoggedIn()) $location.path('/');
+  //      else                  $location.path('/login');
+  //    }
+  //  });
+  //}])
+;

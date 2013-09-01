@@ -26,7 +26,7 @@ module.exports = function (app, config, passport) {
 
   app.use(express.static(
     config.root + '/app', 
-    { 
+    {
       //Browser cache maxAge in milliseconds. defaults to 0
       //maxAge: oneDay,
       //Allow transfer of hidden files. defaults to false

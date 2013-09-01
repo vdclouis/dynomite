@@ -77,7 +77,7 @@
     </nav>
     <!-- Add your site or application content here -->
     <div id="snapper" class="content snap-content">
-      <!-- <back></back> -->
+      <back></back>
       <a href="" id="open-right" class="pull-right">&#9776</a>
       <div data-ng-view="" class="viewblock"></div>
     </div>
@@ -103,8 +103,9 @@
     <script src="/scripts/app.js"></script>
     <!-- endbuild -->
 
+    <!--i dont think next script should be concatinated-->
+    <script src="/scripts/routingConfig.js"></script>
     <!-- build:js scripts/modules.js -->
-    <script src="/scripts/controllers/init.js"></script>
     <script src="/scripts/controllers/home.js"></script>
     <script src="/scripts/controllers/default.js"></script>
     <script src="/scripts/controllers/area.js"></script>
@@ -123,6 +124,7 @@
     <script src="/scripts/services/Weather.js"></script>
     <script src="/scripts/services/routeCache.js"></script>
     <script src="/scripts/services/users.js"></script>
+    <script src="/scripts/services/areas.js"></script>
     <script src="/scripts/filters/reverse.js"></script>
     <script src="/scripts/filters/underscore.js"></script>
     <script src="/scripts/directives/swipe.js"></script>

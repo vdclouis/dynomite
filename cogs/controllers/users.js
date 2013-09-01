@@ -10,9 +10,15 @@ var mongoose = require('mongoose')
  * Auth callback
  */
 
+exports.isAuth = function (req, res, next) {
+  res.send('200', {
+    user: req.user ? JSON.stringify(req.user) : "null"
+  });
+  next();
+}
+
 exports.authCallback = function (req, res, next) {
   //res.redirect('/');
-  
 }
 
 /**

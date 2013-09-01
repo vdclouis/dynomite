@@ -371,10 +371,10 @@ a.crud {
 
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\00003128}}
 .backarrow {
-  font-size: 2em;
+  font-size: 1.4em;
   padding-left: .3em;
   display: inline-block;
-  padding-top: 5px;
+  padding-top: 12px;
 }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\00003133}}
 .backarrow a {
