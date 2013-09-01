@@ -2,10 +2,10 @@
 The interactive climbing app
 
 ## Prerequisites
-1. Node & NPM
-2. Bower
-3. Mongo
-4. Git
+1. [Node ⬡ NPM](http://nodejs.org/)
+2. [Bower](http://bower.io/)
+3. [MongoDB](http://www.mongodb.org/)
+4. [Git](http://git-scm.com/)
 
 ## Deploy
 1. run `mongod`
@@ -14,7 +14,7 @@ The interactive climbing app
 4. run `npm start`
 
 ## Technologies
-### MEAN stack
+The MEAN stack:
 * __M__ongoDB
 * __E__xpressJS
 * __A__ngularJS

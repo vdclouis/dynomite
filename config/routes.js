@@ -1,4 +1,5 @@
 var async = require('async');
+var v1 = '/api/v1';
 
 module.exports = function (app, passport, auth) {
 
@@ -12,10 +13,10 @@ module.exports = function (app, passport, auth) {
   //private views:
   //ng-controllers of these views should not be visible for 
   //unauthenticated users or the app will choke
-  app.get('/views/secure/:partial', auth.requiresLogin, index.partials);
+  app.get('/secure/views/:partial', auth.requiresLogin, index.partials);
 
   var users = require('../cogs/controllers/users');
-  app.get('/logout', users.logout);
+  app.get('/users/logout', users.logout);
   app.get('/users', auth.requiresLogin);
   app.get('/users/me', users.me);
   //app.get('/users/:userId', users.show);
@@ -35,10 +36,16 @@ module.exports = function (app, passport, auth) {
         'local'
         // arguments are what is returned from passport function
         , function(err, user, info) {
-
           if (err) {
             return res.send({ 'status':'err', 'message':err.message });
           }
+          //console.log(user);
+          /*if (!user.name || !user.password) {
+            return res.send({
+              type: 'general',
+              message: 'OEPS'
+            })
+          }*/
           if (!user) {
             return res.send({ 'status':'fail', 'type': info.type, 'message': info.message });
           }
@@ -54,7 +61,12 @@ module.exports = function (app, passport, auth) {
     }
     ,function(err, req, res, next) {
       // 
-      return res.send({'status':'err','message':err.message});
+      var t = {
+        'status':'err',
+        'message':err.message,
+        'user': req.user ? JSON.stringify(req.user) : "null"
+      };
+      return res.send(t);
     }
     // redirect after succesfull login
     //users.loginSuccesRedirect
@@ -62,27 +74,40 @@ module.exports = function (app, passport, auth) {
 
   // Area Routes
   var areas = require('../cogs/controllers/areas');
-  app.get('/areas', areas.all);
-  app.post('/areas', areas.create);
-  app.get('/areas/:areaId', areas.show);
-  app.put('/areas/:areaId', areas.update);
-  app.del('/areas/:areaId', areas.destroy);
+  app.get(v1 + '/areas', areas.all);
+  app.post(v1 + '/areas', areas.create);
+  app.get(v1 + '/areas/:areaId', areas.show);
+  app.put(v1 + '/areas/:areaId', areas.update);
+  app.del(v1 + '/areas/:areaId', areas.destroy);
 
   // Finish by setting up the areaId param
   app.param('areaId', areas.area);
 
   // Route Routes (confusing much)
   var routes = require('../cogs/controllers/routes');
-  app.get('/routes', routes.all);
-  app.post('/routes', routes.create);
-  app.get('/routes/:routeId', routes.show);
-  app.get('/routez/:areaId', routes.showbyarea); // Experimental
-  app.put('/routes/:routeId', routes.update);
-  app.del('/routes/:routeId', routes.destroy);
+  app.get(v1 + '/routes', routes.all);
+  app.post(v1 + '/routes', routes.create);
+  app.get(v1 + '/routes/:routeId', routes.show);
+  app.get(v1 + '/routez/:areaId', routes.showbyarea); // Experimental
+  app.put(v1 + '/routes/:routeId', routes.update);
+  app.del(v1 + '/routes/:routeId', routes.destroy);
 
   // Finish by setting up the routeId param
   app.param('routeId', routes.route);
   app.param('areaId', routes.routebyarea);
+
+  // Comments Routes
+  var comments = require('../cogs/controllers/comments');
+  app.get(v1 + '/comments', comments.all);
+  app.post(v1 + '/comments', comments.create);
+  app.get(v1 + '/comments/:commentId', comments.show);
+  app.get(v1 + '/commentz/:routeId', comments.showbyroute);
+  app.put(v1 + '/comments/:commentId', comments.update);
+  app.del(v1 + '/comments/:commentId', comments.destroy);
+
+  // Finsh by setting the commentId param
+  app.param('commentId', comments.comment);
+  app.param('routeId', comments.commentbyroute);
 
   // wildcard
   app.get('*', index.index);

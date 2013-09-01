@@ -12,8 +12,9 @@
 @import "routeid";
 @import "routeadd";
 @import "routeedit";
-@import "slideshow";
 @import "snap";
+@import "swipe";
+@import "comment";
 
 body {
   font-family: 'Maven';
@@ -26,7 +27,7 @@ body {
 
 h1 {
   font-family: 'Arvil';
-  font-size: 1.7em;
+  font-size: 1.7em; 
   color: $red;
   margin-top: -1.8em;
   padding: 11px 0;
@@ -86,7 +87,7 @@ a.crud {
         padding: 2px 7px;
         color: white;
         border-radius: 15px;
-        background: $blue;
+        background: $green;
       }
     }
 
@@ -117,5 +118,20 @@ a.crud {
     margin: auto; 
     width: 100%;
 
+  }
+}
+
+.viewblock{
+  padding-top: 45px;
+}
+
+.backarrow{
+  font-size: 2em;
+  padding-left: .3em;
+  display: inline-block;
+  padding-top: 5px;
+  a{
+    text-decoration: none;
+    color: $dg;
   }
 }

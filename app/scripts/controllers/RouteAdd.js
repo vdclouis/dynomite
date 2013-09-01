@@ -3,12 +3,14 @@
 angular.module('dynomiteApp')
   .controller('RouteAddCtrl', ['$scope', '$location', '$routeParams', '$http', function($scope, $location, $routeParams, $http) {
 
+    // Get area id
     $scope.route = {
       area: $routeParams.areaId
     };
 
+    // Save new route
     $scope.save = function() {
-      $http.post('/routes', $scope.route)
+      $http.post('/api/v1/routes', $scope.route)
         .success(function() {
           console.log('yay');
           $location.path('/area/' + $routeParams.areaId);
@@ -21,9 +23,18 @@ angular.module('dynomiteApp')
     filepicker.setKey('Aw1KqJloRli2yInj47Sthz');
 
     $scope.uploadFile = function() {
-      filepicker.pick(function(FPFile){
-        console.log(FPFile.url);
-        $scope.area.img = FPFile.url;
+      filepicker.pickAndStore({
+        multiple: true
+      }, {
+        path: '/uploads/'
+      },
+      function(FPFile){
+        var a = [];
+        for (var i=0; i<FPFile.length; i++) {
+          var x = FPFile[i].url;
+          a.push(x);
+        }
+        $scope.route.img = a;
         $scope.$apply();
       });
     };

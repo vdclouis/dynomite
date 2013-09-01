@@ -26,11 +26,10 @@
     <ul>
       <li data-ng-repeat="area in areas | filter:search | orderBy:orderAreas">
         <a href="/area/{{area._id}}">{{area.name}}</a>
-        <a class="pull-right crud" href="/area/edit/{{area._id}}">Edit</a>
+        <a data-ng-show="global.authenticated" class="pull-right crud" href="/area/edit/{{area._id}}">Edit</a>
       </li>
     </ul>
   </div>
-  <a href="area/add" class="crud">Add</a>
-  <p>{{global.user.name}}</p>
+  <a data-ng-show="global.authenticated" href="/area/add" class="crud">Add</a>
 
 </div>

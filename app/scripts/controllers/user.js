@@ -1,17 +1,21 @@
 'use strict';
 
-angular.module('dynomiteApp')
+var UserCtrl = angular.module('dynomiteApp')
   .controller('UserCtrl', ['$scope', '$http', '$route', 'UsersService', function($scope, $http, $route, UsersService) {
-    //store the routeparam username
-    //var username = $routeParams.userName
-
-    /*UsersService.currentUser(username)
-    .then(function(data){
-      $scope.user = data.data;
-    });*/
-
     $scope.user = $route.current.locals.user;
+  }])
 
-    //$scope.user = UsersService.currentUser(username);
-
-  }]);
+UserCtrl.loadUser = function($q, $route, UsersService) {
+  console.log('resolve user')
+  var deferred = $q.defer();
+  UsersService.currentUser($route.current.params.userName)
+  .then(function(data){
+    //this doesnt look right
+    if(data.name === $route.current.params.userName){
+      deferred.resolve(data);
+    }else{
+      deferred.reject(data);
+    }
+  });
+  return deferred.promise;
+}

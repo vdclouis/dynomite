@@ -1,6 +1,7 @@
 //var async = require('async');
 
 exports.index = function(req, res, next){
+  console.log(req.user);
   res.render('index', {
     user: req.user ? JSON.stringify(req.user) : "null"
   });

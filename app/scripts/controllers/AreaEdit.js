@@ -4,7 +4,7 @@ angular.module('dynomiteApp')
   .controller('AreaEditCtrl', ['$scope', '$location', '$http', '$routeParams', function($scope, $location, $http, $routeParams) {
 
     // Get Unique Area
-    $http.get('/areas/' + $routeParams.areaId).
+    $http.get('/api/v1/areas/' + $routeParams.areaId).
       success(function(data, status, headers, config) {
         console.log('yay');
         $scope.area = data;
@@ -15,7 +15,7 @@ angular.module('dynomiteApp')
 
     // On Click Update Area
     $scope.save = function() {
-      $http.put('/areas/' + $routeParams.areaId, $scope.area)
+      $http.put('/api/v1/areas/' + $routeParams.areaId, $scope.area)
         .success(function() {
           console.log('success');
           console.log($scope.area);
@@ -23,6 +23,18 @@ angular.module('dynomiteApp')
         })
         .error(function() {
           console.log('error');
+        });
+    };
+
+    // Delete Area
+    $scope.destroy = function() {
+      $http.delete('/api/v1/areas/' + $routeParams.areaId)
+        .success(function() {
+          console.log('yay');
+          $location.path('/area')
+        })
+        .error(function() {
+          console.log('nay');
         });
     };
 

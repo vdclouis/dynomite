@@ -1,8 +1,14 @@
 'use strict';
 
 angular.module('dynomiteApp')
+  //
+  .factory('currentUserCache', function($cacheFactory) {
+    return $cacheFactory('currentUserCache', {
+      capacity:1
+    });
+  })
+  //
   .service('UsersService', function UsersService($q, $http, currentUserCache) {
-    
     return{
       currentUser : function(username) {
         // start the promise
@@ -17,7 +23,8 @@ angular.module('dynomiteApp')
             deferred.resolve(data);
           })
           .error(function(response){
-            deferred.reject(response);
+            console.log('error');
+            deferred.resolve(response);
           });
         // get data from cache
         } else {
@@ -28,34 +35,15 @@ angular.module('dynomiteApp')
         }
         // return the promise
         return deferred.promise;
-      },
-      getItem: function(dataset, item) {
-
       }
-    }
-
-
-
-
-    /*var RouteEdit = $resource(
-      'https://api.mongolab.com/api/1/databases/dynomite/collections/routes/:id?apiKey=' + apikey,
-      {},
-      {
-        update: { method: 'PUT' }
-      }
-    );
-
-    RouteEdit.prototype.update = function(cb) {
-      return RouteEdit.update(
-        { id: this._id.$oid },
-        angular.extend({}, this, {_id:undefined}),
-        cb
-      );
     };
-
-    RouteEdit.prototype.destroy = function(cb) {
-      return RouteEdit.remove({id: this._id.$oid}, cb);
+  })
+  .factory('authenticatedUser', [function() {
+    var sdo = {
+      isLogged: false,
+      username: ''
     };
+    return sdo;
+  }])
 
-    return RouteEdit;*/
-  });
+;

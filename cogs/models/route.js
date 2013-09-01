@@ -40,9 +40,7 @@ var RouteSchema = new Schema({
     trim: true
   },
   img: {
-    type: String,
-    default: '',
-    trim: true
+    type: Array
   },
   area: {
     type: Schema.ObjectId,
