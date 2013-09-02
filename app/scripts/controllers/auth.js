@@ -29,6 +29,7 @@ angular.module('dynomiteApp')
       });
     };
   }])
+/*
   .controller('LoginCtrl', ['$scope', '$location', '$http', 'authenticatedUser', function($scope, $location, $http, User) {
     $scope.error = {};
     $scope.login = function(data) {
@@ -77,6 +78,32 @@ angular.module('dynomiteApp')
       ;
     };
   }])
+*/
+  .controller('LoginCtrl', ['$rootScope', '$scope', '$location', '$window', 'Auth', function($rootScope, $scope, $location, $window, Auth) {
+    $scope.rememberme = true;
+    $scope.login = function() {
+      Auth.login(
+      //user
+      {
+        username: $scope.user.email,
+        password: $scope.user.password
+        //rememberme: $scope.rememberme
+      },
+      //succes
+      function(res) {
+        $location.path('/area');
+      },
+      //error
+      function(err) {
+        $rootScope.error = "Failed to login";
+      });
+    };
+
+    $scope.loginOauth = function(provider) {
+      $window.location.href = '/auth/' + provider;
+    }
+  }])
+
   .controller('LogoutCtrl', ['$scope', '$location', '$http', function($scope, $location, $http) {
     console.log('LogoutCtrl');
     $http.get('/users/logout')

@@ -10,6 +10,8 @@ module.exports = function (app, passport, auth) {
   //accecible by anyone
   app.get('/views/:partial', index.partials);
 
+  app.get('/forms/:partial', index.forms);
+
   //private views:
   //ng-controllers of these views should not be visible for 
   //unauthenticated users or the app will choke
@@ -29,23 +31,27 @@ module.exports = function (app, passport, auth) {
   // registere + login POST request
   app.post('/register', users.create);
   app.post(
+
     // the form post route
-    '/users/session'
+    '/login'
     ,function(req, res, next) {
+
       passport.authenticate(
+
         'local'
         // arguments are what is returned from passport function
         , function(err, user, info) {
+          console.log(user);
           if (err) {
             return res.send({ 'status':'err', 'message':err.message });
           }
           //console.log(user);
-          /*if (!user.name || !user.password) {
-            return res.send({
-              type: 'general',
-              message: 'OEPS'
-            })
-          }*/
+          //if (!user.name || !user.password) {
+          //  return res.send({
+          //    type: 'general',
+          //    message: 'OEPS'
+          //  })
+          //}
           if (!user) {
             return res.send({ 'status':'fail', 'type': info.type, 'message': info.message });
           }
@@ -53,10 +59,30 @@ module.exports = function (app, passport, auth) {
             if (err) { 
               return res.send({ 'status':'err', 'message':err.message }); 
             }
-            return res.send({ 'status':'ok', 'user': user });
+            //return res.send({ 'status':'ok', 'user': user });
+            res.json(200, { "role": user.role, "username": user.username });
           });
         }
         //, index.index
+
+
+      /*'local',
+      function(err, user) {
+
+        if(err)     { return next(err); }
+        if(!user)   { return res.send(400); }
+
+
+        req.logIn(user, function(err) {
+          if(err) {
+            return next(err);
+          }
+
+          //if(req.body.rememberme) req.session.cookie.maxAge = 1000 * 60 * 60 * 24 * 7;
+          res.json(200, { "role": user.role, "username": user.username });
+        });
+      }*/
+
       )(req, res, next);
     }
     //

@@ -2,13 +2,10 @@
 
 var app = angular.module('dynomiteApp');
 
-app.controller('AreaCtrl', ['$scope', '$route', 'loadAreas', function($scope, $route, loadAreas) {
-
-  console.log(loadAreas);
+app.controller('AreaCtrl', ['$scope', '$route', function($scope, $route) {
 
   var data = $route.current.locals.areas;
   $scope.areas = data;
-  console.log(data);
 
   // Google maps
   google.maps.visualRefresh = true;
@@ -60,5 +57,5 @@ app.factory('loadAreas', ['$q', 'AreasService', function($q, AreasService) {
       defer.reject(data);
     }*/
   });
-  return defer.promise;
+  return (defer.promise);
 }]);

@@ -10,12 +10,12 @@ var mongoose = require('mongoose')
  * Auth callback
  */
 
-exports.isAuth = function (req, res, next) {
+/*exports.isAuth = function (req, res, next) {
   res.send('200', {
     user: req.user ? JSON.stringify(req.user) : "null"
   });
   next();
-}
+}*/
 
 exports.authCallback = function (req, res, next) {
   //res.redirect('/');
@@ -88,12 +88,12 @@ exports.create = function (req, res) {
  */
 
 exports.show = function (req, res) {
-  var user = req.profile
+  var user = req.profile;
   console.log(user);
   res.render('partials/user', {
     //title: user.name,
     user: user
-  })
+  });
 }
 
 exports.me = function (req, res) {

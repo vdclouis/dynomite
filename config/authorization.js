@@ -1,4 +1,6 @@
 
+var _ = require('underscore');
+
 /*
  *  Generic require login routing middleware
  */
@@ -13,6 +15,22 @@ exports.requiresLogin = function (req, res, next) {
   next();
   
 };
+
+exports.ensureAuthorized = function(req, res, next) {
+  var role;
+  if(!req.user){
+    role = userRoles.public;
+  } else {
+    role = req.user.role;
+  }
+  var accessLevel = _.findWhere(routes, { path: req.route.path }).accessLevel || accessLevels.public;
+
+  if(!(accessLevel.bitMask & role.bitMask)){
+    return res.send(403);
+  }
+
+  return next();
+}
 
 
 /*

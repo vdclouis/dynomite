@@ -13,7 +13,6 @@ module.exports = function (app, config, passport) {
   app.set('showStackError', true);
   // should be placed before express.static
 
-  console.log(config.root);
   app.use(express.favicon(config.root + '/app/favicon.ico'));
 
   console.log("trust proxy");
@@ -52,7 +51,7 @@ module.exports = function (app, config, passport) {
   app.use(express.bodyParser());
 
   // set views path, template engine and default layout
-  app.set('views', config.root + '/views');
+  app.set('views', config.root + '/app');
   //app.set('views', config.root + '/app/views/partials');
   //app.set('view engine', 'jade')
   app.engine('html', require('ejs').renderFile);
@@ -71,6 +70,8 @@ module.exports = function (app, config, passport) {
 
     // cookieParser should be above session
     app.use(express.cookieParser());
+
+    //app.use(express.cookieSession({ secret: 'tobo!', key: 'XSRF-TOKEN'}));
 
     // bodyParser should be above methodOverride
     app.use(express.bodyParser());
@@ -94,6 +95,22 @@ module.exports = function (app, config, passport) {
     // use passport session
     app.use(passport.initialize());
     app.use(passport.session());
+
+    /*var csrfValue = function(req) {
+      var token = (req.body && req.body._csrf)
+        || (req.query && req.query._csrf)
+        || (req.headers['x-csrf-token'])
+        || (req.headers['x-xsrf-token']);
+      return token;
+    };
+
+    app.use(function(req, res, next) {
+      res.cookie('XSRF-TOKEN', req.session._csrf);
+      next();
+    });
+
+    //
+    app.use(express.csrf({value: csrfValue}));*/
 
     // routes should be at the last
     app.use(app.router);

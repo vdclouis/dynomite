@@ -8,7 +8,7 @@ angular.module('dynomiteApp')
     });
   }])
   //
-  .service('UsersService', ['$q', '$http', 'currentUserCache', function UsersService($q, $http, currentUserCache) {
+  .service('UsersService', ['$q', '$http', 'currentUserCache', function($q, $http, currentUserCache) {
     return{
       currentUser : function(username) {
         // start the promise
@@ -38,32 +38,27 @@ angular.module('dynomiteApp')
       }
     };
   }])
-  /*.factory('authenticatedUser', function($http) {
+  //
+  .factory('Auth', ['$http', '$cookieStore', function($http, $cookieStore){
 
-    var sdo = {
-      isLogged: false,
-      username: ''
-    };
-    return sdo;
-  })*/
-  /*
-  .factory('Auth', ['$http', '$cookieStory', function($http, $cookieStore){
+    console.log("cookiestore get", $cookieStore.get('user'));
 
     var accessLevels = routingConfig.accessLevels
       , userRoles = routingConfig.userRoles
       , currentUser = $cookieStore.get('user') || { username: '', role: userRoles.public };
 
+    // consume the cookie
     $cookieStore.remove('user');
 
     function changeUser(user) {
       _.extend(currentUser, user);
+      console.log(currentUser);
     };
 
     return {
       authorize: function(accessLevel, role) {
         if(role === undefined)
           role = currentUser.role;
-
         return accessLevel.bitMask & role.bitMask;
       },
       isLoggedIn: function(user) {
@@ -78,10 +73,16 @@ angular.module('dynomiteApp')
         }).error(error);
       },
       login: function(user, success, error) {
-        $http.post('/login', user).success(function(user){
+        console.log("Authservice login user", user);
+        $http.post('/login', user)
+        .success(function(user){
+          console.log(user);
           changeUser(user);
           success(user);
-        }).error(error);
+        })
+        .error(function(error) {
+          console.log('loginerror', error);
+        });
       },
       logout: function(success, error) {
         $http.post('/logout').success(function(){
@@ -97,6 +98,3 @@ angular.module('dynomiteApp')
       user: currentUser
     };
   }]);
-  */
-
-;

@@ -34,6 +34,10 @@ var UserSchema = new Schema({
     type: String,
     default: ''
   },
+  role: {
+    type: String,
+    default: 'public'
+  },
   provider: String,
   hashed_password: String,
   salt: String,

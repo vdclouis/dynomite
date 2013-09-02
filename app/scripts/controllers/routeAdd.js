@@ -10,7 +10,9 @@ angular.module('dynomiteApp')
 
     // Save new route
     $scope.save = function() {
+      console.log($scope.route);
       $http.post('/api/v1/routes', $scope.route)
+
         .success(function() {
           console.log('yay');
           $location.path('/area/' + $routeParams.areaId);
