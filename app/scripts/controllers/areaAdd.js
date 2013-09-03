@@ -24,10 +24,19 @@ angular.module('dynomiteApp')
     filepicker.setKey('Aw1KqJloRli2yInj47Sthz');
 
     $scope.uploadFile = function() {
-      filepicker.pick(function(FPFile){
-        console.log(FPFile.url);
-        $scope.area.img = FPFile.url;
-        $scope.$apply();
-      });
+      filepicker.pickAndStore({
+          multiple: true
+        }, {
+          path: '/uploads/'
+        },
+        function(FPFile){
+          var a = [];
+          for (var i=0; i<FPFile.length; i++) {
+            var x = FPFile[i].url;
+            a.push(x);
+          }
+          $scope.area.img = a;
+          $scope.$apply();
+        });
     };
   }]);

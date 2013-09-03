@@ -94,9 +94,14 @@ dynomiteApp
         controller: 'RouteEditCtrl',
         access: access.anon
       })
-      .when('/route/commentAdd/:routeId', {
+      .when('/comment/add/:routeId', {
         templateUrl: '/views/commentAdd',
         controller: 'CommentAddCtrl',
+        access: access.anon
+      })
+      .when('/comment/edit/:commentId', {
+        templateUrl: '/views/commentEdit',
+        controller: 'CommentEditCtrl',
         access: access.anon
       })
       .when('/route/comments/:routeId', {

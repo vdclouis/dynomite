@@ -22,6 +22,14 @@
       border-bottom: 1px solid #ccc;
       margin: 0;
       padding: 5px;
+
+      span {
+        margin-top: -3px;
+
+        a {
+          font-size: .6em;
+        }
+      }
     }
 
     p {

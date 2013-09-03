@@ -5,7 +5,7 @@
   
   <div class="comments">
     <div class="comment" ng-repeat="comment in comments | filter:search">
-      <h3>{{ comment.title }}</h3>
+      <h3>{{ comment.title }} <span class="pull-right"><a href="/comment/edit/{{ comment._id }}">edit</a></span></h3>
       <p>"{{ comment.content }}" <br/>&mdash;{{ comment.user.name }} on {{ comment.created | date:'yyyy-MM-dd @ h:mma' }}</p>
     </div>
   </div>

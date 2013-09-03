@@ -115,7 +115,7 @@ module.exports = function (app, passport, auth) {
   app.get(v1 + '/routes', routes.all);
   app.post(v1 + '/routes', routes.create);
   app.get(v1 + '/routes/:routeId', routes.show);
-  app.get(v1 + '/routez/:areaId', routes.showbyarea); // Experimental
+  app.get(v1 + '/routez/:areaId', routes.showbyarea);
   app.put(v1 + '/routes/:routeId', routes.update);
   app.del(v1 + '/routes/:routeId', routes.destroy);
 

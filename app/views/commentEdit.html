@@ -1,5 +1,5 @@
-<div class="commentAdd">
-  <h1>Comment</h1>
+<div class="commentedit">
+  <h1>Comment - {{ comment.title }}</h1>
 
   <form name='commentForm'>
     <div class="form-group">
@@ -14,7 +14,7 @@
 
     <div class="form-group">
       <a href="/route/{{ route._id }}" class="btn btn-default">Cancel</a>
-      <input type="submit" value="Save" ng-disabled="commentForm.$invalid" class="btn btn-primary" data-ng-click="create()"/>
+      <input type="submit" value="Save" ng-disabled="commentForm.$invalid" class="btn btn-primary" data-ng-click="save()"/>
       <input type="submit" value="Delete" class="btn btn-danger" data-ng-click="delete()"/>
     </div>
   </form>

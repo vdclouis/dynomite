@@ -30,9 +30,7 @@ var AreaSchema = new Schema({
     trim: true
   },
   img: {
-    type: String,
-    default: '',
-    trim: true
+    type: Array
   },
   lat: {
     type: String,
