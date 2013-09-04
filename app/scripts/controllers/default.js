@@ -9,7 +9,7 @@ angular.module('dynomiteApp')
     $scope.accessLevels = Auth.accessLevels;
     $scope.logout = function() {
       Auth.logout(function() {
-        $location.path('/login');
+        $location.path('/');
       }, function() {
         $rootScope.error = 'Failed to logout';
       });
