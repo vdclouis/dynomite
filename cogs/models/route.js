@@ -42,6 +42,16 @@ var RouteSchema = new Schema({
   img: {
     type: Array
   },
+  lat: {
+    type: String,
+    default: '',
+    trim: true
+  },
+  lng: {
+    type: String,
+    default: '',
+    trim: true
+  },
   area: {
     type: Schema.ObjectId,
     ref: 'Area'

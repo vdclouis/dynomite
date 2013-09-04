@@ -23,7 +23,7 @@
     <ul>
       <li data-ng-repeat="route in routes | filter:search | orderBy:orderRoutes">
         <a href="/route/{{route._id}}">
-          {{route.name}} - {{route.area.name}}
+          {{route.name}}
         </a>
         <a class="pull-right crud" href="/route/edit/{{route._id}}">edit</a></span>
       </li>

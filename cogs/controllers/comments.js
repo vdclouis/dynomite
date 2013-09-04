@@ -72,6 +72,11 @@ exports.update = function(req, res) {
   // _.extend(destination, sources)
   comment = _.extend(comment, req.body);
 
+  comment.pre('save', function(next, done) {
+    this.modified = new Date();
+    next();
+  });
+
   comment.save(function(err) {
     if (err) {
       res.render('error', {

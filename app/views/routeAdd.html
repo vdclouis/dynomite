@@ -1,5 +1,5 @@
 <div class="routeadd">
-  <h1>Add Route: {{ route.name }}</h1>
+  <h1>Add Route - {{ route.name }}</h1>
 
   <form name='editRoute'>
 
@@ -22,9 +22,15 @@
     </div>
 
     <!-- areaName hidden from user -->
-    <div style="display: none" class="form-group" ng-class="{error: editRoute.areaname.$invalid}">
+    <div style="display: block" class="form-group" ng-class="{error: editRoute.areaId.$invalid}">
       <label>Area name</label>
-      <input type="text" name="areaId" ng-model="route.area" value="{{ route.area }}" required>
+      <input type="text" name="areaId" ng-model="route.area" value="{{ route.area }}">
+    </div>
+
+    <div class="form-group">
+      <label>Coordinates</label>
+      <input class="form-control" ng-model="route.lat" value="{{ route.lat }}" type="text"/>
+      <input class="form-control" ng-model="route.lng" value="{{ route.lng }}" type="text"/>
     </div>
 
     <!-- rating -->
@@ -45,8 +51,8 @@
     </div>
 
     <br />
-    <a href="/area" class="btn pure-button pure-button-active">Cancel</a>
-    <button ng-click="save()" ng-disabled="isClean() || editRoute.$invalid" class="btn btn-primary">Save</button>
+    <a href="/area" class="btn btn-default">Cancel</a>
+    <button ng-click="save()" ng-disabled="editRoute.$invalid" class="btn btn-primary">Save</button>
     <button ng-click="destroy()" ng-show="route._id" class="btn btn-danger">Delete</button>
 
   </form>

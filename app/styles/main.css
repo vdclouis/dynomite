@@ -52,8 +52,6 @@
   .home .temp {
     display: inline-block;
     color: #e3694e;
-    vertical-align: top;
-    margin-top: -10px;
     font-size: 10em;
     font-family: 'Blanch'; }
   .home canvas {
@@ -200,12 +198,33 @@
     border-bottom: 1px solid #ccc;
     margin: 0;
     padding: 5px; }
+    .comments .comment h3 span, .commentAdd .comment h3 span {
+      margin-top: -3px; }
+      .comments .comment h3 span a, .commentAdd .comment h3 span a {
+        font-size: .6em; }
   .comments .comment p, .commentAdd .comment p {
     padding: 5px; }
 .comments input[type="search"], .commentAdd input[type="search"] {
   width: 95%;
   margin: 0 auto;
   display: block; }
+
+.register form {
+  width: 90%;
+  display: block;
+  margin: 0 auto; }
+
+.login form {
+  width: 90%;
+  display: block;
+  margin: 0 auto; }
+
+.commentedit h1 {
+  text-align: center; }
+.commentedit form {
+  width: 90%;
+  display: block;
+  margin: 0 auto; }
 
 body, h2, h3 {
   font-family: 'Maven';
@@ -262,6 +281,8 @@ a.crud {
       color: white;
       border-radius: 15px;
       background: #1bc6b0; }
+      .content .list ul span a {
+        color: white; }
 
 .heading .title {
   float: left; }
@@ -286,17 +307,8 @@ a.crud {
   font-size: 1.4em;
   padding-left: .3em;
   display: inline-block;
-<<<<<<< HEAD
-  padding-top: 12px;
-}
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Volumes\/Mac\%20HD\/Documents\/sites\/git\/dynomite\/app\/styles\/main\.scss}line{font-family:\00003133}}
-.backarrow a {
-  text-decoration: none;
-  color: #a0a0a0;
-}
-=======
-  padding-top: 5px; }
+  padding-top: 12px; }
   .backarrow a {
-    text-decoration: none;
+    text-decoration: none; }
+  .backarrow span {
     color: #a0a0a0; }
->>>>>>> 2f37061eec270ee34570795b89a847ce57e30da4

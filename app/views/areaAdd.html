@@ -31,13 +31,12 @@
       <!-- file upload -->
       <div class="form-group" ng-class="{error: editArea.image.$invalid}">
         <button class="btn btn-default" ng-click="uploadFile()">upload img</button>
-        <input class="form-control" name="image" type="url" ng-model="area.img">
       </div>
 
       <!-- buttons -->
       <br />
       <a href="/area" class="btn btn-default">Cancel</a>
-      <button class="btn btn-primary" ng-click="save(); addMarker()" ng-disabled="isClean() || editArea.$invalid">Save</button>
+      <button class="btn btn-primary" ng-click="save(); addMarker()" ng-disabled="editArea.$invalid">Save</button>
       <button ng-click="destroy()" ng-show="area._id" class="btn btn-danger">Delete</button>
     </fieldset>
   </form>

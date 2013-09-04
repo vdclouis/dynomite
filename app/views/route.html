@@ -14,18 +14,21 @@
       <li>Difficulty: <span>{{route.grade}}</span></li>
       <li>Rating: <span>{{route.rating}}/5</span></li>
       <li>Type: <span>{{route.type}}</span></li>
-      <li>Comments: <span><a href="/route/comments/{{ route._id }}">{{ comments.length }}</a></span></li>
+      <li ng-show="comments.length > 1">Comments: <span><a href="/route/comments/{{ route._id }}">{{ comments.length }}</a></span></li>
+      <li ng-show="comments.length == 1">Comment: <span><a href="/route/comments/{{ route._id }}">{{ comments.length }}</a></span></li>
     </ul>
   </div>
 
-  <a class="crud" href="/route/commentAdd/{{ route._id }}">Comment</a>
+  <a class="crud" href="/route/comment/add/{{ route._id }}">Comment</a>
   <a class="crud" href="/route/edit/{{ route._id }}">Edit</a>
 
-  <h2>Latest comments:</h2>
-  <div class="comments">
-    <div class="comment" ng-repeat="comment in comments | limitTo:3 | orderBy:title">
-      <h3>{{ comment.title }}</h3>
-      <p>"{{ comment.content }}" <br/>&mdash;{{ comment.user.name }} on {{ comment.created | date:'yyyy-MM-dd @ h:mma' }}</p>
+  <div ng-show="comments.length">
+    <h2>Latest comments:</h2>
+    <div class="comments">
+      <div class="comment" ng-repeat="comment in comments | limitTo:3 | orderBy:title">
+        <h3>{{ comment.title }} <span class="pull-right crud"><a href="/comment/edit/{{ comment._id }}">edit</a></span></h3>
+        <p>"{{ comment.content }}" <br/>&mdash;{{ comment.user.name }} on {{ comment.created | date:'yyyy-MM-dd @ h:mma' }}</p>
+      </div>
     </div>
   </div>
 </div>

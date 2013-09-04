@@ -1,25 +1,24 @@
-<form class="login">
-  <fieldset>
-    <div class="form-group" data-ng-class="{error: editUser.email.$invalid}">
-      <label for="userEmail">email</label><span>{{ error.email }}</span>
-      <input type="text" class="form-control" id="userEmail" placeholder="email" data-ng-model="user.email">
-    </div>
-    <div class="form-group" data-ng-class="{error: editUser.password.$invalid}">
-      <label for="userPassword">password</label><span>{{ error.password }}</span>
-      <input type="password" class="form-control" id="userPassword" placeholder="password" data-ng-model="user.password">
-    </div>
-    <!--<div class="form-group" data-ng-class="{error: editUser.password.$invalid}">
-      <label for="userRememberMe">remember me</label><span>{{ error.password }}</span>
-      <input type="checkbox" id="userRememberMe" data-ng-model="user.rememberme">
-    </div> -->
-
-
-    <div class="alert alert-dismissable" data-ng-show="{{ error.general }}">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <strong>Warning!</strong> {{ error.general }}
-    </div>
-
-    <button class="btn btn-primary" type="submit" data-ng-click="login()" ng-disabled="isClean() || editUser.$invalid">login</button>
-    <p>No account yet? <span><a href="/register">register</a></span></p>
-  </fieldset>
-</form>
+<div class="login">
+  <form class="login" name="login">
+    <fieldset>
+      <div class="form-group" data-ng-class="{error: editUser.email.$invalid}">
+        <label for="userEmail">email</label><span>{{ error.email }}</span>
+        <input type="text" class="form-control" id="userEmail" placeholder="email" data-ng-model="user.email" required>
+      </div>
+      <div class="form-group" data-ng-class="{error: editUser.password.$invalid}">
+        <label for="userPassword">password</label><span>{{ error.password }}</span>
+        <input type="password" class="form-control" id="userPassword" placeholder="password" data-ng-model="user.password" required>
+      </div>
+      <!--<div class="form-group" data-ng-class="{error: editUser.password.$invalid}">
+        <label for="userRememberMe">remember me</label><span>{{ error.password }}</span>
+        <input type="checkbox" id="userRememberMe" data-ng-model="user.rememberme">
+      </div> -->
+      <div class="alert alert-dismissable" data-ng-show="{{ error.general }}">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <strong>Warning!</strong> {{ error.general }}
+      </div>
+      <button class="btn btn-primary" type="submit" data-ng-click="login()" ng-disabled="login.$invalid">login</button>
+      <p>No account yet? <span><a href="/register">register</a></span></p>
+    </fieldset>
+  </form>
+</div>

@@ -15,6 +15,9 @@
 @import "snap";
 @import "swipe";
 @import "comment";
+@import "register";
+@import "login";
+@import "commentedit";
 
 body, h2, h3 {
   font-family: 'Maven';
@@ -88,10 +91,12 @@ a.crud {
         color: white;
         border-radius: 15px;
         background: $green;
+
+        a {
+          color: white;
+        }
       }
     }
-
-
   }
 }
 
@@ -130,8 +135,12 @@ a.crud {
   padding-left: .3em;
   display: inline-block;
   padding-top: 12px;
-  a{
+
+  a {
     text-decoration: none;
+  }
+
+  span {
     color: $dg;
   }
 }
