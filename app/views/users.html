@@ -3,9 +3,7 @@
   <div class="list">
     <ul>
       <li data-ng-repeat="user in users">
-        <a href="/user/{{user.name}}">
-          {{user.name}}
-        </a>
+        <a href="/user/{{user.name}}">{{user.name}}</a>
         <a data-access-level="accessLevels.admin" class="pull-right crud" href="/user/{{user.name}}">edit</a></span>
       </li>
     </ul>
