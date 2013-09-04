@@ -27,4 +27,3 @@ angular.module('dynomiteApp')
       }); // eo weather
     });
   }]);
-
