@@ -6,6 +6,7 @@ The interactive climbing app
 2. [Bower](http://bower.io/)
 3. [MongoDB](http://www.mongodb.org/)
 4. [Git](http://git-scm.com/)
+5. [Ruby](https://www.ruby-lang.org/en/)
 
 ## Deploy
 1. run `mongod`

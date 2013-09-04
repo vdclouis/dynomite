@@ -90,7 +90,7 @@ angular.module('dynomiteApp')
       Auth.login(
       //user
       {
-        username: $scope.user.email,
+        username: $scope.user.username,
         password: $scope.user.password
         //rememberme: $scope.remembermeconsole.log("2. data send to auth service"
         //, username, password);

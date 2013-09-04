@@ -16,7 +16,7 @@ exports.index = function(req, res, next){
   if(req.user){
     //console.log('req.user.email', req.user.email)
     //console.log('req.user.role', req.user.role)
-    username = req.user.email,
+    username = req.user.username,
     role = req.user.role
   };
 
