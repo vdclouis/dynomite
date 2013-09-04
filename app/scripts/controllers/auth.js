@@ -85,15 +85,15 @@ angular.module('dynomiteApp')
 */
   .controller('LoginCtrl', ['$rootScope', '$scope', '$location', 'Auth', function($rootScope, $scope, $location, Auth) {
     //$scope.rememberme = true;
+
     $scope.login = function() {
       console.log("1. login clicked");
       Auth.login(
       //user
       {
         username: $scope.user.username,
-        password: $scope.user.password
-        //rememberme: $scope.remembermeconsole.log("2. data send to auth service"
-        //, username, password);
+        password: $scope.user.password,
+        rememberme: $scope.user.rememberme
       },
       //succes
       function(res) {
@@ -104,6 +104,14 @@ angular.module('dynomiteApp')
       function(err) {
         console.log("5b. fail", err);
         $rootScope.error = "Failed to login";
+        $scope.usernameError = ''; 
+        $scope.passwordError = '';
+        if(err.type == "user") {
+          $scope.usernameError = err.message
+        }
+        if(err.type == "password") {
+          $scope.passwordError = err.message
+        }
       });
     };
     //$scope.loginOauth = function(provider) {

@@ -26,8 +26,7 @@ exports.index = function(req, res, next){
     'role': role
   });
 
-  console.log("cookiecontent");
-  console.log(cookieContent);
+  //console.log(cookieContent);
 
   // send the user with a cookie
   res.cookie('user', cookieContent);

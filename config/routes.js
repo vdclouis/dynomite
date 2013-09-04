@@ -55,9 +55,17 @@ module.exports = function (app, passport, auth) {
           //  })
           //}
           if (!user) {
-            return res.send({ 'status':'fail', 'type': info.type, 'message': info.message });
+            return res.send('500', { 'status':'fail', 'type': info.type, 'message': info.message });
           }
           req.logIn(user, function(err) {
+            /*if ( req.body.rememberme ) {
+              console.log('req.body.rememberme:');
+              console.log(req.body.rememberme);
+              req.session.cookie.maxAge = 86400000; // 10*24*60*60*1000 Rememeber 'me' for 10 days
+              //req.session.cookie.maxAge = 2592000000; // 30*24*60*60*1000 Rememeber 'me' for 30 days
+            } else {
+              req.session.cookie.expires = false;
+            }*/
             if (err) {
               return res.send({ 'status':'err', 'message':err.message }); 
             }

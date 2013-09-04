@@ -97,8 +97,9 @@ angular.module('dynomiteApp')
           changeUser(user);
           success(user);
         })
-        .error(function(error) {
-          console.log('3b. loginerror', error);
+        .error(function(errorcb) {
+          console.log('3b. loginerror', errorcb);
+          error(errorcb);
         });
       },
       logout: function(success, error) {
