@@ -91,14 +91,14 @@ exports.create = function (req, res) {
  *  Show profile
  */
 
-exports.show = function (req, res) {
+/*exports.show = function (req, res) {
   var user = req.profile;
   console.log(user);
   res.render('partials/user', {
     //title: user.name,
     user: user
   });
-}
+}*/
 
 exports.me = function (req, res) {
   res.jsonp(req.user || null);
