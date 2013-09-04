@@ -1,4 +1,4 @@
-<form name="registerForm" class="signup">
+<form name="registerForm" class="signup" data-ng-submit="register()">
   <div class="form-group" ng-class="{error: registerForm.name.$invalid}">
     <label for="name">full name</label>
     <input class="form-control" required type="text" id="name" placeholder="Full name" ng-model="user.name">
@@ -19,5 +19,5 @@
     <input class="form-control" required type="password" id="password" placeholder="password" ng-model="user.password">
   </div>
 
-  <button class="btn btn-primary" type="submit" data-ng-click="save()">register</button>
+  <button class="btn btn-primary" type="submit">register</button>
 </form>

@@ -6,13 +6,7 @@ var userRoles = require('../../app/scripts/routingConfig').userRoles
 
 exports.index = function(req, res, next){
 
-  console.log(req.user);
-
-  /*res.render('index'
-  , {
-    user: req.user ? JSON.stringify(req.user) : "null"
-  }
-  );*/
+  console.log("get index.html");
 
   // default values
   var role = userRoles.public
@@ -20,18 +14,26 @@ exports.index = function(req, res, next){
 
   // overwrite the values if already logged in
   if(req.user){
+    //console.log('req.user.email', req.user.email)
+    //console.log('req.user.role', req.user.role)
     username = req.user.email,
     role = req.user.role
   };
 
-  // send the user with a cookie
-  res.cookie('user', JSON.stringify({
-    'userEmail': username,
+  // cookie content
+  var cookieContent = JSON.stringify({
+    'username': username,
     'role': role
-  }));
+  });
+
+  console.log("cookiecontent");
+  console.log(cookieContent);
+
+  // send the user with a cookie
+  res.cookie('user', cookieContent);
 
   //renders the indexpage on first pageload
-  res.render('index'
+  res.render('layout'
   /*, {
     user: req.user ? JSON.stringify(req.user) : "null"
   }*/

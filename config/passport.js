@@ -22,7 +22,7 @@ module.exports = function (passport, config) {
     /*User.findOne({ _id: id }, function (err, user) {
       done(err, user);
     })*/
-    User.findOne({ _id: id }).select('name username email').exec(function(err, user) {
+    User.findOne({ _id: id }).select('name username email role').exec(function(err, user) {
       done(err, user);
     });
   });
@@ -32,8 +32,11 @@ module.exports = function (passport, config) {
       usernameField: 'username',
       passwordField: 'password'
     },
-    function(email, password, done) {
-      User.findOne({ email: email }, function (err, user) {
+    /*
+     * returns err, user, info
+     */
+    function(username, password, done) {
+      User.findOne({ username: username }, function (err, user) {
         if (err) {
           return done(err);
         }

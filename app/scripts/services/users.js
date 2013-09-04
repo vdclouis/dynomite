@@ -52,36 +52,53 @@ angular.module('dynomiteApp')
 
     function changeUser(user) {
       _.extend(currentUser, user);
-      console.log(currentUser);
+      console.log("current user change :", currentUser);
     };
 
     return {
       authorize: function(accessLevel, role) {
-        if(role === undefined)
+        console.log('accessLevel:', accessLevel);
+
+        if(role === undefined){
+          console.log("UNDEFINED");
+          console.log("CURRENT USER ROLE", currentUser.role);
           role = currentUser.role;
-        return accessLevel.bitMask & role.bitMask;
+          console.log('role:', role);
+        }
+        console.log(role);
+
+        var level = accessLevel.bitMask;
+        console.log('level: ', level);
+
+        var brole = role.bitMask;
+        console.log('role: ', brole);
+        return level & brole;
       },
       isLoggedIn: function(user) {
-        if(user === undefined)
+        if(user === undefined){
           user = currentUser;
+          console.log('isloggedin: ', user);
+        }
         return user.role.title == userRoles.user.title || user.role.title == userRoles.admin.title;
       },
       register: function(user, success, error) {
-        $http.post('/register', user).success(function(res) {
+        $http.post('/register', user)
+        .success(function(res) {
           changeUser(res);
           success();
-        }).error(error);
+        })
+        .error(error);
       },
       login: function(user, success, error) {
-        console.log("Authservice login user", user);
+        console.log("2. send data with Auth service", user);
         $http.post('/login', user)
         .success(function(user){
-          console.log(user);
+          console.log("3. user succes login", user);
           changeUser(user);
           success(user);
         })
         .error(function(error) {
-          console.log('loginerror', error);
+          console.log('3b. loginerror', error);
         });
       },
       logout: function(success, error) {

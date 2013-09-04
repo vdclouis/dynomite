@@ -14,10 +14,10 @@ angular.module('dynomiteApp')
       });
     };
   }])
-  .controller('RegisterCtrl', ['$scope', '$location', '$http', function($scope, $location, $http) {
-    $scope.save = function(data) {
+  .controller('RegisterCtrl', ['$rootScope', '$scope', '$location', 'Auth', function($rootScope, $scope, $location, Auth) {
+    /*$scope.save = function(data) {
       console.log('test');
-
+      $scope.user.role = Auth.userRoles.user;
       $http.post('/register', $scope.user)
       .success(function() {
         console.log('success');
@@ -26,6 +26,24 @@ angular.module('dynomiteApp')
       })
       .error(function() {
         console.log('error');
+      });
+    };*/
+    //$scope.role = Auth.userRoles.user;
+    //$scope.userRoles = Auth.userRoles;
+
+    $scope.register = function() {
+      Auth.register({
+        name: $scope.user.name,
+        email: $scope.user.email,
+        username: $scope.user.username,
+        password: $scope.user.password,
+        role: Auth.userRoles.user
+      },
+      function() {
+        $location.path('/');
+      },
+      function(err) {
+        $rootScope.error = err;
       });
     };
   }])
@@ -80,21 +98,25 @@ angular.module('dynomiteApp')
   }])
 */
   .controller('LoginCtrl', ['$rootScope', '$scope', '$location', '$window', 'Auth', function($rootScope, $scope, $location, $window, Auth) {
-    $scope.rememberme = true;
+    //$scope.rememberme = true;
     $scope.login = function() {
+      console.log("1. login clicked");
       Auth.login(
       //user
       {
         username: $scope.user.email,
         password: $scope.user.password
-        //rememberme: $scope.rememberme
+        //rememberme: $scope.remembermeconsole.log("2. data send to auth service"
+        //, username, password);
       },
       //succes
       function(res) {
-        $location.path('/area');
+        console.log("5. result:", res);
+        $location.path('/');
       },
       //error
       function(err) {
+        console.log("5b. fail", err);
         $rootScope.error = "Failed to login";
       });
     };

@@ -78,7 +78,6 @@
 
       }
       else {
-
         var resultBitMask = 0;
         for(var role in accessLevelDeclarations[level]){
           if(userRoles.hasOwnProperty(accessLevelDeclarations[level][role]))

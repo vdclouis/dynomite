@@ -4,6 +4,7 @@ var v1 = '/api/v1';
 module.exports = function (app, passport, auth) {
 
   var index = require('../cogs/controllers/index');
+
   app.get('/', index.index);
 
   //public views
@@ -30,20 +31,22 @@ module.exports = function (app, passport, auth) {
 
   // registere + login POST request
   app.post('/register', users.create);
-  app.post(
-
-    // the form post route
-    '/login'
+  app.post('/login'
     ,function(req, res, next) {
-
+      console.log("postrequest");
       passport.authenticate(
-
-        'local'
-        // arguments are what is returned from passport function
+        'local',
+        { session: false }
+        /*
+         * arguments are what is returned from passport function
+         *
+         * returns json with info for the view
+         */
         , function(err, user, info) {
+          console.log("passport local:");
           console.log(user);
           if (err) {
-            return res.send({ 'status':'err', 'message':err.message });
+            return res.send({ 'status': 'err', 'message': err.message });
           }
           //console.log(user);
           //if (!user.name || !user.password) {
@@ -56,7 +59,7 @@ module.exports = function (app, passport, auth) {
             return res.send({ 'status':'fail', 'type': info.type, 'message': info.message });
           }
           req.logIn(user, function(err) {
-            if (err) { 
+            if (err) {
               return res.send({ 'status':'err', 'message':err.message }); 
             }
             //return res.send({ 'status':'ok', 'user': user });
@@ -86,15 +89,15 @@ module.exports = function (app, passport, auth) {
       )(req, res, next);
     }
     //
-    ,function(err, req, res, next) {
-      // 
-      var t = {
-        'status':'err',
-        'message':err.message,
-        'user': req.user ? JSON.stringify(req.user) : "null"
-      };
-      return res.send(t);
-    }
+    //,function(err, req, res, next) {
+    //  //
+    //  var t = {
+    //    'status':'err',
+    //    'message':err.message,
+    //    'user': req.user ? JSON.stringify(req.user) : "null"
+    //  };
+    //  return res.send(t);
+    //}
     // redirect after succesfull login
     //users.loginSuccesRedirect
   );
@@ -137,5 +140,5 @@ module.exports = function (app, passport, auth) {
   app.param('routeId', comments.commentbyroute);
 
   // wildcard
-  app.get('*', index.index);
+  app.get('/*', index.index);
 };
