@@ -34,7 +34,7 @@ dynomiteApp
       .when('/users', {
         templateUrl: '/views/users',
         controller: 'UsersCtrl',
-        access: access.anon
+        access: access.user
       })
       .when('/user/:userName', {
         templateUrl: '/views/user',
@@ -44,7 +44,7 @@ dynomiteApp
           //been populated with his data yet
           user: 'loadUser'
         },
-        access: access.anon
+        access: access.public
       })
       .when('/about', {
         templateUrl: '/views/about',

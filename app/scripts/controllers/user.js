@@ -6,6 +6,16 @@ app.controller('UserCtrl', ['$scope', '$route', function($scope, $route) {
   $scope.user = $route.current.locals.user;
 }]);
 
+app.controller('UsersCtrl', ['$scope', '$route', 'UsersService', 'Auth', function($scope, $route , UsersService, Auth) {
+
+  $scope.accessLevels = Auth.accessLevels;
+
+  UsersService.allUsers()
+  .then(function(data) {
+    $scope.users = data;
+  });
+}]);
+
 app.factory('loadUser', ['$q', '$route', 'UsersService', function($q, $route, UsersService) {
   console.log('resolve user');
   var deferred = $q.defer();

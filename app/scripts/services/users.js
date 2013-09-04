@@ -35,6 +35,19 @@ angular.module('dynomiteApp')
         }
         // return the promise
         return defer.promise;
+      },
+      allUsers: function() {
+        var defer = $q.defer();
+        $http.get('/users')
+        .success(function(data) {
+          // resolve the promise
+          defer.resolve(data);
+        })
+        .error(function(response){
+          defer.resolve(response);
+        });
+        // return the promise
+        return defer.promise;
       }
     };
   }])

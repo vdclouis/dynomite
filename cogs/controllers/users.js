@@ -119,7 +119,7 @@ exports.userId = function (req, res, next, id) {
     req.profile = user;
     next();
   })
-}
+};
 
 exports.userName = function (req, res, next, name) {
   User
@@ -131,4 +131,16 @@ exports.userName = function (req, res, next, name) {
     req.profile = user;
     next();
   })
-}
+};
+
+exports.all = function(req, res) {
+  User.find().exec(function(err, users) {
+    if (err) {
+      res.send('500', {
+        status: 500
+      });
+    } else {
+      res.jsonp(users);
+    }
+  });
+};
