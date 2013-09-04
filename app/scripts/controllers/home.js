@@ -15,9 +15,9 @@ angular.module('dynomiteApp')
         var icon = underscoreFilter(uppercaseFilter(data.currently.icon));
 
         // Initiate skycons
-        var skycons = new Skycons({'color': '#a0a0a0'});
-        skycons.add('ico', Skycons[icon]);
-        skycons.play();
+        //var skycons = new Skycons({'color': '#a0a0a0'});
+        //skycons.add('ico', Skycons[icon]);
+        //skycons.play();
       }); // eo weather
     });
   }]);

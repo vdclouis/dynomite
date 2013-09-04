@@ -30,12 +30,11 @@ angular.module('dynomiteApp')
     };*/
     //$scope.role = Auth.userRoles.user;
     //$scope.userRoles = Auth.userRoles;
-
     $scope.register = function() {
       Auth.register({
         name: $scope.user.name,
         email: $scope.user.email,
-        username: $scope.user.username,
+        username: $scope.user.username  ,
         password: $scope.user.password,
         role: Auth.userRoles.user
       },
@@ -97,8 +96,9 @@ angular.module('dynomiteApp')
     };
   }])
 */
-  .controller('LoginCtrl', ['$rootScope', '$scope', '$location', '$window', 'Auth', function($rootScope, $scope, $location, $window, Auth) {
+  .controller('LoginCtrl', ['$rootScope', '$scope', '$location', 'Auth', function($rootScope, $scope, $location, Auth) {
     //$scope.rememberme = true;
+    console.log("FUNCTION");
     $scope.login = function() {
       console.log("1. login clicked");
       Auth.login(
@@ -120,12 +120,10 @@ angular.module('dynomiteApp')
         $rootScope.error = "Failed to login";
       });
     };
-
-    $scope.loginOauth = function(provider) {
-      $window.location.href = '/auth/' + provider;
-    }
+    //$scope.loginOauth = function(provider) {
+    //  $window.location.href = '/auth/' + provider;
+    //}
   }])
-
   .controller('LogoutCtrl', ['$scope', '$location', '$http', function($scope, $location, $http) {
     console.log('LogoutCtrl');
     $http.get('/users/logout')
@@ -139,6 +137,5 @@ angular.module('dynomiteApp')
     })
     .error(function(err) {
       console.log(err);
-    })
-    ;
+    });
   }]);

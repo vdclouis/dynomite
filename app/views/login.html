@@ -1,5 +1,6 @@
 <div class="login">
-  <form class="login" name="login">
+  <h1>Login</h1>
+  <form name="loginForm" data-ng-submit="login()">
     <fieldset>
       <div class="form-group" data-ng-class="{error: editUser.email.$invalid}">
         <label for="userEmail">email</label><span>{{ error.email }}</span>
@@ -17,7 +18,7 @@
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <strong>Warning!</strong> {{ error.general }}
       </div>
-      <button class="btn btn-primary" type="submit" data-ng-click="login()" ng-disabled="login.$invalid">login</button>
+      <button class="btn btn-primary" type="submit" ng-disabled="loginForm.$invalid">login</button>
       <p>No account yet? <span><a href="/register">register</a></span></p>
     </fieldset>
   </form>
