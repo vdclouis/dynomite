@@ -47,13 +47,6 @@ module.exports = function (app, passport, auth) {
           if (err) {
             return res.send({ 'status': 'err', 'message': err.message });
           }
-          //console.log(user);
-          //if (!user.name || !user.password) {
-          //  return res.send({
-          //    type: 'general',
-          //    message: 'OEPS'
-          //  })
-          //}
           if (!user) {
             return res.send('500', { 'status':'fail', 'type': info.type, 'message': info.message });
           }
@@ -74,39 +67,8 @@ module.exports = function (app, passport, auth) {
           });
         }
         //, index.index
-
-
-      /*'local',
-      function(err, user) {
-
-        if(err)     { return next(err); }
-        if(!user)   { return res.send(400); }
-
-
-        req.logIn(user, function(err) {
-          if(err) {
-            return next(err);
-          }
-
-          //if(req.body.rememberme) req.session.cookie.maxAge = 1000 * 60 * 60 * 24 * 7;
-          res.json(200, { "role": user.role, "username": user.username });
-        });
-      }*/
-
       )(req, res, next);
     }
-    //
-    //,function(err, req, res, next) {
-    //  //
-    //  var t = {
-    //    'status':'err',
-    //    'message':err.message,
-    //    'user': req.user ? JSON.stringify(req.user) : "null"
-    //  };
-    //  return res.send(t);
-    //}
-    // redirect after succesfull login
-    //users.loginSuccesRedirect
   );
   app.post('/logout', users.logout);
 
