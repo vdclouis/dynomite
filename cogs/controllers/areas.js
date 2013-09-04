@@ -36,7 +36,7 @@ exports.create = function(req, res) {
 
   area.user = req.user;
   area.save();
-  //res.jsonp(area);
+  res.jsonp(area);
 };
 
 /**
@@ -70,7 +70,7 @@ exports.destroy = function(req, res) {
 
   area.remove(function(err) {
     if (err) {
-      res.render('error', {
+      res.send('error', {
         status: 500
       });
     } else {

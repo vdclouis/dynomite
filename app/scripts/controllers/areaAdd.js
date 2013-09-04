@@ -1,18 +1,27 @@
 'use strict';
 
 angular.module('dynomiteApp')
-  .controller('AreaAddCtrl', ['$scope', '$location', '$http', function($scope, $location, $http){
+  .controller('AreaAddCtrl', ['$scope', '$location', '$http', 'AreasService', function($scope, $location, $http, AreasService){
 
     // Post new area on save()
-    $scope.save = function() {
+    /*$scope.save = function() {
+      console.log('save');
       $http.post('/api/v1/areas', $scope.area)
         .success(function() {
           console.log('yay');
-          $location.path('/');
+          $location.path('/areas');
         })
         .error(function() {
           console.log('nay');
         });
+    };*/
+
+    $scope.save = function() {
+      AreasService.addArea($scope.area)
+      .then(function(data) {
+        console.log(data);
+        $location.path('/areas');
+      })
     };
 
     // Get Current location

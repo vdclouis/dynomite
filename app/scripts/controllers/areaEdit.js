@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('dynomiteApp')
-  .controller('AreaEditCtrl', ['$scope', '$location', '$http', '$routeParams', function($scope, $location, $http, $routeParams) {
+  .controller('AreaEditCtrl', ['$scope', '$location', '$http', '$routeParams', 'AreasService', function($scope, $location, $http, $routeParams, AreasService) {
 
     // Get Unique Area
     $http.get('/api/v1/areas/' + $routeParams.areaId).
@@ -28,14 +28,18 @@ angular.module('dynomiteApp')
 
     // Delete Area
     $scope.destroy = function() {
-      $http.delete('/api/v1/areas/' + $routeParams.areaId)
+      /*$http.delete('/api/v1/areas/' + $routeParams.areaId)
         .success(function() {
           console.log('yay');
           $location.path('/area');
         })
         .error(function() {
           console.log('nay');
-        });
+        });*/
+      AreasService.deleteArea($routeParams.areaId)
+      .then(function(data) {
+        $location.path('/areas');
+      });
     };
 
     filepicker.setKey('Aw1KqJloRli2yInj47Sthz');

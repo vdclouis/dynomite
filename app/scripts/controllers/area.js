@@ -2,21 +2,30 @@
 
 var app = angular.module('dynomiteApp');
 
-app.controller('AreaCtrl', ['$scope', '$route', 'Auth', function($scope, $route, Auth) {
+app.controller('AreaCtrl', ['$scope', '$route', 'Auth', 'AreasService', function($scope, $route, Auth, AreasService) {
 
   $scope.accessLevels = Auth.accessLevels;
 
-  var data = $route.current.locals.areas;
-  $scope.areas = data;
+  /*
+    console.log('AREACONTROLLER');
+    var data = $route.current.locals.areas;
+    console.log(data);
+    $scope.areas = data;
+  */
 
-  // Google maps
-  google.maps.visualRefresh = true;
+  //init the map
   $scope.center = {
     latitude: 33,
     longitude: 3.7
   };
   $scope.zoom = 8;
   $scope.markers = [];
+
+  AreasService.allAreas()
+  .then(function(data) {
+    $scope.areas = data;
+    //console.log(data);
+
   //get pos
   $scope.geolocationAvailable = navigator.geolocation ? true : false;
 
@@ -47,6 +56,9 @@ app.controller('AreaCtrl', ['$scope', '$route', 'Auth', function($scope, $route,
 
   // Default order
   $scope.orderAreas = 'name';
+
+  });
+
 }]);
 
 app.factory('loadAreas', ['$q', 'AreasService', function($q, AreasService) {

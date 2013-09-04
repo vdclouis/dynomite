@@ -56,7 +56,7 @@ angular.module('dynomiteApp')
 
     return {
       authorize: function(accessLevel, role) {
-        console.log('accessLevel:', accessLevel);
+        //console.log('accessLevel:', accessLevel);
 
         // if the function is called from the $routeChangeStart
         // the role will be undefined
@@ -65,10 +65,10 @@ angular.module('dynomiteApp')
         }
 
         var level = accessLevel.bitMask;
-        console.log('level: ', level);
+        //console.log('level: ', level);
 
         var brole = role.bitMask;
-        console.log('role: ', brole);
+        //console.log('role: ', brole);
 
         return level & brole;
       },

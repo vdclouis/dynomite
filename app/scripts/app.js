@@ -59,9 +59,9 @@ dynomiteApp
       .when('/areas', {
         templateUrl: '/views/areas',
         controller: 'AreaCtrl',
-        resolve: {
-          areas: 'loadAreas'
-        },
+        //resolve: {
+        //  areas: 'loadAreas'
+        //},
         access: access.public
       })
       .when('/area/add', {
@@ -135,12 +135,12 @@ dynomiteApp
   }])
   .run(['$rootScope', '$location', 'Auth', function ($rootScope, $location, Auth) {
     $rootScope.$on("$routeChangeStart", function (event, next, current) {
-      console.log("next", next);
+      //console.log("next", next);
       $rootScope.error = null;
       var wtf = !Auth.authorize(next.access);
-      console.log("wtf", wtf);
+      //console.log("wtf", wtf);
       if (wtf) {
-        console.log("not authorized");
+        //console.log("not authorized");
         if(Auth.isLoggedIn()) {
           $location.path('/');
         } else {
