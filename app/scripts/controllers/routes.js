@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('dynomiteApp')
-  .controller('RoutesCtrl', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
+  .controller('RoutesCtrl', ['$scope', '$routeParams', '$http', 'Auth', function($scope, $routeParams, $http, Auth) {
+
+    $scope.accessLevels = Auth.accessLevels;
 
     // Get Area with specific id
     $http.get('/api/v1/areas/' + $routeParams.areaId)

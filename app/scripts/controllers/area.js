@@ -2,7 +2,9 @@
 
 var app = angular.module('dynomiteApp');
 
-app.controller('AreaCtrl', ['$scope', '$route', function($scope, $route) {
+app.controller('AreaCtrl', ['$scope', '$route', 'Auth', function($scope, $route, Auth) {
+
+  $scope.accessLevels = Auth.accessLevels;
 
   var data = $route.current.locals.areas;
   $scope.areas = data;

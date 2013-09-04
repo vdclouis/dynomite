@@ -40,7 +40,6 @@ angular.module('dynomiteApp')
   }])
   //
   .factory('Auth', ['$http', '$cookieStore', function($http, $cookieStore){
-
     console.log("cookiestore get", $cookieStore.get('user'));
 
     var accessLevels = routingConfig.accessLevels
@@ -59,19 +58,18 @@ angular.module('dynomiteApp')
       authorize: function(accessLevel, role) {
         console.log('accessLevel:', accessLevel);
 
+        // if the function is called from the $routeChangeStart
+        // the role will be undefined
         if(role === undefined){
-          console.log("UNDEFINED");
-          console.log("CURRENT USER ROLE", currentUser.role);
           role = currentUser.role;
-          console.log('role:', role);
         }
-        console.log(role);
 
         var level = accessLevel.bitMask;
         console.log('level: ', level);
 
         var brole = role.bitMask;
         console.log('role: ', brole);
+
         return level & brole;
       },
       isLoggedIn: function(user) {
@@ -87,7 +85,9 @@ angular.module('dynomiteApp')
           changeUser(res);
           success();
         })
-        .error(error);
+        .error(function(error) {
+          console.log('register error');
+        });
       },
       login: function(user, success, error) {
         console.log("2. send data with Auth service", user);
@@ -102,14 +102,19 @@ angular.module('dynomiteApp')
         });
       },
       logout: function(success, error) {
-        $http.post('/logout').success(function(){
+        $http.post('/logout')
+        .success(function(){
           changeUser({
             username: '',
             role: userRoles.public
           });
           success();
-        }).error(error);
+        })
+        .error(function(error) {
+          console.log('logout error');
+        });
       },
+      //vars used in other controllers
       accessLevels: accessLevels,
       userRoles: userRoles,
       user: currentUser

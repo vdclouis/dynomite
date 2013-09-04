@@ -2,9 +2,16 @@
 
 angular.module('dynomiteApp')
   .controller('DefaultCtrl', ['$scope', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  }])
+  .controller('NavCtrl', ['$scope', '$location', 'Auth', '$rootScope', function($scope, $location, Auth, $rootScope) {
+    $scope.user = Auth.user;
+    $scope.userRoles = Auth.userRoles;
+    $scope.accessLevels = Auth.accessLevels;
+    $scope.logout = function() {
+      Auth.logout(function() {
+        $location.path('/login');
+      }, function() {
+        $rootScope.error = 'Failed to logout';
+      });
+    };
   }]);

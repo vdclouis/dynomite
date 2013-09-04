@@ -18,7 +18,7 @@
 
   <h2>Description:</h2>
   <p>{{area.description}}</p>
-  <a class="crud" ng-href="/area/edit/{{area._id}}">edit area</a>
+  <a class="crud" ng-href="/area/edit/{{area._id}}" data-access-level="accessLevels.admin">edit area</a>
   
   <!-- list -->
   <div class="list">
@@ -27,10 +27,9 @@
         <a href="/route/{{route._id}}">
           {{route.name}}
         </a>
-        <a class="pull-right crud" href="/route/edit/{{route._id}}">edit</a></span>
+        <a data-access-level="accessLevels.admin" class="pull-right crud" href="/route/edit/{{route._id}}">edit</a></span>
       </li>
     </ul>
   </div>
-  <a class="crud" ng-href="/route/add/{{area._id}}">add route</a>
-
+  <a class="crud" ng-href="/route/add/{{area._id}}" data-access-level="accessLevels.user">add route</a>
 </div>

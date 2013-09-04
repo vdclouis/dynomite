@@ -316,3 +316,11 @@ a.crud {
     text-decoration: none; }
   .backarrow span {
     color: #a0a0a0; }
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none; }
+
+.formEnd button, .formEnd p {
+  display: inline-block; }
+.formEnd p {
+  margin-left: 5px; }

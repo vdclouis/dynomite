@@ -49,8 +49,9 @@ exports.register = function (req, res) {
 
 exports.logout = function (req, res) {
   console.log("logout");
-  req.logout()
-  res.redirect('/')
+  req.logout();
+  res.send(200);
+  //res.redirect('/')
 }
 
 /**

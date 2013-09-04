@@ -18,6 +18,9 @@
       <label for="password">Password</label>
       <input class="form-control" required type="password" id="password" ng-model="user.password">
     </div>
-    <button class="btn btn-primary" ng-disabled="registerForm.$invalid" type="submit">register</button>
+    <div class="formEnd">
+      <button class="btn btn-primary" ng-disabled="registerForm.$invalid" type="submit">register</button>
+      <p>Already an account? <span><a href="/login">login</a></span></p>
+    </div>
   </form>
 </div>

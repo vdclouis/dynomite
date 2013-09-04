@@ -29,8 +29,7 @@ module.exports = function (app, config, passport) {
   // development only
   if ('development' == app.get('env')) {
     app.use(express.static(
-      config.root + '/app',
-      {
+      config.root + '/app', {
         //Browser cache maxAge in milliseconds. defaults to 0
         //maxAge: oneDay,
         //Allow transfer of hidden files. defaults to false
@@ -39,21 +38,20 @@ module.exports = function (app, config, passport) {
         //redirect: true
       }
     ));
+    // set views path, template engine and default layout
+    app.set('views', config.root + '/app');
   }
-  // production only
+  // production onl
   if ('production' == app.get('env')) {
     app.use(express.static(
       config.root + '/dist'
     ));
+    app.set('views', config.root + '/dist');
   }
 
   // Necesarry for filereader etc
   app.use(express.bodyParser());
 
-  // set views path, template engine and default layout
-  app.set('views', config.root + '/app');
-  //app.set('views', config.root + '/app/views/partials');
-  //app.set('view engine', 'jade')
   app.engine('html', require('ejs').renderFile);
   app.set('view engine', 'html');
   // app.set('view options', { layout: false });

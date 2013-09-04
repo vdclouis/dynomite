@@ -29,7 +29,7 @@
       <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
     <nav class="snap-drawers">
-      <div class="snap-drawer snap-drawer-left">
+      <div class="snap-drawer snap-drawer-left" data-ng-controller="NavCtrl">
         <h3>Menu</h3>
         <ul>
           <li>
@@ -45,28 +45,20 @@
             <a ng-class="{active:isActive('/about')}" href="/about">About</a>
           </li>
           <li class="separator"></li>
-          <div data-ng-hide="global.authenticated">
+          <div data-access-level="accessLevels.user">
             <li>
-              <a data-access-level="accessLevels.anon" ng-class="{active:isActive('/login')}" href="/login">Login</a>
+              <a ng-class="" href="/user"><span class="glyphicon glyphicon-user"></span>&nbsp;{{ user.username }}</a>
             </li>
             <li>
-              <a data-access-level="accessLevels.anon" ng-class="{active:isActive('/register')}" href="/register">Register</a>
+              <a ng-class="" data-ng-click="logout()" href="">logout</a>
             </li>
           </div>
-          <div data-ng-show="global.authenticated">
-            <li ng-class="{active:isActive('/signin')}">
-              <a class="pull-right" href="/user/edit/{{global.user.name}}">
-                <span class="glyphicon glyphicon-cog"></span>
-              </a>
-              <a href="/user/{{global.user.name}}">
-                <span class="glyphicon glyphicon-user"></span>&nbsp;{{global.user.name}}
-              </a>
+          <div data-access-level="accessLevels.anon">
+            <li>
+              <a ng-class="" href="/login">login</a>
             </li>
             <li>
-              <a href="/logout">My routes</a>
-            </li>
-            <li>
-              <a href="/logout">Logout</a>
+              <a ng-class="" href="/register">register</a>
             </li>
           </div>
         </ul>
@@ -78,7 +70,6 @@
       <a href="" id="open-right" class="pull-right">&#9776</a>
       <div data-ng-view="" class="viewblock"></div>
     </div>
-
     <!-- Google Analytics -->
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
