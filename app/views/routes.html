@@ -23,6 +23,7 @@
   <!-- list -->
   <div class="list">
     <ul>
+      <li ng-hide="routes.length">Currently no routes in {{ area.name }}</li>
       <li data-ng-repeat="route in routes | filter:search | orderBy:orderRoutes">
         <a href="/route/{{route._id}}">
           {{route.name}}

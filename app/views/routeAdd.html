@@ -7,6 +7,7 @@
     <div class="form-group" ng-class="{error: editRoute.name.$invalid}">
       <label>Name</label>
       <input class="form-control" type="text" name="name" ng-model="route.name" required>
+      <div ng-show="error.error" class="alert alert-danger">{{ error.error }}</div>
     </div>
 
     <!-- description -->

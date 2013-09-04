@@ -1,4 +1,5 @@
 /* Imports */
+/* Colors */
 /* Fonts */
 @font-face {
   font-family: 'Blanch';
@@ -43,7 +44,6 @@
   display: block;
   margin: 0 auto; }
 
-/* Colors */
 /* Colors */
 .home {
   text-align: center; }
@@ -329,3 +329,6 @@ a.crud {
   display: inline-block; }
 .formEnd p {
   margin-left: 5px; }
+
+.form-group span {
+  color: #e3694e; }

@@ -32,7 +32,8 @@ angular.module('dynomiteApp')
           console.log('yay');
           $location.path('/area/' + $routeParams.areaId);
         })
-        .error(function() {
+        .error(function(data) {
+          $scope.error = data;
           console.log('nay');
         });
     };

@@ -52,9 +52,17 @@ exports.routebyarea = function(req, res, next, areaId) {
 exports.create = function(req, res) {
   var route = new Route(req.body);
 
-  route.user = req.user;
-  route.save();
-  res.jsonp(route);
+  Route.findOne({ name: route.name }, function(err, routes) {
+    if(routes) {
+      console.log('route exists');
+      res.send('500', {'error': 'Route already exists'});
+    } else {
+      console.log('route doesn\'t exist');
+      route.user = req.user;
+      route.save();
+      res.jsonp(route);
+    }
+  });
 };
 
 /**
