@@ -2,6 +2,9 @@
 
 angular.module('dynomiteApp')
   .controller('HomeCtrl', ['$scope', '$rootScope', '$filter', 'Weather', 'Auth', function($scope, $rootScope, $filter, Weather, Auth) {
+
+    $scope.accessLevels = Auth.accessLevels;
+    
     // Get current location
     navigator.geolocation.getCurrentPosition(function(pos) {
       $scope.lat = pos.coords.latitude;
