@@ -94,12 +94,14 @@ module.exports = function (app, passport, auth) {
   app.post(v1 + '/routes', routes.create);
   app.get(v1 + '/routes/:routeId', routes.show);
   app.get(v1 + '/routez/:areaId', routes.showbyarea);
+  app.get(v1 + '/routess/:userId', routes.showbyuser);
   app.put(v1 + '/routes/:routeId', routes.update);
   app.del(v1 + '/routes/:routeId', routes.destroy);
 
   // Finish by setting up the routeId param
   app.param('routeId', routes.route);
   app.param('areaId', routes.routebyarea);
+  app.param('userId', routes.routebyuser);
 
   // Comments Routes
   var comments = require('../cogs/controllers/comments');

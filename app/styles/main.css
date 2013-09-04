@@ -235,6 +235,9 @@
   display: block;
   margin: 0 auto; }
 
+.user h1 {
+  text-align: center; }
+
 body, h2, h3 {
   font-family: 'Maven';
   -webkit-user-select: none;
@@ -310,7 +313,8 @@ a.crud {
   width: 100%; }
 
 .viewblock {
-  padding-top: 45px; }
+  padding-top: 45px;
+  padding-bottom: 30px; }
 
 .backarrow {
   font-size: 1.4em;

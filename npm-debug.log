@@ -1,21 +1,87 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'node', '/usr/local/bin/npm', 'start' ]
-2 info using npm@1.2.23
-3 info using node@v0.10.8
-4 verbose read json /Volumes/Mac HD/Documents/sites/git/dynomite/package.json
-5 error Failed to parse json
-5 error Unexpected token }
-6 error File: /Volumes/Mac HD/Documents/sites/git/dynomite/package.json
-7 error Failed to parse package.json data.
-7 error package.json must be actual JSON, not just JavaScript.
-7 error
-7 error This is not a bug in npm.
-7 error Tell the package author to fix their package.json file. JSON.parse
-8 error System Darwin 12.4.0
-9 error command "node" "/usr/local/bin/npm" "start"
-10 error cwd /Volumes/Mac HD/Documents/sites/git/dynomite
-11 error node -v v0.10.8
-12 error npm -v 1.2.23
-13 error file /Volumes/Mac HD/Documents/sites/git/dynomite/package.json
-14 error code EJSONPARSE
-15 verbose exit [ 1, true ]
+1 verbose cli [ '/usr/local/Cellar/node/0.10.17/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '--save-dev',
+1 verbose cli   'grunt-add',
+1 verbose cli   'grunt-.' ]
+2 info using npm@1.3.8
+3 info using node@v0.10.17
+4 verbose readDependencies using package.json deps
+5 verbose cache add [ 'grunt-add', null ]
+6 verbose cache add name=undefined spec="grunt-add" args=["grunt-add",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'grunt-add',
+7 verbose parsed url   path: 'grunt-add',
+7 verbose parsed url   href: 'grunt-add' }
+8 verbose cache add [ 'grunt-.', null ]
+9 verbose cache add name=undefined spec="grunt-." args=["grunt-.",null]
+10 verbose parsed url { protocol: null,
+10 verbose parsed url   slashes: null,
+10 verbose parsed url   auth: null,
+10 verbose parsed url   host: null,
+10 verbose parsed url   port: null,
+10 verbose parsed url   hostname: null,
+10 verbose parsed url   hash: null,
+10 verbose parsed url   search: null,
+10 verbose parsed url   query: null,
+10 verbose parsed url   pathname: 'grunt-.',
+10 verbose parsed url   path: 'grunt-.',
+10 verbose parsed url   href: 'grunt-.' }
+11 silly lockFile dab63054-grunt-add grunt-add
+12 verbose lock grunt-add /Volumes/Untitled/Users/louis/.npm/dab63054-grunt-add.lock
+13 silly lockFile 333ebecd-grunt grunt-.
+14 verbose lock grunt-. /Volumes/Untitled/Users/louis/.npm/333ebecd-grunt.lock
+15 silly lockFile dab63054-grunt-add grunt-add
+16 silly lockFile dab63054-grunt-add grunt-add
+17 silly lockFile 333ebecd-grunt grunt-.
+18 silly lockFile 333ebecd-grunt grunt-.
+19 verbose addNamed [ 'grunt-add', '' ]
+20 verbose addNamed [ null, '*' ]
+21 silly lockFile 87f743dc-grunt-add grunt-add@
+22 verbose lock grunt-add@ /Volumes/Untitled/Users/louis/.npm/87f743dc-grunt-add.lock
+23 verbose addNamed [ 'grunt-.', '' ]
+24 verbose addNamed [ null, '*' ]
+25 silly lockFile f8807ba4-grunt grunt-.@
+26 verbose lock grunt-.@ /Volumes/Untitled/Users/louis/.npm/f8807ba4-grunt.lock
+27 silly addNameRange { name: 'grunt-add', range: '*', hasData: false }
+28 verbose url raw grunt-add
+29 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-add' ]
+30 verbose url resolved https://registry.npmjs.org/grunt-add
+31 info trying registry request attempt 1 at 23:30:51
+32 http GET https://registry.npmjs.org/grunt-add
+33 silly addNameRange { name: 'grunt-.', range: '*', hasData: false }
+34 verbose url raw grunt-.
+35 verbose url resolving [ 'https://registry.npmjs.org/', './grunt-.' ]
+36 verbose url resolved https://registry.npmjs.org/grunt-.
+37 info trying registry request attempt 1 at 23:30:51
+38 http GET https://registry.npmjs.org/grunt-.
+39 http 404 https://registry.npmjs.org/grunt-add
+40 silly registry.get cb [ 404,
+40 silly registry.get   { server: 'CouchDB/1.3.1 (Erlang OTP/R15B03)',
+40 silly registry.get     date: 'Wed, 04 Sep 2013 21:30:52 GMT',
+40 silly registry.get     'content-type': 'application/json',
+40 silly registry.get     'content-length': '52',
+40 silly registry.get     'cache-control': 'must-revalidate' } ]
+41 silly lockFile 87f743dc-grunt-add grunt-add@
+42 silly lockFile 87f743dc-grunt-add grunt-add@
+43 error 404 'grunt-add' is not in the npm registry.
+43 error 404 You should bug the author to publish it
+43 error 404
+43 error 404 Note that you can also install from a
+43 error 404 tarball, folder, or http url, or git url.
+44 error System Darwin 12.4.0
+45 error command "/usr/local/Cellar/node/0.10.17/bin/node" "/usr/local/bin/npm" "install" "--save-dev" "grunt-add" "grunt-."
+46 error cwd /Volumes/Untitled/Users/louis/Sites/dynomite2
+47 error node -v v0.10.17
+48 error npm -v 1.3.8
+49 error code E404
+50 verbose exit [ 1, true ]

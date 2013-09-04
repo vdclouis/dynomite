@@ -1,6 +1,11 @@
 <div class="user">
   <h1>User {{user.username}}</h1>
-  {{user.name}}
+  <div class="list">
+    <ul>
+      <li>Username <span>{{user.name}}</span></li>
+      <li>Routes <span>{{ routes.length }}</span></li>
+    </ul>
+  </div>
 </div>
 
 

@@ -2,13 +2,23 @@
 
 var app = angular.module('dynomiteApp');
 
-app.controller('UserCtrl', ['$scope', '$route', 'AreasService', function($scope, $route, AreasService) {
+app.controller('UserCtrl', ['$scope', '$route', '$http', 'AreasService', function($scope, $route,  $http, AreasService) {
 
   $scope.user = $route.current.locals.user;
-  console.log($scope.user._id);
   AreasService.areaById($scope.user._id)
   .then(function(data) {
     $scope.areas = data;
+  });
+
+  // Get routes with current user
+  $http.get('/api/v1/routess/' + $scope.user._id)
+  .success(function(data) {
+    console.log('yay');
+    $scope.routes = data;
+    console.log(data);
+  })
+  .error(function() {
+    console.log('nay');
   });
 }]);
 
