@@ -9,7 +9,7 @@ angular.module('dynomiteApp')
       link: function (scope, element, attrs) {
         $timeout(function() {
           $(element).Swipe(scope.$eval(attrs.swipe));
-        }, 100);
+        }, 200);
       }
     };
   }]);
