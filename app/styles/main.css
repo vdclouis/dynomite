@@ -47,6 +47,8 @@
 /* Colors */
 .home {
   text-align: center; }
+  .home h1 {
+    padding-left: 35px; }
   .home .forecast {
     cursor: default; }
   .home .temp {
