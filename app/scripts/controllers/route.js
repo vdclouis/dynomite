@@ -9,9 +9,35 @@ angular.module('dynomiteApp')
     $http.get('/api/v1/routes/' + $routeParams.routeId)
       .success(function(data) {
         console.log('yay');
+
         $scope.route = data;
 
+        $scope.markers = [];
+        //get pos
+        $scope.geolocationAvailable = navigator.geolocation ? true : false;
 
+        // Get current location
+        if( $scope.geolocationAvailable ) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            // Set new center based on current pos
+            $scope.center = {
+              latitude: position.coords.latitude,
+              longitude: position.coords.longitude
+            };
+            $scope.$apply();
+          }, function() {
+
+          });
+        }
+
+        $scope.markers = [];
+
+        var lat = data.lat;
+        var lng = data.lng;
+        $scope.markers.push({
+          latitude: lat,
+          longitude: lng
+        });
       })
       .error(function() {
         console.log('nay');
@@ -27,44 +53,14 @@ angular.module('dynomiteApp')
         console.log('nay');
       });
 
-    // Google maps
+    // init gmap
     google.maps.visualRefresh = true;
 
+    // temp center
     $scope.center = {
-      latitude: 30,
-      longitude: 7
+      latitude: 33,
+      longitude: 3.7
     };
 
-    console.log('yay', $scope.route);
-
     $scope.zoom = 8;
-    $scope.markers = [];
-    //get pos
-    $scope.geolocationAvailable = navigator.geolocation ? true : false;
-
-    // Get current location
-    if( $scope.geolocationAvailable ) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        $scope.center = {
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude
-        };
-        $scope.$apply();
-      }, function() {
-
-      });
-    }
-
-    //new array for the markers
-    $scope.markers = [];
-    //populate the makers
-    /*for (var i=0; i<data.length; i++) {
-      var lat = data[i].lat;
-      var lng = data[i].lng;
-      $scope.markers.push({
-        latitude: lat,
-        longitude: lng
-      });
-    }*/
-
   }]);

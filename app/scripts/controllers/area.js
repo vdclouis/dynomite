@@ -44,7 +44,7 @@ app.controller('AreaCtrl', ['$scope', '$route', 'Auth', 'AreasService', function
 
   //new array for the markers
   $scope.markers = [];
-  //populate the makers
+  //populate the markers
   for (var i=0; i<data.length; i++) {
     var lat = data[i].lat;
     var lng = data[i].lng;

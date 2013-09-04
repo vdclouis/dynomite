@@ -9,7 +9,6 @@
     "angular-cookies": "~1.0.7",
     "angular-sanitize": "~1.0.7",
     "jquery": "~2.0.3",
-    "skycons": "latest",
     "Swipe": "~2.0.0",
     "snapjs": "*",
     "angular-google-maps": "*",
