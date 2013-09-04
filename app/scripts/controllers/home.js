@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('dynomiteApp')
-  .controller('HomeCtrl', ['$scope', '$rootScope', '$filter', 'Weather', function($scope, $rootScope, $filter, Weather) {
+  .controller('HomeCtrl', ['$scope', '$rootScope', '$filter', 'Weather', 'Auth', function($scope, $rootScope, $filter, Weather, Auth) {
     navigator.geolocation.getCurrentPosition(function(pos) {
       $scope.lat = pos.coords.latitude;
       $scope.lon = pos.coords.longitude;
+      $scope.accessLevels = Auth.accessLevels;
 
       $scope.weather = Weather.get({lat: $scope.lat, lon: $scope.lon}, function(data) {
         // Inject filters

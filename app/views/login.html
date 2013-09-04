@@ -18,8 +18,10 @@
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <strong>Warning!</strong> {{ error.general }}
       </div>
-      <button class="btn btn-primary" type="submit" ng-disabled="loginForm.$invalid">login</button>
-      <p>No account yet? <span><a href="/register">register</a></span></p>
+      <div class="formEnd">
+        <button class="btn btn-primary" type="submit" ng-disabled="loginForm.$invalid">login</button>
+        <p>No account yet? <span><a href="/register">register</a></span></p>
+      </div>
     </fieldset>
   </form>
 </div>

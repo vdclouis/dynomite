@@ -1,19 +1,6 @@
 'use strict';
 
 angular.module('dynomiteApp')
-  .controller('NavCtrl', ['$scope', '$location', 'Auth', '$rootScope', function($scope, $location, Auth, $rootScope) {
-    $scope.user = Auth.user;
-    $scope.userRoles = Auth.userRoles;
-    $scope.accessLevels = Auth.accessLevels;
-
-    $scope.logout = function() {
-      Auth.logout(function() {
-        $location.path('/login');
-      }, function() {
-        $rootScope.error = 'Failed to logout';
-      });
-    };
-  }])
   .controller('RegisterCtrl', ['$rootScope', '$scope', '$location', 'Auth', function($rootScope, $scope, $location, Auth) {
     /*$scope.save = function(data) {
       console.log('test');
@@ -34,9 +21,9 @@ angular.module('dynomiteApp')
       Auth.register({
         name: $scope.user.name,
         email: $scope.user.email,
-        username: $scope.user.username  ,
+        username: $scope.user.username,
         password: $scope.user.password,
-        role: Auth.userRoles.user
+        role: Auth.userRoles.admin
       },
       function() {
         $location.path('/');
@@ -98,7 +85,6 @@ angular.module('dynomiteApp')
 */
   .controller('LoginCtrl', ['$rootScope', '$scope', '$location', 'Auth', function($rootScope, $scope, $location, Auth) {
     //$scope.rememberme = true;
-    console.log("FUNCTION");
     $scope.login = function() {
       console.log("1. login clicked");
       Auth.login(
@@ -124,7 +110,7 @@ angular.module('dynomiteApp')
     //  $window.location.href = '/auth/' + provider;
     //}
   }])
-  .controller('LogoutCtrl', ['$scope', '$location', '$http', function($scope, $location, $http) {
+  /*.controller('LogoutCtrl', ['$scope', '$location', '$http', function($scope, $location, $http) {
     console.log('LogoutCtrl');
     $http.get('/users/logout')
     .success(function() {
@@ -138,4 +124,4 @@ angular.module('dynomiteApp')
     .error(function(err) {
       console.log(err);
     });
-  }]);
+  }]);*/

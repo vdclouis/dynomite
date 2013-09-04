@@ -135,12 +135,23 @@ a.crud {
   padding-left: .3em;
   display: inline-block;
   padding-top: 12px;
-
   a {
     text-decoration: none;
   }
-
   span {
     color: $dg;
+  }
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak{
+  display: none;
+}
+
+.formEnd{
+  button, p{
+    display: inline-block;
+  }
+  p{
+    margin-left: 5px;
   }
 }

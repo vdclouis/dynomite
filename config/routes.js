@@ -19,7 +19,6 @@ module.exports = function (app, passport, auth) {
   app.get('/secure/views/:partial', auth.requiresLogin, index.partials);
 
   var users = require('../cogs/controllers/users');
-  app.get('/users/logout', users.logout);
   app.get('/users', auth.requiresLogin);
   app.get('/users/me', users.me);
   //app.get('/users/:userId', users.show);
@@ -101,6 +100,8 @@ module.exports = function (app, passport, auth) {
     // redirect after succesfull login
     //users.loginSuccesRedirect
   );
+  app.post('/logout', users.logout);
+
 
   // Area Routes
   var areas = require('../cogs/controllers/areas');

@@ -67,47 +67,47 @@ dynomiteApp
       .when('/area/add', {
         templateUrl: '/forms/areaAdd',
         controller: 'AreaAddCtrl',
-        access: access.anon
+        access: access.user
       })
       .when('/area/edit/:areaId', {
         templateUrl: '/secure/views/areaEdit',
         controller: 'AreaEditCtrl',
-        access: access.anon
+        access: access.admin
       })
       .when('/area/:areaId', {
         templateUrl: '/views/routes',
         controller: 'RoutesCtrl',
-        access: access.anon
+        access: access.public
       })
       .when('/route/add/:areaId', {
         templateUrl: '/forms/routeAdd',
         controller: 'RouteAddCtrl',
-        access: access.anon
+        access: access.user
       })
       .when('/route/:routeId', {
         templateUrl: '/views/route',
         controller: 'RouteCtrl',
-        access: access.anon
+        access: access.public
       })
       .when('/route/edit/:routeId', {
         templateUrl: '/views/routeEdit',
         controller: 'RouteEditCtrl',
-        access: access.anon
+        access: access.admin
       })
       .when('/comment/add/:routeId', {
         templateUrl: '/views/commentAdd',
         controller: 'CommentAddCtrl',
-        access: access.anon
+        access: access.user
       })
       .when('/comment/edit/:commentId', {
         templateUrl: '/views/commentEdit',
         controller: 'CommentEditCtrl',
-        access: access.anon
+        access: access.user
       })
       .when('/route/comments/:routeId', {
         templateUrl: '/views/comments',
         controller: 'CommentsCtrl',
-        access: access.anon
+        access: access.public
       })
       .otherwise({
         redirectTo: '/'

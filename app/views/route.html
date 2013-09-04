@@ -19,8 +19,8 @@
     </ul>
   </div>
 
-  <a class="crud" href="/comment/add/{{ route._id }}">Comment</a>
-  <a class="crud" href="/route/edit/{{ route._id }}">Edit</a>
+  <a class="crud" href="/comment/add/{{ route._id }}" data-access-level="accessLevels.user">Comment</a>
+  <a class="crud" href="/route/edit/{{ route._id }}" data-access-level="accessLevels.admin">Edit</a>
 
   <div ng-show="comments.length">
     <h2>Latest comments:</h2>
