@@ -33,32 +33,32 @@
         <h3>Menu</h3>
         <ul>
           <li>
-            <a ng-class="{active:isActive('/')}" href="/">Home</a>
+            <a class="menu-li" ng-class="{active:isActive('/')}" href="/">Home</a>
           </li>
           <li>
-            <a ng-class="{active:isActive('/areas')}" href="/areas">Explore</a>
+            <a class="menu-li" ng-class="{active:isActive('/areas')}" href="/areas">Explore</a>
           </li>
           <li>
-            <a ng-class="{active:isActive('/grades')}" href="/grades">Grades</a>
+            <a class="menu-li" ng-class="{active:isActive('/grades')}" href="/grades">Grades</a>
           </li>
           <li>
-            <a ng-class="{active:isActive('/about')}" href="/about">About</a>
+            <a class="menu-li" ng-class="{active:isActive('/about')}" href="/about">About</a>
           </li>
           <li class="separator"></li>
           <div data-access-level="accessLevels.user">
             <li>
-              <a ng-class="" href="/user"><span class="glyphicon glyphicon-user"></span>&nbsp;{{ user.username }}</a>
+              <a class="menu-li" ng-class="{active:isActive('/user)}" href="/user"><span class="glyphicon glyphicon-user"></span>&nbsp;{{ user.username }}</a>
             </li>
             <li>
-              <a ng-class="" data-ng-click="logout()" href="">logout</a>
+              <a class="menu-li" ng-class="{active:isActive('/logout)}" data-ng-click="logout()" href="">logout</a>
             </li>
           </div>
           <div data-access-level="accessLevels.anon">
             <li>
-              <a ng-class="" href="/login">login</a>
+              <a class="menu-li" ng-class="{active:isActive('/login)}" href="/login">login</a>
             </li>
             <li>
-              <a ng-class="" href="/register">register</a>
+              <a class="menu-li" ng-class="{active:isActive('/register)}" href="/register">register</a>
             </li>
           </div>
         </ul>
