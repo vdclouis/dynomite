@@ -76,6 +76,7 @@ module.exports = function (app, config, passport) {
     app.use(express.methodOverride());
 
     // express/mongo session storage
+    // should be initialized before passport.session
     app.use(express.session({
       secret: 'MEAN',
       store: new mongoStore({
@@ -83,6 +84,19 @@ module.exports = function (app, config, passport) {
         collection : 'sessions'
       })
     }));
+
+    // set the cookie options
+    app.use( function (req, res, next) {
+      if ( req.method == 'POST' && req.url == '/login' ) {
+        if ( req.body.rememberme ) {
+          //req.session.cookie.maxAge = 2592000000; // 30*24*60*60*1000 Rememeber 'me' for 30 days
+          req.session.cookie.maxAge = 604800000; // 7*24*60*60*1000 Rememeber 'me' for 7 day
+        } else {
+          req.session.cookie.expires = false;
+        }
+      }
+      next();
+    });
 
     // connect flash for flash messages
     app.use(flash());
