@@ -21,6 +21,19 @@
     </ul>
   </div>
 
+  {{ route.lat }}
+  {{ route.lng }}
+
+  <h2>Map</h2>
+  <google-map
+    center="center"
+    draggable="true"
+    zoom="zoom"
+    markers="markers"
+    fit="false"
+    mark-click="false">
+  </google-map>
+
   <a class="crud" href="/comment/add/{{ route._id }}" data-access-level="accessLevels.user">add comment</a>
 
   <div ng-show="comments.length">

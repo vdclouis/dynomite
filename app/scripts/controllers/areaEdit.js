@@ -18,8 +18,7 @@ angular.module('dynomiteApp')
       $http.put('/api/v1/areas/' + $routeParams.areaId, $scope.area)
         .success(function() {
           console.log('success');
-          console.log($scope.area);
-          $location.path('/area');
+          $location.path('/areas');
         })
         .error(function() {
           console.log('error');
@@ -31,7 +30,7 @@ angular.module('dynomiteApp')
       /*$http.delete('/api/v1/areas/' + $routeParams.areaId)
         .success(function() {
           console.log('yay');
-          $location.path('/area');
+          $location.path('/areas');
         })
         .error(function() {
           console.log('nay');
