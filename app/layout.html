@@ -74,7 +74,7 @@
     </nav>
     <!-- Add your site or application content here -->
     <div id="snapper" class="content snap-content">
-      <back></back>
+      <back ng-hide="isActive('/')"></back>
       <a href="" id="open-right" class="pull-right">&#9776</a>
       <div data-ng-view="" class="viewblock"></div>
     </div>
@@ -94,8 +94,6 @@
     <script src="/bower_components/jquery/jquery.min.js"></script>
     <!-- angular -->
     <script src="/bower_components/angular/angular.js"></script>
-    <!-- underscore -->
-    <script src="/bower_components/underscore/underscore.js"></script>
     <!-- filepicker -->
     <script src="//api.filepicker.io/v1/filepicker.js"></script>
 
@@ -106,6 +104,7 @@
     <script src="/bower_components/skycons/skycons.js"></script>
     <script src="/bower_components/angulartics/src/angulartics.js"></script>
     <script src="/bower_components/angulartics/src/angulartics-google-analytics.js"></script>
+    <script src="/bower_components/underscore/underscore.js"></script>
     <!-- endbuild -->
 
     <!-- build:js scripts/modules.js -->
