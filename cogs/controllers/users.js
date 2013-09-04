@@ -78,8 +78,11 @@ exports.create = function (req, res) {
       return res.render('register', { errors: err.errors, user: user })
     }
     req.logIn(user, function(err) {
-      if (err) return next(err)
-      return res.redirect('/')
+      if (err){
+        return next(err);
+      };
+      //return res.redirect('/');
+      res.json(200, { "role": user.role, "username": user.username });
     })
   })
 }
