@@ -141,6 +141,9 @@
       padding: 5px; }
     .route .comment p {
       padding: 5px; }
+  .route google-map {
+    display: block;
+    height: 200px; }
 
 .routeadd h1 {
   text-align: center; }
