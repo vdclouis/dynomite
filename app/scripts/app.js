@@ -137,7 +137,7 @@ dynomiteApp
     $rootScope.$on("$routeChangeStart", function (event, next, current) {
       //console.log("event", event);
       console.log("next", next);
-      console.log(next.$$route.access);
+      //console.log(next.$$route.access);
       //console.log("current", current);
       $rootScope.error = null;
 
