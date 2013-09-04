@@ -7,6 +7,7 @@
       <div class="form-group" ng-class="{error: editArea.name.$invalid}">
         <label for="areaName">Name</label>
         <input class="form-control" id="areaName" type="text" name="name" ng-model="area.name" required>
+        <div ng-show="error.error" class="alert alert-danger">{{ error.error }}</div>
       </div>
 
       <!-- description -->
