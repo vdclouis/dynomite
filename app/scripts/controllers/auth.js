@@ -98,7 +98,7 @@ angular.module('dynomiteApp')
       //succes
       function(res) {
         console.log("5. result:", res);
-        $location.path('/user'+res.username);
+        $location.path('/user/'+res.username);
       },
       //error
       function(err) {
