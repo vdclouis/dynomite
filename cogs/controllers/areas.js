@@ -110,3 +110,15 @@ exports.all = function(req, res) {
     }
   });
 };
+
+exports.byUserId = function(req, res, next, userId) {
+  var User = mongoose.model('User');
+
+  Area.byUser(userId, function(err, areaByUserId) {
+    if (err) return next(err);
+    if (!areaByUserId) return next(new Error('Failed to load ' + areaId));
+    req.area = areaByUserId;
+    next();
+  });
+};
+

@@ -56,7 +56,13 @@ AreaSchema.statics = {
     this.findOne({
       _id: id
     }).populate('user').exec(cb);
-  }
+  },
+  byUser: function(userId, cb) {
+    this.find({
+      user: userId
+    }).populate('user').exec(cb);
+  },
+
 };
 
 /**

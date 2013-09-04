@@ -82,6 +82,9 @@ module.exports = function (app, passport, auth) {
   app.put(v1 + '/areas/:areaId', areas.update);
   app.del(v1 + '/areas/:areaId', areas.destroy);
 
+  app.get(v1 + '/areas/userid/:userId', areas.show);
+  app.param('userId', areas.byUserId);
+
   // Finish by setting up the areaId param
   app.param('areaId', areas.area);
 

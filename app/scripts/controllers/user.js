@@ -2,8 +2,14 @@
 
 var app = angular.module('dynomiteApp');
 
-app.controller('UserCtrl', ['$scope', '$route', function($scope, $route) {
+app.controller('UserCtrl', ['$scope', '$route', 'AreasService', function($scope, $route, AreasService) {
+
   $scope.user = $route.current.locals.user;
+  console.log($scope.user._id);
+  AreasService.areaById($scope.user._id)
+  .then(function(data) {
+    $scope.areas = data;
+  });
 }]);
 
 app.controller('UsersCtrl', ['$scope', '$route', 'UsersService', 'Auth', function($scope, $route , UsersService, Auth) {
@@ -14,6 +20,7 @@ app.controller('UsersCtrl', ['$scope', '$route', 'UsersService', 'Auth', functio
   .then(function(data) {
     $scope.users = data;
   });
+
 }]);
 
 app.factory('loadUser', ['$q', '$route', 'UsersService', function($q, $route, UsersService) {

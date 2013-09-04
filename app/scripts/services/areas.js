@@ -55,6 +55,18 @@ angular.module('dynomiteApp')
         });
         return defer.promise;
       }
+      , areaById: function(id) {
+        var defer = $q.defer();
+        $http.get('/api/v1/areas/userid/' + id)
+        .success(function(data) {
+          console.log(data);
+          defer.resolve(data);
+        })
+        .error(function(response) {
+          defer.resolve(response);
+        });
+        return defer.promise;
+      }
     };
   }])
 ;

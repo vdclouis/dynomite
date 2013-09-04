@@ -2,3 +2,14 @@
   <h1>User {{user.username}}</h1>
   {{user.name}}
 </div>
+
+
+
+<div class="list">
+  <ul>
+    <li data-ng-repeat="area in areas">
+      <a href="/area/{{area._id}}">{{area.name}}</a>
+      <a data-access-level="accessLevels.admin" class="pull-right crud" href="/area/{{area.name}}">edit</a></span>
+    </li>
+  </ul>
+</div>
