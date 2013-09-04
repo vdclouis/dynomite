@@ -14,7 +14,7 @@ dynomiteApp
       .when('/', {
         templateUrl: '/views/home',
         controller: 'HomeCtrl',
-        access: access.anon
+        access: access.public
       })
       .when('/register', {
         templateUrl: '/views/register',
@@ -29,7 +29,7 @@ dynomiteApp
       .when('/logout', {
         /*templateUrl: '/logout',*/
         controller: 'LogoutCtrl',
-        access: access.anon
+        access: access.user
       })
       .when('/users', {
         templateUrl: '/views/users',
@@ -49,12 +49,12 @@ dynomiteApp
       .when('/about', {
         templateUrl: '/views/about',
         controller: 'DefaultCtrl',
-        access: access.anon
+        access: access.public
       })
       .when('/grades', {
         templateUrl: '/views/grades',
         controller: 'DefaultCtrl',
-        access: access.anon
+        access: access.public
       })
       .when('/areas', {
         templateUrl: '/views/areas',
@@ -62,7 +62,7 @@ dynomiteApp
         resolve: {
           areas: 'loadAreas'
         },
-        access: access.anon
+        access: access.public
       })
       .when('/area/add', {
         templateUrl: '/forms/areaAdd',
@@ -135,12 +135,8 @@ dynomiteApp
   }])
   .run(['$rootScope', '$location', 'Auth', function ($rootScope, $location, Auth) {
     $rootScope.$on("$routeChangeStart", function (event, next, current) {
-      //console.log("event", event);
       console.log("next", next);
-      //console.log(next.$$route.access);
-      //console.log("current", current);
       $rootScope.error = null;
-
       var wtf = !Auth.authorize(next.access);
       console.log("wtf", wtf);
       if (wtf) {

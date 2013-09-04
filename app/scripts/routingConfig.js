@@ -17,7 +17,9 @@
      You can use the "*" symbol to represent access to all roles
      */
     accessLevels: {
+      //anyone can see
       'public' : "*",
+      //pages only for unauthenticated users: login, register
       'anon': ['public'],
       'user' : ['user', 'admin'],
       'admin': ['admin']
