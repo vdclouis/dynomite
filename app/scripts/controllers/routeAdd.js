@@ -3,23 +3,31 @@
 angular.module('dynomiteApp')
   .controller('RouteAddCtrl', ['$scope', '$location', '$routeParams', '$http', function($scope, $location, $routeParams, $http) {
 
-    // Get lat & lng
-    navigator.geolocation.getCurrentPosition(function(position) {
-      $scope.route = { lat: position.coords.latitude, lng: position.coords.longitude };
-    });
-
     // Get area id
     $scope.route = {
       area: $routeParams.areaId
     };
 
-    console.log($scope.route.area);
+    // Get lat & lng
+
+      navigator.geolocation.getCurrentPosition(function(position) {
+        $scope.hack = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        $scope.$apply();
+      });
 
     // Save new route
     $scope.save = function() {
       console.log($scope.route);
-      $http.post('/api/v1/routes', $scope.route)
 
+      $scope.route.lat = $scope.hack.lat;
+      $scope.route.lng = $scope.hack.lng;
+
+      console.log($scope.route.lat);
+
+      $http.post('/api/v1/routes', $scope.route)
         .success(function() {
           console.log('yay');
           $location.path('/area/' + $routeParams.areaId);

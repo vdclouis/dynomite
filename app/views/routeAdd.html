@@ -22,15 +22,16 @@
     </div>
 
     <!-- areaName hidden from user -->
-    <div style="display: block" class="form-group" ng-class="{error: editRoute.areaId.$invalid}">
+    <div style="display: none" class="form-group" ng-class="{error: editRoute.areaId.$invalid}">
       <label>Area name</label>
       <input type="text" name="areaId" ng-model="route.area" value="{{ route.area }}">
     </div>
 
+    <!-- Coordinates -->
     <div class="form-group">
       <label>Coordinates</label>
-      <input class="form-control" ng-model="route.lat" value="{{ route.lat }}" type="text"/>
-      <input class="form-control" ng-model="route.lng" value="{{ route.lng }}" type="text"/>
+      <input class="form-control" type="text" required ng-model="hack.lat"/>
+      <input class="form-control" type="text" required ng-model="hack.lng"/>
     </div>
 
     <!-- rating -->
@@ -48,6 +49,7 @@
     <!-- img -->
     <div class="form-group" ng-class="{error: editRoute.image.$invalid}">
       <button class="btn btn-default" ng-click="uploadFile()">upload img</button>
+      <input class="form-control" placeholder="image url" name="image" type="url" ng-model="route.img" required>
     </div>
 
     <br />

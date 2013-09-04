@@ -31,6 +31,7 @@
       <!-- file upload -->
       <div class="form-group" ng-class="{error: editArea.image.$invalid}">
         <button class="btn btn-default" ng-click="uploadFile()">upload img</button>
+        <input class="form-control" placeholder="image url" name="image" type="url" ng-model="area.img" required>
       </div>
 
       <!-- buttons -->

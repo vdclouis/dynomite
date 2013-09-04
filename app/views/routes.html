@@ -15,8 +15,10 @@
   <!-- <img class="center-cropped" style="background-image: url( {{ area.img }} ); background-repeat: no-repeat;"> -->
   <img class="center-cropped" ng-style="{'background-image': 'url(' + area.img + ')'}">
   
-  <!-- titles -->
-  <p>Description: {{area.description}}</p>
+
+  <h2>Description:</h2>
+  <p>{{area.description}}</p>
+  <a class="crud" ng-href="/area/edit/{{area._id}}">edit area</a>
   
   <!-- list -->
   <div class="list">
@@ -29,7 +31,6 @@
       </li>
     </ul>
   </div>
-  <a class="crud" ng-href="/area/edit/{{area._id}}">edit area</a>
   <a class="crud" ng-href="/route/add/{{area._id}}">add route</a>
 
 </div>

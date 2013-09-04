@@ -1,3 +1,5 @@
+.login h1 {
+  text-align: center; }
 .login form {
   width: 90%;
   display: block;

@@ -9,6 +9,8 @@
   
   <h2>description</h2>
   <p>{{ route.description }}</p>
+  <a class="crud" href="/route/edit/{{ route._id }}">edit route</a>
+
   <div class="list">
     <ul>
       <li>Difficulty: <span>{{route.grade}}</span></li>
@@ -19,8 +21,8 @@
     </ul>
   </div>
 
-  <a class="crud" href="/comment/add/{{ route._id }}">Comment</a>
-  <a class="crud" href="/route/edit/{{ route._id }}">Edit</a>
+  <a class="crud" href="/comment/add/{{ route._id }}">add comment</a>
+
 
   <div ng-show="comments.length">
     <h2>Latest comments:</h2>
