@@ -310,7 +310,8 @@ a.crud {
   width: 100%; }
 
 .viewblock {
-  padding-top: 45px; }
+  padding-top: 45px;
+  padding-bottom: 30px; }
 
 .backarrow {
   font-size: 1.4em;
