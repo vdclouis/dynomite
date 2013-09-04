@@ -44,6 +44,18 @@ exports.routebyarea = function(req, res, next, areaId) {
   });
 };
 
+exports.routebyuser = function(req, res, next, userId) {
+  var User = mongoose.model('User');
+  var Area = mongoose.model('Area');
+
+  Route.byuser(userId, function(err, routebyuser) {
+    if (err) return next(err);
+    if (!routebyuser) return next(new Error('Failed to load ' + userId));
+    req.routebyuser = routebyuser;
+    next();
+  });
+};
+
 /**
  * Create a route
  * @param req
@@ -121,6 +133,10 @@ exports.show = function(req, res) {
  */
 exports.showbyarea = function(req, res) {
   res.jsonp(req.routebyarea);
+};
+
+exports.showbyuser = function(req, res) {
+  res.jsonp(req.routebyuser);
 };
 
 /**

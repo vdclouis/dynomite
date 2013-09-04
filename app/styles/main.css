@@ -235,6 +235,9 @@
   display: block;
   margin: 0 auto; }
 
+.user h1 {
+  text-align: center; }
+
 body, h2, h3 {
   font-family: 'Maven';
   -webkit-user-select: none;
