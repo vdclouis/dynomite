@@ -19,8 +19,12 @@ angular.module('dynomiteApp')
     $scope.save = function() {
       AreasService.addArea($scope.area)
       .then(function(data) {
-        console.log(data);
-        $location.path('/areas');
+          if(data.error !=  undefined){
+            $scope.error = data;
+          } else {
+            console.log(data);
+            $location.path('/areas');
+          }
       })
     };
 

@@ -32,11 +32,17 @@ exports.area = function(req, res, next, id) {
 exports.create = function(req, res) {
   var area = new Area(req.body);
 
-  console.log(req.body);
-
-  area.user = req.user;
-  area.save();
-  res.jsonp(area);
+  Area.findOne({ name: area.name }, function(err, areas) {
+    if(areas) {
+      console.log('area exists');
+      res.send('500', {'error': 'Area already exists'});
+    } else {
+      console.log('area doesn\'t exist');
+      area.user = req.user;
+      area.save();
+      res.jsonp(area);
+    }
+  });
 };
 
 /**
