@@ -25,11 +25,8 @@ app.controller('UserCtrl', ['$scope', '$route', '$http', 'AreasService', 'UsersS
     .error(function() {
       console.log('nay');
     });
-
-
     
   });
-
 }]);
 
 app.controller('UsersCtrl', ['$scope', '$route', 'UsersService', 'Auth', function($scope, $route , UsersService, Auth) {

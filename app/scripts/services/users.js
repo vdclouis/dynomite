@@ -38,7 +38,7 @@ angular.module('dynomiteApp')
       },
       allUsers: function() {
         var defer = $q.defer();
-        $http.get('/users')
+        $http.get('/allusers')
         .success(function(data) {
           // resolve the promise
           defer.resolve(data);

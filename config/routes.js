@@ -20,7 +20,7 @@ module.exports = function (app, passport, auth) {
 
   var users = require('../cogs/controllers/users');
   //app.get('/users', auth.requiresLogin);
-  app.get('/users', users.all);
+  app.get('/allusers', users.all);
   app.get('/users/me', users.me);
   //app.get('/users/:userId', users.show);
   app.get('/usersData/:userName', users.show);

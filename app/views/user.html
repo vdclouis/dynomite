@@ -13,7 +13,7 @@
   <ul>
     <li ng-show="areas.length" data-ng-repeat="area in areas">
       <a href="/area/{{area._id}}">{{area.name}}</a>
-      <a data-access-level="accessLevels.admin" class="pull-right crud" href="/area/{{area.name}}">edit</a></span>
+      <a data-access-level="accessLevels.admin" class="pull-right crud" href="/area/edit/{{area._id}}">edit</a></span>
     </li>
     <li ng-hide="areas.length">
       <a href="">no areas</a>
@@ -25,7 +25,7 @@
   <ul>
     <li ng-show="routes.length" data-ng-repeat="route in routes">
       <a href="/route/{{route._id}}">{{route.name}}</a>
-      <a data-access-level="accessLevels.admin" class="pull-right crud" href="/route/{{route.name}}">edit</a></span>
+      <a data-access-level="accessLevels.admin" class="pull-right crud" href="/route/edit/{{route._id}}">edit</a></span>
     </li>
     <li ng-hide="routes.length">
       <a href="">no routes</a>
