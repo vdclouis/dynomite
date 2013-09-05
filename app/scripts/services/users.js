@@ -14,11 +14,11 @@ angular.module('dynomiteApp')
         // start the promise
         var defer = $q.defer();
         // check if user is not in cache already
-        if( typeof currentUserCache.get(username) === 'undefined' ){
+        //if( typeof currentUserCache.get(username) === 'undefined' ){
           $http.get('/usersData/'+username)
           .success(function(data) {
             // store the data in cache
-            currentUserCache.put(username, data);
+            //currentUserCache.put(username, data);
             // resolve the promise
             defer.resolve(data);
           })
@@ -27,12 +27,12 @@ angular.module('dynomiteApp')
             defer.resolve(response);
           });
         // get data from cache
-        } else {
+        /*} else {
           // get user from cache
           var user = currentUserCache.get(username);
           // resolve promise
           defer.resolve(user);
-        }
+        }*/
         // return the promise
         return defer.promise;
       },
@@ -98,7 +98,8 @@ angular.module('dynomiteApp')
           changeUser(res);
           success();
         })
-        .error(function(error) {
+        .error(function(errorcb) {
+          error(errorcb);
           console.log('register error');
         });
       },

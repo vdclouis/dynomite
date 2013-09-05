@@ -39,11 +39,11 @@ dynomiteApp
       .when('/user/:userName', {
         templateUrl: '/views/user',
         controller: 'UserCtrl',
-        resolve: {
+        /*resolve: {
           //at this point the routeParams has not
           //been populated with his data yet
           user: 'loadUser'
-        },
+        },*/
         access: access.public
       })
       .when('/about', {

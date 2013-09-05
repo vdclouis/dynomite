@@ -2,24 +2,34 @@
 
 var app = angular.module('dynomiteApp');
 
-app.controller('UserCtrl', ['$scope', '$route', '$http', 'AreasService', function($scope, $route,  $http, AreasService) {
+app.controller('UserCtrl', ['$scope', '$route', '$http', 'AreasService', 'UsersService', '$routeParams', function($scope, $route,  $http, AreasService, UsersService, $routeParams) {
 
-  $scope.user = $route.current.locals.user;
-  AreasService.areaById($scope.user._id)
-  .then(function(data) {
-    $scope.areas = data;
+  //$scope.user = $route.current.locals.user;
+
+  UsersService.currentUser($routeParams.userName)
+  .then(function(data){
+    $scope.user = data;
+
+    AreasService.areaById($scope.user._id)
+    .then(function(data) {
+      $scope.areas = data;
+    });
+
+    // Get routes with current user
+    $http.get('/api/v1/routess/' + $scope.user._id)
+    .success(function(data) {
+      console.log('yay');
+      $scope.routes = data;
+      console.log(data);
+    })
+    .error(function() {
+      console.log('nay');
+    });
+
+
+    
   });
 
-  // Get routes with current user
-  $http.get('/api/v1/routess/' + $scope.user._id)
-  .success(function(data) {
-    console.log('yay');
-    $scope.routes = data;
-    console.log(data);
-  })
-  .error(function() {
-    console.log('nay');
-  });
 }]);
 
 app.controller('UsersCtrl', ['$scope', '$route', 'UsersService', 'Auth', function($scope, $route , UsersService, Auth) {

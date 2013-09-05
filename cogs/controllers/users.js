@@ -73,18 +73,27 @@ exports.loginSuccesRedirect = function (req, res) {
 exports.create = function (req, res) {
   var user = new User(req.body)
   user.provider = 'local'
-  user.save(function (err) {
-    if (err) {
-      return res.render('register', { errors: err.errors, user: user })
+
+  User.findOne({ username: user.username }, function(err, username) {
+    if(username) {
+      console.log(username);
+      res.send('500', {'error': 'User already exists'});
+    } else {
+      user.save(function (err) {
+        if (err) {
+          console.log(err);
+          return res.render('register', { errors: err.errors, user: user })
+        }
+        req.logIn(user, function(err) {
+          if (err){
+            return next(err);
+          };
+          //return res.redirect('/');
+          res.json(200, { "role": user.role, "username": user.username });
+        })
+      })
     }
-    req.logIn(user, function(err) {
-      if (err){
-        return next(err);
-      };
-      //return res.redirect('/');
-      res.json(200, { "role": user.role, "username": user.username });
-    })
-  })
+  });
 }
 
 /**
@@ -124,13 +133,13 @@ exports.userId = function (req, res, next, id) {
   })
 };
 
-exports.userName = function (req, res, next, name) {
+exports.userName = function (req, res, next, username) {
   User
-  .findOne({ name : name })
+  .findOne({ username : username })
   .select('name username email')
   .exec(function (err, user) {
     if (err) return next(err);
-    if (!user) return next(new Error('Failed to load User ' + name));
+    if (!user) return next(new Error('Failed to load User ' + username));
     req.profile = user;
     next();
   })

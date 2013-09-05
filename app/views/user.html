@@ -11,9 +11,12 @@
 <p>Areas:</p>
 <div class="list">
   <ul>
-    <li data-ng-repeat="area in areas">
+    <li ng-show="area.length" data-ng-repeat="area in areas">
       <a href="/area/{{area._id}}">{{area.name}}</a>
       <a data-access-level="accessLevels.admin" class="pull-right crud" href="/area/{{area.name}}">edit</a></span>
+    </li>
+    <li ng-hide="area.length">
+      <a href="">no areas</a>
     </li>
   </ul>
 </div>

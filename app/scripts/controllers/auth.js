@@ -18,6 +18,7 @@ angular.module('dynomiteApp')
     //$scope.role = Auth.userRoles.user;
     //$scope.userRoles = Auth.userRoles;
     $scope.register = function() {
+      $scope.usernameError = '';
       Auth.register({
         name: $scope.user.name,
         email: $scope.user.email,
@@ -29,6 +30,8 @@ angular.module('dynomiteApp')
         $location.path('/');
       },
       function(err) {
+        $scope.usernameError = err.error;
+        console.log(err);
         $rootScope.error = err;
       });
     };
