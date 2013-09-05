@@ -238,6 +238,9 @@
 .user h1 {
   text-align: center; }
 
+.users h1 {
+  text-align: center; }
+
 body, h2, h3 {
   font-family: 'Maven';
   -webkit-user-select: none;
