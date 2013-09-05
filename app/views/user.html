@@ -11,11 +11,11 @@
 <p>Areas:</p>
 <div class="list">
   <ul>
-    <li ng-show="area.length" data-ng-repeat="area in areas">
+    <li ng-show="areas.length" data-ng-repeat="area in areas">
       <a href="/area/{{area._id}}">{{area.name}}</a>
       <a data-access-level="accessLevels.admin" class="pull-right crud" href="/area/{{area.name}}">edit</a></span>
     </li>
-    <li ng-hide="area.length">
+    <li ng-hide="areas.length">
       <a href="">no areas</a>
     </li>
   </ul>
@@ -23,11 +23,11 @@
 <p>Routes:</p>
 <div class="list">
   <ul>
-    <li ng-show="route.length" data-ng-repeat="route in routes">
+    <li ng-show="routes.length" data-ng-repeat="route in routes">
       <a href="/route/{{route._id}}">{{route.name}}</a>
       <a data-access-level="accessLevels.admin" class="pull-right crud" href="/route/{{route.name}}">edit</a></span>
     </li>
-    <li ng-hide="route.length">
+    <li ng-hide="routes.length">
       <a href="">no routes</a>
     </li>
   </ul>
