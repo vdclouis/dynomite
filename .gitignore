@@ -6,3 +6,4 @@ cviews
 bower_components
 .idea
 .DS_Store
+npm-debug.log

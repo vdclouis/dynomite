@@ -1,6 +1,6 @@
 'use strict';
 
-var dynomiteApp = angular.module('dynomiteApp', ['ngResource', 'ngCookies', 'google-maps', 'angulartics', 'angulartics.google.analytics']);
+var dynomiteApp = angular.module('dynomiteApp', ['ngResource', 'ngRoute', 'ngCookies', 'google-maps', 'angulartics', 'angulartics.google.analytics']);
 
 dynomiteApp
   //removes # from routes, but now template request should be handled by server
